@@ -1,0 +1,7 @@
+# Project Introduction
+
+An end-to-end project will be outlined in the remainder of the text. Primary concepts included are data capture, data visualization, and client-server communication. The technologies covered will include Python, Bash, SQL, R, and React Native along with many useful packages and dependencies. 
+
+Throughout each section of the text, there will be an introduction to a new technology. Basic programming skills and logic explanation related to the technology will be covered within this section. Using the skills taught, the walkthrough section will follow, where instruction related to the overall project will be given.
+
+The project being taught in this text is a data capture project that will evolve into a basic mobile application. Using Fitbit technology, users are collecting massive amounts of biometric data that, if captured properly, can be used to benefit pharmaceutical research. Patient activity, heart, sleep, and weight data can all be captured seamlessly. The medicinal benefits are great with a tool like this. It is through simple computing and foundational data science topics that a pipeline and tool can be engineered. 

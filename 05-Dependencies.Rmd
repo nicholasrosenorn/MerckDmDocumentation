@@ -1,0 +1,13 @@
+# Dependencies
+
+For this project, it will be easiest for work in an Anaconda enirvonement. Anaconda is an open-source Data Science toolkit. It allows users to easily work with thousands of open-source packages.
+
+Install Anaconda here: https://docs.anaconda.com/anaconda/install/. Follow the steps provided to install for your machine. 
+
+After you have installed Anaconda, open the Anaconda Navigator. It will look similar to the image below. 
+
+<center>!['Figure 1'](images/anacondanav.png){width=80%}</center>
+
+On the left side navigation bar, click on evironments and then search for 'cherrypy'.
+
+----- Open Jupyter notebook description ------

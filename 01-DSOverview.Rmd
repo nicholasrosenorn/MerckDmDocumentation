@@ -1,0 +1,6 @@
+# Data Science Overview {#intro}
+
+Data Science is an interdisciplinary field aimed to extract insight from structured and unstructured data. An intersection between computing, statistics, mathematics, and domain application, data science reveals new meaning to the extreme amounts of data being collected and stored every day. 
+
+Some of the foundational skills that the data sciences require include basic computing and data analysis knowledge. A range of technologies are used daily by data scientists, including Python, R, Hadoop, Bash, and more. Statistical concepts like descriptive statistics, probability, Bayesian theory, and modeling are used in combination with the previously mentioned technologies to gain insight from data. 
+

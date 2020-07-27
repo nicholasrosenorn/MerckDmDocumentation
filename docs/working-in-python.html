@@ -1,0 +1,330 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>Chapter 7 Working in Python | Wearables Book</title>
+  <meta name="description" content="This a tutorial based book covering many foundational data science skills and using applying these skills to a complete, end-to-end project." />
+  <meta name="generator" content="bookdown 0.19 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="Chapter 7 Working in Python | Wearables Book" />
+  <meta property="og:type" content="book" />
+  
+  
+  <meta property="og:description" content="This a tutorial based book covering many foundational data science skills and using applying these skills to a complete, end-to-end project." />
+  
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Chapter 7 Working in Python | Wearables Book" />
+  
+  <meta name="twitter:description" content="This a tutorial based book covering many foundational data science skills and using applying these skills to a complete, end-to-end project." />
+  
+
+<meta name="author" content="Merck and Data Mine Corporate Partnership Team" />
+
+
+<meta name="date" content="2020-06-16" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="dependencies.html"/>
+<link rel="next" href="tutorial-data-capture-in-python.html"/>
+<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+
+
+
+<style type="text/css">
+div.sourceCode { overflow-x: auto; }
+table.sourceCode, tr.sourceCode, td.lineNumbers, td.sourceCode {
+  margin: 0; padding: 0; vertical-align: baseline; border: none; }
+table.sourceCode { width: 100%; line-height: 100%; }
+td.lineNumbers { text-align: right; padding-right: 4px; padding-left: 4px; color: #aaaaaa; border-right: 1px solid #aaaaaa; }
+td.sourceCode { padding-left: 5px; }
+code > span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code > span.dt { color: #902000; } /* DataType */
+code > span.dv { color: #40a070; } /* DecVal */
+code > span.bn { color: #40a070; } /* BaseN */
+code > span.fl { color: #40a070; } /* Float */
+code > span.ch { color: #4070a0; } /* Char */
+code > span.st { color: #4070a0; } /* String */
+code > span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code > span.ot { color: #007020; } /* Other */
+code > span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code > span.fu { color: #06287e; } /* Function */
+code > span.er { color: #ff0000; font-weight: bold; } /* Error */
+code > span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+code > span.cn { color: #880000; } /* Constant */
+code > span.sc { color: #4070a0; } /* SpecialChar */
+code > span.vs { color: #4070a0; } /* VerbatimString */
+code > span.ss { color: #bb6688; } /* SpecialString */
+code > span.im { } /* Import */
+code > span.va { color: #19177c; } /* Variable */
+code > span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code > span.op { color: #666666; } /* Operator */
+code > span.bu { } /* BuiltIn */
+code > span.ex { } /* Extension */
+code > span.pp { color: #bc7a00; } /* Preprocessor */
+code > span.at { color: #7d9029; } /* Attribute */
+code > span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code > span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code > span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+</style>
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./">A Minimal Book Example</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> Book Overview</a></li>
+<li class="chapter" data-level="2" data-path="intro.html"><a href="intro.html"><i class="fa fa-check"></i><b>2</b> Data Science Overview</a></li>
+<li class="chapter" data-level="3" data-path="project-introduction.html"><a href="project-introduction.html"><i class="fa fa-check"></i><b>3</b> Project Introduction</a></li>
+<li class="chapter" data-level="4" data-path="merck-technology.html"><a href="merck-technology.html"><i class="fa fa-check"></i><b>4</b> Merck Technology</a></li>
+<li class="chapter" data-level="5" data-path="fitbit-technology.html"><a href="fitbit-technology.html"><i class="fa fa-check"></i><b>5</b> Fitbit Technology</a></li>
+<li class="chapter" data-level="6" data-path="dependencies.html"><a href="dependencies.html"><i class="fa fa-check"></i><b>6</b> Dependencies</a></li>
+<li class="chapter" data-level="7" data-path="working-in-python.html"><a href="working-in-python.html"><i class="fa fa-check"></i><b>7</b> Working in Python</a><ul>
+<li class="chapter" data-level="7.1" data-path="working-in-python.html"><a href="working-in-python.html#python-introduction"><i class="fa fa-check"></i><b>7.1</b> Python Introduction</a></li>
+<li class="chapter" data-level="7.2" data-path="working-in-python.html"><a href="working-in-python.html#reading-data-conditionals-loops"><i class="fa fa-check"></i><b>7.2</b> Reading Data, Conditionals, Loops</a></li>
+<li class="chapter" data-level="7.3" data-path="working-in-python.html"><a href="working-in-python.html#pandas-and-numpy"><i class="fa fa-check"></i><b>7.3</b> Pandas and Numpy</a></li>
+<li class="chapter" data-level="7.4" data-path="working-in-python.html"><a href="working-in-python.html#vizualizations-with-matplotlib"><i class="fa fa-check"></i><b>7.4</b> Vizualizations with Matplotlib</a></li>
+</ul></li>
+<li class="chapter" data-level="8" data-path="tutorial-data-capture-in-python.html"><a href="tutorial-data-capture-in-python.html"><i class="fa fa-check"></i><b>8</b> Tutorial - Data Capture in Python</a><ul>
+<li class="chapter" data-level="8.1" data-path="tutorial-data-capture-in-python.html"><a href="tutorial-data-capture-in-python.html#getting-started"><i class="fa fa-check"></i><b>8.1</b> Getting Started</a></li>
+<li class="chapter" data-level="8.2" data-path="tutorial-data-capture-in-python.html"><a href="tutorial-data-capture-in-python.html#imports"><i class="fa fa-check"></i><b>8.2</b> Imports</a></li>
+<li class="chapter" data-level="8.3" data-path="tutorial-data-capture-in-python.html"><a href="tutorial-data-capture-in-python.html#authentication"><i class="fa fa-check"></i><b>8.3</b> Authentication</a></li>
+<li class="chapter" data-level="8.4" data-path="tutorial-data-capture-in-python.html"><a href="tutorial-data-capture-in-python.html#accessing-data"><i class="fa fa-check"></i><b>8.4</b> Accessing Data</a></li>
+<li class="chapter" data-level="8.5" data-path="tutorial-data-capture-in-python.html"><a href="tutorial-data-capture-in-python.html#processing-data"><i class="fa fa-check"></i><b>8.5</b> Processing Data</a></li>
+<li class="chapter" data-level="8.6" data-path="tutorial-data-capture-in-python.html"><a href="tutorial-data-capture-in-python.html#storing-data"><i class="fa fa-check"></i><b>8.6</b> Storing Data</a></li>
+</ul></li>
+<li class="chapter" data-level="9" data-path="working-in-bash.html"><a href="working-in-bash.html"><i class="fa fa-check"></i><b>9</b> Working in Bash</a><ul>
+<li class="chapter" data-level="9.1" data-path="working-in-bash.html"><a href="working-in-bash.html#introduction"><i class="fa fa-check"></i><b>9.1</b> Introduction</a><ul>
+<li class="chapter" data-level="9.1.1" data-path="working-in-bash.html"><a href="working-in-bash.html#basic-commands"><i class="fa fa-check"></i><b>9.1.1</b> Basic Commands</a></li>
+</ul></li>
+<li class="chapter" data-level="9.2" data-path="working-in-bash.html"><a href="working-in-bash.html#working-with-data-using-bash"><i class="fa fa-check"></i><b>9.2</b> Working with Data using Bash</a></li>
+<li class="chapter" data-level="9.3" data-path="working-in-bash.html"><a href="working-in-bash.html#bash-scripts"><i class="fa fa-check"></i><b>9.3</b> Bash Scripts</a></li>
+</ul></li>
+<li class="chapter" data-level="10" data-path="tutorial-data-processing-with-bash.html"><a href="tutorial-data-processing-with-bash.html"><i class="fa fa-check"></i><b>10</b> Tutorial - Data Processing with Bash</a></li>
+<li class="divider"></li>
+<li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Wearables Book</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="working-in-python" class="section level1">
+<h1><span class="header-section-number">Chapter 7</span> Working in Python</h1>
+<p>knitr::opts_chunk$set(echo = TRUE, engine.path = list(python = ‘/Library/Frameworks/Python.framework/Versions/3.7/bin/python3’))</p>
+<p>In this section, we will cover important computing fundamtentals using the python programming language. These fundamentals are transferrable between many programming languages so laying a strong foundation will prove benfeficial.</p>
+<table>
+<tbody>
+<tr class="odd">
+<td>If you are new to python, it is in your best interest to review some of the matieral at <a href="https://www.w3schools.com/python/" class="uri">https://www.w3schools.com/python/</a> for foundational skills.</td>
+</tr>
+</tbody>
+</table>
+<div id="python-introduction" class="section level2">
+<h2><span class="header-section-number">7.1</span> Python Introduction</h2>
+<p>Python is an interpreted programming language that is known for its simplicity, readability, and small learning curve. Python is one of the most popular programming languages used today and learning to use Python will provide fundamental computing skills.</p>
+<p>For this tutorial, it is easiest to use a Jupyter Notebook. Create a new notebook and select Python as the language. Before starting the tutorial, add the follow imports at the top of your notebook:</p>
+<div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python"><span class="co"># These are helpful packages that will aid our work through the tutorial!</span>
+<span class="im">import</span> sys
+<span class="im">import</span> csv
+<span class="im">import</span> requests
+<span class="im">from</span> collections <span class="im">import</span> defaultdict</code></pre></div>
+</div>
+<div id="reading-data-conditionals-loops" class="section level2">
+<h2><span class="header-section-number">7.2</span> Reading Data, Conditionals, Loops</h2>
+<p>The data for this tutorial can be found at <a href="https://raw.githubusercontent.com/fivethirtyeight/data/master/us-weather-history/KNYC.csv" class="uri">https://raw.githubusercontent.com/fivethirtyeight/data/master/us-weather-history/KNYC.csv</a>. The data is in CSV format meaning that each new value is seperated by a comma. Take a look at the raw data by visiting the link. It is data on weather patterns in NYC during parts of 2014 and 2015.</p>
+<p>Now that we know the format of the data, lets read it into our Notebook.</p>
+<div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python"><span class="co"># open the file directly from the link</span>
+<span class="bu">file</span> <span class="op">=</span> requests.get(<span class="st">&quot;https://raw.githubusercontent.com/fivethirtyeight/data/master/us-weather-history/KNYC.csv&quot;</span>).text</code></pre></div>
+<p>Right now, the file is a string. To work with our data, we need to clean it and get it to a format for better analysis. To start, we will need to remove any unneccessary whitespace and create a list where each element is a new line.</p>
+<div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python"><span class="co"># strip() - method that removes whitespace </span>
+<span class="co"># split(&quot;\n&quot;) - method that returns a list of values broken by input characters from the input string.</span>
+<span class="bu">file</span> <span class="op">=</span> <span class="bu">file</span>.strip().split(<span class="st">&#39;</span><span class="ch">\n</span><span class="st">&#39;</span>)</code></pre></div>
+<p>Our file is now a list, where each element is one row (run print(file) if you would like to check). Our objective is to make each element of the list, a new list! We can easily do this using a for loop. A for loop will iterate over a sequence (i.e lists, dictionaries, tuples, sets) and perform itertive commands in the loop. Lets try to clean our data some more.</p>
+<div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python"><span class="co"># for each element of the list, split the element by comma to make sublists</span>
+<span class="cf">for</span> row <span class="kw">in</span> <span class="bu">range</span>(<span class="bu">len</span>(<span class="bu">file</span>)):
+    <span class="bu">file</span>[row] <span class="op">=</span> <span class="bu">file</span>[row].split(<span class="st">&quot;,&quot;</span>)</code></pre></div>
+<p>Great, our data is cleaned! Let’s view our file with a loop:</p>
+<div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python"><span class="co"># Print the first five file lines of the data </span>
+<span class="cf">for</span> row <span class="kw">in</span> <span class="bu">file</span>[<span class="dv">0</span>:<span class="dv">5</span>]: 
+  <span class="bu">print</span>(row)</code></pre></div>
+<pre><code>## [&#39;date&#39;, &#39;actual_mean_temp&#39;, &#39;actual_min_temp&#39;, &#39;actual_max_temp&#39;, &#39;average_min_temp&#39;, &#39;average_max_temp&#39;, &#39;record_min_temp&#39;, &#39;record_max_temp&#39;, &#39;record_min_temp_year&#39;, &#39;record_max_temp_year&#39;, &#39;actual_precipitation&#39;, &#39;average_precipitation&#39;, &#39;record_precipitation&#39;]
+## [&#39;2014-7-1&#39;, &#39;81&#39;, &#39;72&#39;, &#39;89&#39;, &#39;68&#39;, &#39;83&#39;, &#39;52&#39;, &#39;100&#39;, &#39;1943&#39;, &#39;1901&#39;, &#39;0.00&#39;, &#39;0.12&#39;, &#39;2.17&#39;]
+## [&#39;2014-7-2&#39;, &#39;82&#39;, &#39;72&#39;, &#39;91&#39;, &#39;68&#39;, &#39;83&#39;, &#39;56&#39;, &#39;100&#39;, &#39;2001&#39;, &#39;1966&#39;, &#39;0.96&#39;, &#39;0.13&#39;, &#39;1.79&#39;]
+## [&#39;2014-7-3&#39;, &#39;78&#39;, &#39;69&#39;, &#39;87&#39;, &#39;68&#39;, &#39;83&#39;, &#39;54&#39;, &#39;103&#39;, &#39;1933&#39;, &#39;1966&#39;, &#39;1.78&#39;, &#39;0.12&#39;, &#39;2.80&#39;]
+## [&#39;2014-7-4&#39;, &#39;70&#39;, &#39;65&#39;, &#39;74&#39;, &#39;68&#39;, &#39;84&#39;, &#39;55&#39;, &#39;102&#39;, &#39;1986&#39;, &#39;1949&#39;, &#39;0.14&#39;, &#39;0.13&#39;, &#39;1.76&#39;]</code></pre>
+<p>Notice that the first line is the header line and the rest of the lines are data for the corresponding headers. Let’s take a look at the maximum temperature on the first five days listed in the data set.</p>
+<div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python"><span class="cf">for</span> row <span class="kw">in</span> <span class="bu">file</span>[<span class="dv">0</span>:<span class="dv">6</span>]:
+  <span class="bu">print</span>(<span class="st">&quot;</span><span class="sc">%-20s</span><span class="st"> </span><span class="sc">%s</span><span class="st">&quot;</span> <span class="op">%</span> (row[<span class="dv">0</span>],row[<span class="dv">3</span>])) <span class="co"># simple string formatting techniques!</span></code></pre></div>
+<pre><code>## date                 actual_max_temp
+## 2014-7-1             89
+## 2014-7-2             91
+## 2014-7-3             87
+## 2014-7-4             74
+## 2014-7-5             81</code></pre>
+</div>
+<div id="pandas-and-numpy" class="section level2">
+<h2><span class="header-section-number">7.3</span> Pandas and Numpy</h2>
+<p>While our data is already organized well, more complex analysis with data in this format can get tedious. A popular data maniputlation and analysis software is called Pandas. Let’s explore the functionality of Pandas!</p>
+<p>To start, let’s create the list of headers:</p>
+<div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python">headers <span class="op">=</span> <span class="bu">file</span>[<span class="dv">0</span>]
+headers</code></pre></div>
+<pre><code>## [&#39;date&#39;, &#39;actual_mean_temp&#39;, &#39;actual_min_temp&#39;, &#39;actual_max_temp&#39;, &#39;average_min_temp&#39;, &#39;average_max_temp&#39;, &#39;record_min_temp&#39;, &#39;record_max_temp&#39;, &#39;record_min_temp_year&#39;, &#39;record_max_temp_year&#39;, &#39;actual_precipitation&#39;, &#39;average_precipitation&#39;, &#39;record_precipitation&#39;]</code></pre>
+<p>Next, we will reformat our original list of data so that the headers are removed:</p>
+<div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python"><span class="im">import</span> datetime
+data <span class="op">=</span> <span class="bu">file</span>[<span class="dv">1</span>:]               <span class="co"># remove header</span>
+
+<span class="cf">for</span> row <span class="kw">in</span> data:              <span class="co"># convert data from strings to floats</span>
+    <span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">0</span>,<span class="dv">13</span>):
+        <span class="cf">if</span> i <span class="op">==</span> <span class="dv">0</span>:
+            row[i]<span class="op">=</span> datetime.datetime.strptime(row[i],<span class="st">&#39;%Y-%m-</span><span class="sc">%d</span><span class="st">&#39;</span>)
+        <span class="cf">else</span>: 
+            row[i] <span class="op">=</span> <span class="bu">float</span>(row[i])</code></pre></div>
+<p>Lastly, we will place our data into a pandas dataframe:</p>
+<div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python"><span class="im">import</span> pandas <span class="im">as</span> pd
+df <span class="op">=</span> pd.DataFrame(data, columns <span class="op">=</span> headers)
+df.head()     <span class="co"># .head() is a way to view the first 5 rows of the dataframe</span></code></pre></div>
+<pre><code>##         date  actual_mean_temp  ...  average_precipitation  record_precipitation
+## 0 2014-07-01              81.0  ...                   0.12                  2.17
+## 1 2014-07-02              82.0  ...                   0.13                  1.79
+## 2 2014-07-03              78.0  ...                   0.12                  2.80
+## 3 2014-07-04              70.0  ...                   0.13                  1.76
+## 4 2014-07-05              72.0  ...                   0.12                  3.07
+## 
+## [5 rows x 13 columns]</code></pre>
+<p>Great! Now we can perfom analysis very easily on our data! For example, we can find some very valuable statistics with one simple command!</p>
+<div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python">df.describe()</code></pre></div>
+<pre><code>##        actual_mean_temp  ...  record_precipitation
+## count        365.000000  ...            365.000000
+## mean          54.736986  ...              2.386137
+## std           18.679979  ...              1.045702
+## min           11.000000  ...              0.860000
+## 25%           39.000000  ...              1.690000
+## 50%           58.000000  ...              2.160000
+## 75%           72.000000  ...              2.750000
+## max           85.000000  ...              8.280000
+## 
+## [8 rows x 12 columns]</code></pre>
+<p>Pandas is a very poweful tool! More about pandas can be learned at <a href="https://pandas.pydata.org/pandas-docs/version/0.25.3/" class="uri">https://pandas.pydata.org/pandas-docs/version/0.25.3/</a>.</p>
+</div>
+<div id="vizualizations-with-matplotlib" class="section level2">
+<h2><span class="header-section-number">7.4</span> Vizualizations with Matplotlib</h2>
+<p>Lastly, we can make a simple vizualization of our data using another package called Matplotlib. It is a plotting library for the python programming langauge.</p>
+<div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python"><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt
+fig, ax <span class="op">=</span> plt.subplots(figsize<span class="op">=</span>(<span class="dv">12</span>, <span class="dv">12</span>))
+y <span class="op">=</span>df[<span class="st">&#39;actual_max_temp&#39;</span>]
+x<span class="op">=</span>df[<span class="st">&#39;date&#39;</span>]
+ax.plot(x,y)
+ax.<span class="bu">set</span>(xlabel<span class="op">=</span><span class="st">&quot;Date&quot;</span>, ylabel<span class="op">=</span><span class="st">&quot;Max Temp (F)&quot;</span>, title<span class="op">=</span><span class="st">&quot;Max Temperarure in New York City&quot;</span>)</code></pre></div>
+<pre><code>## [Text(0, 0.5, &#39;Max Temp (F)&#39;), Text(0.5, 0, &#39;Date&#39;), Text(0.5, 1.0, &#39;Max Temperarure in New York City&#39;)]</code></pre>
+<div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python">plt.gcf().autofmt_xdate()
+plt.show()</code></pre></div>
+<p><img src="bookdown-demo_files/figure-html/unnamed-chunk-12-1.png" /><!-- --></p>
+<p>Matplot has much more funtionality than this simple example. Refer to the documentation at <a href="https://matplotlib.org/3.2.1/contents.html" class="uri">https://matplotlib.org/3.2.1/contents.html</a> for more information!</p>
+
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="dependencies.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="tutorial-data-capture-in-python.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": "https://github.com/rstudio/bookdown-demo/edit/master/06-workinginpython.Rmd",
+"text": "Edit"
+},
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": null,
+"text": null
+},
+"download": ["bookdown-demo.pdf", "bookdown-demo.epub"],
+"toc": {
+"collapse": "subsection"
+}
+});
+});
+</script>
+
+</body>
+
+</html>

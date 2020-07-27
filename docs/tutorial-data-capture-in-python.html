@@ -1,0 +1,371 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>Chapter 8 Tutorial - Data Capture in Python | Wearables Book</title>
+  <meta name="description" content="This a tutorial based book covering many foundational data science skills and using applying these skills to a complete, end-to-end project." />
+  <meta name="generator" content="bookdown 0.19 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="Chapter 8 Tutorial - Data Capture in Python | Wearables Book" />
+  <meta property="og:type" content="book" />
+  
+  
+  <meta property="og:description" content="This a tutorial based book covering many foundational data science skills and using applying these skills to a complete, end-to-end project." />
+  
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Chapter 8 Tutorial - Data Capture in Python | Wearables Book" />
+  
+  <meta name="twitter:description" content="This a tutorial based book covering many foundational data science skills and using applying these skills to a complete, end-to-end project." />
+  
+
+<meta name="author" content="Merck and Data Mine Corporate Partnership Team" />
+
+
+<meta name="date" content="2020-06-16" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="working-in-python.html"/>
+<link rel="next" href="working-in-bash.html"/>
+<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+
+
+
+<style type="text/css">
+div.sourceCode { overflow-x: auto; }
+table.sourceCode, tr.sourceCode, td.lineNumbers, td.sourceCode {
+  margin: 0; padding: 0; vertical-align: baseline; border: none; }
+table.sourceCode { width: 100%; line-height: 100%; }
+td.lineNumbers { text-align: right; padding-right: 4px; padding-left: 4px; color: #aaaaaa; border-right: 1px solid #aaaaaa; }
+td.sourceCode { padding-left: 5px; }
+code > span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code > span.dt { color: #902000; } /* DataType */
+code > span.dv { color: #40a070; } /* DecVal */
+code > span.bn { color: #40a070; } /* BaseN */
+code > span.fl { color: #40a070; } /* Float */
+code > span.ch { color: #4070a0; } /* Char */
+code > span.st { color: #4070a0; } /* String */
+code > span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code > span.ot { color: #007020; } /* Other */
+code > span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code > span.fu { color: #06287e; } /* Function */
+code > span.er { color: #ff0000; font-weight: bold; } /* Error */
+code > span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+code > span.cn { color: #880000; } /* Constant */
+code > span.sc { color: #4070a0; } /* SpecialChar */
+code > span.vs { color: #4070a0; } /* VerbatimString */
+code > span.ss { color: #bb6688; } /* SpecialString */
+code > span.im { } /* Import */
+code > span.va { color: #19177c; } /* Variable */
+code > span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code > span.op { color: #666666; } /* Operator */
+code > span.bu { } /* BuiltIn */
+code > span.ex { } /* Extension */
+code > span.pp { color: #bc7a00; } /* Preprocessor */
+code > span.at { color: #7d9029; } /* Attribute */
+code > span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code > span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code > span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+</style>
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./">A Minimal Book Example</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> Book Overview</a></li>
+<li class="chapter" data-level="2" data-path="intro.html"><a href="intro.html"><i class="fa fa-check"></i><b>2</b> Data Science Overview</a></li>
+<li class="chapter" data-level="3" data-path="project-introduction.html"><a href="project-introduction.html"><i class="fa fa-check"></i><b>3</b> Project Introduction</a></li>
+<li class="chapter" data-level="4" data-path="merck-technology.html"><a href="merck-technology.html"><i class="fa fa-check"></i><b>4</b> Merck Technology</a></li>
+<li class="chapter" data-level="5" data-path="fitbit-technology.html"><a href="fitbit-technology.html"><i class="fa fa-check"></i><b>5</b> Fitbit Technology</a></li>
+<li class="chapter" data-level="6" data-path="dependencies.html"><a href="dependencies.html"><i class="fa fa-check"></i><b>6</b> Dependencies</a></li>
+<li class="chapter" data-level="7" data-path="working-in-python.html"><a href="working-in-python.html"><i class="fa fa-check"></i><b>7</b> Working in Python</a><ul>
+<li class="chapter" data-level="7.1" data-path="working-in-python.html"><a href="working-in-python.html#python-introduction"><i class="fa fa-check"></i><b>7.1</b> Python Introduction</a></li>
+<li class="chapter" data-level="7.2" data-path="working-in-python.html"><a href="working-in-python.html#reading-data-conditionals-loops"><i class="fa fa-check"></i><b>7.2</b> Reading Data, Conditionals, Loops</a></li>
+<li class="chapter" data-level="7.3" data-path="working-in-python.html"><a href="working-in-python.html#pandas-and-numpy"><i class="fa fa-check"></i><b>7.3</b> Pandas and Numpy</a></li>
+<li class="chapter" data-level="7.4" data-path="working-in-python.html"><a href="working-in-python.html#vizualizations-with-matplotlib"><i class="fa fa-check"></i><b>7.4</b> Vizualizations with Matplotlib</a></li>
+</ul></li>
+<li class="chapter" data-level="8" data-path="tutorial-data-capture-in-python.html"><a href="tutorial-data-capture-in-python.html"><i class="fa fa-check"></i><b>8</b> Tutorial - Data Capture in Python</a><ul>
+<li class="chapter" data-level="8.1" data-path="tutorial-data-capture-in-python.html"><a href="tutorial-data-capture-in-python.html#getting-started"><i class="fa fa-check"></i><b>8.1</b> Getting Started</a></li>
+<li class="chapter" data-level="8.2" data-path="tutorial-data-capture-in-python.html"><a href="tutorial-data-capture-in-python.html#imports"><i class="fa fa-check"></i><b>8.2</b> Imports</a></li>
+<li class="chapter" data-level="8.3" data-path="tutorial-data-capture-in-python.html"><a href="tutorial-data-capture-in-python.html#authentication"><i class="fa fa-check"></i><b>8.3</b> Authentication</a></li>
+<li class="chapter" data-level="8.4" data-path="tutorial-data-capture-in-python.html"><a href="tutorial-data-capture-in-python.html#accessing-data"><i class="fa fa-check"></i><b>8.4</b> Accessing Data</a></li>
+<li class="chapter" data-level="8.5" data-path="tutorial-data-capture-in-python.html"><a href="tutorial-data-capture-in-python.html#processing-data"><i class="fa fa-check"></i><b>8.5</b> Processing Data</a></li>
+<li class="chapter" data-level="8.6" data-path="tutorial-data-capture-in-python.html"><a href="tutorial-data-capture-in-python.html#storing-data"><i class="fa fa-check"></i><b>8.6</b> Storing Data</a></li>
+</ul></li>
+<li class="chapter" data-level="9" data-path="working-in-bash.html"><a href="working-in-bash.html"><i class="fa fa-check"></i><b>9</b> Working in Bash</a><ul>
+<li class="chapter" data-level="9.1" data-path="working-in-bash.html"><a href="working-in-bash.html#introduction"><i class="fa fa-check"></i><b>9.1</b> Introduction</a><ul>
+<li class="chapter" data-level="9.1.1" data-path="working-in-bash.html"><a href="working-in-bash.html#basic-commands"><i class="fa fa-check"></i><b>9.1.1</b> Basic Commands</a></li>
+</ul></li>
+<li class="chapter" data-level="9.2" data-path="working-in-bash.html"><a href="working-in-bash.html#working-with-data-using-bash"><i class="fa fa-check"></i><b>9.2</b> Working with Data using Bash</a></li>
+<li class="chapter" data-level="9.3" data-path="working-in-bash.html"><a href="working-in-bash.html#bash-scripts"><i class="fa fa-check"></i><b>9.3</b> Bash Scripts</a></li>
+</ul></li>
+<li class="chapter" data-level="10" data-path="tutorial-data-processing-with-bash.html"><a href="tutorial-data-processing-with-bash.html"><i class="fa fa-check"></i><b>10</b> Tutorial - Data Processing with Bash</a></li>
+<li class="divider"></li>
+<li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Wearables Book</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="tutorial---data-capture-in-python" class="section level1">
+<h1><span class="header-section-number">Chapter 8</span> Tutorial - Data Capture in Python</h1>
+<div id="getting-started" class="section level2">
+<h2><span class="header-section-number">8.1</span> Getting Started</h2>
+<p>Before starting this section of the tutorial, we need to download the Fitbit API.</p>
+<p>Navigate to <a href="https://github.com/orcasgit/python-fitbit" class="uri">https://github.com/orcasgit/python-fitbit</a> and click the green ‘clone or download’ button. Then, click download zip, and open the zip file in the same folder that you are using within Anaconda.</p>
+<p>Next, download python on to your computer at <a href="https://www.python.org/downloads/" class="uri">https://www.python.org/downloads/</a>. Click on the yellow ‘download’ button, open the downloaded file, and follow the steps to install.</p>
+<p>Lastly, open a new terminal, and run the following commands:</p>
+<div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python">pip install cherrypy (you can also use the Anaconda navigator to install cherrypy)
+
+pip install requests<span class="op">-</span>oauthlib  </code></pre></div>
+</div>
+<div id="imports" class="section level2">
+<h2><span class="header-section-number">8.2</span> Imports</h2>
+<p>This project requires multiple packages. If the steps in the previous sections have been followed, these import statements should run seamlessly.</p>
+<div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python"><span class="co">#Import the necessary packages</span>
+<span class="im">import</span> fitbit
+<span class="im">import</span> gather_keys_oauth2 <span class="im">as</span> Oauth2
+<span class="im">import</span> pandas <span class="im">as</span> pd 
+<span class="im">import</span> datetime
+<span class="im">import</span> json</code></pre></div>
+</div>
+<div id="authentication" class="section level2">
+<h2><span class="header-section-number">8.3</span> Authentication</h2>
+<p>Remembering back to the Fibit Technology section, we registered an app on the Fitbit Development site that will allow us to access our account data. When we completed the registration of the app, we were given a client id and client secret. These codes are unique to each individual app that is registered and are neccessary for the authentication process.</p>
+<p>Use the following code gain access to your account:</p>
+<div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python">CLIENT_ID <span class="op">=</span> <span class="st">&#39;22BLXS&#39;</span> <span class="co">#ENTER CLIENT ID CODE HERE </span>
+CLIENT_SECRET <span class="op">=</span> <span class="st">&#39;a259368e5736a4171753dba8133f06d4&#39;</span> <span class="co">#ENTER CLIENT SECRET CODE HERE</span>
+
+server <span class="op">=</span> Oauth2.OAuth2Server(CLIENT_ID, CLIENT_SECRET)
+server.browser_authorize()
+ACCESS_TOKEN <span class="op">=</span> <span class="bu">str</span>(server.fitbit.client.session.token[<span class="st">&#39;access_token&#39;</span>])
+REFRESH_TOKEN <span class="op">=</span> <span class="bu">str</span>(server.fitbit.client.session.token[<span class="st">&#39;refresh_token&#39;</span>])
+auth2_client <span class="op">=</span> fitbit.Fitbit(CLIENT_ID, CLIENT_SECRET, oauth2<span class="op">=</span><span class="va">True</span>, access_token<span class="op">=</span>ACCESS_TOKEN,
+refresh_token<span class="op">=</span>REFRESH_TOKEN)</code></pre></div>
+<p>When the code above is run for the first time, you will be directed to a new browser with the following screen:</p>
+<center>
+<img src="images/accessData.png" alt="Figure 1" style="width:80.0%" />
+</center>
+<p>Select ‘Allow All’ and then ‘Allow’. Your browser will then display the follow:</p>
+<center>
+<img src="images/done.png" alt="Figure 1" style="width:80.0%" />
+</center>
+<p>When you have reached this screen, the authentication is complete and you can now access your account data. According the fitbit documentation, you can access your data, by default, for 8 hours until you will have to reautheticate by running the authorization code above.</p>
+</div>
+<div id="accessing-data" class="section level2">
+<h2><span class="header-section-number">8.4</span> Accessing Data</h2>
+<p>Now that the authentication is complete, we can access our data.</p>
+<p>To start, we need to delcare a date to collect data from. Let’s use today’s date:</p>
+<div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python">today <span class="op">=</span> <span class="bu">str</span>(datetime.datetime.now().strftime(<span class="st">&quot;%Y-%m-</span><span class="sc">%d</span><span class="st">&quot;</span>)) <span class="co">#todays date</span></code></pre></div>
+<p>Now we can view our ‘activities’ data for todays date.</p>
+<div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python">activities <span class="op">=</span> auth2_client.activities(date <span class="op">=</span> today)</code></pre></div>
+<p>Notice how the data is formatted in nested dictionary format, similar to json file format. Becuase of this format, we need to decompose the nested dictionaries to access our desired data.</p>
+<p>For example, if we want to access the total distance traveled we can do the following:</p>
+<div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python">activities <span class="op">=</span> auth2_client.activities(date <span class="op">=</span> today)[<span class="st">&#39;summary&#39;</span>]
+totalDistance <span class="op">=</span> activities[<span class="st">&#39;distances&#39;</span>][<span class="dv">0</span>][<span class="st">&#39;distance&#39;</span>]</code></pre></div>
+<p>To access today’s steps:</p>
+<div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python">steps <span class="op">=</span> activities[<span class="st">&#39;steps&#39;</span>]</code></pre></div>
+<p>The process is almost identical for accessing other types of data (i.e. sleep, heart, and weight data).</p>
+</div>
+<div id="processing-data" class="section level2">
+<h2><span class="header-section-number">8.5</span> Processing Data</h2>
+<p>Because we are now familiar with the structure of of data, we can begin processing it!</p>
+<p>To collect activities data:</p>
+<div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python"><span class="co">#gets all Activities Data</span>
+<span class="kw">def</span> getActivities(myDate): 
+    activities <span class="op">=</span> auth2_client.activities(date <span class="op">=</span> myDate)[<span class="st">&#39;summary&#39;</span>]
+
+    totalDistance <span class="op">=</span> activities[<span class="st">&#39;distances&#39;</span>][<span class="dv">0</span>][<span class="st">&#39;distance&#39;</span>]
+    veryActiveDistance <span class="op">=</span> activities[<span class="st">&#39;distances&#39;</span>][<span class="dv">3</span>][<span class="st">&#39;distance&#39;</span>]
+    moderatleyActiveDistance <span class="op">=</span> activities[<span class="st">&#39;distances&#39;</span>][<span class="dv">4</span>][<span class="st">&#39;distance&#39;</span>]
+    lightlyActiveDistance <span class="op">=</span> activities[<span class="st">&#39;distances&#39;</span>][<span class="dv">5</span>][<span class="st">&#39;distance&#39;</span>]
+    veryActiveMinutes <span class="op">=</span> activities[<span class="st">&#39;veryActiveMinutes&#39;</span>]
+    fairlyActiveMinutes <span class="op">=</span> activities[<span class="st">&#39;fairlyActiveMinutes&#39;</span>]
+    lightlyActiveMinutes <span class="op">=</span> activities[<span class="st">&#39;lightlyActiveMinutes&#39;</span>]
+    sedentaryMinutes <span class="op">=</span> activities[<span class="st">&#39;sedentaryMinutes&#39;</span>]
+    floorsClimbed <span class="op">=</span> activities[<span class="st">&#39;floors&#39;</span>]
+    daySteps <span class="op">=</span>activities[<span class="st">&#39;steps&#39;</span>]
+    
+    <span class="cf">return</span> totalDistance, veryActiveDistance, moderatleyActiveDistance, lightlyActiveDistance,   veryActiveMinutes, fairlyActiveMinutes, lightlyActiveMinutes, sedentaryMinutes, floorsClimbed, daySteps</code></pre></div>
+<p>To collect sleep data:</p>
+<div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python"><span class="co">#gets all Sleep data</span>
+<span class="kw">def</span> getSleep(myDate): 
+    nightSleep <span class="op">=</span> auth2_client.sleep(date <span class="op">=</span> myDate)[<span class="st">&#39;sleep&#39;</span>]
+    
+    sleepEfficiency <span class="op">=</span> <span class="va">None</span>
+    minutesAsleep <span class="op">=</span> <span class="va">None</span>
+    
+    <span class="cf">if</span> <span class="bu">len</span>(nightSleep) <span class="op">!=</span> <span class="dv">0</span>:
+        sleepEfficiency <span class="op">=</span> nightSleep[<span class="dv">0</span>][<span class="st">&#39;efficiency&#39;</span>]
+        minutesAsleep <span class="op">=</span> nightSleep[<span class="dv">0</span>][<span class="st">&#39;minutesAsleep&#39;</span>]
+        
+    <span class="cf">return</span> sleepEfficiency, minutesAsleep</code></pre></div>
+<p>To collect heart data:</p>
+<div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python"><span class="co">#gets all Heart Data</span>
+<span class="kw">def</span> getHeart(myDate): 
+        heartRates <span class="op">=</span> auth2_client.intraday_time_series(<span class="st">&#39;activities/heart&#39;</span>, base_date<span class="op">=</span>myDate, detail_level<span class="op">=</span><span class="st">&#39;1sec&#39;</span>)[<span class="st">&#39;activities-heart&#39;</span>][<span class="dv">0</span>][<span class="st">&#39;value&#39;</span>]
+
+        HRrange30to100 <span class="op">=</span> <span class="va">None</span>
+        HRrange100to140 <span class="op">=</span> <span class="va">None</span>
+        HRrange140to170 <span class="op">=</span> <span class="va">None</span>
+        HRrange170to220 <span class="op">=</span> <span class="va">None</span>
+        avgRestingHR <span class="op">=</span> <span class="va">None</span>
+        
+        <span class="cf">if</span> <span class="bu">len</span>(heartRates) <span class="op">==</span> <span class="dv">3</span>:
+            HRrange30to100 <span class="op">=</span> heartRates[<span class="st">&#39;heartRateZones&#39;</span>][<span class="dv">0</span>][<span class="st">&#39;minutes&#39;</span>]
+            HRrange100to140 <span class="op">=</span> heartRates[<span class="st">&#39;heartRateZones&#39;</span>][<span class="dv">1</span>][<span class="st">&#39;minutes&#39;</span>]
+            HRrange140to170 <span class="op">=</span> heartRates[<span class="st">&#39;heartRateZones&#39;</span>][<span class="dv">2</span>][<span class="st">&#39;minutes&#39;</span>]
+            HRrange170to220 <span class="op">=</span> heartRates[<span class="st">&#39;heartRateZones&#39;</span>][<span class="dv">3</span>][<span class="st">&#39;minutes&#39;</span>]
+            avgRestingHR <span class="op">=</span> heartRates[<span class="st">&#39;restingHeartRate&#39;</span>]
+            
+        <span class="cf">return</span> HRrange30to100, HRrange100to140, HRrange140to170, HRrange170to220, avgRestingHR</code></pre></div>
+<p>To collect weight data:</p>
+<div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python"><span class="co">#gets all Weight Data</span>
+<span class="kw">def</span> getWeight(myDate):
+    grabWeight <span class="op">=</span> auth2_client.get_bodyweight(base_date <span class="op">=</span> myDate)[<span class="st">&#39;weight&#39;</span>]
+    weight <span class="op">=</span> <span class="va">None</span>
+    BMI <span class="op">=</span> <span class="va">None</span>
+    <span class="cf">if</span> <span class="bu">len</span>(grabWeight) <span class="op">&gt;</span> <span class="dv">0</span>:
+        weight <span class="op">=</span> grabWeight[<span class="dv">0</span>][<span class="st">&#39;weight&#39;</span>]
+        BMI <span class="op">=</span> grabWeight[<span class="dv">0</span>][<span class="st">&#39;bmi&#39;</span>]
+        
+    <span class="cf">return</span> weight, BMI</code></pre></div>
+<p>Now that we have the functions to capture the data, we can process our data with a pandas data frame:</p>
+<div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python"><span class="co">#creates empty data frame</span>
+biometricDF <span class="op">=</span> pd.DataFrame(columns<span class="op">=</span>[<span class="st">&quot;Date&quot;</span>, <span class="st">&quot;Steps&quot;</span>, <span class="st">&quot;Floors Climbed&quot;</span>, <span class="st">&quot;Total Miles&quot;</span>, <span class="st">&quot;Lightly Active Miles&quot;</span>, 
+                                    <span class="st">&quot;Moderately Active Miles&quot;</span>, <span class="st">&quot;Very Active Miles&quot;</span>, <span class="st">&quot;Sedentary Minutes&quot;</span>, 
+                                    <span class="st">&quot;Lightly Active Minutes&quot;</span>, <span class="st">&quot;Fairly Active Minutes&quot;</span>, <span class="st">&quot;Very Active Minutes&quot;</span>, 
+                                    <span class="st">&quot;HR 30-100 Minutes&quot;</span>, <span class="st">&quot;HR 100-140 Minutes&quot;</span>, <span class="st">&quot;HR 140-170 Minutes&quot;</span>, 
+                                    <span class="st">&quot;HR 170-220 Minutes&quot;</span>, <span class="st">&quot;Average Resting HR&quot;</span>])</code></pre></div>
+<p>Next, we will need a function to collect all the data togother and place it into a data frame:</p>
+<div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python"><span class="co">#adds data to data frame</span>
+<span class="kw">def</span> getBiometricData(myDF, myDate):
+    totalDistance, veryActiveDistance, moderatleyActiveDistance, lightlyActiveDistance, veryActiveMinutes, fairlyActiveMinutes, lightlyActiveMinutes, sedentaryMinutes, floorsClimbed, daySteps <span class="op">=</span> getActivities(myDate)
+    
+    sleepEfficiency, minutesAsleep <span class="op">=</span> getSleep(myDate)
+    
+    HRrange30to100, HRrange100to140, HRrange140to170, HRrange170to220, avgRestingHR <span class="op">=</span> getHeart(myDate)
+    weight, BMI <span class="op">=</span> getWeight(myDate)
+    
+    todaysData <span class="op">=</span> {<span class="st">&quot;Date&quot;</span> : myDate, <span class="st">&quot;Steps&quot;</span> : daySteps, <span class="st">&quot;Floors Climbed&quot;</span> : floorsClimbed, <span class="st">&quot;Total Miles&quot;</span>: totalDistance, <span class="st">&quot;Lightly Active Miles&quot;</span>: lightlyActiveDistance, <span class="st">&quot;Moderately Active Miles&quot;</span> : moderatleyActiveDistance, <span class="st">&quot;Very Active Miles&quot;</span> : veryActiveDistance, <span class="st">&quot;Sedentary Minutes&quot;</span>: sedentaryMinutes, <span class="st">&quot;Lightly Active Minutes&quot;</span>: lightlyActiveMinutes, <span class="st">&quot;Fairly Active Minutes&quot;</span> : fairlyActiveMinutes, <span class="st">&quot;Very Active Minutes&quot;</span> : veryActiveMinutes,<span class="st">&quot;HR 30-100 Minutes&quot;</span> : HRrange30to100, <span class="st">&quot;HR 100-140 Minutes&quot;</span>: HRrange100to140, <span class="st">&quot;HR 140-170 Minutes&quot;</span> : HRrange140to170, <span class="st">&quot;HR 170-220 Minutes&quot;</span> : HRrange170to220, <span class="st">&quot;Average Resting HR&quot;</span>: avgRestingHR, <span class="st">&quot;Sleep Efficiency&quot;</span> : sleepEfficiency, <span class="st">&quot;Weight&quot;</span> : weight, <span class="st">&quot;Minutes Alseep&quot;</span> : minutesAsleep, <span class="st">&quot;BMI&quot;</span> : BMI}
+
+    biometricDF <span class="op">=</span> myDF.append(todaysData, ignore_index<span class="op">=</span><span class="va">True</span>)
+
+    <span class="cf">return</span> biometricDF</code></pre></div>
+<p>And, finally, creating the database with todays data:</p>
+<div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python">biometricDF <span class="op">=</span> getBiometricData(biometricDF, today) <span class="co">#append to data frame</span></code></pre></div>
+</div>
+<div id="storing-data" class="section level2">
+<h2><span class="header-section-number">8.6</span> Storing Data</h2>
+<p>This process can be replicated each day so data must be stored appropriately. To start, we can export our data frame to a csv file and save the files to a directory like this (I created a new folder named bioDates to store all my Data):</p>
+<div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python">biometricDF.to_csv(<span class="st">&#39;./bioDates/&#39;</span> <span class="op">+</span> today <span class="op">+</span> <span class="st">&#39;.csv&#39;</span>)</code></pre></div>
+<p>In the following chapters of this tutorial, we will learn how to concatenate the indiviudal daily csv files into one master file as well as storing the data into a a SQL database!</p>
+
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="working-in-python.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="working-in-bash.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": "https://github.com/rstudio/bookdown-demo/edit/master/07-PythonBio.Rmd",
+"text": "Edit"
+},
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": null,
+"text": null
+},
+"download": ["bookdown-demo.pdf", "bookdown-demo.epub"],
+"toc": {
+"collapse": "subsection"
+}
+});
+});
+</script>
+
+</body>
+
+</html>

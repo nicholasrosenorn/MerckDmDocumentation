@@ -1,0 +1,132 @@
+```{r}
+knitr::opts_chunk$set(echo = TRUE)
+```
+# Working in Python
+
+knitr::opts_chunk$set(echo = TRUE, engine.path = list(python = '/Library/Frameworks/Python.framework/Versions/3.7/bin/python3'))
+
+
+In this section, we will cover important computing fundamtentals using the python programming language. These fundamentals are transferrable between many programming languages so laying a strong foundation will prove benfeficial. 
+
+--
+If you are new to python, it is in your best interest to review some of the matieral at https://www.w3schools.com/python/ for foundational skills.
+--
+
+## Python Introduction
+  
+Python is an interpreted programming language that is known for its simplicity, readability, and small learning curve. Python is one of the most popular programming languages used today and learning to use Python will provide fundamental computing skills.
+
+For this tutorial, it is easiest to use a Jupyter Notebook. Create a new notebook and select Python as the language. Before starting the tutorial, add the follow imports at the top of your notebook:
+
+```{python}
+# These are helpful packages that will aid our work through the tutorial!
+import sys
+import csv
+import requests
+from collections import defaultdict
+```
+
+## Reading Data, Conditionals, Loops
+
+The data for this tutorial can be found at https://raw.githubusercontent.com/fivethirtyeight/data/master/us-weather-history/KNYC.csv. The data is in CSV format meaning that each new value is seperated by a comma. Take a look at the raw data by visiting the link. It is data on weather patterns in NYC during parts of 2014 and 2015.
+
+Now that we know the format of the data, lets read it into our Notebook.
+
+```{python}
+# open the file directly from the link
+file = requests.get("https://raw.githubusercontent.com/fivethirtyeight/data/master/us-weather-history/KNYC.csv").text
+```
+
+Right now, the file is a string. To work with our data, we need to clean it and get it to a format for better analysis. To start, we will need to remove any unneccessary whitespace and create a list where each element is a new line.   
+
+```{python}
+# strip() - method that removes whitespace 
+# split("\n") - method that returns a list of values broken by input characters from the input string.
+file = file.strip().split('\n')
+```
+
+Our file is now a list, where each element is one row (run print(file) if you would like to check). Our objective is to make each element of the list, a new list! We can easily do this using a for loop. A for loop will iterate over a sequence (i.e lists, dictionaries, tuples, sets) and perform itertive commands in the loop. Lets try to clean our data some more.
+
+```{python}
+# for each element of the list, split the element by comma to make sublists
+for row in range(len(file)):
+    file[row] = file[row].split(",")
+```
+
+Great, our data is cleaned! Let's view our file with a loop:
+
+```{python}
+# Print the first five file lines of the data 
+for row in file[0:5]: 
+  print(row)
+```
+
+Notice that the first line is the header line and the rest of the lines are data for the corresponding headers. Let's take a look at the maximum temperature on the first five days listed in the data set.
+
+```{python}
+for row in file[0:6]:
+  print("%-20s %s" % (row[0],row[3])) # simple string formatting techniques!
+```
+
+## Pandas and Numpy
+
+While our data is already organized well, more complex analysis with data in this format can get tedious. A popular data maniputlation and analysis software is called Pandas. Let's explore the functionality of Pandas!
+
+To start, let's create the list of headers:     
+
+```{python}
+headers = file[0]
+headers
+```
+
+Next, we will reformat our original list of data so that the headers are removed:
+
+```{python}
+import datetime
+data = file[1:]               # remove header
+
+for row in data:              # convert data from strings to floats
+    for i in range(0,13):
+        if i == 0:
+            row[i]= datetime.datetime.strptime(row[i],'%Y-%m-%d')
+        else: 
+            row[i] = float(row[i])
+```
+
+Lastly, we will place our data into a pandas dataframe:
+
+```{python}
+import pandas as pd
+df = pd.DataFrame(data, columns = headers)
+df.head()     # .head() is a way to view the first 5 rows of the dataframe
+```
+
+Great! Now we can perfom analysis very easily on our data! For example, we can find some very valuable statistics with one simple command!
+
+```{python}
+df.describe()
+```
+
+Pandas is a very poweful tool! More about pandas can be learned at https://pandas.pydata.org/pandas-docs/version/0.25.3/.
+
+
+## Vizualizations with Matplotlib
+
+Lastly, we can make a simple vizualization of our data using another package called Matplotlib. It is a
+plotting library for the python programming langauge.
+
+```{python}
+import matplotlib.pyplot as plt
+fig, ax = plt.subplots(figsize=(12, 12))
+y =df['actual_max_temp']
+x=df['date']
+ax.plot(x,y)
+ax.set(xlabel="Date", ylabel="Max Temp (F)", title="Max Temperarure in New York City")
+plt.gcf().autofmt_xdate()
+plt.show()
+```
+
+Matplot has much more funtionality than this simple example. Refer to the documentation at https://matplotlib.org/3.2.1/contents.html for more information!
+
+
+

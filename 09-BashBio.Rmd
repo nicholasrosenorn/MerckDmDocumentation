@@ -1,0 +1,40 @@
+# Tutorial - Data Processing with Bash
+
+Using the basics of bash and some more advanced commands we can now use the python script that we developed in the prevoius tutorial!
+
+Let's start by creating a new bash script. We will call it bioBash.sh.
+
+```{bash, eval=FALSE}
+touch bioBash.sh
+```
+
+The first action we need to take is to run our python script from command line.
+
+Using a text editor, either vim or nano, write 
+
+```{bash, eval=FALSE}
+python /path/to/your/python/script 
+```
+
+in your bash script. 
+
+This will run the python script!
+
+Next, we can need to change directories to the folder where we are stroing the data. In the previous tutorial section, I named this directory bioDates. Once again, using a text editor, write 
+
+```{bash, eval=FALSE}
+cd /path/to/your/biometric/data 
+```
+
+in bioBash.sh.
+
+Lastsly, we will need to concatenate all the individual dates into one master .csv. This can be done with the following line of code: 
+
+
+```{bash, eval=FALSE}
+awk 'FNR==1 && NR!=1{next;}{print}' *.csv > bioFinal.csv.
+```
+
+
+With this line, we concatenate all csv files into one master csv file called bioFinal.csv.
+
