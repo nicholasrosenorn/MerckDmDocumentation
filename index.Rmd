@@ -33,7 +33,7 @@ knit: (function(inputFile, encoding) {
 
 # Introduction {#introduction}
 
-This book will serve as tutorial based documentation for the Merck - Data Mine Coporate Partnership team for the 2020-2021 academic year!
+This book will serve as tutorial based documentation for the Merck - Data Mine Coporate Partnership team for the 2020-2021 academic year.
 
 ## How to contribute {#how-to-contribute}
 
