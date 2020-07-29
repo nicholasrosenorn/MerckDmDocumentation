@@ -1,4 +1,4 @@
-# The Wearables Book
+# Merck-Data Mine Documentation
 
 [![deployed](https://github.com/nicholasrosenorn/MerckDmDocumentation/workflows/deployed/badge.svg)](https://nicholasrosenorn.github.io/MerckDmDocumentation/)
 

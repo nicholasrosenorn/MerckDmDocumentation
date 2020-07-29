@@ -49,14 +49,14 @@ jobs:
             R -e 'tinytex::install_tinytex()'
             R -e 'install.packages("reticulate")'
             R -e 'install.packages("bookdown")'
-            which python3
-            python3 -m pip install pandas
-            python3 -m pip install datetime
-            python3 -m pip install requests
-            python3 -m pip install matplotlib
-            python3 -m pip install python-oauth2
-            python3 -m pip install requests-oauthlib
-            python3 -m pip install CherryPy
+            #which python3
+            #python3 -m pip install pandas
+            #python3 -m pip install datetime
+            #python3 -m pip install requests
+            #python3 -m pip install matplotlib
+            #python3 -m pip install python-oauth2
+            #python3 -m pip install requests-oauthlib
+            #python3 -m pip install CherryPy
 
 
         - name: Build site
