@@ -1,35 +1,15 @@
 --- 
-title: "Merck Data Mine Documentation"
-site: "bookdown::bookdown_site"
+title: "Merck-Data Mine Documentation"
+author: "Merck and Data Mine Corporate Partnership Team"
+date: "`r Sys.Date()`"
+site: bookdown::bookdown_site
+output: bookdown::gitbook
 documentclass: book
 bibliography: [book.bib, packages.bib]
 biblio-style: apalike
 link-citations: yes
-apple-touch-icon: "images/touch-icon.png"
-favicon: "images/favicon.ico"
-description: "A book of supplemental examples for The Data Mine at Purdue University."
-output:
-  bookdown::pdf_book:
-    number_sections: no
-    includes:
-      in_header: "box.tex"
-  bookdown::epub_book:
-    number_sections: no
-  bookdown::gitbook:
-    number_sections: no
-    md_extensions: +raw_html
-knit: (function(inputFile, encoding) {
-  bookdown::render_book(inputFile, encoding = encoding,
-  output_dir = "docs", output_format = "all") })
+description: "A book for documenting the Merck-Data Mine team's work."
 ---
-
-<script type="application/json" class="js-hypothesis-config">
-
-{"showHighlights": false}
-
-</script>
-
-<script src="https://hypothes.is/embed.js" async></script>
 
 # Introduction {#introduction}
 
@@ -69,6 +49,7 @@ cd ~/projects/the-examples-book
 ```
 
 6. At this point in time your current branch should be the `master` branch. You can verify by running:
+
 
 ```bash
 git branch
