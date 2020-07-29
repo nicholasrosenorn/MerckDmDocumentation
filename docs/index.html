@@ -1,0 +1,350 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>Merck-Data Mine Documentation</title>
+  <meta name="description" content="A book for documenting the Merck-Data Mine team's work." />
+  <meta name="generator" content="bookdown 0.20 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="Merck-Data Mine Documentation" />
+  <meta property="og:type" content="book" />
+  
+  
+  <meta property="og:description" content="A book for documenting the Merck-Data Mine team's work." />
+  
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Merck-Data Mine Documentation" />
+  
+  <meta name="twitter:description" content="A book for documenting the Merck-Data Mine team's work." />
+  
+
+<meta name="author" content="Merck and Data Mine Corporate Partnership Team" />
+
+
+<meta name="date" content="2020-07-29" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+
+
+<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+
+
+
+<style type="text/css">
+div.sourceCode { overflow-x: auto; }
+table.sourceCode, tr.sourceCode, td.lineNumbers, td.sourceCode {
+  margin: 0; padding: 0; vertical-align: baseline; border: none; }
+table.sourceCode { width: 100%; line-height: 100%; }
+td.lineNumbers { text-align: right; padding-right: 4px; padding-left: 4px; color: #aaaaaa; border-right: 1px solid #aaaaaa; }
+td.sourceCode { padding-left: 5px; }
+code > span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code > span.dt { color: #902000; } /* DataType */
+code > span.dv { color: #40a070; } /* DecVal */
+code > span.bn { color: #40a070; } /* BaseN */
+code > span.fl { color: #40a070; } /* Float */
+code > span.ch { color: #4070a0; } /* Char */
+code > span.st { color: #4070a0; } /* String */
+code > span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code > span.ot { color: #007020; } /* Other */
+code > span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code > span.fu { color: #06287e; } /* Function */
+code > span.er { color: #ff0000; font-weight: bold; } /* Error */
+code > span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+code > span.cn { color: #880000; } /* Constant */
+code > span.sc { color: #4070a0; } /* SpecialChar */
+code > span.vs { color: #4070a0; } /* VerbatimString */
+code > span.ss { color: #bb6688; } /* SpecialString */
+code > span.im { } /* Import */
+code > span.va { color: #19177c; } /* Variable */
+code > span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code > span.op { color: #666666; } /* Operator */
+code > span.bu { } /* BuiltIn */
+code > span.ex { } /* Extension */
+code > span.pp { color: #bc7a00; } /* Preprocessor */
+code > span.at { color: #7d9029; } /* Attribute */
+code > span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code > span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code > span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+</style>
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./">Merck-DM Documentation</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="1" data-path="index.html"><a href="#introduction"><i class="fa fa-check"></i><b>1</b> Introduction</a><ul>
+<li class="chapter" data-level="1.1" data-path="index.html"><a href="#how-to-contribute"><i class="fa fa-check"></i><b>1.1</b> How to contribute</a><ul>
+<li class="chapter" data-level="1.1.1" data-path="index.html"><a href="#small-changes-and-additions"><i class="fa fa-check"></i><b>1.1.1</b> Small changes and additions</a></li>
+<li class="chapter" data-level="1.1.2" data-path="index.html"><a href="#larger-changes-or-additions"><i class="fa fa-check"></i><b>1.1.2</b> Larger changes or additions</a></li>
+</ul></li>
+</ul></li>
+<li class="divider"></li>
+<li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Merck-Data Mine Documentation</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="header">
+<h1 class="title">Merck-Data Mine Documentation</h1>
+<p class="author"><em>Merck and Data Mine Corporate Partnership Team</em></p>
+<p class="date"><em>2020-07-29</em></p>
+</div>
+<div id="introduction" class="section level1">
+<h1><span class="header-section-number">Chapter 1</span> Introduction</h1>
+<p>This book will serve as tutorial based documentation for the Merck - Data Mine Coporate Partnership team for the 2020-2021 academic year.</p>
+<div id="how-to-contribute" class="section level2">
+<h2><span class="header-section-number">1.1</span> How to contribute</h2>
+<p>Contributing to this book is simple:</p>
+<div id="small-changes-and-additions" class="section level3">
+<h3><span class="header-section-number">1.1.1</span> Small changes and additions</h3>
+<p>If you have a small change or addition you'd like to make to the book, the easiest way to quickly contribute would be the following method.</p>
+<ol style="list-style-type: decimal">
+<li>Navigate to the page or section that needs to be edited</li>
+<li><p>Click on the &quot;Edit&quot; button towards the upper left side of the page: <img src="images/edit_button.png" /></p></li>
+<li>You'll be presented with the respective RMarkdown file. Make your modifications.</li>
+<li>In the &quot;Commit changes&quot; box, select the radio button that says <em>Create a <strong>new branch</strong> for this commit and start a pull request.</em> Give your pull request a title and a detailed description. Name the new branch, and click on &quot;Propose file change&quot;.</li>
+<li><p>You've successfully submitted a pull request. Our team will review and merge the request shortly thereafter.</p></li>
+</ol>
+</div>
+<div id="larger-changes-or-additions" class="section level3">
+<h3><span class="header-section-number">1.1.2</span> Larger changes or additions</h3>
+<p>If you have larger changes or additions you'd like to make to the book, the easiest way is to edit the contents of the book on your local machine.</p>
+<div id="using-git-in-the-terminal" class="section level4">
+<h4><span class="header-section-number">1.1.2.1</span> Using <code>git</code> in the terminal</h4>
+<ol style="list-style-type: decimal">
+<li>Setup <code>git</code> following the directions <a href="#git-install">here</a>.</li>
+<li>Start by opening up a terminal and <a href="#configure-git">configuring <code>git</code> to work with GitHub</a>.</li>
+<li>Navigate to the directory in which you would like to clone the-examples-book repository. For example, if I wanted to clone the repository in my <code>~/projects</code> folder, I'd first execute: <code>cd ~/projects</code>.</li>
+<li><a href="#git-clone-repository">Clone the repository</a>. In this example, let's assume I've cloned the repository into my <code>~/projects</code> folder.</li>
+<li>Navigate into the project folder:</li>
+</ol>
+<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="bu">cd</span> ~/projects/the-examples-book</code></pre></div>
+<ol start="6" style="list-style-type: decimal">
+<li>At this point in time your current branch should be the <code>master</code> branch. You can verify by running:</li>
+</ol>
+<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="fu">git</span> branch</code></pre></div>
+<p><strong>Note:</strong> The highlighted branch starting with &quot;*&quot; is the current branch.</p>
+<p>or if you'd like just the name of the branch:</p>
+<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="fu">git</span> rev-parse --abbrev-ref HEAD</code></pre></div>
+<ol start="7" style="list-style-type: decimal">
+<li><p><a href="#git-create-new-branch">Create a new branch</a> with whatever name you'd like, and check that branch out. For example, <code>fix-spelling-errors-01</code>.</p></li>
+<li>Open up RStudio. In the &quot;Files&quot; tab in RStudio, navigate to the repository. In this example, we would navigate to <code>/Users/kamstut/Documents/GitHub/the-examples-book</code>. Click on the &quot;More&quot; dropdown and select &quot;Set As Working Directory&quot;.</li>
+<li><p>If you do not already have <code>renv</code> installed, install it by running the following commands in the console:</p></li>
+</ol>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">install.packages</span>(<span class="st">&quot;renv&quot;</span>)</code></pre></div>
+<ol start="10" style="list-style-type: decimal">
+<li>Restore the environment by running the following commands in the console:</li>
+</ol>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">renv<span class="op">::</span><span class="kw">restore</span>()</code></pre></div>
+<ol start="11" style="list-style-type: decimal">
+<li>In order to compile this book, you must have LaTeX installed. The easiest way to accomplish this is to run the following in the R console:</li>
+</ol>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">install.packages</span>(<span class="st">&quot;tinytex&quot;</span>)
+<span class="kw">library</span>(tinytex)
+tinytex<span class="op">::</span><span class="kw">install_tinytex</span>()</code></pre></div>
+<ol start="12" style="list-style-type: decimal">
+<li><p>In addition, make sure to install both <code>pandoc</code> and <code>pandoc-citeproc</code> by following the instructions <a href="https://pandoc.org/installing.html">here</a>.</p></li>
+<li>Modify the <code>.Rmd</code> files to your liking.</li>
+<li><p>Click the &quot;Knit&quot; button to compile the book. The resulting &quot;book&quot; is within the &quot;docs&quot; folder.</p></li>
+</ol>
+<p><strong>Important note:</strong> If at any point in time you receive an error saying something similar to &quot;there is no package called <code>my_package</code>, simply install the missing package, and try to knit again:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">install.packages</span>(<span class="st">&quot;my_package&quot;</span>)
+<span class="kw">library</span>(my_package)</code></pre></div>
+<ol start="15" style="list-style-type: decimal">
+<li>To test the book out, navigate to the &quot;docs&quot; folder and open the <code>index.html</code> in the browser of your choice.</li>
+<li>When you are happy with the modifications you've made, <a href="#git-commit-changes">commit your changes</a> to the repository.</li>
+<li>You can continue to make modifications and commit your changes locally. When you are ready, you can <a href="#git-push-local-commits">push your branch</a> to the remote repository (github.com).</li>
+<li>At this point in time, you can confirm that the branch has been succesfully pushed to github.com by navigating to the repository on github, and click on the &quot;branches&quot; tab:</li>
+</ol>
+<div class="figure">
+<img src="images/gh-desktop-14.png" />
+
+</div>
+<ol start="19" style="list-style-type: decimal">
+<li>Next, <a href="">create a pull request</a>. Note that a &quot;Pull Request&quot; is a GitHub-specific concept. You cannot create a pull request using <code>git</code>. Navigate to the repository <a href="https://github.com/thedatamine/the-examples-book" class="uri">https://github.com/thedatamine/the-examples-book</a>, and you should see a message asking if you'd like to create a pull request:</li>
+</ol>
+<div class="figure">
+<img src="images/pr-01.png" />
+
+</div>
+<ol start="20" style="list-style-type: decimal">
+<li><p>Leave a detailed comment about what you've modified or added to the book. You can click on &quot;Preview&quot; to see what your comment will look like. <a href="https://help.github.com/en/github/writing-on-github/basic-writing-and-formatting-syntax">GitHub's markdown</a> applies here. Once satisfied, click &quot;Create pull request&quot;.</p></li>
+<li><p>At this point in time, the repository owners will receive a notification and will check and potentially merge the changes into the <code>master</code> branch.</p></li>
+</ol>
+</div>
+<div id="using-github-desktop" class="section level4">
+<h4><span class="header-section-number">1.1.2.2</span> Using GitHub Desktop</h4>
+<ol style="list-style-type: decimal">
+<li>Setup GitHub Desktop following the directions <a href="#github-desktop-install">here</a>.</li>
+<li>When you are presented with the following screen, select &quot;Clone a Repository from the Internet...&quot;:</li>
+</ol>
+<p><img src="images/gh-desktop-03.png" /> 3. Click on the &quot;URL&quot; tab:</p>
+<div class="figure">
+<img src="images/gh-desktop-04.png" />
+
+</div>
+<ol start="4" style="list-style-type: decimal">
+<li>In the first field, enter &quot;TheDataMine/the-examples-book&quot;. This is the repository for this book.</li>
+<li>In the second field, enter the location in which you'd like the repository to be cloned to. In this example, the repository will be cloned into <code>/Users/kamstut/Documents/GitHub</code>. The result will be a new folder called <code>the-examples-book</code> in <code>/Users/kamstut/Documents/GitHub</code>.</li>
+<li>Click &quot;Clone&quot;.</li>
+<li>Upon completion, you will be presented with a screen similar to this:</li>
+</ol>
+<div class="figure">
+<img src="images/gh-desktop-05.png" />
+
+</div>
+<ol start="8" style="list-style-type: decimal">
+<li>At this point in time, your current branch will be the <code>master</code> branch. <a href="#github-desktop-create-new-branch">Create a new branch</a> with whatever name you'd like. For example, <code>fix-spelling-errors-01</code>.</li>
+<li>Open up RStudio. In the &quot;Files&quot; tab in RStudio, navigate to the repository. In this example, we would navigate to <code>/Users/kamstut/Documents/GitHub/the-examples-book</code>. Click on the &quot;More&quot; dropdown and select &quot;Set As Working Directory&quot;.</li>
+<li>If you do not already have <code>renv</code> installed, install it by running the following commands in the console:</li>
+</ol>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">install.packages</span>(<span class="st">&quot;renv&quot;</span>)</code></pre></div>
+<ol start="11" style="list-style-type: decimal">
+<li>Restore the environment by running the following commands in the console:</li>
+</ol>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">renv<span class="op">::</span><span class="kw">restore</span>()</code></pre></div>
+<ol start="12" style="list-style-type: decimal">
+<li>In order to compile this book, you must have LaTeX installed. The easiest way to accomplish this is to run the following in the R console:</li>
+</ol>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">install.packages</span>(<span class="st">&quot;tinytex&quot;</span>)
+<span class="kw">library</span>(tinytex)
+tinytex<span class="op">::</span><span class="kw">install_tinytex</span>()</code></pre></div>
+<ol start="13" style="list-style-type: decimal">
+<li><p>In addition, make sure to install both <code>pandoc</code> and <code>pandoc-citeproc</code> by following the instructions <a href="https://pandoc.org/installing.html">here</a>.</p></li>
+<li>Modify the <code>.Rmd</code> files to your liking.</li>
+<li><p>Click the &quot;Knit&quot; button to compile the book. The resulting &quot;book&quot; is within the &quot;docs&quot; folder.</p></li>
+</ol>
+<p><strong>Important note:</strong> If at any point in time you receive an error saying something similar to &quot;there is no package called <code>my_package</code>, simply install the missing package, and try to knit again:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">install.packages</span>(<span class="st">&quot;my_package&quot;</span>)
+<span class="kw">library</span>(my_package)</code></pre></div>
+<ol start="16" style="list-style-type: decimal">
+<li>To test the book out, navigate to the &quot;docs&quot; folder and open the <code>index.html</code> in the browser of your choice.</li>
+<li>When you are happy with the modifications you've made, <a href="#github-desktop-commit-changes">commit your changes</a> to the repository.</li>
+<li>You can continue to make modifications and commit your changes locally. When you are ready, you can <a href="#github-desktop-publish-branch">publish your branch</a>:</li>
+</ol>
+<div class="figure">
+<img src="images/gh-desktop-13.png" />
+
+</div>
+<ol start="19" style="list-style-type: decimal">
+<li>Upon publishing your branch, within GitHub Desktop, you'll be presented with the option to <a href="#github-desktop-pull-request">create a pull request</a>:</li>
+</ol>
+<div class="figure">
+<img src="images/gh-desktop-12.png" />
+
+</div>
+<ol start="20" style="list-style-type: decimal">
+<li>At this point in time, the repository owners will receive a notification and will check and potentially merge the changes into the <code>master</code> branch. © 2020 GitHub, Inc. Terms Privacy Security Status Help Contact GitHub Pricing API Training Blog About</li>
+</ol>
+
+</div>
+</div>
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+
+
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": "https://github.com/rstudio/bookdown-demo/edit/master/index.Rmd",
+"text": "Edit"
+},
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": null,
+"text": null
+},
+"download": ["bookdown-demo.pdf", "bookdown-demo.epub"],
+"toc": {
+"collapse": "subsection"
+}
+});
+});
+</script>
+
+</body>
+
+</html>
