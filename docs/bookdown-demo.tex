@@ -83,6 +83,9 @@
 % margins by default, and it is still possible to overwrite the defaults
 % using explicit options in \includegraphics[width, height, ...]{}
 \setkeys{Gin}{width=\maxwidth,height=\maxheight,keepaspectratio}
+\usepackage[normalem]{ulem}
+% avoid problems with \sout in headers with hyperref:
+\pdfstringdefDisableCommands{\renewcommand{\sout}{}}
 \IfFileExists{parskip.sty}{%
 \usepackage{parskip}
 }{% else
@@ -119,7 +122,7 @@
 
 \title{Merck-Data Mine Documentation}
 \author{Merck and Data Mine Corporate Partnership Team}
-\date{2020-07-29}
+\date{2020-07-30}
 
 \begin{document}
 \maketitle
@@ -553,5 +556,264 @@ knit again:
   \texttt{master} branch. © 2020 GitHub, Inc. Terms Privacy Security
   Status Help Contact GitHub Pricing API Training Blog About
 \end{enumerate}
+
+\chapter{Tips for Writing Great Documentation and
+Walkthroughs}\label{tips-for-writing-great-documentation-and-walkthroughs}
+
+\section{Find a Good Topic}\label{find-a-good-topic}
+
+While writing documentation for a project, it would nearly impossible to
+include every piece work completed or every line of code written. This
+makes it important to pick important topics to write about. The goal is
+to include as much specificty as possible while also remembering the
+project as its entirety.
+
+Here are a few helpful concepts to consider when choosing a topic:
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\item
+  Step by step guides -- perfect for readers to learn quickly and
+  implement in their own projects
+\item
+  In depth discussions of a specific topic -- great for readers who are
+  looking for deeper knowledge in a topic
+\item
+  Numbered lists of useful facts about a common topic -- lightweight
+  readings that readers can consume in bits and pieces.
+\end{enumerate}
+
+\section{Make Goals and Audience
+Clear}\label{make-goals-and-audience-clear}
+
+For these writings, our team will have a dual purpose of writing them.
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\item
+  Record the work we have completed
+\item
+  Create a centralized location for tutorial based learning
+\end{enumerate}
+
+The audience to consider is future team members of the Merck-Data Mine
+Corporate Partnership and Merck scientists looking to read and learn
+from our work.
+
+Remember to keep the audience and goal of our documentation in mind as
+writing your entries.This will help the book keep continuiuty and give
+readers the best chance to get exposed to the work that we have
+completed.
+
+\section{Have a Begining, Middle, and
+End}\label{have-a-begining-middle-and-end}
+
+It is important to have an introduction, body, and conclusion while
+writing the documentation. This helps with fluidity within each document
+and allows for easier comprehension.
+
+\subsection{Introduction}\label{introduction}
+
+The introduction should encourage the reader to continue reading. Start
+with information about what will be covered in the read and how it
+applies to the project. Try to keep the introduction less technical so
+readers aren't discouraged by the complexity of the document.
+
+\subsection{Body}\label{body}
+
+The body is where you elaborate on all that you discussed in the
+introduction. Provide depth and instruction while still relating to the
+project as a whole. Use headings, photos, numbered lists, bullet points,
+and formatting to help provide small bits of information at a time. This
+is where you can facilitate a technical discussion with code.
+
+\subsection{Conclusion}\label{conclusion}
+
+Always finish the read with a conclusion, providing assurance of what
+was just learned and include possible resources for more information
+(i.e.~academic papers, blog posts, youtube videos). It is also
+appropriate to give the reader a domain in which to use the skills they
+have learned from your documentation.
+
+\section{Getting Feedback and
+Iterate}\label{getting-feedback-and-iterate}
+
+Everyone on the team is encouraged to follow the documents that are
+added to this book. Read through them and provide helpful feedback to
+your teammate on how to improve.
+
+Some common things to look out for:
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\item
+  Formatting -- Does the document flow properly? Are there enough
+  images, code, headers, etc\ldots{}?
+\item
+  Formality -- Is the document written well? Is the language approiate?
+\item
+  Goal and Audience -- Does the document relate to the goals and target
+  audiences of this book?
+\item
+  Attention -- Was the reading interesting? Is there opportunity to
+  learn from the read?
+\end{enumerate}
+
+\section{Practice, Practice, Practice}\label{practice-practice-practice}
+
+Writing the entries in this book will undoubtably get better over time.
+You are welcome to write as many entries as you'd like. They can be
+simple or deep, long or short, imformational or technical, etc. As long
+as the information in this book is informative and relevant to the
+projects we hope to complete, it is encouraged for all members of the
+team to write what they want!
+
+\chapter{Documentation Example - The Basics of R
+Markdown}\label{documentation-example---the-basics-of-r-markdown}
+
+\section{Overview of R Markdown}\label{overview-of-r-markdown}
+
+R Markdown is a file format for making dynamic documents with R. An R
+Markdown document is written in markdown (an easy-to-write plain text
+format) and contains chunks of embedded R code, text, images, headers,
+and more.
+
+In this walkthrough, we'll discuss some of the functionality of R
+Markdown Documents and how to add images, code, and other features to
+the document.
+
+Throughout this tutorial, we'll be reviewing the contents of the R
+Markdown cheat sheet that has most important information for writing in
+Markdown. The cheat sheet can be found at
+\url{https://rstudio.com/wp-content/uploads/2015/02/rmarkdown-cheatsheet.pdf}.
+
+\section{Workflow}\label{workflow}
+
+One of the great features of Markdown files is that they can be rendered
+to PDF files, Word documents, HTML content, and more. This allows the
+writer to easily write in R and export the document how they see best.
+
+Take a look at a common lifecylce of R Markdown documents in th
+following picture:
+
+\begin{figure}
+\centering
+\includegraphics{images/workflow.png}
+\caption{}
+\end{figure}
+
+\section{Opening a New File}\label{opening-a-new-file}
+
+Writing R Markdown files is easiest within R Studio. Navigate to File
+\textgreater{} New File \textgreater{} R Markdown to create a new file.
+
+\begin{figure}
+\centering
+\includegraphics{images/open.png}
+\caption{}
+\end{figure}
+
+\section{Helpful Syntax}\label{helpful-syntax}
+
+Take a look through helpful sytax in this photo:
+
+\begin{figure}
+\centering
+\includegraphics{images/syntax.png}
+\caption{}
+\end{figure}
+
+Here are some examples to vie. Take a look at the raw R Markdown to view
+the syntax in pratice.
+
+\emph{italics} \textbf{bold} \sout{strikethrough}
+
+\begin{quote}
+Block Quote
+\end{quote}
+
+\begin{itemize}
+\tightlist
+\item
+  Bullets
+\item
+  Bullets
+\item
+  subitem
+\end{itemize}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  Lists
+\item
+  Lists
+\end{enumerate}
+
+\begin{itemize}
+\tightlist
+\item
+  subitem
+\end{itemize}
+
+\section{Embed Code}\label{embed-code}
+
+One of the best features of R Markdown is the ability to add code to
+your document. To add a code snippet, click on the green \emph{insert}
+button in your R Studio tool bar and choose which language you would
+like to use!
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{print}\NormalTok{(}\StringTok{"This is an R code snippet"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] "This is an R code snippet"
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\BuiltInTok{print}\NormalTok{(}\StringTok{"This is a python code snippet with eval=FALSE"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\BuiltInTok{echo}\NormalTok{ this a bash code snippet}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## this a bash code snippet
+\end{verbatim}
+
+\begin{figure}
+\centering
+\includegraphics{images/code.png}
+\caption{}
+\end{figure}
+
+There are also many options for your code snippets. Take a look:
+
+\begin{figure}
+\centering
+\includegraphics{images/options.png}
+\caption{}
+\end{figure}
+
+\section{Wrapping (or knitting) it Up}\label{wrapping-or-knitting-it-up}
+
+To knit your Markdown file you click the blue \emph{knit} button in your
+R Studio toolbar. You can choose which file format you would like to
+knit to as well!
+
+For the purposes of our Merck-Data Mine documentation book, however, we
+will not have to knit anything because we are placing the individual
+documents in one bookdown book. To learn more about bookdown take a look
+at \url{https://bookdown.org/yihui/bookdown/introduction.html} for more
+information.
 
 \end{document}
