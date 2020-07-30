@@ -37,8 +37,6 @@ Here are some examples to vie. Take a look at the raw R Markdown to view the syn
 **bold**
 ~~strikethrough~~
 
-Image Sytanx: ![](path/to/image.png)
-
 > Block Quote
 
 * Bullets
