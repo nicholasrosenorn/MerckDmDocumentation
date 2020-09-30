@@ -10,7 +10,6 @@ link-citations: yes
 description: "A book for documenting the Merck-Data Mine team's work."
 ---
 
-Data Engineering
 
 # Introduction {#introduction}
 
