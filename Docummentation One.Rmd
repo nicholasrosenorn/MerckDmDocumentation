@@ -1,0 +1,92 @@
+---
+title: "Sprint 2 Docummentation"
+output: pdf_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+
+# Biometric Wearables
+
+This project is a part of the Purdue data science initiative, where students are given an opportunity to work on the data-driven project, guided by an industry mentor. This Biometric Wearables project is a part of an ongoing collaboration between the Purdue and Merck industry. Following is the brief description of the project:
+
+## Purpose
+
+The purpose of the project is to create an automated system that will capture the biometric data from the wearable fitness technology using the mobile application and communicate its’ result to Merck scientists. 
+
+## Outcome
+
+This automated system will be able to collect accurate and less biased data from the clinical trial patients because the digital process reduces the human error and reduce the pressure on the clinical trial patient with manual processing procedure. 
+
+## Significance
+
+This project may help to reduce the experiment biased by collecting more extensive data and using the technology. Also, this approach may help to reduce the clinical trial time and cost to ease of data collection.
+
+
+## Data visualization Team 
+
+This team is a part of a big team working on the above-described project, part of the Merck-Purdue data science collaboration. This team has been assigned the responsibility to design rich, interactive graphics, data visualization, and plotting method to facilitate the MERCK scientists. In addition, this team is responsible for brainstorming the data, and experiments with different visualization techniques that can help the project. 
+
+## Previous Work Done on the project
+
+The previous team that worked on the data visualization aspect of this project created a baseline shiny website that had some specific widgets created. There are two pages on the shiny website i.e., activity progress and step goals. The activity progress has a bar chart that shows the progress by comparing two biometric data points. The bar chart has an x-axis which is to show the dates and the y-axis which is to show the steps. One of the widget’s features on this page was created to view a specific time period of the data. The second page is to show step goals using a pie chart. 
+
+
+# Data visualization team :
+
+Following is the brief introduction of the data visualization team members:
+
+**Ahmed Ashraf Butt** 
+
+* He is a doctoral student at the School of Engineering Education, Purdue University. He is currently working as a research assistant on the CourseMIRROR project funded by the Institute of Education Sciences (IES). He is interested in designing educational tools and exploring their impact on enhancing students’ learning experiences. Also, he is working on the Merck-Purdue data science collaboration responsible for creating an automated system that will capture the biometric data from the wearable fitness technology using the mobile application and communicate its’ result to Merck scientists. 
+
+**Pika Seth**
+
+* She is a second-year student in the College of Engineering studying Biomedical Engineering at Purdue University. She is currently involved with the Data Mine Corporate Program working on the Biometrics Wearable Project with Merck. She is involved with the data visualization aspect dealing with the programming of R Shiny. She is a part of the Red Cross Club and the Women in Engineering Program. Also, she is a part of Sigma Delta Tau sorority. 
+
+**Sharon Patta**
+
+* She is a first-year student in the College of Science at Purdue University. She is studying data science. Her interests are in the fields of AI and machine learning.
+
+**Surya Suresh**
+
+* He is a first-year student in the College of Science at Purdue University studying Computer Science. He is working with the Merck Data Mine group on the Data Visualization part of the project.
+
+## Team formation
+
+For the current sprint, the team has been working together to become more familiar with R programming and R shiny. Each member of the group explored a different form of data visualization and worked on implementing their respective visualizations in a shiny app. Additionally, the group had several meetings to collectively present findings to one another and discuss errors and troubleshooting. 
+
+## Team roles
+
+We have not assigned roles yet, because so far we have just been getting comfortable working with the data and looking over the last team's work. For this week we just assigned each member to pick a visualization and create an R shiny app which displays a plot of the data.
+
+## Bugs in the Previous Code
+* Data Range issue.
+* Designed visualization based on a single patient.
+* Issue with the data reading
+* ePre-processing of data is not clean.
+
+
+## Term goals
+
+* Fully explore dataset for clear understanding of data.
+* Set up GitHub repo for collaboration.
+* Make 4 to 8 visualizations and adding them to current Shiny dashboard.
+* Proper and complete documentation.
+* Make improvements to the previously made dashboard.
+
+\newpage
+
+# Four Examples of Visualizations
+
+<p> 
+![Example Box and Whisker Plot](/home/seth4/Histogram.PNG)
+![Example Histogram](/home/seth4/Graph 4.PNG)
+![Example Pie Chart](/home/seth4/Pie Chart.PNG)
+![Example Scatter Plot](/home/seth4/Scatter Plot.PNG)
+</p>
+
+
+
