@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>Chapter 5 Creation of Dummy Data | Sprint2_Documentation</title>
+  <meta name="description" content="A book for documenting the Merck-Data Mine team’s work." />
+  <meta name="generator" content="bookdown 0.20 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="Chapter 5 Creation of Dummy Data | Sprint2_Documentation" />
+  <meta property="og:type" content="book" />
+  
+  
+  <meta property="og:description" content="A book for documenting the Merck-Data Mine team’s work." />
+  
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Chapter 5 Creation of Dummy Data | Sprint2_Documentation" />
+  
+  <meta name="twitter:description" content="A book for documenting the Merck-Data Mine team’s work." />
+  
+
+<meta name="author" content="Merck and Data Mine Corporate Partnership Team" />
+
+
+<meta name="date" content="2020-10-05" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="autobiographies-from-the-authors.html"/>
+
+<script src="libs/header-attrs-2.4/header-attrs.js"></script>
+<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+
+
+
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./">Merck-Data Mine Documentation</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> Introduction</a>
+<ul>
+<li class="chapter" data-level="1.1" data-path="index.html"><a href="index.html#how-to-contribute"><i class="fa fa-check"></i><b>1.1</b> How to contribute</a>
+<ul>
+<li class="chapter" data-level="1.1.1" data-path="index.html"><a href="index.html#larger-changes-or-additions"><i class="fa fa-check"></i><b>1.1.1</b> Larger changes or additions</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="tips-for-writing-great-documentation-and-walkthroughs.html"><a href="tips-for-writing-great-documentation-and-walkthroughs.html"><i class="fa fa-check"></i><b>2</b> Tips for Writing Great Documentation and Walkthroughs</a>
+<ul>
+<li class="chapter" data-level="2.1" data-path="tips-for-writing-great-documentation-and-walkthroughs.html"><a href="tips-for-writing-great-documentation-and-walkthroughs.html#find-a-good-topic"><i class="fa fa-check"></i><b>2.1</b> Find a Good Topic</a></li>
+<li class="chapter" data-level="2.2" data-path="tips-for-writing-great-documentation-and-walkthroughs.html"><a href="tips-for-writing-great-documentation-and-walkthroughs.html#make-goals-and-audience-clear"><i class="fa fa-check"></i><b>2.2</b> Make Goals and Audience Clear</a></li>
+<li class="chapter" data-level="2.3" data-path="tips-for-writing-great-documentation-and-walkthroughs.html"><a href="tips-for-writing-great-documentation-and-walkthroughs.html#have-a-begining-middle-and-end"><i class="fa fa-check"></i><b>2.3</b> Have a Begining, Middle, and End</a>
+<ul>
+<li class="chapter" data-level="2.3.1" data-path="index.html"><a href="index.html#introduction"><i class="fa fa-check"></i><b>2.3.1</b> Introduction</a></li>
+<li class="chapter" data-level="2.3.2" data-path="tips-for-writing-great-documentation-and-walkthroughs.html"><a href="tips-for-writing-great-documentation-and-walkthroughs.html#body"><i class="fa fa-check"></i><b>2.3.2</b> Body</a></li>
+<li class="chapter" data-level="2.3.3" data-path="tips-for-writing-great-documentation-and-walkthroughs.html"><a href="tips-for-writing-great-documentation-and-walkthroughs.html#conclusion"><i class="fa fa-check"></i><b>2.3.3</b> Conclusion</a></li>
+</ul></li>
+<li class="chapter" data-level="2.4" data-path="tips-for-writing-great-documentation-and-walkthroughs.html"><a href="tips-for-writing-great-documentation-and-walkthroughs.html#getting-feedback-and-iterate"><i class="fa fa-check"></i><b>2.4</b> Getting Feedback and Iterate</a></li>
+<li class="chapter" data-level="2.5" data-path="tips-for-writing-great-documentation-and-walkthroughs.html"><a href="tips-for-writing-great-documentation-and-walkthroughs.html#practice-practice-practice"><i class="fa fa-check"></i><b>2.5</b> Practice, Practice, Practice</a></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="documentation-example-the-basics-of-r-markdown.html"><a href="documentation-example-the-basics-of-r-markdown.html"><i class="fa fa-check"></i><b>3</b> Documentation Example - The Basics of R Markdown</a>
+<ul>
+<li class="chapter" data-level="3.1" data-path="documentation-example-the-basics-of-r-markdown.html"><a href="documentation-example-the-basics-of-r-markdown.html#overview-of-r-markdown"><i class="fa fa-check"></i><b>3.1</b> Overview of R Markdown</a></li>
+<li class="chapter" data-level="3.2" data-path="documentation-example-the-basics-of-r-markdown.html"><a href="documentation-example-the-basics-of-r-markdown.html#workflow"><i class="fa fa-check"></i><b>3.2</b> Workflow</a></li>
+<li class="chapter" data-level="3.3" data-path="documentation-example-the-basics-of-r-markdown.html"><a href="documentation-example-the-basics-of-r-markdown.html#opening-a-new-file"><i class="fa fa-check"></i><b>3.3</b> Opening a New File</a></li>
+<li class="chapter" data-level="3.4" data-path="documentation-example-the-basics-of-r-markdown.html"><a href="documentation-example-the-basics-of-r-markdown.html#helpful-syntax"><i class="fa fa-check"></i><b>3.4</b> Helpful Syntax</a></li>
+<li class="chapter" data-level="3.5" data-path="documentation-example-the-basics-of-r-markdown.html"><a href="documentation-example-the-basics-of-r-markdown.html#embed-code"><i class="fa fa-check"></i><b>3.5</b> Embed Code</a></li>
+<li class="chapter" data-level="3.6" data-path="documentation-example-the-basics-of-r-markdown.html"><a href="documentation-example-the-basics-of-r-markdown.html#wrapping-or-knitting-it-up"><i class="fa fa-check"></i><b>3.6</b> Wrapping (or knitting) it Up</a></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="autobiographies-from-the-authors.html"><a href="autobiographies-from-the-authors.html"><i class="fa fa-check"></i><b>4</b> Autobiographies from the Authors</a></li>
+<li class="chapter" data-level="5" data-path="creation-of-dummy-data.html"><a href="creation-of-dummy-data.html"><i class="fa fa-check"></i><b>5</b> Creation of Dummy Data</a>
+<ul>
+<li class="chapter" data-level="5.1" data-path="creation-of-dummy-data.html"><a href="creation-of-dummy-data.html#why-do-we-need-dummy-data"><i class="fa fa-check"></i><b>5.1</b> Why do we need dummy data?</a></li>
+<li class="chapter" data-level="5.2" data-path="creation-of-dummy-data.html"><a href="creation-of-dummy-data.html#how-we-generated-dummy-data"><i class="fa fa-check"></i><b>5.2</b> How we generated dummy data?</a></li>
+<li class="chapter" data-level="5.3" data-path="creation-of-dummy-data.html"><a href="creation-of-dummy-data.html#how-to-run-the-scripts"><i class="fa fa-check"></i><b>5.3</b> How to run the scripts?</a></li>
+<li class="chapter" data-level="5.4" data-path="creation-of-dummy-data.html"><a href="creation-of-dummy-data.html#potential-improvements"><i class="fa fa-check"></i><b>5.4</b> Potential improvements</a></li>
+</ul></li>
+<li class="divider"></li>
+<li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Sprint2_Documentation</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="creation-of-dummy-data" class="section level1" number="5">
+<h1><span class="header-section-number">Chapter 5</span> Creation of Dummy Data</h1>
+<div id="why-do-we-need-dummy-data" class="section level2" number="5.1">
+<h2><span class="header-section-number">5.1</span> Why do we need dummy data?</h2>
+<p>In order to effectively test the functionality of the backend code, a lot of pre-existing data is needed to fill the database to simulate a normal functioning environment for the app. Initially, we only had about 40 users’ data, and it was not enough. Therefore, we decided to create fake user data based on pre-existing user data (dummy data).</p>
+</div>
+<div id="how-we-generated-dummy-data" class="section level2" number="5.2">
+<h2><span class="header-section-number">5.2</span> How we generated dummy data?</h2>
+<p>In order to let dummy data make sense and follow pre-existing data’s patterns, we studied the patterns of each pre-existing data category. There are active, basal, dist, elev, heart, and steps data. We mostly used user 185 and 186’s dataset as the reference while creating dummy dataset.</p>
+<p>For the active data, we first calculated the mean value of the original data. Then we found out the number of data points above the mean. Because it can be observed that within each active data set, data points above the mean value cluster into three group, and one of them always starts at the beginning. Therefore, we also chose the start as the position of the first high value data cluster, and randomly chose position for the other two. The value of each data point was chosen based on the observed range of the reference data point.</p>
+<p>The result of fake data vs. real data graph can be found below:<br />
+<img src="Active%20Data.JPG" style="width:50.0%" /></p>
+<p>For other data categories, we utilized similar approaches while ajusting parameters and the possible range of random number generation based on each data categories’ own characteristics. Below are the fake data vs. real data comparison graphs for other data categories.</p>
+<p>For basal data:<br />
+<img src="BasalData.png" style="width:50.0%" /><br/>
+For Dist data:<br />
+<img src="Dist%20Data.JPG" style="width:50.0%" /><br/>
+For Elev data:<br />
+<img src="Elev%20Data.JPG" style="width:50.0%" /><br/>
+For Heart data:<br />
+<img src="Heart%20Data.JPG" style="width:50.0%" /><br/>
+For Steps data:<br />
+<img src="Steps%20Data.JPG" style="width:50.0%" /><br/></p>
+</div>
+<div id="how-to-run-the-scripts" class="section level2" number="5.3">
+<h2><span class="header-section-number">5.3</span> How to run the scripts?</h2>
+<p>In order to run the scripts, some modifications to the GenerateFakeData.py are needed. There are three parameters that need modification: folder_name_list, real_name_list, and path. “folder_name_list” tells the name of the folders that will contain the dummy data. “real_name_list” tells the name of the reference files being used to generate dummy data. “path” is the current directory. Once these three parameters are set up correctly, just directly run the GenerateFakeData.py script with no input.</p>
+</div>
+<div id="potential-improvements" class="section level2" number="5.4">
+<h2><span class="header-section-number">5.4</span> Potential improvements</h2>
+<p>Because our dummy data generation script is specifically modified for each data set, if in the future a new type of data appears, we need to rewrite our code in order to accommodate the new data type. Therefore, we can improve our code by applying more statictical knowledge so that the code can be applied to generate dummy data from more different data types.</p>
+
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="autobiographies-from-the-authors.html" class="navigation navigation-prev navigation-unique" aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": "https://github.com/rstudio/bookdown-demo/edit/master/Sprint2_Documentation.Rmd",
+"text": "Edit"
+},
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": null,
+"text": null
+},
+"download": ["bookdown-demo.pdf", "bookdown-demo.epub"],
+"toc": {
+"collapse": "subsection"
+}
+});
+});
+</script>
+
+</body>
+
+</html>
