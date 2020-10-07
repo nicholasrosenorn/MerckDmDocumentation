@@ -18,4 +18,36 @@ When important decision are made, such as software specifications or product dev
 
 ## Technical Report
 
-This section is where teams can highlight the processes of their work. This is a more in depth look into what was accomplised during the sprint where teams should describe step by step development. 
+This section is where teams can highlight the processes of their work. This is a more in depth look into what was accomplised during the sprint where teams should describe step by step development.
+
+A comparison chart detailing the information available between different fitbit products was created in order to gain an understanding of what to account for in various fitbit models. The chart for some select models is shown here, detailing some key differences:
+                |                                       |Sense         | Versa Lite  |Classic      |Charge 2     |
+ ---------------|---------------------------------------|--------------|-------------|-------------|-------------|
+ Activity       |Steps                                  |X             |X            |X            |X            |
+                |Workouts                               |X             |X            |             |             |
+                |Sit/Stand                              |X             |X            |             |             |
+                |Flight Climbed                         |X             |             |             |X            |
+                |Elevation                              |X             |             |             |             |
+                |Time spent in different activity levels|X             |X            |             |             |
+                |Calories burned                        |X             |X            |             |             |
+ Sleep          |Asleep vs Awake                        |X             |X            |X            |X            |
+                |Stages                                 |X             |X            |             |             |
+ Heart Rate     |Time spent in different heart ranges   |X             |X            |             |X            |
+                |Resting heart rate                     |X             |X            |             |X            |
+                |Walking Heartrate                      |X             |X            |             |X            |
+                |Heart rate during activity             |X             |X            |             |X            |
+                |Intraday Tracking                      |              |             |             |             |
+ Nutrition      |Food log*                              |              |             |             |             |
+                |Water log*                             |              |             |             |             |
+ Body/Weight    |BMI*                                   |              |             |             |             |
+                |Weight*                                |              |             |             |             |
+ Additional     |ECG                                    |              |             |             |             |
+                |Blood Oxygen                           |X             |X            |             |             |
+                |Fall Detection                         |              |X            |             |             |
+                |Skin Thermometer                       |X             |             |             |             |
+                |Ear Health                             |              |             |             |             |
+                |Stress Response                        |X             |             |             |             |
+ ---------------------------------------------------------------------------------------
+    * = Entered Manually
+    X = Available
+Many of the older models are missing critical data that is pulled using the current code. At the moment, this is handled by inputting 'None' for those columns. Adjustments will be looked into for these different devices and for handling mutliple devices.
