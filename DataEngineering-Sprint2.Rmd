@@ -1,3 +1,5 @@
+# Data Engineering Sprint #1
+
 ## Starting the Project and Introductions
 
 Resuming the work done from the previous year’s data engineer team, each member briefly introduced themselves so that we would get to know each other better as we move forward with this project. During the first sprint, we mainly worked together as a team in order to review the current code and familiarize ourselves with it, as well as making sure all members understood the basics of python.
