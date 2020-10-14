@@ -63,3 +63,5 @@ To run BiometricFinal.py, it is recommended to download and install a true IDE (
 To run the code, first install Python (not through Anaconda) onto your machine. Next, open BiometricFinal.py in the IDE and open the Command Line associated with your IDE (Usually PowerShell for Windows and Terminal for Mac). In your Command Line, run the following commands: “pip install fitbit”, “pip install cherrypy”, and “pip install pandas” (note: pip is Python’s package manager which allows outside Python libraries to be installed). In addition, download gather_keys_oath2.py from https://github.com/orcasgit/python-fitbit and place the file in the same directory as BiometricFinal.py. If there are any errors about not having a certain dependency installed, you should be able to run BiometricFinal.py. This can be done by either running “python BiometricFinal.py” in your command line, or pressing the run button in your IDE. 
 
 After running, a web page will be launched where you can log in with your FitBit credentials and the data will automatically be converted to a .csv file.
+
+Test
