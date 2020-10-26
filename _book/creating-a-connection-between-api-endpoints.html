@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>Chapter 6 Creating a connection between API Endpoints | Merck-Data Mine Documentation</title>
+  <meta name="description" content="A book for documenting the Merck-Data Mine team’s work." />
+  <meta name="generator" content="bookdown 0.20 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="Chapter 6 Creating a connection between API Endpoints | Merck-Data Mine Documentation" />
+  <meta property="og:type" content="book" />
+  
+  
+  <meta property="og:description" content="A book for documenting the Merck-Data Mine team’s work." />
+  
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Chapter 6 Creating a connection between API Endpoints | Merck-Data Mine Documentation" />
+  
+  <meta name="twitter:description" content="A book for documenting the Merck-Data Mine team’s work." />
+  
+
+<meta name="author" content="Merck and Data Mine Corporate Partnership Team" />
+
+
+<meta name="date" content="2020-10-25" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="creation-of-dummy-data.html"/>
+
+<script src="libs/header-attrs-2.4/header-attrs.js"></script>
+<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+
+
+
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./">Merck-Data Mine Documentation</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> Introduction</a>
+<ul>
+<li class="chapter" data-level="1.1" data-path="index.html"><a href="index.html#how-to-contribute"><i class="fa fa-check"></i><b>1.1</b> How to contribute</a>
+<ul>
+<li class="chapter" data-level="1.1.1" data-path="index.html"><a href="index.html#larger-changes-or-additions"><i class="fa fa-check"></i><b>1.1.1</b> Larger changes or additions</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="tips-for-writing-great-documentation-and-walkthroughs.html"><a href="tips-for-writing-great-documentation-and-walkthroughs.html"><i class="fa fa-check"></i><b>2</b> Tips for Writing Great Documentation and Walkthroughs</a>
+<ul>
+<li class="chapter" data-level="2.1" data-path="tips-for-writing-great-documentation-and-walkthroughs.html"><a href="tips-for-writing-great-documentation-and-walkthroughs.html#find-a-good-topic"><i class="fa fa-check"></i><b>2.1</b> Find a Good Topic</a></li>
+<li class="chapter" data-level="2.2" data-path="tips-for-writing-great-documentation-and-walkthroughs.html"><a href="tips-for-writing-great-documentation-and-walkthroughs.html#make-goals-and-audience-clear"><i class="fa fa-check"></i><b>2.2</b> Make Goals and Audience Clear</a></li>
+<li class="chapter" data-level="2.3" data-path="tips-for-writing-great-documentation-and-walkthroughs.html"><a href="tips-for-writing-great-documentation-and-walkthroughs.html#have-a-begining-middle-and-end"><i class="fa fa-check"></i><b>2.3</b> Have a Begining, Middle, and End</a>
+<ul>
+<li class="chapter" data-level="2.3.1" data-path="index.html"><a href="index.html#introduction"><i class="fa fa-check"></i><b>2.3.1</b> Introduction</a></li>
+<li class="chapter" data-level="2.3.2" data-path="tips-for-writing-great-documentation-and-walkthroughs.html"><a href="tips-for-writing-great-documentation-and-walkthroughs.html#body"><i class="fa fa-check"></i><b>2.3.2</b> Body</a></li>
+<li class="chapter" data-level="2.3.3" data-path="tips-for-writing-great-documentation-and-walkthroughs.html"><a href="tips-for-writing-great-documentation-and-walkthroughs.html#conclusion"><i class="fa fa-check"></i><b>2.3.3</b> Conclusion</a></li>
+</ul></li>
+<li class="chapter" data-level="2.4" data-path="tips-for-writing-great-documentation-and-walkthroughs.html"><a href="tips-for-writing-great-documentation-and-walkthroughs.html#getting-feedback-and-iterate"><i class="fa fa-check"></i><b>2.4</b> Getting Feedback and Iterate</a></li>
+<li class="chapter" data-level="2.5" data-path="tips-for-writing-great-documentation-and-walkthroughs.html"><a href="tips-for-writing-great-documentation-and-walkthroughs.html#practice-practice-practice"><i class="fa fa-check"></i><b>2.5</b> Practice, Practice, Practice</a></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="documentation-example-the-basics-of-r-markdown.html"><a href="documentation-example-the-basics-of-r-markdown.html"><i class="fa fa-check"></i><b>3</b> Documentation Example - The Basics of R Markdown</a>
+<ul>
+<li class="chapter" data-level="3.1" data-path="documentation-example-the-basics-of-r-markdown.html"><a href="documentation-example-the-basics-of-r-markdown.html#overview-of-r-markdown"><i class="fa fa-check"></i><b>3.1</b> Overview of R Markdown</a></li>
+<li class="chapter" data-level="3.2" data-path="documentation-example-the-basics-of-r-markdown.html"><a href="documentation-example-the-basics-of-r-markdown.html#workflow"><i class="fa fa-check"></i><b>3.2</b> Workflow</a></li>
+<li class="chapter" data-level="3.3" data-path="documentation-example-the-basics-of-r-markdown.html"><a href="documentation-example-the-basics-of-r-markdown.html#opening-a-new-file"><i class="fa fa-check"></i><b>3.3</b> Opening a New File</a></li>
+<li class="chapter" data-level="3.4" data-path="documentation-example-the-basics-of-r-markdown.html"><a href="documentation-example-the-basics-of-r-markdown.html#helpful-syntax"><i class="fa fa-check"></i><b>3.4</b> Helpful Syntax</a></li>
+<li class="chapter" data-level="3.5" data-path="documentation-example-the-basics-of-r-markdown.html"><a href="documentation-example-the-basics-of-r-markdown.html#embed-code"><i class="fa fa-check"></i><b>3.5</b> Embed Code</a></li>
+<li class="chapter" data-level="3.6" data-path="documentation-example-the-basics-of-r-markdown.html"><a href="documentation-example-the-basics-of-r-markdown.html#wrapping-or-knitting-it-up"><i class="fa fa-check"></i><b>3.6</b> Wrapping (or knitting) it Up</a></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="autobiographies-from-the-authors.html"><a href="autobiographies-from-the-authors.html"><i class="fa fa-check"></i><b>4</b> Autobiographies from the Authors</a></li>
+<li class="chapter" data-level="5" data-path="creation-of-dummy-data.html"><a href="creation-of-dummy-data.html"><i class="fa fa-check"></i><b>5</b> Creation of Dummy Data</a>
+<ul>
+<li class="chapter" data-level="5.1" data-path="creation-of-dummy-data.html"><a href="creation-of-dummy-data.html#why-do-we-need-dummy-data"><i class="fa fa-check"></i><b>5.1</b> Why do we need dummy data?</a></li>
+<li class="chapter" data-level="5.2" data-path="creation-of-dummy-data.html"><a href="creation-of-dummy-data.html#how-we-generated-dummy-data"><i class="fa fa-check"></i><b>5.2</b> How we generated dummy data?</a></li>
+<li class="chapter" data-level="5.3" data-path="creation-of-dummy-data.html"><a href="creation-of-dummy-data.html#how-to-run-the-scripts"><i class="fa fa-check"></i><b>5.3</b> How to run the scripts?</a></li>
+<li class="chapter" data-level="5.4" data-path="creation-of-dummy-data.html"><a href="creation-of-dummy-data.html#potential-improvements"><i class="fa fa-check"></i><b>5.4</b> Potential improvements</a></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="creating-a-connection-between-api-endpoints.html"><a href="creating-a-connection-between-api-endpoints.html"><i class="fa fa-check"></i><b>6</b> Creating a connection between API Endpoints</a>
+<ul>
+<li class="chapter" data-level="6.1" data-path="creating-a-connection-between-api-endpoints.html"><a href="creating-a-connection-between-api-endpoints.html#list-of-api-end-points"><i class="fa fa-check"></i><b>6.1</b> List of API end-points:</a></li>
+<li class="chapter" data-level="6.2" data-path="creating-a-connection-between-api-endpoints.html"><a href="creating-a-connection-between-api-endpoints.html#what-framework-we-are-going-to-use"><i class="fa fa-check"></i><b>6.2</b> What framework we are going to use?</a></li>
+<li class="chapter" data-level="6.3" data-path="creating-a-connection-between-api-endpoints.html"><a href="creating-a-connection-between-api-endpoints.html#setting-up-sql-database-connection"><i class="fa fa-check"></i><b>6.3</b> Setting up SQL database connection:</a></li>
+<li class="chapter" data-level="6.4" data-path="creating-a-connection-between-api-endpoints.html"><a href="creating-a-connection-between-api-endpoints.html#design-of-the-routes"><i class="fa fa-check"></i><b>6.4</b> Design of the Routes</a></li>
+</ul></li>
+<li class="divider"></li>
+<li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Merck-Data Mine Documentation</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="creating-a-connection-between-api-endpoints" class="section level1" number="6">
+<h1><span class="header-section-number">Chapter 6</span> Creating a connection between API Endpoints</h1>
+<div id="list-of-api-end-points" class="section level2" number="6.1">
+<h2><span class="header-section-number">6.1</span> List of API end-points:</h2>
+<ol style="list-style-type: decimal">
+<li>Front-End Patient User input to the database</li>
+<li>Biometric Data from the FitBit API to the database</li>
+<li>Data from the database to the RShiny Dashboard for visualization</li>
+</ol>
+</div>
+<div id="what-framework-we-are-going-to-use" class="section level2" number="6.2">
+<h2><span class="header-section-number">6.2</span> What framework we are going to use?</h2>
+<p>We are currently looking to use the framework Express.js to write the routes between the database and various API endpoints.</p>
+<p>Express is a fast, light-weight web framework for Node.js. Express is a pretty good framework. It’s the most popular node application framework out there. Express is widely used as middleware in node apps as it helps to organize your app into a MVC architecture. It’s the E of the popular MEAN stack. Express manages following things very easily:</p>
+<ul>
+<li>Routing
+= Sessions</li>
+<li>HTTP requests</li>
+<li>Error handling</li>
+</ul>
+<p>At times writing code from scratch for above things can be time consuming. But by using express it’s only a matter of few methods. Express also helps in organizing your code.</p>
+<p><a href="https://medium.com/@onejohi/building-a-simple-rest-api-with-nodejs-and-express-da6273ed7ca9">Link to set up Node</a></p>
+</div>
+<div id="setting-up-sql-database-connection" class="section level2" number="6.3">
+<h2><span class="header-section-number">6.3</span> Setting up SQL database connection:</h2>
+<p>We created a connection with the MariaDB database in our Node Rest API server to be able to send and receive data. The following link shows a tutorial on how we set up the connection.</p>
+<p><a href="https://bezkoder.com/node-js-rest-api-express-mysql/">Link to setup SQL connection in Node</a></p>
+</div>
+<div id="design-of-the-routes" class="section level2" number="6.4">
+<h2><span class="header-section-number">6.4</span> Design of the Routes</h2>
+<p>There are five kinds of routes:</p>
+<p><strong>GET</strong>: The GET method requests a representation of the specified resource. Requests using GET should only retrieve data and should have no other effect.</p>
+<p><strong>POST</strong>: The POST method requests that the server accept the entity enclosed in the request as a new subordinate of the web resource identified by the URI. The data POSTed might be, for example, an annotation for existing resources; a message for a bulletin board, newsgroup, mailing list, or comment thread; a block of data that is the result of submitting a web form to a data-handling process; or an item to add to a database.</p>
+<p><strong>PUT</strong>: The PUT method requests that the enclosed entity be stored under the supplied URI. If the URI refers to an already existing resource, it is modified; if the URI does not point to an existing resource, then the server can create the resource with that URI.</p>
+<p><strong>DELETE</strong>: The DELETE method deletes the specified resource.</p>
+<p><strong>PATCH</strong>: The PATCH method applies partial modifications to a resource</p>
+
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="creation-of-dummy-data.html" class="navigation navigation-prev navigation-unique" aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": "https://github.com/rstudio/bookdown-demo/edit/master/Sprint3_Documentation.Rmd",
+"text": "Edit"
+},
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": null,
+"text": null
+},
+"download": ["bookdown-demo.pdf", "bookdown-demo.epub"],
+"toc": {
+"collapse": "subsection"
+}
+});
+});
+</script>
+
+</body>
+
+</html>
