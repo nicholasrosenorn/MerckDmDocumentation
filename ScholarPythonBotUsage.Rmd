@@ -1,0 +1,33 @@
+# Using Scholar to Call PythonBot
+
+## Rationale behind moving to Scholar
+
+When multiple user logins and data extractions were performed in relatively quick succession on personal Wi-Fi, Fitbit's cybersecurity software flagged and temporarily banned the IP address from accessing their site. The hope with Scholar is that, as an educational IP address, it can be whitelisted and the automated process can function without getting users banned. 
+
+## Using Scholar
+To access Scholar, go to *https://scholar-fe03.rcac.purdue.edu:300/main/* and login with Purdue 2 Factor Credentials. 
+
+The code is written in Python. Unfortunately, Scholar does not Python IDEs (Spyder, VS code, etc) installed on it. This means that the code either needs to be called through a Jupyter Notebook Kernal or through a terminal window. For now, we will focus on running the code through Terminal commands.
+
+To open Terminal, click on **Terminal Emulator** in the applications bar. Once Terminal is open, you will need to navigate to the */class* directory and then to the appropriate folder. To do this, type the following commands into Terminal:
+
+```{python, eval=FALSE}
+cd ..
+cd ..
+cd /class/datamine/corporate/merck/DataEngineers/Fitbit
+```
+
+There is one more step that needs to be done before the code can be run. This step is to direct the python3 program where to find installed libraries. Type the following command into the Terminal:
+
+```{python, eval=FALSE}
+source /class/datamine/apps/python.sh
+```
+**Note** You will need to rerun this command everytime you close out of Terminal and reopn it.
+
+Now, you're ready to run PythonBot.py! To run the code, type the following into Terminal:
+
+```{python, eval=FALSE}
+python3 PythonBot.py
+```
+
+Extracted data is formatted into CSV files and accessible at */class/datamine/corporate/merck/DataEngineers/Fitbit/CSV_Files*.
