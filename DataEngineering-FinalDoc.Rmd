@@ -11,3 +11,34 @@
 ### Scheduling the Data Collection
 ### Collaborating with other Teams
 ### Future Work
+
+## Introduction to the Team- everyone
+
+Include a brief sentence including your name, major, year, and relevant experience to the data mine.
+
+## Semester Goals - Pranav
+
+Include a brief overview of the project scope and the data engineering's role within the project. 
+Also include our team's semester's goals.
+
+## Data Overview - Jennifer
+
+Discuss Apple vs Fitbit data available 
+Discuss what type of data was included in our scope
+Discuss potential ideas for data cleaning and handling missing data
+
+## Scaling the Framework
+
+### Multiple Users - Joshua
+
+### Multiple Devices - Allison
+
+## Scheduling the Data Collection - Eric
+
+## Collaborating with other Teams - Karthik
+
+## Future Work - Jennifer
+
+Include: streamlining our work with the other groups (see above); Potentially changing the way we are accessing the user’s fitbit info; Apple watch data collection
+
+
