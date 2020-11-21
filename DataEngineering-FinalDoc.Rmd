@@ -16,7 +16,7 @@
 
 Include a brief sentence including your name, major, year, and relevant experience to the data mine.
 
-Eric Yap: I am sophomore majoring in data science and finance and
+Eric Yap: I am sophomore majoring in data science and finance. Most of my classes have helped developed my Python and R skills, which is very transferable to the work I do in the data mine.
 
 
 ## Semester Goals - Pranav
@@ -37,6 +37,10 @@ Discuss potential ideas for data cleaning and handling missing data
 ### Multiple Devices - Allison
 
 ## Scheduling the Data Collection - Eric
+
+Through using the CronTab module within Python, we are able to schedule and run our FitBit functions on a routinely basis. The data we collect is stored in a dataframe and new data is continuously appended to this dataframe.
+
+
 
 ## Collaborating with other Teams - Karthik
 
