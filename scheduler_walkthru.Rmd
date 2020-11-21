@@ -3,7 +3,9 @@ The first thing we want to do is make sure we install the crontab module. Becaus
 
 the best way to install it is to use the pip command ie: (-pip install crontab) We also want to install datetime
 
-and schedule so we can interpret integers as minutes/hours and and other time references. 
+and schedule so we can interpret integers as minutes/hours and and other time references.
+
+Additionally, we also import BlockingScheduler because it will help us 
 
 # Beginning Code
 
@@ -14,6 +16,17 @@ job = cron.new(command='scheduler.py')
 
 This checks the user which is dependent on which user is running the code on their computers so it is subject to change. We also set job equal to the name of the python script.
 
+# Blocking Scheduler
+
+#
+scheduled = BlockingScheduler()
+@scheduled.scheduled_job('cron', day_of_week='mon-fri', hour=9)
+#
+
+We initialize the Blocking Scheduler so that we can schedule our cronjob at the specified time we want, either at specific hours of the day or we can run the job at every specified interval ie: (in seconds). 
+
+
+Setting scheduled
 
 
 # Cronjobs validity:
