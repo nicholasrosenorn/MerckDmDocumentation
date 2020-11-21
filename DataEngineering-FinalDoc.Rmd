@@ -16,6 +16,9 @@
 
 Include a brief sentence including your name, major, year, and relevant experience to the data mine.
 
+Eric Yap: I am sophomore majoring in data science and finance and
+
+
 ## Semester Goals - Pranav
 
 Include a brief overview of the project scope and the data engineering's role within the project. 
