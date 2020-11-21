@@ -38,7 +38,7 @@ Discuss potential ideas for data cleaning and handling missing data
 
 ## Scheduling the Data Collection - Eric
 
-Through using the CronTab module within Python, we are able to schedule and run our FitBit functions on a routinely basis. The data we collect is stored in a dataframe and new data is continuously appended to this dataframe.
+Through using the CronTab module within Python, we are able to schedule and run our FitBit functions on a routinely basis. The data we collect is stored in a dataframe and new data is continuously appended to this dataframe. The scheduled time is set to every 9 AM on weekdays.
 
 
 
