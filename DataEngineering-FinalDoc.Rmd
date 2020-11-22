@@ -17,6 +17,7 @@
 Include a brief sentence including your name, major, year, and relevant experience to the data mine.
 
 Eric Yap: I am sophomore majoring in data science and finance. Most of my classes have helped developed my Python and R skills, which is very transferable to the work I do in the data mine.
+Allison Hill: I am a senior majoring in electrical engineering. I have coding experience in various languages, including some Python and R which were used within this project.
 
 
 ## Semester Goals - Pranav
@@ -35,6 +36,23 @@ Discuss potential ideas for data cleaning and handling missing data
 ### Multiple Users - Joshua
 
 ### Multiple Devices - Allison
+Not all fitbit devices have the same data available to them. This is most noticeable in older models, in which functionality such as the number of floors climbed or sleep cycles was not yet implemented. Using the get_Devices function available in the Fitbit API, the code returns a string corresponding to the Fitbit version. For example, a Fitbit Ionic would return the string "Ionic". Using this information, if-else statements were implemented to check the version and assign corresponding data values. Data that is not available would be input as "None" within the data table. In some cases, the function can simply check if the data is NULL and automatically do this such as with the sleep data. However for data such as activity levels, the data gets input as a "0" instead and thus needs a check. Checks for some of the newer models have been implemented, along with a generic case. The table below shows the implemented models and their available data:
+                |                                       |Ionic         | Versa Lite  |Inspire      |Charge 3     |
+ ---------------|---------------------------------------|--------------|-------------|-------------|-------------|
+ Activity       |Steps                                  |X             |X            |X            |X            |
+                |Workouts                               |X             |X            |             |             |
+                |Sit/Stand                              |X             |X            |             |             |
+                |Flight Climbed                         |X             |             |             |             |
+                |Elevation                              |X             |             |             |             |
+                |Time spent in different activity levels|X             |X            |             |             |
+                |Calories burned                        |X             |X            |             |             |
+ Sleep          |Asleep vs Awake                        |X             |X            |X            |X            |
+                |Stages                                 |X             |X            |             |             |
+ Heart Rate     |Time spent in different heart ranges   |X             |X            |             |X            |
+                |Resting heart rate                     |X             |X            |             |X            |
+                |Walking Heartrate                      |X             |X            |             |X            |
+                |Heart rate during activity             |X             |X            |             |X            |
+ ---------------------------------------------------------------------------------------
 
 ## Scheduling the Data Collection - Eric
 
