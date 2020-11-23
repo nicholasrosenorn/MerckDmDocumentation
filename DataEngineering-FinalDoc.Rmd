@@ -16,7 +16,7 @@
 
 Include a brief sentence including your name, major, year, and relevant experience to the data mine.
 
-Eric Yap: I am sophomore majoring in data science and finance. Most of my classes have helped developed my Python and R skills, which is very transferable to the work I do in the data mine.
+Eric Yap: I am sophomore majoring in data science and finance. Most of my classes have helped developed my Python and R skills, which are very transferable to the work I do in the data mine.
 Allison Hill: I am a senior majoring in electrical engineering. I have coding experience in various languages, including some Python and R which were used within this project.
 
 
