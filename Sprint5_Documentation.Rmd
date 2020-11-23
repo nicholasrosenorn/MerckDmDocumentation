@@ -1,0 +1,65 @@
+
+# Adding data to the database
+
+## Adding a CSV to the database
+
+1. The data engineering team had made a script that creates a CSV file with all the users FitBit data when they make a request to the API
+2. We decided to make a python script to load this csv data onto the database we hosted on AWS.
+
+## POST information
+
+1. The JSON to add a datapoint to the database is as follows:
+```text
+ obj = {'collection_date': row["Date"],
+           'steps': row["Steps"],
+           'floors_climbed': row["Floors Climbed"],
+           'total_miles': row["Total Miles"],
+           'lightly_active_miles': ["Lightly Active Miles"],
+           'moderately_active_miles': row["Moderately Active Miles"],
+           'very_active_miles': row["Very Active Miles"],
+           'sedentary_minutes': row["Sedentary Minutes"],
+           'lightly_active_minutes': row["Lightly Active Minutes"],
+           'fairly_active_minutes': row["Fairly Active Minutes"],
+           'very_active_minutes': row["Very Active Minutes"],
+           'hr30_100_minutes': row["HR 30-100 Minutes"],
+           'hr100_140_minutes': row["HR 100-140 Minutes"],
+           'hr140_170_minutes': row["HR 140-170 Minutes"],
+           'hr170_220_minutes': row["HR 170-220 Minutes"],
+           'average_resting_heartrate': row["Average Resting HR"],
+           'bmi': row["BMI"],
+           'sleep_efficiency': row["Sleep Efficiency"],
+           'weight': row["Weight"],
+           'minutes_asleep': row["Minutes Alseep"],
+           'fbusername': row["username"]
+           }
+```
+
+2. We made structures in this form by reading the CSV information into a pandas dataframe and made a post request to our API
+
+## Patient information and Study Specific Data
+
+The patient information is sent to the database form a webpage which will be used by Merck Scientists to load the patients they are studying during a clinical trial.
+
+The JSON for a patient is as follows:
+```text
+{
+  patient_id,
+  fbusername,
+  first_name,
+  last_name,
+  gender,
+  date_of_birth,
+  height
+}
+```
+
+The JSON for the study data is as follows:
+```text
+{
+    patient_id,
+    input_date,
+    family_history_cancer,
+    family_history_heart_disease,
+    diagnostic_notes
+}
+```

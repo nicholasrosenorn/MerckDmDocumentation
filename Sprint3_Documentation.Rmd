@@ -14,7 +14,7 @@ We are currently looking to use the framework Express.js to write the routes bet
 Express is a fast, light-weight web framework for Node.js. Express is a pretty good framework. It's the most popular node application framework out there. Express is widely used as middleware in node apps as it helps to organize your app into a MVC architecture. It's the E of the popular MEAN stack. Express manages following things very easily:
 
 - Routing
-= Sessions
+- Sessions
 - HTTP requests
 - Error handling
 
