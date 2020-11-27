@@ -33,10 +33,11 @@ Discuss potential ideas for data cleaning and handling missing data
 
 ## Scaling the Framework
 
+The framework for collecting biometric data from Fitbit's API was previously established and can be found in the [Merck Wearables Book section 8](https://nicholasrosenorn.github.io/wearables-book/tutorial-data-capture-in-python.html#authentication). However, this framework could only be used to collect one user's data at a time, and needed to be manually monitored to switch between browser and python windows. Further, the framework assumed that the user's Fitbit device would be the Fitbit Ionic. In order to make this project upscalable, the framework needed to be modified to support multiple users in an automizable way and the program needed to account for multiple device types. 
+
 ### Multiple Users - Joshua
 
-The framework for collecting biometric data from Fitbit's API was previously established and can be found in the [Merck Wearables Book section 8](https://nicholasrosenorn.github.io/wearables-book/tutorial-data-capture-in-python.html#authentication). However, this framework could only be used to collect one user's data at a time, and needed to be manually monitored to switch between browser and python windows. In order to make this project upscalable, the framework needed to be modified to support multiple users in an automizable way. 
-
+#### Supporting Multiple Users Via Accessing Credentials
 To support multiple users, a database of multiple user login credentials needed to be created. There is an ongoing collaboration with the Front End team to create a more secure storage system, but for now credentials are stored in a csv file with the format "username,password". With the usernames and passwords stored in this way, a login array can be created that will be used to plug into the automated process.
 
 ```{python}
@@ -88,6 +89,34 @@ for i in range(len(Emails)):
 The BiometricPrevious file contains the remainder of the previous framework with data collection functions, but it was also altered to allow for multiple devices. More information about his can be found in the Multiple Devices section of this report. 
 
 The line biometric.to_csv will store the collected data in a csv format with a title of user#_DATE, where user# corresponds to the order at which the user's login credentials are stored in the credentials csv database.  
+
+#### Supporting Multiple Users Via Allowing for Automation
+
+In order to create an automation bot to regularly call the data collection code (see Scheduling Our Data Collection for more information on this), the code had to be adjusted so that it did not open browser windows, as this opening of browser windows was found to stall the bot. In order to accomplish this, the Selenium module was used. Official Selenium documentation can be found [here](https://selenium-python.readthedocs.io).
+
+Unless Selenium is already downloaded on the device, it will need to be installed. To do this, open a Terminal window and type:
+
+```{python}
+pip install selenium
+```
+
+Download the appropriate firefox browser driver [here](https://github.com/mozilla/geckodriver/releases). Make a note of its installation path. Though it does not matter where it is installed, its location will need to be plugged into the gather_keys_oath2.py code. To plug in this location, locate the following firefox_options at the top of the code:
+```{python}
+firefox_options = Options()
+firefox_options.add_argument("window-size=1920,1080")
+firefox_options.add_argument("--headless")
+firefox_options.add_argument("start-maximized")
+firefox_options.add_argument("--disable-infobars")
+firefox_options.add_argument("--disable-extensions")
+firefox_options.add_argument("--no-sandbox")
+firefox_options.add_argument("--disable-dev-shm-usage")
+firefox_options.binary_location = '/class/datamine/apps/firefox/firefox'
+```
+Adjust the path in the final option, *firefox_options.binary_location*, accordingly. 
+
+The other main option of interest is *firefox_options.add_argument("--headless")*. This *headerless* option is what allows the code to access the Fitbit website without actually opening a browser -- effectively, Python becomes a browswer simulator, and is the main reason Selenium was used. The other options are for optimal performance, but not strictly necessary. 
+
+
 
 ### Multiple Devices - Allison
 Not all fitbit devices have the same data available to them. This is most noticeable in older models, in which functionality such as the number of floors climbed or sleep cycles was not yet implemented. Using the get_Devices function available in the Fitbit API, the code returns a string corresponding to the Fitbit version. For example, a Fitbit Ionic would return the string "Ionic". Using this information, if-else statements were implemented to check the version and assign corresponding data values. Data that is not available would be input as "None" within the data table. In some cases, the function can simply check if the data is NULL and automatically do this such as with the sleep data. However for data such as activity levels, the data gets input as a "0" instead and thus needs a check. Checks for some of the newer models have been implemented, along with a generic case. The table below shows the implemented models and their available data:
