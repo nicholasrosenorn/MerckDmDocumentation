@@ -54,13 +54,6 @@ with open("Fitbit_Credentials.csv") as File1:
 As previously mentioned, the previous framework was not set up for running through multiple accounts. To solve this issue, it was reformatted into iterative-friendly components. The first of which is the PythonBot.py file, which both establishes the login arrays outlined above and is responsible for coordinating the other file and function calls to make this process run smoothly. 
 
 ```{python}
-from time import sleep
-import fitbit
-import pandas as pd
-import datetime
-import json
-import csv
-
 # import other codes
 import BiometricPrevious
 import gather_keys_oauth2 as Oauth2
