@@ -35,6 +35,67 @@ Discuss potential ideas for data cleaning and handling missing data
 
 ### Multiple Users - Joshua
 
+The framework for collecting biometric data from Fitbit's API was previously established and can be found in the [Merck Wearables Book section 8](https://nicholasrosenorn.github.io/wearables-book/tutorial-data-capture-in-python.html#authentication). However, this framework could only be used to collect one user's data at a time, and needed to be manually monitored to switch between browser and python windows. In order to make this project upscalable, the framework needed to be modified to support multiple users in an automizable way. 
+
+To support multiple users, a database of multiple user login credentials needed to be created. There is an ongoing collaboration with the Front End team to create a more secure storage system, but for now credentials are stored in a csv file with the format "username,password". With the usernames and passwords stored in this way, a login array can be created that will be used to plug into the automated process.
+
+```{python}
+# Initialize Emails and Passwords lists
+Emails = []
+Passwords = []
+
+# Create Emails and Passwords lists from Fitbit_Credentials.csv
+with open("Fitbit_Credentials.csv") as File1:
+    IDs = csv.DictReader(File1)
+    for row in IDs:
+        Emails.append(row['Username'])
+        Passwords.append(row['Password'])
+```
+As previously mentioned, the previous framework was not set up for running through multiple accounts. To solve this issue, it was reformatted into iterative-friendly components. The first of which is the PythonBot.py file, which both establishes the login arrays outlined above and is responsible for coordinating the other file and function calls to make this process run smoothly. 
+
+```{python}
+from time import sleep
+import fitbit
+import pandas as pd
+import datetime
+import json
+import csv
+
+# import other codes
+import BiometricPrevious
+import gather_keys_oauth2 as Oauth2
+
+class FitbitBot:
+    def __init__(self, EMAIL, PASSWORD, DATE):
+
+        #Both the Client ID and Client Secret come from when Fitbit site after registering an app
+        CLIENT_ID = '22BH28' 
+        CLIENT_SECRET = '78a4838804c1ff0983591e69196b1c46'
+        
+        #Authorization Process
+        server = Oauth2.OAuth2Server(CLIENT_ID, CLIENT_SECRET)
+        server.browser_authorize(EMAIL, PASSWORD)
+
+        ACCESS_TOKEN = str(server.fitbit.client.session.token['access_token'])
+        REFRESH_TOKEN = str(server.fitbit.client.session.token['refresh_token'])
+        auth2_client = fitbit.Fitbit(CLIENT_ID, CLIENT_SECRET, Oauth2=True, access_token=ACCESS_TOKEN,
+        refresh_token=REFRESH_TOKEN)
+        BiometricPrev = BiometricPrevious.FitbitModel1(auth2_client)
+        
+        biometricDF = BiometricPrev.getBiometricData(DATE) #append to data frame
+        biometricDF.to_csv('./user' + str(i) + '_' + DATE + '.csv')
+        print("Python Script Executed")
+
+# Run data extraction
+for i in range(len(Emails)):
+    for j in range(1): # Call the previous 1 days worth of info <-- will be replaced with cronjob
+        today = str((datetime.datetime.now() - datetime.timedelta(j)).strftime("%Y-%m-%d"))
+        FitbitBot(Emails[i], Passwords[i], today)
+```
+The BiometricPrevious file contains the remainder of the previous framework with data collection functions, but it was also altered to allow for multiple devices. More information about his can be found in the Multiple Devices section of this report. 
+
+The line biometric.to_csv will store the collected data in a csv format with a title of user#_DATE, where user# corresponds to the order at which the user's login credentials are stored in the credentials csv database.  
+
 ### Multiple Devices - Allison
 Not all fitbit devices have the same data available to them. This is most noticeable in older models, in which functionality such as the number of floors climbed or sleep cycles was not yet implemented. Using the get_Devices function available in the Fitbit API, the code returns a string corresponding to the Fitbit version. For example, a Fitbit Ionic would return the string "Ionic". Using this information, if-else statements were implemented to check the version and assign corresponding data values. Data that is not available would be input as "None" within the data table. In some cases, the function can simply check if the data is NULL and automatically do this such as with the sleep data. However for data such as activity levels, the data gets input as a "0" instead and thus needs a check. Checks for some of the newer models have been implemented, along with a generic case. The table below shows the implemented models and their available data:
                 |                                       |Ionic         | Versa Lite  |Inspire      |Charge 3     |
