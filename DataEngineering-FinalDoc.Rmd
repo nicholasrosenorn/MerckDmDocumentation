@@ -135,7 +135,19 @@ Not all fitbit devices have the same data available to them. This is most notice
                 |Resting heart rate                     |X             |X            |             |X            |
                 |Walking Heartrate                      |X             |X            |             |X            |
                 |Heart rate during activity             |X             |X            |             |X            |
- ---------------------------------------------------------------------------------------
+ -----------------------------------------------------------------------------------------------------------------
+ 
+ The following function is what is used to obtain the device model string:
+ ```{python}
+     def getDevice():
+        devices = auth2_client.get_devices()
+        if(len(devices) == 0):
+            deviceVersion = 'None'
+        else:
+            deviceVersion = devices[0]['deviceVersion']    
+        return deviceVersion
+```
+The function first calls the built-in Fitbit API get_devices(). Next it checks the length of the output to determine if it is valid. If it is not valid, the user must not have any device registered. At the moment, the code only obtains the first device if a user has multiple registered.
 
 ## Scheduling the Data Collection - Eric
 
