@@ -18,7 +18,7 @@ Our data engineering team is comprised of 6 team members all with unique skills 
 
 Include a brief sentence including your name, major, year, and relevant experience to the data mine.
 
-Jennifer Leising: I am a graduate student in Industrial Engineering. My research is focused on healthcare and data analytics, and I have experience working in Clinical trials for a large Pharma company. 
+Jennifer Leising: I am a 3rd year graduate student in Industrial Engineering. My research is focused on healthcare and data analytics, and I have experience working in Clinical trials for a large Pharma company. 
 Eric Yap: I am sophomore majoring in data science and finance. Most of my classes have helped developed my Python and R skills, which are very transferable to the work I do in the data mine.
 Allison Hill: I am a senior majoring in electrical engineering. I have coding experience in various languages, including some Python and R which were used within this project.
 
@@ -30,11 +30,63 @@ Also include our team's semester's goals.
 
 ## Data Overview - Jennifer
 
+### Fitbit Devices vs. Apple Watch
+
+The 2019-2020 Merck Biometric team used the Fitbit to gather data for the project. The Merck stakeholder's had also mentioend wanting to explore the Apple Watch to reach additional populations. Our team wanted to better understand what data was available from each company’s devices. As a note, we listed all the features that would be available from any device. We created the chart below to list the features available on each device. We found very similar data to be available on both devices. 
+
+                |                                       |Fitbit         |Apple Watch
+ ---------------|---------------------------------------|---------------|---------------
+ Activity       |Steps                                  |X              |X
+                |Workouts                               |X              |X
+                |Sit/Stand                              |X*             |NA
+                |Flight Climbed                         |X              |X
+                |Elevation                              |X              |X
+                |Time spent in different activity levels|X              |X
+                |Calories burned                        |X              |X
+ Sleep          |Asleep vs Awake                        |X              |X
+                |Stages                                 |X              |NA
+ Heart Rate     |Time spent in different heart ranges   |X              |3rd party apps
+                |Resting heart rate                     |X              |X
+                |Walking Heartrate                      |NA             |X
+                |Heart rate during activity             |X              |X
+                |Intraday Tracking                      |5 sec          |10 min
+ Nutrition      |Food log*                              |X              |X
+                |Water log*                             |X              |X
+ Body/Weight    |BMI*                                   |X              |X
+                |Weight*                                |X              |X
+ Additional     |ECG                                    |Coming soon    |X
+                |Blood Oxygen                           |X              |X
+                |Fall Detection                         |X              |X
+                |Skin Thermometer                       |X              |NA
+                |Ear Health                             |NA             |X
+                |Stress Response                        |X              |NA
+ ---------------------------------------------------------------------------------------
+    *Entered manually
+    NA = Not Available
+ 
+
+With the Apple Watch, most data tracking is through the Health app and the files are exported as a .xml, which is difficult to read. However, you can also export your data through the Health app and have it opened in Numbers/Excel for easy viewing. For the FitBit, activity is recorded through the watch and outputs a .csv file when exporting, which is easy to read and open in applications like Excel and Numbers.
+
+Additionally, it appears we are able to use Python in order to gather/sort data on both the Apple watch and Fitbit devices. Data is able to be read through pandas. Since Apple Watch returns a .xml file, we have to parse it first and use xmltodict module within Python before we can start applying functions to our data. 
+
+Based on the scope for this semester, we did not do further research into the Apple Watch data collection, but this is one of our goal's for the coming Spring semester.
+
+### Data Collected from Fitbit Devices
+
+Our team collected data that can be grouped into several major categories:
+
+    Device: Device Name
+
+    Activites: totalDistance, veryActiveDistance, moderatleyActiveDistance, lightlyActiveDistance, veryActiveMinutes, fairlyActiveMinutes, 
+    lightlyActiveMinutes, sedentaryMinutes, floorsClimbed, daySteps, intraday data
+    
+    Sleep: sleepEfficiency, minutesAsleep
+
+    Heart Rate: HRrange30to100, HRrange100to140, HRrange140to170, HRrange170to220, avgRestingHR, intraday data
+
+    Weight: weight, BMI
 
 
-Discuss Apple vs Fitbit data available 
-Discuss what type of data was included in our scope
-Discuss potential ideas for data cleaning and handling missing data
 
 ## Scaling the Framework
 
@@ -91,35 +143,21 @@ for i in range(len(Emails)):
         today = str((datetime.datetime.now() - datetime.timedelta(j)).strftime("%Y-%m-%d"))
         FitbitBot(Emails[i], Passwords[i], today)
 ```
-The *BiometricPrevious* file contains the remainder of the previous framework with data collection functions, but it was also altered to allow for multiple devices. More information about his can be found in the **Multiple Devices** section of this report. 
+The BiometricPrevious file contains the remainder of the previous framework with data collection functions, but it was also altered to allow for multiple devices. More information about his can be found in the Multiple Devices section of this report. 
 
-The line *biometric.to_csv* will store the collected data in a csv format with a title of *user#_DATE*, where *user#* corresponds to the order at which the user's login credentials are stored in the credentials csv database.  
+The line biometric.to_csv will store the collected data in a csv format with a title of user#_DATE, where user# corresponds to the order at which the user's login credentials are stored in the credentials csv database.  
 
 #### Supporting Multiple Users Via Allowing for Automation
 
-In order to create an automation bot to regularly call the data collection code (see **Scheduling Our Data Collection** for more information on this), the code had to be adjusted so that it did not open browser windows, as this opening of browser windows was found to stall the bot. In order to accomplish this, the Selenium module was used. Official Selenium documentation can be found [here](https://selenium-python.readthedocs.io).
+In order to create an automation bot to regularly call the data collection code (see Scheduling Our Data Collection for more information on this), the code had to be adjusted so that it did not open browser windows, as this opening of browser windows was found to stall the bot. In order to accomplish this, the Selenium module was used. Official Selenium documentation can be found [here](https://selenium-python.readthedocs.io).
 
-Since Selenium was not already downloaded on the device, it needed to be installed. To do this, the following was typed into a Terminal window:
+Unless Selenium is already downloaded on the device, it will need to be installed. To do this, open a Terminal window and type:
 
 ```{python}
 pip install selenium
 ```
 
-To use Selenium in a code, the libraries and packages will need to be imported. Since gather_keys_oauth2 is the code package responsible for accessing websites, it only needs to be imported in this document. To do this, the following code was added to *gather_keys_oauth2.py*.
-
-```{python}
-from selenium import webdriver
-from selenium.webdriver import Firefox
-from selenium.webdriver.firefox.options import Options
-from selenium.webdriver.common.by import By
-```
-
-Strictly speaking, the only explicitly needed code would be *import Selenium*. However, by importing specific functions from the Selenium library upfront, notation later on was simpler. This can be seen below when firefox options were set. Instead of calling *Selenium.webdriver.firefox.options* every line, we can simply called *Options*. 
-
-The appropriate Selenium firefox browser driver was downloaded [here](https://github.com/mozilla/geckodriver/releases). Though it did not matter where the driver was installed, its installation path needs to be plugged into the gather_keys_oath2.py code. For those following along with guide, make a note of this installation path.
-
-The following block of code was written to set the Selenium webdriver functions.
-
+Download the appropriate firefox browser driver [here](https://github.com/mozilla/geckodriver/releases). Make a note of its installation path. Though it does not matter where it is installed, its location will need to be plugged into the gather_keys_oath2.py code. To plug in this location, locate the following firefox_options at the top of the code:
 ```{python}
 firefox_options = Options()
 firefox_options.add_argument("window-size=1920,1080")
@@ -133,33 +171,8 @@ firefox_options.binary_location = '/class/datamine/apps/firefox/firefox'
 ```
 Adjust the path in the final option, *firefox_options.binary_location*, accordingly. 
 
-The other main option of interest was *firefox_options.add_argument("--headless")*. This *headerless* option is what allows the code to access the Fitbit website without actually opening a browser -- effectively, Python becomes a browswer simulator, and is the main reason Selenium was used. The first time an account is added, manual permissions will need to be granted to Fitbit's authorization website. To do this, comment out this headerless option and check the permissions boxes for each new account. After doing this once, uncomment this headerless line. The system will then be set for automization. The other options are for optimal performance, but not strictly necessary. 
+The other main option of interest is *firefox_options.add_argument("--headless")*. This *headerless* option is what allows the code to access the Fitbit website without actually opening a browser -- effectively, Python becomes a browswer simulator, and is the main reason Selenium was used. The other options are for optimal performance, but not strictly necessary. 
 
-The official Selenium documentation also supports a Google Chrome driver. If Chrome is preferred, it can be substituted in for FireFox without issue. However, make sure to change all instances of *firefox* in the above codes to *Chrome.*
-
-With Selenium downloaded and imported, the last step was to call and use Selenium. The following line in *browser_authorize* function in *gather_keys_oauth2.py* was responsible for opening the webbrowser, so it was targetted for edits. 
-
-```{python}
-    threading.Timer(1, webbrowser.open, args=(url,)).start()
-```
-
-As its name might suggest, the *webbrowser.open* function causes a webbrowser to open. The other passed arguments *1* and *args=(url,)* are parameters that can be left unchanged. This line was replaced with the following code: 
-
-```{python}
-    driver = webdriver.Firefox(executable_path = '/class/datamine/apps/geckodriver', options=firefox_options)
-    driver.get("https://accounts.fitbit.com/login?targetUrl=https%3A%2F%2Fwww.fitbit.com%2Fus%2Fhome")
-    sleep(5)
-    driver.find_element(By.XPATH, "//input[@type='email']").send_keys(email)
-    sleep(2)
-    driver.find_element(By.XPATH, "//input[@type='password']").send_keys(password)
-    sleep(2)
-    driver.find_element(By.XPATH, "/html/body/div[2]/div/div[2]/div/div/div[3]/form/div[4]/div/button").click()
-    sleep(10)
-    
-    threading.Timer(1, driver.get, args=(url,)).start()
-```
-
-The first line of the following code initializes the Selenium webdriver. Edit the *executable_path* as needed based on where the firefox driver was installed. The next line, *driver.get*, tells the Selenium webbrowser what website to go to. The *find_elements* commands are what allow for the automization of plugging in usernames and emails. The sleep functions are input time delays to help make sure that the website has time to properly load before attempting to log in. The final line should look familiar. It is the same as the original line, except replacing the *webbrowser.open*, which opens a normal web browser, with *driver.get*, which calls Selenium's browser simulater. The rest of *gather_keys_oauth2* can remain as is.
 
 
 ### Multiple Devices - Allison
@@ -191,6 +204,14 @@ Through using the CronTab module within Python, we are able to schedule and run 
 
 ## Future Work - Jennifer
 
-Include: streamlining our work with the other groups (see above); Potentially changing the way we are accessing the user’s fitbit info; Apple watch data collection
+Our future work for the Spring 2021 semester seeks to build upon our work completed during this Fall 2020 semester. Our main goals are listed include: (1) streamlining our work with the other Merck biometric teams to ensure the entire process works well from start to finish, (2) exploring alternative ways to access the user's fitbit information that might better align with the way fitbit intends multiple user data collection, and (3) investigating the collection of data from the Apple Watch.
+
+(1) Streamlining work with the other Merck Biometric teams
+(2) Exploring alternative ways to access the user's fitbit information 
+(3) Investigating the collection of data from the Apple Watch
+
+## Thank you & Acknowledgements
+
+We would like to thank our Merck Corporate Partners, teaching assistance, and all the Data Mine staff that have helped us throughout this semester. 
 
 
