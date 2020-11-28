@@ -86,21 +86,35 @@ for i in range(len(Emails)):
         today = str((datetime.datetime.now() - datetime.timedelta(j)).strftime("%Y-%m-%d"))
         FitbitBot(Emails[i], Passwords[i], today)
 ```
-The BiometricPrevious file contains the remainder of the previous framework with data collection functions, but it was also altered to allow for multiple devices. More information about his can be found in the Multiple Devices section of this report. 
+The *BiometricPrevious* file contains the remainder of the previous framework with data collection functions, but it was also altered to allow for multiple devices. More information about his can be found in the **Multiple Devices** section of this report. 
 
-The line biometric.to_csv will store the collected data in a csv format with a title of user#_DATE, where user# corresponds to the order at which the user's login credentials are stored in the credentials csv database.  
+The line *biometric.to_csv* will store the collected data in a csv format with a title of *user#_DATE*, where *user#* corresponds to the order at which the user's login credentials are stored in the credentials csv database.  
 
 #### Supporting Multiple Users Via Allowing for Automation
 
-In order to create an automation bot to regularly call the data collection code (see Scheduling Our Data Collection for more information on this), the code had to be adjusted so that it did not open browser windows, as this opening of browser windows was found to stall the bot. In order to accomplish this, the Selenium module was used. Official Selenium documentation can be found [here](https://selenium-python.readthedocs.io).
+In order to create an automation bot to regularly call the data collection code (see **Scheduling Our Data Collection** for more information on this), the code had to be adjusted so that it did not open browser windows, as this opening of browser windows was found to stall the bot. In order to accomplish this, the Selenium module was used. Official Selenium documentation can be found [here](https://selenium-python.readthedocs.io).
 
-Unless Selenium is already downloaded on the device, it will need to be installed. To do this, open a Terminal window and type:
+Since Selenium was not already downloaded on the device, it needed to be installed. To do this, the following was typed into a Terminal window:
 
 ```{python}
 pip install selenium
 ```
 
-Download the appropriate firefox browser driver [here](https://github.com/mozilla/geckodriver/releases). Make a note of its installation path. Though it does not matter where it is installed, its location will need to be plugged into the gather_keys_oath2.py code. To plug in this location, locate the following firefox_options at the top of the code:
+To use Selenium in a code, the libraries and packages will need to be imported. Since gather_keys_oauth2 is the code package responsible for accessing websites, it only needs to be imported in this document. To do this, the following code was added to *gather_keys_oauth2.py*.
+
+```{python}
+from selenium import webdriver
+from selenium.webdriver import Firefox
+from selenium.webdriver.firefox.options import Options
+from selenium.webdriver.common.by import By
+```
+
+Strictly speaking, the only explicitly needed code would be *import Selenium*. However, by importing specific functions from the Selenium library upfront, notation later on was simpler. This can be seen below when firefox options were set. Instead of calling *Selenium.webdriver.firefox.options* every line, we can simply called *Options*. 
+
+The appropriate Selenium firefox browser driver was downloaded [here](https://github.com/mozilla/geckodriver/releases). Though it did not matter where the driver was installed, its installation path needs to be plugged into the gather_keys_oath2.py code. For those following along with guide, make a note of this installation path.
+
+The following block of code was written to set the Selenium webdriver functions.
+
 ```{python}
 firefox_options = Options()
 firefox_options.add_argument("window-size=1920,1080")
@@ -114,8 +128,33 @@ firefox_options.binary_location = '/class/datamine/apps/firefox/firefox'
 ```
 Adjust the path in the final option, *firefox_options.binary_location*, accordingly. 
 
-The other main option of interest is *firefox_options.add_argument("--headless")*. This *headerless* option is what allows the code to access the Fitbit website without actually opening a browser -- effectively, Python becomes a browswer simulator, and is the main reason Selenium was used. The other options are for optimal performance, but not strictly necessary. 
+The other main option of interest was *firefox_options.add_argument("--headless")*. This *headerless* option is what allows the code to access the Fitbit website without actually opening a browser -- effectively, Python becomes a browswer simulator, and is the main reason Selenium was used. The first time an account is added, manual permissions will need to be granted to Fitbit's authorization website. To do this, comment out this headerless option and check the permissions boxes for each new account. After doing this once, uncomment this headerless line. The system will then be set for automization. The other options are for optimal performance, but not strictly necessary. 
 
+The official Selenium documentation also supports a Google Chrome driver. If Chrome is preferred, it can be substituted in for FireFox without issue. However, make sure to change all instances of *firefox* in the above codes to *Chrome.*
+
+With Selenium downloaded and imported, the last step was to call and use Selenium. The following line in *browser_authorize* function in *gather_keys_oauth2.py* was responsible for opening the webbrowser, so it was targetted for edits. 
+
+```{python}
+    threading.Timer(1, webbrowser.open, args=(url,)).start()
+```
+
+As its name might suggest, the *webbrowser.open* function causes a webbrowser to open. The other passed arguments *1* and *args=(url,)* are parameters that can be left unchanged. This line was replaced with the following code: 
+
+```{python}
+    driver = webdriver.Firefox(executable_path = '/class/datamine/apps/geckodriver', options=firefox_options)
+    driver.get("https://accounts.fitbit.com/login?targetUrl=https%3A%2F%2Fwww.fitbit.com%2Fus%2Fhome")
+    sleep(5)
+    driver.find_element(By.XPATH, "//input[@type='email']").send_keys(email)
+    sleep(2)
+    driver.find_element(By.XPATH, "//input[@type='password']").send_keys(password)
+    sleep(2)
+    driver.find_element(By.XPATH, "/html/body/div[2]/div/div[2]/div/div/div[3]/form/div[4]/div/button").click()
+    sleep(10)
+    
+    threading.Timer(1, driver.get, args=(url,)).start()
+```
+
+The first line of the following code initializes the Selenium webdriver. Edit the *executable_path* as needed based on where the firefox driver was installed. The next line, *driver.get*, tells the Selenium webbrowser what website to go to. The *find_elements* commands are what allow for the automization of plugging in usernames and emails. The sleep functions are input time delays to help make sure that the website has time to properly load before attempting to log in. The final line should look familiar. It is the same as the original line, except replacing the *webbrowser.open*, which opens a normal web browser, with *driver.get*, which calls Selenium's browser simulater. The rest of *gather_keys_oauth2* can remain as is.
 
 
 ### Multiple Devices - Allison
