@@ -212,6 +212,6 @@ Our future work for the Spring 2021 semester seeks to build upon our work comple
 
 ## Thank you & Acknowledgements
 
-We would like to thank our Merck Corporate Partners, teaching assistance, and all the Data Mine staff that have helped us throughout this semester. 
+We would like to thank our Merck Corporate Partners, TA, and all the Data Mine staff that have helped us throughout this semester. 
 
 
