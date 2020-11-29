@@ -22,6 +22,7 @@ Jennifer Leising: I am a 3rd year graduate student in Industrial Engineering. My
 Eric Yap: I am sophomore majoring in data science and finance. Most of my classes have helped developed my Python and R skills, which are very transferable to the work I do in the data mine.
 Allison Hill: I am a senior majoring in electrical engineering. I have coding experience in various languages, including some Python and R which were used within this project.
 Joshua Kosnoff: I am a junior majoring in  biomedical engineering. I perform research with the cancer research center, where I have previously learned Python for data management and basic analysis.
+Karthik Ravishankar: I am a freshman majoring in data science. I have learned Java in highschool and at Purdue and some Python which was self taught to contribute to the project.
 
 ## Semester Goals - Pranav
 
@@ -287,6 +288,8 @@ Through using the CronTab module within Python, we are able to schedule and run 
 
 
 ## Collaborating with other Teams - Karthik
+
+Our team had three main interactions with the other teams. The first one was with the Data Architects. When reviewing last year's code, we noticed that sending a CSV file everytime would be inneficient. We discovered a function, dataFrame.to_sql(), which would allow the data to be sent straight into the SQL server. Although a solution was found, we decided to leave the code how it is and save this idea for another day. The second and third interactions were with the Front End team. The first time, we wanted to see if there was a way to easily collect the user's fitbit username and password. The Front End team was able to create a way to have the login information collected from mobile app and saved on the SQL server with the help of the Back End team. This was a very important problem to solve as the API needs to log into the user's fitbit account to pull their data. Our last collaboration was regarding a issue that would result in complications during the clinical trial. Regardless of whether the user is wearing their device or not, any time the fitbit wasn't in an active motion, time is accrued on the user's sedentary minutes. This would be a problem as there is no way to differentiate whether the user was sedentary, or if the fitbit wasn't on the user. After conversing with the Front End team, we decided that an alert system or question during their survey would help solve this issue. This problem is a work in progress and doesn't have a solution as of yet. 
 
 ## Future Work - Jennifer
 
