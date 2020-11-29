@@ -23,11 +23,14 @@ Eric Yap: I am sophomore majoring in data science and finance. Most of my classe
 Allison Hill: I am a senior majoring in electrical engineering. I have coding experience in various languages, including some Python and R which were used within this project.
 Joshua Kosnoff: I am a junior majoring in  biomedical engineering. I perform research with the cancer research center, where I have previously learned Python for data management and basic analysis.
 Karthik Ravishankar: I am a freshman majoring in data science. I have learned Java in highschool and at Purdue and some Python which was self taught to contribute to the project.
+Pranav Anandarao: I am a sophomore majoring in computer engineering. I have experience in a few different programming languages, including Python. I also have previous experience working on clinical applications.
 
 ## Semester Goals - Pranav
 
-Include a brief overview of the project scope and the data engineering's role within the project. 
-Also include our team's semester's goals.
+The overall aim of this project was to create a method to collect continuous data from patients in clinical trials. The biometrics team decided to do this by collecting data from Fitbit devices and developing an application to collect supplementary data from the users.
+
+The data engineering team's task was to collect the data and put it into a usable format for storage with the data architecture team. This semester, our goal was to add functionality to collect data from multiple users and handle data coming in from different devices. Furthermore, we would like to be able to schedule the program to collect the user data periodically.
+
 
 ## Data Overview - Jennifer
 
