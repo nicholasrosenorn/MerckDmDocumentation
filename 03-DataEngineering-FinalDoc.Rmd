@@ -1,0 +1,295 @@
+# Data Engineering Fall 2020 Documentation
+
+## Introduction to the Team
+
+Our data engineering team is comprised of 6 team members all with unique skills and backgrounds. The team worked hard to utilize each member's strengths to help accomplish the semester goals for this project. 
+
+Include a brief sentence including your name, major, year, and relevant experience to the data mine.
+
+Jennifer Leising: I am a 3rd year graduate student in Industrial Engineering. My research is focused on healthcare and data analytics, and I have experience working in Clinical trials for a large Pharma company. 
+Eric Yap: I am sophomore majoring in data science and finance. Most of my classes have helped developed my Python and R skills, which are very transferable to the work I do in the data mine.
+Allison Hill: I am a senior majoring in electrical engineering. I have coding experience in various languages, including some Python and R which were used within this project.
+Joshua Kosnoff: I am a junior majoring in  biomedical engineering. I perform research with the cancer research center, where I have previously learned Python for data management and basic analysis.
+Karthik Ravishankar: I am a freshman majoring in data science. I have learned Java in highschool and at Purdue and some Python which was self taught to contribute to the project.
+Pranav Anandarao: I am a sophomore majoring in computer engineering. I have experience in a few different programming languages, including Python. I also have previous experience working on clinical applications.
+
+## Semester Goals
+
+The overall aim of this project was to create a method to collect continuous data from patients in clinical trials. The biometrics team decided to do this by collecting data from Fitbit devices and developing an application to collect supplementary data from the users.
+
+The data engineering team's task was to collect the data and put it into a usable format for storage with the data architecture team. This semester, our goal was to add functionality to collect data from multiple users and handle data coming in from different devices. Furthermore, we would like to be able to schedule the program to collect the user data periodically.
+
+
+## Data Overview
+
+### Fitbit Devices vs. Apple Watch
+
+The 2019-2020 Merck Biometric team used the Fitbit to gather data for the project. The Merck stakeholder's had also mentioend wanting to explore the Apple Watch to reach additional populations. Our team wanted to better understand what data was available from each company’s devices. As a note, we listed all the features that would be available from any device. We created the chart below to list the features available on each device. We found very similar data to be available on both devices. 
+
+                |                                       |Fitbit         |Apple Watch
+ ---------------|---------------------------------------|---------------|---------------
+ Activity       |Steps                                  |X              |X
+                |Workouts                               |X              |X
+                |Sit/Stand                              |X*             |NA
+                |Flight Climbed                         |X              |X
+                |Elevation                              |X              |X
+                |Time spent in different activity levels|X              |X
+                |Calories burned                        |X              |X
+ Sleep          |Asleep vs Awake                        |X              |X
+                |Stages                                 |X              |NA
+ Heart Rate     |Time spent in different heart ranges   |X              |3rd party apps
+                |Resting heart rate                     |X              |X
+                |Walking Heartrate                      |NA             |X
+                |Heart rate during activity             |X              |X
+                |Intraday Tracking                      |5 sec          |10 min
+ Nutrition      |Food log*                              |X              |X
+                |Water log*                             |X              |X
+ Body/Weight    |BMI*                                   |X              |X
+                |Weight*                                |X              |X
+ Additional     |ECG                                    |Coming soon    |X
+                |Blood Oxygen                           |X              |X
+                |Fall Detection                         |X              |X
+                |Skin Thermometer                       |X              |NA
+                |Ear Health                             |NA             |X
+                |Stress Response                        |X              |NA
+ ---------------------------------------------------------------------------------------
+    *Entered manually
+    NA = Not Available
+ 
+
+With the Apple Watch, most data tracking is through the Health app and the files are exported as a .xml, which is difficult to read. However, you can also export your data through the Health app and have it opened in Numbers/Excel for easy viewing. For the FitBit, activity is recorded through the watch and outputs a .csv file when exporting, which is easy to read and open in applications like Excel and Numbers.
+
+Additionally, it appears we are able to use Python in order to gather/sort data on both the Apple watch and Fitbit devices. Data is able to be read through pandas. Since Apple Watch returns a .xml file, we have to parse it first and use xmltodict module within Python before we can start applying functions to our data. 
+
+Based on the scope for this semester, we did not do further research into the Apple Watch data collection, but this is one of our goal's for the coming Spring semester.
+
+### Data Collected from Fitbit Devices
+
+Our team collected data that can be grouped into several major categories:
+
+    Device: Device Name
+
+    Activites: totalDistance, veryActiveDistance, moderatleyActiveDistance, lightlyActiveDistance, veryActiveMinutes, fairlyActiveMinutes, 
+    lightlyActiveMinutes, sedentaryMinutes, floorsClimbed, daySteps, intraday data
+    
+    Sleep: sleepEfficiency, minutesAsleep
+
+    Heart Rate: HRrange30to100, HRrange100to140, HRrange140to170, HRrange170to220, avgRestingHR, intraday data
+
+    Weight: weight, BMI
+
+
+
+## Scaling the Framework
+
+The framework for collecting biometric data from Fitbit's API was previously established and can be found in the [Merck Wearables Book section 8](https://nicholasrosenorn.github.io/wearables-book/tutorial-data-capture-in-python.html#authentication). However, this framework could only be used to collect one user's data at a time, and needed to be manually monitored to switch between browser and python windows. Further, the framework assumed that the user's Fitbit device would be the Fitbit Ionic. In order to make this project upscalable, the framework needed to be modified to support multiple users in an automizable way and to account for multiple device types. 
+
+### Multiple Users
+
+#### Supporting Multiple Users Via Accessing Credentials
+
+To support multiple users, a database of multiple user login credentials needed to be created. There is an ongoing collaboration with the Front End team to create a more secure storage system, but for now credentials are stored in a csv file with the format "username,password". With the usernames and passwords stored in this way, a login array can be created that will be used to plug into the automated process.
+
+```{python,eval=FALSE}
+# Initialize Emails and Passwords lists
+Emails = []
+Passwords = []
+# Create Emails and Passwords lists from Fitbit_Credentials.csv
+with open("Fitbit_Credentials.csv") as File1:
+    IDs = csv.DictReader(File1)
+    for row in IDs:
+        Emails.append(row['Username'])
+        Passwords.append(row['Password'])
+```
+
+As previously mentioned, the previous framework was not set up for running through multiple accounts. To solve this issue, it was reformatted into iterative-friendly components. The first of which is the PythonBot.py file, which both establishes the login arrays outlined above and is responsible for coordinating the other file and function calls to make this process run smoothly. 
+
+```{python,eval=FALSE}
+# import other codes
+import BiometricPrevious
+import gather_keys_oauth2 as Oauth2
+class FitbitBot:
+    def __init__(self, EMAIL, PASSWORD, DATE):
+        #Both the Client ID and Client Secret come from when Fitbit site after registering an app
+        CLIENT_ID = '22BH28' 
+        CLIENT_SECRET = '78a4838804c1ff0983591e69196b1c46'
+        
+        #Authorization Process
+        server = Oauth2.OAuth2Server(CLIENT_ID, CLIENT_SECRET)
+        server.browser_authorize(EMAIL, PASSWORD)
+        ACCESS_TOKEN = str(server.fitbit.client.session.token['access_token'])
+        REFRESH_TOKEN = str(server.fitbit.client.session.token['refresh_token'])
+        auth2_client = fitbit.Fitbit(CLIENT_ID, CLIENT_SECRET, Oauth2=True, access_token=ACCESS_TOKEN,
+        refresh_token=REFRESH_TOKEN)
+        BiometricPrev = BiometricPrevious.FitbitModel1(auth2_client)
+        
+        biometricDF = BiometricPrev.getBiometricData(DATE) #append to data frame
+        biometricDF.to_csv('./user' + str(i) + '_' + DATE + '.csv')
+        print("Python Script Executed")
+# Run data extraction
+for i in range(len(Emails)):
+    for j in range(1): # Call the previous 1 days worth of info <-- will be replaced with cronjob
+        today = str((datetime.datetime.now() - datetime.timedelta(j)).strftime("%Y-%m-%d"))
+        FitbitBot(Emails[i], Passwords[i], today)
+```
+
+The *BiometricPrevious* file contains the remainder of the previous framework with data collection functions, but it was also altered to allow for multiple devices. More information about his can be found in the **Multiple Devices** section of this report. 
+The line *biometric.to_csv* will store the collected data in a csv format with a title of *user#_DATE*, where *user#* corresponds to the order at which the user's login credentials are stored in the credentials csv database.  
+
+#### Supporting Multiple Users Via Allowing for Automation
+
+In order to create an automation bot to regularly call the data collection code (see **Scheduling Our Data Collection** for more information on this), the code had to be adjusted so that it did not open browser windows, as the opening of browser windows was found to stall the bot. In order to accomplish this, the Selenium module was used. Official Selenium documentation can be found [here](https://selenium-python.readthedocs.io).
+
+Since Selenium was not already downloaded on the device, it needed to be installed. To do this, the following was typed into a Terminal window:
+
+```{python,eval=FALSE}
+pip install selenium
+```
+
+To use Selenium in a code, the libraries and packages will need to be imported. Since *gather_keys_oauth2.py* is the only code package responsible for accessing websites, Selenium only needs to be imported into that document. To do this, the following code was added to *gather_keys_oauth2.py*.
+
+```{python,eval=FALSE}
+from selenium import webdriver
+from selenium.webdriver import Firefox
+from selenium.webdriver.firefox.options import Options
+from selenium.webdriver.common.by import By
+```
+
+Strictly speaking, the only explicitly needed code would be *import Selenium*. However, by importing specific functions from the Selenium library upfront, notation later on was simplified. This can be seen below when firefox options were set. Instead of calling *Selenium.webdriver.firefox.options* every line, *Options* was able to be called instead. 
+
+The appropriate Selenium firefox browser driver was downloaded [here](https://github.com/mozilla/geckodriver/releases). 
+
+**Note** it does not matter where the driver is installed, but its installation path needs to be plugged into the gather_keys_oath2.py code. For those following along with the guide, make a note of the installation path.
+
+The following block of code was written to set the Selenium webdriver functions.
+
+```{python,eval=FALSE}
+firefox_options = Options()
+firefox_options.add_argument("window-size=1920,1080")
+firefox_options.add_argument("--headless")
+firefox_options.add_argument("start-maximized")
+firefox_options.add_argument("--disable-infobars")
+firefox_options.add_argument("--disable-extensions")
+firefox_options.add_argument("--no-sandbox")
+firefox_options.add_argument("--disable-dev-shm-usage")
+firefox_options.binary_location = '/class/datamine/apps/firefox/firefox'
+```
+
+Adjust the path in the final option, *firefox_options.binary_location*, accordingly. 
+The other main option of interest is *firefox_options.add_argument("--headless")*. This *headerless* option is what allows the code to access the Fitbit website without actually opening a browser -- effectively, Python becomes a browser simulator. This is the main reason Selenium was used. The other options are for optimal performance, but not strictly necessary.
+
+
+The first time an account is added, manual permissions will need to be granted to Fitbit's authorization website. To do this, comment out this headerless option (place a “#” before the line), run the *PythonBot.py* code, and check the permissions boxes for each new account as it pops up. After doing this once, uncomment this headerless line. The system will then be ready for full automation.  
+
+The official Selenium documentation also supports a Google Chrome driver. If Chrome is preferred, it can be substituted in for FireFox without issue. However, make sure to change all instances of *firefox* in the above codes to *Chrome.*
+
+With Selenium downloaded and imported, the last step was to call and use Selenium. The following line in *browser_authorize* function in *gather_keys_oauth2.py* was responsible for opening the web browser, so it was targeted for edits. 
+
+```{python,eval=FALSE}
+    threading.Timer(1, webbrowser.open, args=(url,)).start()
+```
+
+As its name might suggest, the *webbrowser.open* function causes a web browser to open. The other passed arguments *1* and *args=(url,)* are parameters that can be left unchanged. This line was replaced with the following code: 
+
+```{python,eval=FALSE}
+    driver = webdriver.Firefox(executable_path = '/class/datamine/apps/geckodriver', options=firefox_options)
+    driver.get("https://accounts.fitbit.com/login?targetUrl=https%3A%2F%2Fwww.fitbit.com%2Fus%2Fhome")
+    sleep(5)
+    driver.find_element(By.XPATH, "//input[@type='email']").send_keys(email)
+    sleep(2)
+    driver.find_element(By.XPATH, "//input[@type='password']").send_keys(password)
+    sleep(2)
+    driver.find_element(By.XPATH, "/html/body/div[2]/div/div[2]/div/div/div[3]/form/div[4]/div/button").click()
+    sleep(10)
+    
+    threading.Timer(1, driver.get, args=(url,)).start()
+```
+
+The first line of the following code initializes the Selenium webdriver. Edit the *executable_path* as needed based on where the firefox driver was installed. The next line, *driver.get*, tells the Selenium web browser what website to go to. The *find_elements* commands are what allow for the automatization of plugging in usernames and emails. The sleep functions are input time delays to help make sure that the website has time to properly load before attempting to log in. The final line should look familiar. It is the same as the original line, except replacing the *webbrowser.open*, which opens a normal web browser, with *driver.get*, which calls Selenium's browser simulator. The rest of *gather_keys_oauth2* can remain as is.
+
+#### Moving to Scholar
+
+When multiple user logins were pushed and data extractions were performed in relatively quick succession on personal Wi-Fi, Fitbit's cybersecurity software flagged and temporarily banned the IP address from accessing their site. While these bans can be overturned by contacting Fitbit's customer support page on Twitter, the "unbanning" is temporary. This leads to a cycle of getting banned and asking to be unbanned, which is both inconvenient and detrimental to any long term data collection plans. The hope with Scholar is that, as an educational IP address, it can be whitelisted and the automated process can function without getting users banned. 
+
+##### Using Scholar
+To access Scholar, go to *https://scholar-fe03.rcac.purdue.edu:300/main/* and login with Purdue 2 Factor Credentials. 
+
+The codes used for this part of the project are written in Python. Unfortunately, Scholar does not currently support Python IDEs (Spyder, VS code, etc). This means that the code either needs to be called through a Jupyter Notebook Kernel or through a terminal window. For now, the code will be run via Terminal commands.
+
+To open Terminal, click on **Terminal Emulator** in Scholar's applications bar. Once Terminal is open, navigate to the */class* directory and then to the appropriate folder. To do this, type the following commands into Terminal:
+
+```{python, eval=FALSE}
+cd ..
+cd ..
+cd /class/datamine/corporate/merck/DataEngineers/Fitbit
+```
+
+Needed files and libraries have been installed on Scholar. Pathways within the code have been adjusted to Scholar's directory. As a result, there is only one more step that needs to be done before the code can be run. This step is to direct the python3 program where to find installed libraries. Type the following command into the Terminal:
+
+```{python, eval=FALSE}
+source /class/datamine/apps/python.sh
+```
+**Note** You will need to rerun this command everytime you close out of Terminal and reopen it.
+
+Now, Scholar is ready to run PythonBot.py! To run the code, type the following into Terminal:
+
+```{python, eval=FALSE}
+python3 PythonBot.py
+```
+
+**Note** if the previous Terminal window was closed, navigate to */class/datamine/corporate/merck/DataEngineers/Fitbit* again before running *python3 PythonBot.py*
+
+Extracted data is formatted into CSV files and accessible at */class/datamine/corporate/merck/DataEngineers/Fitbit/CSV_Files*.
+
+### Multiple Devices
+Not all fitbit devices have the same data available to them. This is most noticeable in older models, in which functionality such as the number of floors climbed or sleep cycles was not yet implemented. Using the get_Devices function available in the Fitbit API, the code returns a string corresponding to the Fitbit version. For example, a Fitbit Ionic would return the string "Ionic". Using this information, if-else statements were implemented to check the version and assign corresponding data values. Data that is not available would be input as "None" within the data table. In some cases, the function can simply check if the data is NULL and automatically do this such as with the sleep data. However for data such as activity levels, the data gets input as a "0" instead and thus needs a check. Checks for some of the newer models have been implemented, along with a generic case. The table below shows the implemented models and their available data:
+                |                                       |Ionic         | Versa Lite  |Inspire      |Charge 3     |
+ ---------------|---------------------------------------|--------------|-------------|-------------|-------------|
+ Activity       |Steps                                  |X             |X            |X            |X            |
+                |Workouts                               |X             |X            |             |             |
+                |Sit/Stand                              |X             |X            |             |             |
+                |Flight Climbed                         |X             |             |             |             |
+                |Elevation                              |X             |             |             |             |
+                |Time spent in different activity levels|X             |X            |             |             |
+                |Calories burned                        |X             |X            |             |             |
+ Sleep          |Asleep vs Awake                        |X             |X            |X            |X            |
+                |Stages                                 |X             |X            |             |             |
+ Heart Rate     |Time spent in different heart ranges   |X             |X            |             |X            |
+                |Resting heart rate                     |X             |X            |             |X            |
+                |Walking Heartrate                      |X             |X            |             |X            |
+                |Heart rate during activity             |X             |X            |             |X            |
+ -----------------------------------------------------------------------------------------------------------------
+ 
+ The following function is what is used to obtain the device model string:
+ ```{python}
+     def getDevice():
+        devices = auth2_client.get_devices()
+        if(len(devices) == 0):
+            deviceVersion = 'None'
+        else:
+            deviceVersion = devices[0]['deviceVersion']    
+        return deviceVersion
+```
+The function first calls the built-in Fitbit API get_devices(). Next it checks the length of the output to determine if it is valid. If it is not valid, the user must not have any device registered. At the moment, the code only obtains the first device if a user has multiple registered.
+
+## Scheduling the Data Collection
+
+Through using the CronTab module within Python, we are able to schedule and run our FitBit functions on a routinely basis. The data we collect is stored in a dataframe and new data is continuously appended to this dataframe. The scheduled time is set to every 9 AM on weekdays.
+
+
+
+## Collaborating with other Teams
+
+Our team had three main interactions with the other teams. The first one was with the Data Architects. When reviewing last year's code, we noticed that sending a CSV file everytime would be inneficient. We discovered a function, dataFrame.to_sql(), which would allow the data to be sent straight into the SQL server. Although a solution was found, we decided to leave the code how it is and save this idea for another day. The second and third interactions were with the Front End team. The first time, we wanted to see if there was a way to easily collect the user's fitbit username and password. The Front End team was able to create a way to have the login information collected from mobile app and saved on the SQL server with the help of the Back End team. This was a very important problem to solve as the API needs to log into the user's fitbit account to pull their data. Our last collaboration was regarding a issue that would result in complications during the clinical trial. Regardless of whether the user is wearing their device or not, any time the fitbit wasn't in an active motion, time is accrued on the user's sedentary minutes. This would be a problem as there is no way to differentiate whether the user was sedentary, or if the fitbit wasn't on the user. After conversing with the Front End team, we decided that an alert system or question during their survey would help solve this issue. This problem is a work in progress and doesn't have a solution as of yet. 
+
+## Future Work
+
+Our future work for the Spring 2021 semester seeks to build upon our work completed during this Fall 2020 semester. Our main goals are listed include: (1) streamlining our work with the other Merck biometric teams to ensure the entire process works well from start to finish, (2) exploring alternative ways to access the user's fitbit information that might better align with the way fitbit intends multiple user data collection, and (3) investigating the collection of data from the Apple Watch.
+
+(1) Streamlining work with the other Merck Biometric teams
+(2) Exploring alternative ways to access the user's fitbit information 
+(3) Investigating the collection of data from the Apple Watch
+
+## Thank you & Acknowledgements
+
+We would like to thank our Merck Corporate Partners, TA, and all the Data Mine staff that have helped us throughout this semester. 

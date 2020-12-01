@@ -1,4 +1,0 @@
-# Autobiographies from the Authors
-
-To help the readers learn more about the students writing in this book, please create a section using a # followed by your name and write a breif paragraph introducing yourslef, your academic background, and your goals!
-

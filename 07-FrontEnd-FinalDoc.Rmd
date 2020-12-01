@@ -1,0 +1,26 @@
+#Front End Team
+
+## Utilization of Third Party Software
+
+The sole third party software being used in our application is Firebase, a Google based software designed for user authentication purposes. The codes upon which this app is built are independently developed by our team members. The data used to develop the app is Biometric data collected currently only through Fitbit, though the goal is to expand the collection capability to be able to obtain Apple Watch data as well. This data is accessed through an external Merck API which is linked through an SCTP request.
+
+## Software Components
+
+Our application has five main sections. The first section covers everything prior to successful user login. This includes the login page along with Firebase authentication. The second section is the home page where users would be able to view displayed data pertaining to themselves. The third section is a graphics page where graphs are presented, informing users their health progress and their default Fitbit data. The fourth section is the question response page where users are guided to complete questionnaires for the purpose of data collection beyond the default data collected by the wearable device. The final section is the user setting page where users can view and edit their information and settings; a log out option is also available through this section.
+
+### Pre-Login section
+
+The pre-login section has been mostly completed, however we are yet to integrate the firebase completely within the page itself. The firebase portion of this page has been created. This portion does not contain any important functions besides the absolute base, standard functions required by firebase to run. The login page aspect of this section has a few important functions. For one, the entire app is stacked into a function called Loginpage to make it harder for consumers to access. The page runs similar to as expected. There’s a space to enter a username and password and a login button which gives a notification that you are being logged in. TextInput and TouchableOpacity were both enabled to allow popup notifications and username and password entry. For the password entry, secureTextEntry was set to true, which turns the letters into dots as they are typed.
+
+### Home Page Section
+
+The home page section is very simple; the current home page is where basic data such as sleep, heart rate, etc would be presented in a clean fashion as a summary. It is our goal to implement additional features to this page along with an in depth description of user's data through the graphics page.
+
+### Question Response Section
+
+The question response page collects data to further bolster the health data collected by the users' wearables. It has many implemented functionality to facilitate the data collection process, for example, it displays information based on users' previous responses; This is done using the constructor function. It also uses the onChangeText function for the sake of clarity when the user selects a value. Ideally, a camera feature will be made available on this page in the event that a user wishes to upload an image to further elaborate on their health conditions.
+
+### User Setting Section
+
+Finally, There is the user information page which contains all of the basic testing information and personal information that clinical trial patient would preferably want to know, users can also log out through this page if they so wishes. Ideally, this page would also bare a camera feature which allow users to set a profile picture. Codes are stored in a function creatively named Code, and consists of basic text and image functions with one TouchableOpacity function so far to log the user out.
+
