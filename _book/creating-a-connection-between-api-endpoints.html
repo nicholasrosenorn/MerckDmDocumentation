@@ -4,11 +4,11 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>Chapter 6 Creating a connection between API Endpoints | Merck-Data Mine Documentation</title>
+  <title>Chapter 6 Creating a connection between API Endpoints | Sprint_Documentation</title>
   <meta name="description" content="A book for documenting the Merck-Data Mine team’s work." />
   <meta name="generator" content="bookdown 0.20 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="Chapter 6 Creating a connection between API Endpoints | Merck-Data Mine Documentation" />
+  <meta property="og:title" content="Chapter 6 Creating a connection between API Endpoints | Sprint_Documentation" />
   <meta property="og:type" content="book" />
   
   
@@ -16,7 +16,7 @@
   
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Chapter 6 Creating a connection between API Endpoints | Merck-Data Mine Documentation" />
+  <meta name="twitter:title" content="Chapter 6 Creating a connection between API Endpoints | Sprint_Documentation" />
   
   <meta name="twitter:description" content="A book for documenting the Merck-Data Mine team’s work." />
   
@@ -24,7 +24,7 @@
 <meta name="author" content="Merck and Data Mine Corporate Partnership Team" />
 
 
-<meta name="date" content="2020-10-26" />
+<meta name="date" content="2020-11-30" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -32,7 +32,7 @@
   
   
 <link rel="prev" href="creation-of-dummy-data.html"/>
-
+<link rel="next" href="hosting-the-database-on-a-server.html"/>
 <script src="libs/header-attrs-2.4/header-attrs.js"></script>
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -114,6 +114,18 @@
 <li class="chapter" data-level="6.3" data-path="creating-a-connection-between-api-endpoints.html"><a href="creating-a-connection-between-api-endpoints.html#setting-up-sql-database-connection"><i class="fa fa-check"></i><b>6.3</b> Setting up SQL database connection:</a></li>
 <li class="chapter" data-level="6.4" data-path="creating-a-connection-between-api-endpoints.html"><a href="creating-a-connection-between-api-endpoints.html#design-of-the-routes"><i class="fa fa-check"></i><b>6.4</b> Design of the Routes</a></li>
 </ul></li>
+<li class="chapter" data-level="7" data-path="hosting-the-database-on-a-server.html"><a href="hosting-the-database-on-a-server.html"><i class="fa fa-check"></i><b>7</b> Hosting the database on a Server</a>
+<ul>
+<li class="chapter" data-level="7.1" data-path="hosting-the-database-on-a-server.html"><a href="hosting-the-database-on-a-server.html#issues-faced-with-hosting-a-database-on-scholar"><i class="fa fa-check"></i><b>7.1</b> Issues faced with hosting a database on Scholar:</a></li>
+<li class="chapter" data-level="7.2" data-path="hosting-the-database-on-a-server.html"><a href="hosting-the-database-on-a-server.html#work-around"><i class="fa fa-check"></i><b>7.2</b> Work around</a></li>
+<li class="chapter" data-level="7.3" data-path="hosting-the-database-on-a-server.html"><a href="hosting-the-database-on-a-server.html#how-we-proceeded"><i class="fa fa-check"></i><b>7.3</b> How we proceeded</a></li>
+</ul></li>
+<li class="chapter" data-level="8" data-path="adding-data-to-the-database.html"><a href="adding-data-to-the-database.html"><i class="fa fa-check"></i><b>8</b> Adding data to the database</a>
+<ul>
+<li class="chapter" data-level="8.1" data-path="adding-data-to-the-database.html"><a href="adding-data-to-the-database.html#adding-a-csv-to-the-database"><i class="fa fa-check"></i><b>8.1</b> Adding a CSV to the database</a></li>
+<li class="chapter" data-level="8.2" data-path="adding-data-to-the-database.html"><a href="adding-data-to-the-database.html#post-information"><i class="fa fa-check"></i><b>8.2</b> POST information</a></li>
+<li class="chapter" data-level="8.3" data-path="adding-data-to-the-database.html"><a href="adding-data-to-the-database.html#patient-information-and-study-specific-data"><i class="fa fa-check"></i><b>8.3</b> Patient information and Study Specific Data</a></li>
+</ul></li>
 <li class="divider"></li>
 <li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
 
@@ -126,7 +138,7 @@
       <div class="body-inner">
         <div class="book-header" role="navigation">
           <h1>
-            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Merck-Data Mine Documentation</a>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Sprint_Documentation</a>
           </h1>
         </div>
 
@@ -170,7 +182,6 @@
 <p><strong>PUT</strong>: The PUT method requests that the enclosed entity be stored under the supplied URI. If the URI refers to an already existing resource, it is modified; if the URI does not point to an existing resource, then the server can create the resource with that URI.</p>
 <p><strong>DELETE</strong>: The DELETE method deletes the specified resource.</p>
 <p><strong>PATCH</strong>: The PATCH method applies partial modifications to a resource</p>
-
 </div>
 </div>
             </section>
@@ -178,8 +189,8 @@
           </div>
         </div>
       </div>
-<a href="creation-of-dummy-data.html" class="navigation navigation-prev navigation-unique" aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-
+<a href="creation-of-dummy-data.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="hosting-the-database-on-a-server.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
@@ -210,7 +221,7 @@ gitbook.start({
 "size": 2
 },
 "edit": {
-"link": "https://github.com/rstudio/bookdown-demo/edit/master/Sprint3_Documentation.Rmd",
+"link": "https://github.com/rstudio/bookdown-demo/edit/master/Sprint_Documentation.Rmd",
 "text": "Edit"
 },
 "history": {
