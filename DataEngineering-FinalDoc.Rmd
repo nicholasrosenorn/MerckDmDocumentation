@@ -12,11 +12,9 @@
 ### Collaborating with other Teams
 ### Future Work
 
-## Introduction to the Team- everyone
+## Introduction to the Team- Everyone
 
 Our data engineering team is comprised of 6 team members all with unique skills and backgrounds. The team worked hard to utilize each member's strengths to help accomplish the semester goals for this project. 
-
-Include a brief sentence including your name, major, year, and relevant experience to the data mine.
 
 Jennifer Leising: I am a 3rd year graduate student in Industrial Engineering. My research is focused on healthcare and data analytics, and I have experience working in Clinical trials for a large Pharma company. 
 Eric Yap: I am sophomore majoring in data science and finance. Most of my classes have helped developed my Python and R skills, which are very transferable to the work I do in the data mine.
@@ -38,35 +36,34 @@ The data engineering team's task was to collect the data and put it into a usabl
 
 The 2019-2020 Merck Biometric team used the Fitbit to gather data for the project. The Merck stakeholder's had also mentioend wanting to explore the Apple Watch to reach additional populations. Our team wanted to better understand what data was available from each company’s devices. As a note, we listed all the features that would be available from any device. We created the chart below to list the features available on each device. We found very similar data to be available on both devices. 
 
-                |                                       |Fitbit         |Apple Watch
- ---------------|---------------------------------------|---------------|---------------
- Activity       |Steps                                  |X              |X
-                |Workouts                               |X              |X
-                |Sit/Stand                              |X*             |NA
-                |Flight Climbed                         |X              |X
-                |Elevation                              |X              |X
-                |Time spent in different activity levels|X              |X
-                |Calories burned                        |X              |X
- Sleep          |Asleep vs Awake                        |X              |X
-                |Stages                                 |X              |NA
- Heart Rate     |Time spent in different heart ranges   |X              |3rd party apps
-                |Resting heart rate                     |X              |X
-                |Walking Heartrate                      |NA             |X
-                |Heart rate during activity             |X              |X
-                |Intraday Tracking                      |5 sec          |10 min
- Nutrition      |Food log*                              |X              |X
-                |Water log*                             |X              |X
- Body/Weight    |BMI*                                   |X              |X
-                |Weight*                                |X              |X
- Additional     |ECG                                    |Coming soon    |X
-                |Blood Oxygen                           |X              |X
-                |Fall Detection                         |X              |X
-                |Skin Thermometer                       |X              |NA
-                |Ear Health                             |NA             |X
-                |Stress Response                        |X              |NA
- ---------------------------------------------------------------------------------------
-    *Entered manually
-    NA = Not Available
+|                    	|                                   	| Fitbit      	| Apple Watch    	|
+|--------------------	|-----------------------------------	|-------------	|----------------	|
+| Activity           	| Steps                             	| x           	| x              	|
+|                    	| Workouts                          	| x           	| x              	|
+|                    	| Sit/Stand*                        	| x*          	| NA             	|
+|                    	| Flights Climbed                   	| x           	| x              	|
+|                    	| Elevation                         	| x           	| x              	|
+|                    	| Time in different activity levels 	| x           	| 3rd party apps 	|
+|                    	| Calories burned                   	| x           	| x              	|
+| Sleep              	| Asleep vs Awake                   	| x           	| x              	|
+|                    	| Stages                            	| x           	| NA             	|
+| Heart Rate         	| Time in different heart rates     	| x           	| x              	|
+|                    	| Resting heart rate                	| x           	| x              	|
+|                    	| Walking heart rate                	| x           	| x              	|
+|                    	| Heart rate during activity        	| x           	| x              	|
+|                    	| Intraday Tracking                 	| 5 sec       	| 10 min         	|
+| Nutrition          	| Food log*                         	| x           	| x              	|
+|                    	| Water log*                        	| x           	| x              	|
+| Body/Weight        	| BMI*                              	| x           	| x              	|
+|                    	| Weight*                           	| x           	| x              	|
+| Additional         	| ECG                               	| Coming soon 	| x              	|
+|                    	| Blood Oxygen                      	| x           	| x              	|
+|                    	| Fall Detection                    	| x           	| x              	|
+|                    	| Skin Thermometer                  	| x           	| NA             	|
+|                    	| Ear Health                        	| NA          	| x              	|
+|                    	| Stress Response                   	| x           	| NA             	|
+| *Entered Manually  	|                                   	|             	|                	|
+| NA = Not Available 	|                                   	|             	|                	|
  
 
 With the Apple Watch, most data tracking is through the Health app and the files are exported as a .xml, which is difficult to read. However, you can also export your data through the Health app and have it opened in Numbers/Excel for easy viewing. For the FitBit, activity is recorded through the watch and outputs a .csv file when exporting, which is easy to read and open in applications like Excel and Numbers.
@@ -255,22 +252,23 @@ Extracted data is formatted into CSV files and accessible at */class/datamine/co
 
 ### Multiple Devices - Allison
 Not all fitbit devices have the same data available to them. This is most noticeable in older models, in which functionality such as the number of floors climbed or sleep cycles was not yet implemented. Using the get_Devices function available in the Fitbit API, the code returns a string corresponding to the Fitbit version. For example, a Fitbit Ionic would return the string "Ionic". Using this information, if-else statements were implemented to check the version and assign corresponding data values. Data that is not available would be input as "None" within the data table. In some cases, the function can simply check if the data is NULL and automatically do this such as with the sleep data. However for data such as activity levels, the data gets input as a "0" instead and thus needs a check. Checks for some of the newer models have been implemented, along with a generic case. The table below shows the implemented models and their available data:
-                |                                       |Ionic         | Versa Lite  |Inspire      |Charge 3     |
- ---------------|---------------------------------------|--------------|-------------|-------------|-------------|
- Activity       |Steps                                  |X             |X            |X            |X            |
-                |Workouts                               |X             |X            |             |             |
-                |Sit/Stand                              |X             |X            |             |             |
-                |Flight Climbed                         |X             |             |             |             |
-                |Elevation                              |X             |             |             |             |
-                |Time spent in different activity levels|X             |X            |             |             |
-                |Calories burned                        |X             |X            |             |             |
- Sleep          |Asleep vs Awake                        |X             |X            |X            |X            |
-                |Stages                                 |X             |X            |             |             |
- Heart Rate     |Time spent in different heart ranges   |X             |X            |             |X            |
-                |Resting heart rate                     |X             |X            |             |X            |
-                |Walking Heartrate                      |X             |X            |             |X            |
-                |Heart rate during activity             |X             |X            |             |X            |
- -----------------------------------------------------------------------------------------------------------------
+
+|            	|                                   	| Ionic 	| Versa Lite 	| Inspire 	| Charge 3 	|
+|------------	|-----------------------------------	|-------	|------------	|---------	|----------	|
+| Activity   	| Steps                             	| x     	| x          	| x       	| x        	|
+|            	| Workouts                          	| x     	| x          	|         	|          	|
+|            	| Sit/Stand                         	| x     	| x          	|         	|          	|
+|            	| Flights Climbed                   	| x     	|            	|         	|          	|
+|            	| Elevation                         	| x     	|            	|         	|          	|
+|            	| Time in different activity levels 	| x     	| x          	|         	|          	|
+|            	| Calories burned                   	| x     	| x          	|         	|          	|
+| Sleep      	| Asleep vs Awake                   	| x     	| x          	| x       	| x        	|
+|            	| Stages                            	| x     	| x          	|         	|          	|
+| Heart Rate 	| Time in different heart rates     	| x     	| x          	|         	| x        	|
+|            	| Resting heart rate                	| x     	| x          	|         	| x        	|
+|            	| Walking heart rate                	| x     	| x          	|         	| x        	|
+|            	| Heart rate during activity        	| x     	| x          	|         	| x        	|
+ 
  
  The following function is what is used to obtain the device model string:
  ```{python}
