@@ -1,0 +1,21 @@
+# Documentation Template
+
+## Introduction
+
+This section will give an overview of what was accomplished during the previous sprint.
+
+## Code
+
+This section is where important code can be documented and commented on. Some teams do not need to include all their code here as this would get excessive. However, important functions or classes should be documented and discussed here.
+
+## Flow Diagrams / Visualizations
+
+This is where teams should showcase flow diagrams of functions, data pipeline, etc. This might also be a good place for visualization/screenshots.
+
+## White Paper
+
+When important decision are made, such as software specifications or product developments, they should be documented in this section. Teams should explain how they came to the conclusion and key takeaways about the decision. 
+
+## Technical Report
+
+This section is where teams can highlight the processes of their work. This is a more in depth look into what was accomplised during the sprint where teams should describe step by step development. 

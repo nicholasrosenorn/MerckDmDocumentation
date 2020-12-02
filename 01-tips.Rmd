@@ -1,0 +1,59 @@
+# Tips for Writing Great Documentation and Walkthroughs
+
+## Find a Good Topic
+
+While writing documentation for a project, it would nearly impossible to include every piece work completed or every line of code written. This makes it important to pick important topics to write about. The goal is to include as much specificty as possible while also remembering the project as its entirety. 
+
+Here are a few helpful concepts to consider when choosing a topic:
+
+1. Step by step guides -- perfect for readers to learn quickly and implement in their own projects
+
+2. In depth discussions of a specific topic  -- great for readers who are looking for deeper knowledge in a topic
+
+3. Numbered lists of useful facts about a common topic -- lightweight readings that readers can consume in bits and pieces. 
+
+## Make Goals and Audience Clear
+
+For these writings, our team will have a dual purpose of writing them.
+
+1. Record the work we have completed
+
+2. Create a centralized location for tutorial based learning
+
+The audience to consider is future team members of the Merck-Data Mine Corporate Partnership and Merck scientists looking to read and learn from our work.
+
+Remember to keep the audience and goal of our documentation in mind as writing your entries.This will help the book keep continuiuty and give readers the best chance to get exposed to the work that we have completed.
+
+## Have a Begining, Middle, and End
+
+It is important to have an introduction, body, and conclusion while writing the documentation. This helps with fluidity within each document and allows for easier comprehension.
+
+### Introduction
+
+The introduction should encourage the reader to continue reading. Start with information about what will be covered in the read and how it applies to the project. Try to keep the introduction less technical so readers aren't discouraged by the complexity of the document.
+
+### Body
+
+The body is where you elaborate on all that you discussed in the introduction. Provide depth and instruction while still relating to the project as a whole. Use headings, photos, numbered lists, bullet points, and formatting to help provide small bits of information at a time. This is where you can facilitate a technical discussion with code.
+
+### Conclusion
+
+Always finish the read with a conclusion, providing assurance of what was just learned and include possible resources for more information (i.e. academic papers, blog posts, youtube videos). It is also appropriate to give the reader a domain in which to use the skills they have learned from your documentation.
+
+## Getting Feedback and Iterate
+
+Everyone on the team is encouraged to follow the documents that are added to this book. Read through them and provide helpful feedback to your teammate on how to improve. 
+
+Some common things to look out for:
+
+1. Formatting -- Does the document flow properly? Are there enough images, code, headers, etc...?
+
+2. Formality -- Is the document written well? Is the language approiate?
+
+3. Goal and Audience -- Does the document relate to the goals and target audiences of this book?
+
+4. Attention -- Was the reading interesting? Is there opportunity to learn from the read?
+
+## Practice, Practice, Practice
+
+Writing the entries in this book will undoubtably get better over time. You are welcome to write as many entries as you'd like. They can be simple or deep, long or short, imformational or technical, etc. As long as the information in this book is informative and relevant to the projects we hope to complete, it is encouraged for all members of the team to write what they want!
