@@ -1,0 +1,794 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>Chapter 7 Data visualization Team | Merck-Data Mine Documentation</title>
+  <meta name="description" content="A book for documenting the Merck-Data Mine team's work." />
+  <meta name="generator" content="bookdown 0.21 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="Chapter 7 Data visualization Team | Merck-Data Mine Documentation" />
+  <meta property="og:type" content="book" />
+  
+  
+  <meta property="og:description" content="A book for documenting the Merck-Data Mine team's work." />
+  
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Chapter 7 Data visualization Team | Merck-Data Mine Documentation" />
+  
+  <meta name="twitter:description" content="A book for documenting the Merck-Data Mine team's work." />
+  
+
+<meta name="author" content="Merck and Data Mine Corporate Partnership Team" />
+
+
+<meta name="date" content="2020-12-02" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="data-architects.html"/>
+<link rel="next" href="back-end-team.html"/>
+<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+
+<link href="libs/anchor-sections-1.0/anchor-sections.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.0/anchor-sections.js"></script>
+
+
+<style type="text/css">
+div.sourceCode { overflow-x: auto; }
+table.sourceCode, tr.sourceCode, td.lineNumbers, td.sourceCode {
+  margin: 0; padding: 0; vertical-align: baseline; border: none; }
+table.sourceCode { width: 100%; line-height: 100%; }
+td.lineNumbers { text-align: right; padding-right: 4px; padding-left: 4px; color: #aaaaaa; border-right: 1px solid #aaaaaa; }
+td.sourceCode { padding-left: 5px; }
+code > span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code > span.dt { color: #902000; } /* DataType */
+code > span.dv { color: #40a070; } /* DecVal */
+code > span.bn { color: #40a070; } /* BaseN */
+code > span.fl { color: #40a070; } /* Float */
+code > span.ch { color: #4070a0; } /* Char */
+code > span.st { color: #4070a0; } /* String */
+code > span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code > span.ot { color: #007020; } /* Other */
+code > span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code > span.fu { color: #06287e; } /* Function */
+code > span.er { color: #ff0000; font-weight: bold; } /* Error */
+code > span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+code > span.cn { color: #880000; } /* Constant */
+code > span.sc { color: #4070a0; } /* SpecialChar */
+code > span.vs { color: #4070a0; } /* VerbatimString */
+code > span.ss { color: #bb6688; } /* SpecialString */
+code > span.im { } /* Import */
+code > span.va { color: #19177c; } /* Variable */
+code > span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code > span.op { color: #666666; } /* Operator */
+code > span.bu { } /* BuiltIn */
+code > span.ex { } /* Extension */
+code > span.pp { color: #bc7a00; } /* Preprocessor */
+code > span.at { color: #7d9029; } /* Attribute */
+code > span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code > span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code > span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+</style>
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./">A Minimal Book Example</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> Introduction</a></li>
+<li class="chapter" data-level="2" data-path="tips-for-writing-great-documentation-and-walkthroughs.html"><a href="tips-for-writing-great-documentation-and-walkthroughs.html"><i class="fa fa-check"></i><b>2</b> Tips for Writing Great Documentation and Walkthroughs</a><ul>
+<li class="chapter" data-level="2.1" data-path="tips-for-writing-great-documentation-and-walkthroughs.html"><a href="tips-for-writing-great-documentation-and-walkthroughs.html#find-a-good-topic"><i class="fa fa-check"></i><b>2.1</b> Find a Good Topic</a></li>
+<li class="chapter" data-level="2.2" data-path="tips-for-writing-great-documentation-and-walkthroughs.html"><a href="tips-for-writing-great-documentation-and-walkthroughs.html#make-goals-and-audience-clear"><i class="fa fa-check"></i><b>2.2</b> Make Goals and Audience Clear</a></li>
+<li class="chapter" data-level="2.3" data-path="tips-for-writing-great-documentation-and-walkthroughs.html"><a href="tips-for-writing-great-documentation-and-walkthroughs.html#have-a-begining-middle-and-end"><i class="fa fa-check"></i><b>2.3</b> Have a Begining, Middle, and End</a><ul>
+<li class="chapter" data-level="2.3.1" data-path="index.html"><a href="index.html#introduction"><i class="fa fa-check"></i><b>2.3.1</b> Introduction</a></li>
+<li class="chapter" data-level="2.3.2" data-path="tips-for-writing-great-documentation-and-walkthroughs.html"><a href="tips-for-writing-great-documentation-and-walkthroughs.html#body"><i class="fa fa-check"></i><b>2.3.2</b> Body</a></li>
+<li class="chapter" data-level="2.3.3" data-path="tips-for-writing-great-documentation-and-walkthroughs.html"><a href="tips-for-writing-great-documentation-and-walkthroughs.html#conclusion"><i class="fa fa-check"></i><b>2.3.3</b> Conclusion</a></li>
+</ul></li>
+<li class="chapter" data-level="2.4" data-path="tips-for-writing-great-documentation-and-walkthroughs.html"><a href="tips-for-writing-great-documentation-and-walkthroughs.html#getting-feedback-and-iterate"><i class="fa fa-check"></i><b>2.4</b> Getting Feedback and Iterate</a></li>
+<li class="chapter" data-level="2.5" data-path="tips-for-writing-great-documentation-and-walkthroughs.html"><a href="tips-for-writing-great-documentation-and-walkthroughs.html#practice-practice-practice"><i class="fa fa-check"></i><b>2.5</b> Practice, Practice, Practice</a></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="documentation-example-the-basics-of-r-markdown.html"><a href="documentation-example-the-basics-of-r-markdown.html"><i class="fa fa-check"></i><b>3</b> Documentation Example - The Basics of R Markdown</a><ul>
+<li class="chapter" data-level="3.1" data-path="documentation-example-the-basics-of-r-markdown.html"><a href="documentation-example-the-basics-of-r-markdown.html#overview-of-r-markdown"><i class="fa fa-check"></i><b>3.1</b> Overview of R Markdown</a></li>
+<li class="chapter" data-level="3.2" data-path="documentation-example-the-basics-of-r-markdown.html"><a href="documentation-example-the-basics-of-r-markdown.html#workflow"><i class="fa fa-check"></i><b>3.2</b> Workflow</a></li>
+<li class="chapter" data-level="3.3" data-path="documentation-example-the-basics-of-r-markdown.html"><a href="documentation-example-the-basics-of-r-markdown.html#opening-a-new-file"><i class="fa fa-check"></i><b>3.3</b> Opening a New File</a></li>
+<li class="chapter" data-level="3.4" data-path="documentation-example-the-basics-of-r-markdown.html"><a href="documentation-example-the-basics-of-r-markdown.html#helpful-syntax"><i class="fa fa-check"></i><b>3.4</b> Helpful Syntax</a></li>
+<li class="chapter" data-level="3.5" data-path="documentation-example-the-basics-of-r-markdown.html"><a href="documentation-example-the-basics-of-r-markdown.html#embed-code"><i class="fa fa-check"></i><b>3.5</b> Embed Code</a></li>
+<li class="chapter" data-level="3.6" data-path="documentation-example-the-basics-of-r-markdown.html"><a href="documentation-example-the-basics-of-r-markdown.html#wrapping-or-knitting-it-up"><i class="fa fa-check"></i><b>3.6</b> Wrapping (or knitting) it Up</a></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="documentation-template.html"><a href="documentation-template.html"><i class="fa fa-check"></i><b>4</b> Documentation Template</a><ul>
+<li class="chapter" data-level="4.1" data-path="documentation-template.html"><a href="documentation-template.html#introduction-1"><i class="fa fa-check"></i><b>4.1</b> Introduction</a></li>
+<li class="chapter" data-level="4.2" data-path="documentation-template.html"><a href="documentation-template.html#code"><i class="fa fa-check"></i><b>4.2</b> Code</a></li>
+<li class="chapter" data-level="4.3" data-path="documentation-template.html"><a href="documentation-template.html#flow-diagrams-visualizations"><i class="fa fa-check"></i><b>4.3</b> Flow Diagrams / Visualizations</a></li>
+<li class="chapter" data-level="4.4" data-path="documentation-template.html"><a href="documentation-template.html#white-paper"><i class="fa fa-check"></i><b>4.4</b> White Paper</a></li>
+<li class="chapter" data-level="4.5" data-path="documentation-template.html"><a href="documentation-template.html#technical-report"><i class="fa fa-check"></i><b>4.5</b> Technical Report</a></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="data-engineering-fall-2020-documentation.html"><a href="data-engineering-fall-2020-documentation.html"><i class="fa fa-check"></i><b>5</b> Data Engineering Fall 2020 Documentation</a><ul>
+<li class="chapter" data-level="5.1" data-path="data-engineering-fall-2020-documentation.html"><a href="data-engineering-fall-2020-documentation.html#introduction-to-the-team"><i class="fa fa-check"></i><b>5.1</b> Introduction to the Team</a></li>
+<li class="chapter" data-level="5.2" data-path="data-engineering-fall-2020-documentation.html"><a href="data-engineering-fall-2020-documentation.html#semester-goals"><i class="fa fa-check"></i><b>5.2</b> Semester Goals</a></li>
+<li class="chapter" data-level="5.3" data-path="data-engineering-fall-2020-documentation.html"><a href="data-engineering-fall-2020-documentation.html#data-overview"><i class="fa fa-check"></i><b>5.3</b> Data Overview</a><ul>
+<li class="chapter" data-level="5.3.1" data-path="data-engineering-fall-2020-documentation.html"><a href="data-engineering-fall-2020-documentation.html#fitbit-devices-vs.-apple-watch"><i class="fa fa-check"></i><b>5.3.1</b> Fitbit Devices vs. Apple Watch</a></li>
+<li class="chapter" data-level="5.3.2" data-path="data-engineering-fall-2020-documentation.html"><a href="data-engineering-fall-2020-documentation.html#data-collected-from-fitbit-devices"><i class="fa fa-check"></i><b>5.3.2</b> Data Collected from Fitbit Devices</a></li>
+</ul></li>
+<li class="chapter" data-level="5.4" data-path="data-engineering-fall-2020-documentation.html"><a href="data-engineering-fall-2020-documentation.html#scaling-the-framework"><i class="fa fa-check"></i><b>5.4</b> Scaling the Framework</a><ul>
+<li class="chapter" data-level="5.4.1" data-path="data-engineering-fall-2020-documentation.html"><a href="data-engineering-fall-2020-documentation.html#multiple-users"><i class="fa fa-check"></i><b>5.4.1</b> Multiple Users</a></li>
+<li class="chapter" data-level="5.4.2" data-path="data-engineering-fall-2020-documentation.html"><a href="data-engineering-fall-2020-documentation.html#multiple-devices"><i class="fa fa-check"></i><b>5.4.2</b> Multiple Devices</a></li>
+</ul></li>
+<li class="chapter" data-level="5.5" data-path="data-engineering-fall-2020-documentation.html"><a href="data-engineering-fall-2020-documentation.html#scheduling-the-data-collection"><i class="fa fa-check"></i><b>5.5</b> Scheduling the Data Collection</a></li>
+<li class="chapter" data-level="5.6" data-path="data-engineering-fall-2020-documentation.html"><a href="data-engineering-fall-2020-documentation.html#collaborating-with-other-teams"><i class="fa fa-check"></i><b>5.6</b> Collaborating with other Teams</a></li>
+<li class="chapter" data-level="5.7" data-path="data-engineering-fall-2020-documentation.html"><a href="data-engineering-fall-2020-documentation.html#future-work"><i class="fa fa-check"></i><b>5.7</b> Future Work</a></li>
+<li class="chapter" data-level="5.8" data-path="data-engineering-fall-2020-documentation.html"><a href="data-engineering-fall-2020-documentation.html#thank-you-acknowledgements"><i class="fa fa-check"></i><b>5.8</b> Thank you &amp; Acknowledgements</a></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="data-architects.html"><a href="data-architects.html"><i class="fa fa-check"></i><b>6</b> Data Architects</a><ul>
+<li class="chapter" data-level="6.1" data-path="data-architects.html"><a href="data-architects.html#background"><i class="fa fa-check"></i><b>6.1</b> Background</a></li>
+<li class="chapter" data-level="6.2" data-path="data-architects.html"><a href="data-architects.html#database-design"><i class="fa fa-check"></i><b>6.2</b> Database Design</a></li>
+<li class="chapter" data-level="6.3" data-path="data-architects.html"><a href="data-architects.html#database-creation-with-neo4j"><i class="fa fa-check"></i><b>6.3</b> Database Creation with Neo4j</a><ul>
+<li class="chapter" data-level="6.3.1" data-path="data-architects.html"><a href="data-architects.html#neo4j-background"><i class="fa fa-check"></i><b>6.3.1</b> Neo4j Background</a></li>
+</ul></li>
+<li class="chapter" data-level="6.4" data-path="data-architects.html"><a href="data-architects.html#code-1"><i class="fa fa-check"></i><b>6.4</b> Code</a></li>
+</ul></li>
+<li class="chapter" data-level="7" data-path="data-visualization-team.html"><a href="data-visualization-team.html"><i class="fa fa-check"></i><b>7</b> Data visualization Team</a><ul>
+<li class="chapter" data-level="7.1" data-path="data-visualization-team.html"><a href="data-visualization-team.html#biometric-wearables"><i class="fa fa-check"></i><b>7.1</b> Biometric Wearables</a></li>
+<li class="chapter" data-level="7.2" data-path="data-visualization-team.html"><a href="data-visualization-team.html#purpose"><i class="fa fa-check"></i><b>7.2</b> Purpose</a></li>
+<li class="chapter" data-level="7.3" data-path="data-visualization-team.html"><a href="data-visualization-team.html#outcome"><i class="fa fa-check"></i><b>7.3</b> Outcome</a></li>
+<li class="chapter" data-level="7.4" data-path="data-visualization-team.html"><a href="data-visualization-team.html#significance"><i class="fa fa-check"></i><b>7.4</b> Significance</a></li>
+<li class="chapter" data-level="7.5" data-path="data-visualization-team.html"><a href="data-visualization-team.html#overview-of-data-visualization-team"><i class="fa fa-check"></i><b>7.5</b> Overview of Data visualization Team</a></li>
+<li class="chapter" data-level="7.6" data-path="data-visualization-team.html"><a href="data-visualization-team.html#previous-work-done-on-the-project"><i class="fa fa-check"></i><b>7.6</b> Previous Work Done on the project</a></li>
+<li class="chapter" data-level="7.7" data-path="data-visualization-team.html"><a href="data-visualization-team.html#team-members"><i class="fa fa-check"></i><b>7.7</b> Team Members</a><ul>
+<li class="chapter" data-level="7.7.1" data-path="data-visualization-team.html"><a href="data-visualization-team.html#ahmed-ashraf-butt"><i class="fa fa-check"></i><b>7.7.1</b> Ahmed Ashraf Butt</a></li>
+<li class="chapter" data-level="7.7.2" data-path="data-visualization-team.html"><a href="data-visualization-team.html#pika-seth"><i class="fa fa-check"></i><b>7.7.2</b> Pika Seth</a></li>
+<li class="chapter" data-level="7.7.3" data-path="data-visualization-team.html"><a href="data-visualization-team.html#sharon-patta"><i class="fa fa-check"></i><b>7.7.3</b> Sharon Patta</a></li>
+<li class="chapter" data-level="7.7.4" data-path="data-visualization-team.html"><a href="data-visualization-team.html#surya-suresh"><i class="fa fa-check"></i><b>7.7.4</b> Surya Suresh</a></li>
+</ul></li>
+<li class="chapter" data-level="7.8" data-path="data-visualization-team.html"><a href="data-visualization-team.html#team-formation"><i class="fa fa-check"></i><b>7.8</b> Team formation</a></li>
+<li class="chapter" data-level="7.9" data-path="data-visualization-team.html"><a href="data-visualization-team.html#term-goals"><i class="fa fa-check"></i><b>7.9</b> Term goals</a></li>
+<li class="chapter" data-level="7.10" data-path="data-visualization-team.html"><a href="data-visualization-team.html#visulization-1"><i class="fa fa-check"></i><b>7.10</b> Visulization 1</a></li>
+<li class="chapter" data-level="7.11" data-path="data-visualization-team.html"><a href="data-visualization-team.html#visulization-2"><i class="fa fa-check"></i><b>7.11</b> Visulization 2</a><ul>
+<li class="chapter" data-level="7.11.1" data-path="data-visualization-team.html"><a href="data-visualization-team.html#code-2"><i class="fa fa-check"></i><b>7.11.1</b> Code</a></li>
+</ul></li>
+<li class="chapter" data-level="7.12" data-path="data-visualization-team.html"><a href="data-visualization-team.html#critical-decisions"><i class="fa fa-check"></i><b>7.12</b> Critical decisions</a></li>
+<li class="chapter" data-level="7.13" data-path="data-visualization-team.html"><a href="data-visualization-team.html#technical-report-1"><i class="fa fa-check"></i><b>7.13</b> Technical Report</a></li>
+</ul></li>
+<li class="chapter" data-level="8" data-path="back-end-team.html"><a href="back-end-team.html"><i class="fa fa-check"></i><b>8</b> Back End Team</a><ul>
+<li class="chapter" data-level="8.1" data-path="back-end-team.html"><a href="back-end-team.html#creation-of-dummy-data"><i class="fa fa-check"></i><b>8.1</b> Creation of Dummy Data</a><ul>
+<li class="chapter" data-level="8.1.1" data-path="back-end-team.html"><a href="back-end-team.html#why-do-we-need-dummy-data"><i class="fa fa-check"></i><b>8.1.1</b> Why do we need dummy data?</a></li>
+<li class="chapter" data-level="8.1.2" data-path="back-end-team.html"><a href="back-end-team.html#how-we-generated-dummy-data"><i class="fa fa-check"></i><b>8.1.2</b> How we generated dummy data?</a></li>
+<li class="chapter" data-level="8.1.3" data-path="back-end-team.html"><a href="back-end-team.html#how-to-run-the-scripts"><i class="fa fa-check"></i><b>8.1.3</b> How to run the scripts?</a></li>
+<li class="chapter" data-level="8.1.4" data-path="back-end-team.html"><a href="back-end-team.html#potential-improvements"><i class="fa fa-check"></i><b>8.1.4</b> Potential improvements</a></li>
+</ul></li>
+<li class="chapter" data-level="8.2" data-path="back-end-team.html"><a href="back-end-team.html#creating-a-connection-between-api-endpoints"><i class="fa fa-check"></i><b>8.2</b> Creating a connection between API Endpoints</a><ul>
+<li class="chapter" data-level="8.2.1" data-path="back-end-team.html"><a href="back-end-team.html#list-of-api-end-points"><i class="fa fa-check"></i><b>8.2.1</b> List of API end-points:</a></li>
+<li class="chapter" data-level="8.2.2" data-path="back-end-team.html"><a href="back-end-team.html#what-framework-we-are-going-to-use"><i class="fa fa-check"></i><b>8.2.2</b> What framework we are going to use?</a></li>
+<li class="chapter" data-level="8.2.3" data-path="back-end-team.html"><a href="back-end-team.html#setting-up-sql-database-connection"><i class="fa fa-check"></i><b>8.2.3</b> Setting up SQL database connection:</a></li>
+<li class="chapter" data-level="8.2.4" data-path="back-end-team.html"><a href="back-end-team.html#design-of-the-routes"><i class="fa fa-check"></i><b>8.2.4</b> Design of the Routes</a></li>
+</ul></li>
+<li class="chapter" data-level="8.3" data-path="back-end-team.html"><a href="back-end-team.html#hosting-the-database-on-a-server"><i class="fa fa-check"></i><b>8.3</b> Hosting the database on a Server</a><ul>
+<li class="chapter" data-level="8.3.1" data-path="back-end-team.html"><a href="back-end-team.html#issues-faced-with-hosting-a-database-on-scholar"><i class="fa fa-check"></i><b>8.3.1</b> Issues faced with hosting a database on Scholar:</a></li>
+<li class="chapter" data-level="8.3.2" data-path="back-end-team.html"><a href="back-end-team.html#work-around"><i class="fa fa-check"></i><b>8.3.2</b> Work around</a></li>
+<li class="chapter" data-level="8.3.3" data-path="back-end-team.html"><a href="back-end-team.html#how-we-proceeded"><i class="fa fa-check"></i><b>8.3.3</b> How we proceeded</a></li>
+</ul></li>
+<li class="chapter" data-level="8.4" data-path="back-end-team.html"><a href="back-end-team.html#adding-data-to-the-database"><i class="fa fa-check"></i><b>8.4</b> Adding data to the database</a><ul>
+<li class="chapter" data-level="8.4.1" data-path="back-end-team.html"><a href="back-end-team.html#adding-a-csv-to-the-database"><i class="fa fa-check"></i><b>8.4.1</b> Adding a CSV to the database</a></li>
+<li class="chapter" data-level="8.4.2" data-path="back-end-team.html"><a href="back-end-team.html#post-information"><i class="fa fa-check"></i><b>8.4.2</b> POST information</a></li>
+<li class="chapter" data-level="8.4.3" data-path="back-end-team.html"><a href="back-end-team.html#patient-information-and-study-specific-data"><i class="fa fa-check"></i><b>8.4.3</b> Patient information and Study Specific Data</a></li>
+</ul></li>
+<li class="chapter" data-level="8.5" data-path="back-end-team.html"><a href="back-end-team.html#firebase-and-login-system-for-the-phone-app"><i class="fa fa-check"></i><b>8.5</b> Firebase and Login System for the Phone App</a></li>
+</ul></li>
+<li class="chapter" data-level="9" data-path="front-end-team.html"><a href="front-end-team.html"><i class="fa fa-check"></i><b>9</b> Front End Team</a><ul>
+<li class="chapter" data-level="9.1" data-path="front-end-team.html"><a href="front-end-team.html#utilization-of-third-party-software"><i class="fa fa-check"></i><b>9.1</b> Utilization of Third Party Software</a></li>
+<li class="chapter" data-level="9.2" data-path="front-end-team.html"><a href="front-end-team.html#software-components"><i class="fa fa-check"></i><b>9.2</b> Software Components</a><ul>
+<li class="chapter" data-level="9.2.1" data-path="front-end-team.html"><a href="front-end-team.html#pre-login-section"><i class="fa fa-check"></i><b>9.2.1</b> Pre-Login section</a></li>
+<li class="chapter" data-level="9.2.2" data-path="front-end-team.html"><a href="front-end-team.html#home-page-section"><i class="fa fa-check"></i><b>9.2.2</b> Home Page Section</a></li>
+<li class="chapter" data-level="9.2.3" data-path="front-end-team.html"><a href="front-end-team.html#question-response-section"><i class="fa fa-check"></i><b>9.2.3</b> Question Response Section</a></li>
+<li class="chapter" data-level="9.2.4" data-path="front-end-team.html"><a href="front-end-team.html#user-setting-section"><i class="fa fa-check"></i><b>9.2.4</b> User Setting Section</a></li>
+</ul></li>
+</ul></li>
+<li class="divider"></li>
+<li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Merck-Data Mine Documentation</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="data-visualization-team" class="section level1">
+<h1><span class="header-section-number">Chapter 7</span> Data visualization Team</h1>
+<div id="biometric-wearables" class="section level2">
+<h2><span class="header-section-number">7.1</span> Biometric Wearables</h2>
+<p>This project is a part of the Purdue data science initiative, where students are given an opportunity to work on the data-driven project, guided by an industry mentor. This Biometric Wearables project is a part of an ongoing collaboration between the Purdue and Merck industry. Following is the brief description of the project:</p>
+</div>
+<div id="purpose" class="section level2">
+<h2><span class="header-section-number">7.2</span> Purpose</h2>
+<p>The purpose of the project is to create an automated system that will capture the biometric data from wearable fitness technology using the mobile application and communicate its’ result to Merck scientists.</p>
+</div>
+<div id="outcome" class="section level2">
+<h2><span class="header-section-number">7.3</span> Outcome</h2>
+<p>This automated system will be able to collect accurate and less biased data from the clinical trial patients because the digital process reduces the human error and reduce the pressure on the clinical trial patient with manual processing procedure.</p>
+</div>
+<div id="significance" class="section level2">
+<h2><span class="header-section-number">7.4</span> Significance</h2>
+<p>This project may help to reduce the experiment biased by collecting more extensive data and using the technology. Also, this approach may help to reduce the clinical trial time and cost to ease of data collection.</p>
+</div>
+<div id="overview-of-data-visualization-team" class="section level2">
+<h2><span class="header-section-number">7.5</span> Overview of Data visualization Team</h2>
+<p>This team is a part of a big team working on the above-described project, part of the Merck-Purdue data science collaboration. This team has been assigned the responsibility to design rich, interactive graphics, data visualization, and plotting method to facilitate the MERCK scientists. In addition, this team is responsible for brainstorming the data, and experiments with different visualization techniques that can help the project.</p>
+</div>
+<div id="previous-work-done-on-the-project" class="section level2">
+<h2><span class="header-section-number">7.6</span> Previous Work Done on the project</h2>
+<p>The previous team that worked on the data visualization aspect of this project created a baseline shiny website that had some specific widgets created. There are two pages on the shiny website i.e., activity progress and step goals. The activity progress has a bar chart that shows the progress by comparing two biometric data points. The bar chart has an x-axis which is to show the dates and a y-axis which is to show the steps. One of the widget’s features on this page was created to view a specific time period of the data. The second page is to show step goals using a pie chart.</p>
+</div>
+<div id="team-members" class="section level2">
+<h2><span class="header-section-number">7.7</span> Team Members</h2>
+<p>Following is the brief introduction of the data visualization team members:</p>
+<div id="ahmed-ashraf-butt" class="section level3">
+<h3><span class="header-section-number">7.7.1</span> Ahmed Ashraf Butt</h3>
+<p>He is a doctoral student at the School of Engineering Education, Purdue University. He is currently working as a research assistant on the CourseMIRROR project funded by the Institute of Education Sciences (IES). He is interested in designing educational tools and exploring their impact on enhancing students’ learning experiences. Also, he is working on the Merck-Purdue data science collaboration responsible for creating an automated system that will capture the biometric data from the wearable fitness technology using the mobile application and communicate its result to Merck scientists.</p>
+</div>
+<div id="pika-seth" class="section level3">
+<h3><span class="header-section-number">7.7.2</span> Pika Seth</h3>
+<p>She is a second-year student in the College of Engineering studying Biomedical Engineering at Purdue University. She is currently involved with the Data Mine Corporate Program working on the Biometrics Wearable Project with Merck. She is involved with the data visualization aspect dealing with the programming of R Shiny. She is a part of the Red Cross Club and the Women in Engineering Program. Also, she is a part of the Sigma Delta Tau sorority.</p>
+</div>
+<div id="sharon-patta" class="section level3">
+<h3><span class="header-section-number">7.7.3</span> Sharon Patta</h3>
+<p>She is a first-year student in the College of Science at Purdue University. She is studying data science. Her interests are in the fields of AI and machine learning.</p>
+</div>
+<div id="surya-suresh" class="section level3">
+<h3><span class="header-section-number">7.7.4</span> Surya Suresh</h3>
+<p>He is a first-year student in the College of Science at Purdue University studying Computer Science. He is working with the Merck Data Mine group on the Data Visualization part of the project.</p>
+</div>
+</div>
+<div id="team-formation" class="section level2">
+<h2><span class="header-section-number">7.8</span> Team formation</h2>
+<p>The team has worked together to become more familiar with R programming and shiny application. Each member of the group explored different data visualizations and then, worked colloborately to implement a new visualization or improving the previous shiny app. Additionally, the group had several meetings to collectively present findings to one another and discuss errors and troubleshooting.</p>
+</div>
+<div id="term-goals" class="section level2">
+<h2><span class="header-section-number">7.9</span> Term goals</h2>
+<p>We are going to begin working on adding more features to the old Shiny App as well as implementing our own visualizations that we think would be useful. We also need to figure out where we are getting our data from once the API is running because as of right now we are just taking it off of the CSV file that has Dr. Ward’s data.</p>
+</div>
+<div id="visulization-1" class="section level2">
+<h2><span class="header-section-number">7.10</span> Visulization 1</h2>
+<p>In this visualization, we were able to create a visualization that adapts to the given data and creates a Data Table with all of the given data. We used the Data Tables library to accomplish this. The Data Table contains two main tabs. One tab contains all of the mean values of the given data. The other tab allows the user to navigate through all of the data points in a clean and efficient way.Specifically it allows the user to filter the data as well as list the data in any desired order. For example, the data can be listed in order from the days with the most steps to the days with the least. ### Code</p>
+<p>I imported the libraries needed for the vizualization</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(shiny) <span class="co">#Used for Shiny Dashboard</span>
+<span class="kw">library</span>(ggplot2) <span class="co">#Needed for Plots (Not specifically this Viz)</span>
+<span class="kw">library</span>(reshape2) <span class="co">#Needed for Plots (Not specifically this Viz)</span>
+<span class="kw">library</span>(DT) <span class="co">#Used for the Data Tables used in this Vizualization</span></code></pre></div>
+<p>biometric data 'bioFinal.csv' for biometric data from 2020 Feb. to present? - Merckteam's data 'DrWardData.csv' for biometric data from 2016 to 2019 April - Dr. Ward's data</p>
+<p>Used to read data into the myDF data frame</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">myDF &lt;-<span class="st"> </span><span class="kw">read.csv</span>(<span class="st">&quot;liveMerck.csv&quot;</span>,<span class="ot">TRUE</span>,<span class="st">&quot;,&quot;</span>)</code></pre></div>
+<p>active miles (stacked)</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">miles1 &lt;-<span class="st"> </span><span class="kw">subset</span>(myDF, <span class="dt">select =</span> <span class="kw">c</span>(<span class="st">&#39;Date&#39;</span>,<span class="st">&#39;Lightly.Active.Miles&#39;</span>,
+                                  <span class="st">&#39;Moderately.Active.Miles&#39;</span>,
+                                  <span class="st">&#39;Very.Active.Miles&#39;</span>))
+miles &lt;-<span class="st"> </span><span class="kw">melt</span>(miles1)
+miles<span class="op">$</span>Date &lt;-<span class="st"> </span><span class="kw">as.Date</span>(miles<span class="op">$</span>Date)</code></pre></div>
+<p>active minutes (stacked)</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">minutes1 &lt;-<span class="st"> </span><span class="kw">subset</span>(myDF, <span class="dt">select =</span> <span class="kw">c</span>(<span class="st">&#39;Date&#39;</span>, <span class="st">&#39;Sedentary.Minutes&#39;</span>,
+                                    <span class="st">&#39;Lightly.Active.Minutes&#39;</span>,
+                                    <span class="st">&#39;Fairly.Active.Minutes&#39;</span>,
+                                    <span class="st">&#39;Very.Active.Minutes&#39;</span>))
+minutes &lt;-<span class="st"> </span><span class="kw">melt</span>(minutes1)
+minutes<span class="op">$</span>Date &lt;-<span class="st"> </span><span class="kw">as.Date</span>(minutes<span class="op">$</span>Date)</code></pre></div>
+<p>HR minutes (stacked)</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">hr1 &lt;-<span class="st"> </span><span class="kw">subset</span>(myDF, <span class="dt">select =</span> <span class="kw">c</span>(<span class="st">&#39;Date&#39;</span>, <span class="st">&#39;HR.30.100.Minutes&#39;</span>,
+                               <span class="st">&#39;HR.100.140.Minutes&#39;</span>, <span class="st">&#39;HR.140.170.Minutes&#39;</span>,
+                               <span class="st">&#39;HR.170.220.Minutes&#39;</span>))
+hr &lt;-<span class="st"> </span><span class="kw">melt</span>(hr1)
+hr<span class="op">$</span>Date &lt;-<span class="st"> </span><span class="kw">as.Date</span>(hr<span class="op">$</span>Date)</code></pre></div>
+<p>Finding out the collums index with numeric value in it.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">columsIndexWithNumberValue &lt;-<span class="st"> </span><span class="kw">unlist</span>(<span class="kw">lapply</span>(myDF, is.numeric)) </code></pre></div>
+<p>Extracting the columns with number value in it.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">columWithNumber &lt;-<span class="st"> </span>myDF[ , columsIndexWithNumberValue]</code></pre></div>
+<p>finding the mean of all collum's mean</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">meansOFColumWithNumber &lt;-<span class="st"> </span><span class="kw">lapply</span>(columWithNumber[,], mean,<span class="dt">na.rm=</span><span class="ot">TRUE</span>)</code></pre></div>
+<p>Converting them back into data frame.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">meansOFColumWithNumberDataFrame&lt;-<span class="kw">data.frame</span>(<span class="kw">matrix</span>(<span class="kw">unlist</span>(meansOFColumWithNumber), <span class="dt">nrow=</span><span class="kw">length</span>(meansOFColumWithNumber), <span class="dt">byrow=</span>T))</code></pre></div>
+<p>Extracting the name of the collums names from columWithNumber.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">colName&lt;-<span class="st"> </span><span class="kw">data.frame</span>(<span class="kw">names</span>(columWithNumber))</code></pre></div>
+<p>Extracting the name of the collums.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">finalDataFrame &lt;-<span class="st"> </span><span class="kw">data.frame</span>(<span class="dt">a=</span>colName, <span class="dt">c=</span>meansOFColumWithNumberDataFrame)</code></pre></div>
+<p>changing the Collum name of the final dataframe</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">colnames</span>(finalDataFrame)[<span class="dv">1</span>]&lt;-<span class="st">&quot;Variables&quot;</span>
+<span class="kw">colnames</span>(finalDataFrame)[<span class="dv">2</span>]&lt;-<span class="st">&quot;Mean Values&quot;</span></code></pre></div>
+<p>myDF to date format</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">myDF<span class="op">$</span>Date =<span class="st"> </span><span class="kw">as.Date</span>(myDF<span class="op">$</span>Date)</code></pre></div>
+<p>Remove the X column from myDF</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">drops &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;X&quot;</span>)
+myDF &lt;-<span class="st"> </span>myDF[ , <span class="op">!</span>(<span class="kw">names</span>(myDF) <span class="op">%in%</span><span class="st"> </span>drops)]</code></pre></div>
+<p>UI of the Application</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Uses the fluidPage and a Sidebar Layout</span>
+ui &lt;-<span class="st"> </span><span class="kw">fluidPage</span>(
+  <span class="dt">title =</span> <span class="st">&quot;Tester&quot;</span>,
+  <span class="kw">titlePanel</span>(<span class="st">&quot;Visualization 1&quot;</span>),
+  <span class="kw">sidebarLayout</span>(
+    <span class="kw">sidebarPanel</span>(
+      <span class="co"># This panel contains the first Data Table</span>
+      <span class="kw">conditionalPanel</span>(
+        <span class="co">#input.dataset is used in DT&#39;s to show which data is actually used</span>
+        <span class="st">&#39;input.dataset === &quot;myDF&quot;&#39;</span>,
+        <span class="co">#Included a checkbox for what columns should be in the data Table</span>
+        <span class="co">#The pre selected columns are &quot;Date&quot; and &quot;Steps&quot;</span>
+        <span class="kw">checkboxGroupInput</span>(<span class="st">&quot;show_vars&quot;</span>, <span class="st">&quot;Columns of information to show:&quot;</span>,
+                           <span class="kw">names</span>(myDF), <span class="dt">selected =</span> <span class="kw">list</span>(<span class="st">&quot;Date&quot;</span>, <span class="st">&quot;Steps&quot;</span>))
+      ),
+      <span class="co"># This panel contains the second Data Table</span>
+      <span class="kw">conditionalPanel</span>(
+        <span class="co">#input.dataset is used in DT&#39;s to show which data is actually used</span>
+        <span class="st">&#39;input.dataset === &quot;finalDataFrame&quot;&#39;</span>,
+        <span class="co">#We can change this text to anything we want user to see</span>
+        <span class="kw">helpText</span>(<span class="st">&quot;Click the column header to sort a column.&quot;</span>)
+      ),
+    ),
+    <span class="kw">mainPanel</span>(
+      <span class="co"># Allows the user to pick between the 2 tabs containing the Data Tables</span>
+      <span class="kw">tabsetPanel</span>(
+        <span class="co">#name of the tabs</span>
+        <span class="dt">id =</span> <span class="st">&#39;dataset&#39;</span>,
+        <span class="co">#First tab named &quot;myDF&quot; contains Data Table from first set of data</span>
+        <span class="kw">tabPanel</span>(<span class="st">&quot;myDF&quot;</span>, DT<span class="op">::</span><span class="kw">dataTableOutput</span>(<span class="st">&quot;mytable1&quot;</span>)),
+        <span class="co">#Second tab named &quot;finalDataFrame&quot; contains DT from second set of data</span>
+        <span class="kw">tabPanel</span>(<span class="st">&quot;finalDataFrame&quot;</span>, DT<span class="op">::</span><span class="kw">dataTableOutput</span>(<span class="st">&quot;mytable2&quot;</span>))
+      )
+    )
+  )
+)</code></pre></div>
+<p>Server of the Application</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">server &lt;-<span class="st"> </span><span class="cf">function</span>(input, output) {
+  <span class="co"># choose columns to display</span>
+  myDF2 =<span class="st"> </span>myDF[<span class="kw">sample</span>(<span class="kw">nrow</span>(myDF), <span class="kw">nrow</span>(myDF), <span class="dt">replace =</span> <span class="ot">FALSE</span>), ]
+  <span class="co">#Used to render the actual Data Table based off any changes made by the user</span>
+  <span class="co">#Changes based on what variables are selected and the filter feature is</span>
+  <span class="co">#located on the top of the Data Table</span>
+  output<span class="op">$</span>mytable1 &lt;-<span class="st"> </span>DT<span class="op">::</span><span class="kw">renderDataTable</span>({
+    DT<span class="op">::</span><span class="kw">datatable</span>(myDF2[, input<span class="op">$</span>show_vars, <span class="dt">drop =</span> <span class="ot">FALSE</span>], <span class="dt">rownames =</span> <span class="ot">FALSE</span>, <span class="dt">filter =</span> <span class="st">&#39;top&#39;</span>)
+  })
+  
+  <span class="co">#Used to render teh Data Table and does not have many features like the first</span>
+  <span class="co">#Data Table. This one only contains the means (finalDataFrame)</span>
+  output<span class="op">$</span>mytable2 &lt;-<span class="st"> </span>DT<span class="op">::</span><span class="kw">renderDataTable</span>({
+    DT<span class="op">::</span><span class="kw">datatable</span>(finalDataFrame, <span class="dt">options =</span> <span class="kw">list</span>(<span class="dt">orderClasses =</span> <span class="ot">TRUE</span>), <span class="dt">rownames =</span> <span class="ot">FALSE</span>)
+  })
+}</code></pre></div>
+<p>Runs the application</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">shinyApp</span>(ui, server)</code></pre></div>
+</div>
+<div id="visulization-2" class="section level2">
+<h2><span class="header-section-number">7.11</span> Visulization 2</h2>
+<p>In this visulization, we categorizes the data into three categories: Steps and Floors Climbed, Distance, and Activity Level. Each category contains bar graphs that display the data for each respective variable per month. Both the Distance and the Activity Level categories display visualizations that separate the data into different subcategories based on the intensity of the activity.</p>
+<div id="code-2" class="section level3">
+<h3><span class="header-section-number">7.11.1</span> Code</h3>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(shiny)
+<span class="kw">library</span>(ggplot2)
+<span class="kw">library</span>(reshape2)
+<span class="co"># biometric data</span>
+<span class="co"># &#39;bioFinal.csv&#39; for biometric data from 2020 Feb. to present? - Merckteam&#39;s data</span>
+<span class="co"># &#39;DrWardData.csv&#39; for biometric data from 2016 to 2019 April - Dr. Ward&#39;s data</span>
+
+<span class="co">#This function reads in the CSV file that contains the data, named DrWardData.csv, and stores it in a data frame called myDF. The argument for the read.csv function is the path where the CSV file is located.</span>
+myDF &lt;-<span class="st"> </span><span class="kw">read.csv</span>(<span class="st">&quot;/class/datamine/corporate/merck/Merck201920/fitbit_data/DrWardData.csv&quot;</span>)
+
+<span class="co"># The subset function selects the data from the myDF data frame that separates the miles the user has walked by activity level, as well as the date column. This subset is stored as &quot;miles1&quot;.</span>
+<span class="co"># The melt function then takes the columns stored in miles1 and stacks them into a single column in &quot;miles&quot;.</span>
+<span class="co"># The as.Date function goes into the Date column of &quot;miles&quot; and correctly formats the values as a date.</span>
+miles1 &lt;-<span class="st"> </span><span class="kw">subset</span>(myDF, <span class="dt">select =</span> <span class="kw">c</span>(<span class="st">&#39;Date&#39;</span>,<span class="st">&#39;Lightly.Active.Miles&#39;</span>, <span class="st">&#39;Moderately.Active.Miles&#39;</span>, <span class="st">&#39;Very.Active.Miles&#39;</span>))
+miles &lt;-<span class="st"> </span><span class="kw">melt</span>(miles1)
+miles<span class="op">$</span>Date &lt;-<span class="st"> </span><span class="kw">as.Date</span>(miles<span class="op">$</span>Date)
+
+<span class="co"># The subset function selects the data from the myDF data frame that separates the minutes the user spends in activity by activity level, as well as the date column. This subset is stored as &quot;minutes1&quot;.</span>
+<span class="co"># The melt function then takes the columns stored in minutes1 and stacks them into a single column in &quot;minutes&quot;.</span>
+<span class="co"># The as.Date function goes into the Date column of &quot;minutes&quot; and correctly formats the values as a date.</span>
+minutes1 &lt;-<span class="st"> </span><span class="kw">subset</span>(myDF, <span class="dt">select =</span> <span class="kw">c</span>(<span class="st">&#39;Date&#39;</span>, <span class="st">&#39;Sedentary.Minutes&#39;</span>, <span class="st">&#39;Lightly.Active.Minutes&#39;</span>, <span class="st">&#39;Fairly.Active.Minutes&#39;</span>, <span class="st">&#39;Very.Active.Minutes&#39;</span>))
+minutes &lt;-<span class="st"> </span><span class="kw">melt</span>(minutes1)
+minutes<span class="op">$</span>Date &lt;-<span class="st"> </span><span class="kw">as.Date</span>(minutes<span class="op">$</span>Date)
+
+<span class="co"># The subset function selects the data from the myDF data frame that separates the data by the number of minutes the user spent with heart rate between 30-100 bpm, 100-140 bpm, 140-170 bpm, and 170-220 bpm, as well as the date column. This subset is stored as &quot;hr1&quot;.</span>
+<span class="co"># The melt function then takes the columns stored in hr1 and stacks them into a single column in &quot;hr&quot;.</span>
+<span class="co"># The as.Date function goes into the Date column of &quot;hr&quot; and correctly formats the values as a date.</span>
+hr1 &lt;-<span class="st"> </span><span class="kw">subset</span>(myDF, <span class="dt">select =</span> <span class="kw">c</span>(<span class="st">&#39;Date&#39;</span>, <span class="st">&#39;HR.30.100.Minutes&#39;</span>, <span class="st">&#39;HR.100.140.Minutes&#39;</span>, <span class="st">&#39;HR.140.170.Minutes&#39;</span>, <span class="st">&#39;HR.170.220.Minutes&#39;</span>))
+hr &lt;-<span class="st"> </span><span class="kw">melt</span>(hr1)
+hr<span class="op">$</span>Date &lt;-<span class="st"> </span><span class="kw">as.Date</span>(hr<span class="op">$</span>Date)
+
+<span class="co"># The as.Date function goes into the Date column of &quot;myDF&quot; and correctly formats the values as a date.</span>
+<span class="co"># The first format function goes into the year column of &quot;myDF&quot; and formats the values as a year.</span>
+<span class="co"># The second format function goes into the month column of &quot;myDF&quot; and formats the values as unabbreviated month names.</span>
+myDF<span class="op">$</span>Date =<span class="st"> </span><span class="kw">as.Date</span>(myDF<span class="op">$</span>Date)
+myDF<span class="op">$</span>year &lt;-<span class="st"> </span><span class="kw">format</span>(myDF<span class="op">$</span>Date,<span class="st">&#39;%Y&#39;</span>)
+myDF<span class="op">$</span>month &lt;-<span class="st"> </span><span class="kw">factor</span>(<span class="kw">format</span>(myDF<span class="op">$</span>Date,<span class="st">&#39;%B&#39;</span>), <span class="dt">levels =</span> month.name)
+
+<span class="co"># Every shiny app must include a UI header beginning with fluidPage()</span>
+<span class="co"># fluidPage() allows the user to adjust the size of their window while preserving the dimensions of the display</span>
+ui&lt;-<span class="kw">fluidPage</span>(
+  <span class="co"># The first section of code uses the navbarPage() function to create the menu at the top of the page titled “Fitbit Dashboard” that allows the user to select the “How to Use” page, the “Activity Progress” page, or the “Step Goals” page</span>
+  
+  <span class="co"># Creates a menu of selections titled &quot;Fitbit Dashboard&quot;</span>
+  <span class="kw">navbarPage</span>(<span class="st">&quot;Fitbit Dashboard&quot;</span>,          
+             <span class="co"># tabPanel 1</span>
+             
+             <span class="co"># The tabPanel() function creates the “How to Use” tab in the Fitbit Dashboard and includes the images, displays, and texts to be shown on the page</span>
+             <span class="kw">tabPanel</span>(<span class="st">&quot;How to Use&quot;</span>,
+                      <span class="co"># Includes Merck logo</span>
+                      <span class="kw">img</span>(<span class="dt">src =</span> <span class="st">&quot;https://assets.phenompeople.com/CareerConnectResources/MERCUS/social/1200x630-1552902977090.jpg&quot;</span>, <span class="dt">height =</span> <span class="dv">120</span>, <span class="dt">width =</span> <span class="dv">220</span>),
+                      <span class="co"># Creates main title &quot;Biometric Data Dashboard&quot;</span>
+                      <span class="kw">h1</span>(<span class="st">&quot;Biometric Data Dashboard&quot;</span>),
+                      <span class="kw">mainPanel</span>(
+                        <span class="co"># Includes bolded text and link</span>
+                        <span class="kw">strong</span>(<span class="st">&quot;Refer to the website here for more information:&quot;</span>),
+                        <span class="kw">a</span>(<span class="st">&quot;https://www.merck.com/index.html&quot;</span>),
+                        <span class="co"># Smaller heading than h1 to create title &quot;How to Use My Dashboard&quot;</span>
+                        <span class="kw">h3</span>(<span class="st">&quot;How to Use My Dashboard&quot;</span>),
+                        <span class="co"># Outputs HTML &quot;text2&quot; which is included in the server block</span>
+                        <span class="kw">htmlOutput</span>(<span class="st">&quot;text2&quot;</span>)
+                      )                      
+             ), 
+             
+             <span class="co"># tabPanel 2</span>
+             
+             <span class="co"># The tabPanel() function creates the “Activity Progress” tab in the Fitbit Dashboard and includes the images, displays, and texts to be shown on the page</span>
+             <span class="kw">tabPanel</span>(<span class="st">&quot;Activity Progress&quot;</span>,
+                      <span class="kw">sidebarLayout</span>(
+                        <span class="co"># Creates title &quot;Activity Progress&quot; for sidebar panel</span>
+                        <span class="kw">sidebarPanel</span>(<span class="kw">h3</span>(<span class="st">&quot;Activity Progress&quot;</span>),
+                                     <span class="co"># Allows user to input date range</span>
+                                     <span class="kw">dateRangeInput</span>(<span class="st">&quot;dates&quot;</span>, (<span class="st">&quot;Date range&quot;</span>)),
+                                     <span class="co"># Allows user to select single y-axis variable for graph</span>
+                                     <span class="kw">varSelectInput</span>(<span class="st">&quot;variables&quot;</span>, (<span class="st">&quot;Variable:&quot;</span>), myDF[<span class="kw">c</span>(<span class="op">-</span><span class="dv">1</span>, <span class="dv">-2</span>)]),
+                                     <span class="co"># Allows user to select variable y-axis (includes all levels of selected on the same graph)</span>
+                                     <span class="kw">selectInput</span>(<span class="st">&quot;stack&quot;</span>, (<span class="st">&quot;Variable (Stacked):&quot;</span>),
+                                                 <span class="kw">c</span>(<span class="st">&quot;N/A&quot;</span> =<span class="st"> &quot;nana&quot;</span>, <span class="st">&quot;Active Miles&quot;</span> =<span class="st"> &quot;miles&quot;</span>, <span class="st">&quot;Active minutes&quot;</span> =<span class="st"> &quot;minutes&quot;</span>, <span class="st">&quot;HR minutes&quot;</span> =<span class="st"> &quot;hr&quot;</span>)),
+                        ),
+                        <span class="co"># Creates the main panel</span>
+                        <span class="kw">mainPanel</span>(
+                          <span class="co"># Includes italicized text</span>
+                          <span class="kw">em</span>(<span class="st">&quot;Select a date range and a variable!&quot;</span>),
+                          <span class="co"># Includes bolded text</span>
+                          <span class="kw">strong</span>(<span class="st">&quot;Refer to the website here for more information:&quot;</span>),
+                          <span class="co"># Includes link</span>
+                          <span class="kw">a</span>(<span class="st">&quot;https://www.merck.com/index.html&quot;</span>),
+                          <span class="co"># Displays the bar graph with selected variable</span>
+                          <span class="kw">plotOutput</span>(<span class="dt">outputId =</span> <span class="st">&quot;bioBarGraph&quot;</span>)
+                        )
+                      )
+             ), 
+             
+             <span class="co"># tabPanel 3</span>
+             
+             <span class="co"># The tabPanel() function creates the “Step Goals” tab in the Fitbit Dashboard and includes the images, displays, and texts to be shown on the page</span>
+             <span class="kw">tabPanel</span>(<span class="st">&quot;Step Goals&quot;</span>,
+                      <span class="co"># Creates sidebar panel with smaller heading &quot;10,000-Step Goal&quot;</span>
+                      <span class="kw">sidebarPanel</span>(<span class="kw">h3</span>(<span class="st">&quot;10,000-Step Goal&quot;</span>),
+                                   <span class="co"># Allows user to input one specific date</span>
+                                   <span class="kw">dateInput</span>(<span class="st">&quot;goaldate&quot;</span>, (<span class="st">&quot;Date&quot;</span>))
+                      ),
+                      <span class="co"># Creates the main panel</span>
+                      <span class="kw">mainPanel</span>(
+                        <span class="co"># Includes bolded text</span>
+                        <span class="kw">strong</span>(<span class="st">&quot;Refer to the website here for more information:&quot;</span>),
+                        <span class="co"># Includes link</span>
+                        <span class="kw">a</span>(<span class="st">&quot;https://www.merck.com/index.html&quot;</span>),
+                        <span class="co"># Displays pie chart</span>
+                        <span class="kw">plotOutput</span>(<span class="dt">outputId =</span> <span class="st">&quot;bioDoughnut&quot;</span>)
+                      )
+             ),
+             <span class="co"># tabPanel 4</span>
+             
+             <span class="co"># The tabPanel() function creates the “Visualization 2” tab in the Fitbit Dashboard and includes the images, displays, and texts to be shown on the page</span>
+             <span class="kw">tabPanel</span>(<span class="st">&quot;Visualization 2&quot;</span>,
+                      <span class="kw">sidebarLayout</span>(
+                        <span class="co"># Creates title &quot;Activity Progress&quot; for sidebar panel</span>
+                        <span class="kw">sidebarPanel</span>(<span class="kw">h3</span>(<span class="st">&quot;Visualization 2&quot;</span>),
+                        ),
+                        <span class="co"># Creates the main panel</span>
+                        <span class="kw">mainPanel</span>(
+                          <span class="co"># Includes bolded text</span>
+                          <span class="kw">strong</span>(<span class="kw">HTML</span>(<span class="st">&quot;Activity graphs are listed below &lt;br/&gt;&quot;</span>)),
+                          <span class="kw">strong</span>(<span class="st">&quot;Steps and Floors Climbed&quot;</span>),
+                          <span class="co"># Displays the bar graph that shows total steps per month</span>
+                          <span class="kw">plotOutput</span>(<span class="dt">outputId =</span> <span class="st">&quot;bioStep&quot;</span>),
+                          <span class="co"># Displays the bar graph that shows total floors climbed per month</span>
+                          <span class="kw">plotOutput</span>(<span class="dt">outputId =</span> <span class="st">&quot;bioFloors&quot;</span>),
+                          <span class="co"># Includes bolded text</span>
+                          <span class="kw">strong</span>(<span class="kw">HTML</span>(<span class="st">&quot;Distance &lt;br/&gt;&quot;</span>)),
+                          <span class="co"># Includes italicized text</span>
+                          <span class="kw">em</span>(<span class="st">&quot;This section shows the total distance walked per month in miles, as well as a breakdown of the activity level of the distance walked.&quot;</span>),
+                          <span class="co"># Displays the bar graph that shows total miles walked per month</span>
+                          <span class="kw">plotOutput</span>(<span class="dt">outputId =</span> <span class="st">&quot;bioTM&quot;</span>),
+                          <span class="co"># Displays the bar graph that shows total number of lightly active miles walked per month</span>
+                          <span class="kw">plotOutput</span>(<span class="dt">outputId =</span> <span class="st">&quot;bioLM&quot;</span>),
+                          <span class="co"># Displays the bar graph that shows total number of moderately active miles walked per month</span>
+                          <span class="kw">plotOutput</span>(<span class="dt">outputId =</span> <span class="st">&quot;bioMM&quot;</span>),
+                          <span class="co"># Displays the bar graph that shows total number of very active miles walked per month</span>
+                          <span class="kw">plotOutput</span>(<span class="dt">outputId =</span> <span class="st">&quot;bioVM&quot;</span>),
+                          <span class="co"># Includes bolded text</span>
+                          <span class="kw">strong</span>(<span class="kw">HTML</span>(<span class="st">&quot;Activity Level &lt;br/&gt;&quot;</span>)),
+                          <span class="co"># Includes italicized text</span>
+                          <span class="kw">em</span>(<span class="st">&quot;This section shows the time spent in each level of activity.&quot;</span>),
+                          <span class="co"># Displays the bar graph that shows the amount of time spent being lightly active per month</span>
+                          <span class="kw">plotOutput</span>(<span class="dt">outputId =</span> <span class="st">&quot;bioLA&quot;</span>),
+                          <span class="co"># Displays the bar graph that shows the amount of time spent being fairly active per month</span>
+                          <span class="kw">plotOutput</span>(<span class="dt">outputId =</span> <span class="st">&quot;bioFA&quot;</span>),
+                          <span class="co"># Displays the bar graph that shows the amount of time spent being very active per month</span>
+                          <span class="kw">plotOutput</span>(<span class="dt">outputId =</span> <span class="st">&quot;bioVA&quot;</span>),
+                        )
+                      )
+             )
+  )
+)
+
+              
+server &lt;-<span class="st"> </span><span class="cf">function</span>(input, output) {
+  
+  <span class="co"># You can access the values of the widget (as a vector of Dates)</span>
+  <span class="co"># with input$dates, </span>
+  <span class="co"># e.g. output$value &lt;- renderPrint({ input$dates })</span>
+  
+  <span class="co"># text on tabPanel 1 </span>
+  output<span class="op">$</span>text2 &lt;-<span class="st"> </span><span class="kw">renderUI</span>({    
+    <span class="kw">HTML</span>(<span class="kw">paste</span>(<span class="st">&quot;&quot;</span>, <span class="st">&quot;1. Activity Progress with Bar Charts&quot;</span>,
+               <span class="st">&quot;- Date Range: select a start and an end date to set a date range of the activity progress&quot;</span>,
+               <span class="st">&quot;- Variables: use the drop-down to select a variable of the activity progress you wish to see&quot;</span>,
+               <span class="st">&quot;- Variables (Stacked): use the drop-down to select a variable of the activity progress you wish to see as a stacked bar chart&quot;</span>,
+               <span class="st">&quot;&quot;</span>, <span class="st">&quot;2. Step Goals with Doughnut Charts&quot;</span>, 
+               <span class="st">&quot;- Date: select a date of the activity progress you wish to see&quot;</span>,
+               <span class="dt">sep=</span><span class="st">&quot;&lt;br/&gt;&quot;</span>))
+  })
+  
+  <span class="co"># bar charts on tabPanel 2</span>
+  output<span class="op">$</span>bioBarGraph &lt;-<span class="st"> </span><span class="kw">renderPlot</span>({
+    
+    <span class="co"># counter for the start date - date range</span>
+    counter1 =<span class="st"> </span><span class="dv">0</span>
+    <span class="cf">for</span> (myDate <span class="cf">in</span> <span class="kw">as.character</span>(myDF<span class="op">$</span>Date)){
+      counter1 =<span class="st"> </span>counter1 <span class="op">+</span><span class="st"> </span><span class="dv">1</span>
+      <span class="cf">if</span> (myDate <span class="op">==</span><span class="st"> </span>input<span class="op">$</span>dates[<span class="dv">1</span>]) {
+        <span class="cf">break</span>
+      }
+    }
+    
+    <span class="co"># counter for the end date - date range</span>
+    counter2 =<span class="st"> </span><span class="dv">0</span>
+    <span class="cf">for</span> (myDate <span class="cf">in</span> <span class="kw">as.character</span>(myDF<span class="op">$</span>Date)){
+      counter2 =<span class="st"> </span>counter2 <span class="op">+</span><span class="st"> </span><span class="dv">1</span>
+      <span class="cf">if</span> (myDate <span class="op">==</span><span class="st"> </span>input<span class="op">$</span>dates[<span class="dv">2</span>]) {
+        <span class="cf">break</span>
+      }
+    }
+    
+    <span class="co"># subset of myDF with the selected date range</span>
+    mySubset &lt;-<span class="st"> </span>myDF[<span class="kw">c</span>(counter1<span class="op">:</span>counter2),]    
+    <span class="cf">if</span> (input<span class="op">$</span>stack <span class="op">==</span><span class="st"> &quot;nana&quot;</span>){ <span class="co"># single bar chart - if stacked bar is N/A</span>
+      <span class="kw">ggplot</span>(<span class="dt">data=</span>mySubset, <span class="kw">aes</span>(<span class="dt">x=</span>Date, <span class="dt">y=</span><span class="op">!!</span>input<span class="op">$</span>variables)) <span class="op">+</span><span class="st"> </span><span class="kw">geom_bar</span>(<span class="dt">stat=</span><span class="st">&quot;identity&quot;</span>, <span class="dt">width =</span> <span class="fl">.5</span>, <span class="dt">fill =</span> <span class="st">&quot;#13A999&quot;</span>)
+    }<span class="cf">else</span> <span class="cf">if</span>(input<span class="op">$</span>stack <span class="op">==</span><span class="st"> &quot;miles&quot;</span>){ <span class="co"># stacked bar chart - active miles</span>
+      <span class="kw">ggplot</span>(<span class="dt">data=</span>miles, <span class="kw">aes</span>(<span class="dt">x=</span>Date, <span class="dt">y=</span>value, <span class="dt">fill=</span>variable)) <span class="op">+</span><span class="st"> </span><span class="kw">geom_bar</span>(<span class="dt">stat=</span><span class="st">&quot;identity&quot;</span>, <span class="dt">width =</span> <span class="fl">.5</span>)
+    }<span class="cf">else</span> <span class="cf">if</span>(input<span class="op">$</span>stack <span class="op">==</span><span class="st"> &quot;minutes&quot;</span>){ <span class="co"># stacked bar chart - active minutes</span>
+      <span class="kw">ggplot</span>(<span class="dt">data=</span>minutes, <span class="kw">aes</span>(<span class="dt">x=</span>Date, <span class="dt">y=</span>value, <span class="dt">fill=</span>variable)) <span class="op">+</span><span class="st"> </span><span class="kw">geom_bar</span>(<span class="dt">stat=</span><span class="st">&quot;identity&quot;</span>, <span class="dt">width =</span> <span class="fl">.5</span>)
+    }<span class="cf">else</span> <span class="cf">if</span>(input<span class="op">$</span>stack <span class="op">==</span><span class="st"> &quot;hr&quot;</span>){ <span class="co"># stacked bar chart - HR minutes</span>
+      <span class="kw">ggplot</span>(<span class="dt">data=</span>hr, <span class="kw">aes</span>(<span class="dt">x=</span>Date, <span class="dt">y=</span>value, <span class="dt">fill=</span>variable)) <span class="op">+</span><span class="st"> </span><span class="kw">geom_bar</span>(<span class="dt">stat=</span><span class="st">&quot;identity&quot;</span>, <span class="dt">width =</span> <span class="fl">.5</span>)
+    }
+  })
+  <span class="co"># Visualization 2</span>
+  <span class="co"># Bar graph that shows total steps per month</span>
+  output<span class="op">$</span>bioStep &lt;-<span class="st"> </span><span class="kw">renderPlot</span>({
+    <span class="kw">ggplot</span>(<span class="dt">data =</span> myDF, <span class="kw">aes</span>(<span class="dt">x =</span> month, <span class="dt">y=</span> Steps))<span class="op">+</span>
+<span class="st">      </span><span class="kw">geom_bar</span>(<span class="dt">stat =</span> <span class="st">&quot;identity&quot;</span>, <span class="dt">color =</span> <span class="st">&quot;#007a73&quot;</span>, <span class="dt">width =</span> <span class="fl">0.5</span>, <span class="dt">position =</span> <span class="kw">position_dodge</span>(<span class="dt">width =</span> <span class="fl">0.6</span>), <span class="dt">fill =</span> <span class="st">&quot;#007a73&quot;</span>) <span class="op">+</span>
+<span class="st">      </span><span class="kw">ggtitle</span>(<span class="st">&quot;Total Steps per Month&quot;</span>) <span class="op">+</span>
+<span class="st">      </span><span class="kw">xlab</span>(<span class="st">&quot;Month&quot;</span>) <span class="op">+</span>
+<span class="st">      </span><span class="kw">ylab</span>(<span class="st">&quot;Steps&quot;</span>)
+  })
+  
+  <span class="co"># Bar graph that shows total floors climbed per month</span>
+  output<span class="op">$</span>bioFloors &lt;-<span class="st"> </span><span class="kw">renderPlot</span>({
+    <span class="kw">ggplot</span>(<span class="dt">data =</span> myDF, <span class="kw">aes</span>(<span class="dt">x =</span> month, <span class="dt">y=</span> Floors.Climbed))<span class="op">+</span>
+<span class="st">      </span><span class="kw">geom_bar</span>(<span class="dt">stat =</span> <span class="st">&quot;identity&quot;</span>, <span class="dt">color =</span> <span class="st">&quot;#007a73&quot;</span>, <span class="dt">width =</span> <span class="fl">0.5</span>, <span class="dt">position =</span> <span class="kw">position_dodge</span>(<span class="dt">width =</span> <span class="fl">0.6</span>), <span class="dt">fill =</span> <span class="st">&quot;#007a73&quot;</span>) <span class="op">+</span>
+<span class="st">      </span><span class="kw">ggtitle</span>(<span class="st">&quot;Total Floors Climbed per Month&quot;</span>) <span class="op">+</span>
+<span class="st">      </span><span class="kw">xlab</span>(<span class="st">&quot;Month&quot;</span>) <span class="op">+</span>
+<span class="st">      </span><span class="kw">ylab</span>(<span class="st">&quot;Floors Climbed&quot;</span>)
+  })
+  
+  <span class="co"># Bar graph that shows total miles walked per month</span>
+  output<span class="op">$</span>bioTM &lt;-<span class="st"> </span><span class="kw">renderPlot</span>({
+    <span class="kw">ggplot</span>(<span class="dt">data =</span> myDF, <span class="kw">aes</span>(<span class="dt">x =</span> month, <span class="dt">y=</span> Total.Miles))<span class="op">+</span>
+<span class="st">      </span><span class="kw">geom_bar</span>(<span class="dt">stat =</span> <span class="st">&quot;identity&quot;</span>, <span class="dt">color =</span> <span class="st">&quot;#007a73&quot;</span>, <span class="dt">width =</span> <span class="fl">0.5</span>, <span class="dt">position =</span> <span class="kw">position_dodge</span>(<span class="dt">width =</span> <span class="fl">0.6</span>), <span class="dt">fill =</span> <span class="st">&quot;#007a73&quot;</span>) <span class="op">+</span>
+<span class="st">      </span><span class="kw">ggtitle</span>(<span class="st">&quot;Total Miles Walked per Month&quot;</span>) <span class="op">+</span>
+<span class="st">      </span><span class="kw">xlab</span>(<span class="st">&quot;Month&quot;</span>) <span class="op">+</span>
+<span class="st">      </span><span class="kw">ylab</span>(<span class="st">&quot;Miles&quot;</span>)
+  })
+  
+  <span class="co"># Bar graph that shows lightly active miles walked per month</span>
+  output<span class="op">$</span>bioLM &lt;-<span class="st"> </span><span class="kw">renderPlot</span>({
+    <span class="kw">ggplot</span>(<span class="dt">data =</span> myDF, <span class="kw">aes</span>(<span class="dt">x =</span> month, <span class="dt">y=</span> Lightly.Active.Miles))<span class="op">+</span>
+<span class="st">      </span><span class="kw">geom_bar</span>(<span class="dt">stat =</span> <span class="st">&quot;identity&quot;</span>, <span class="dt">color =</span> <span class="st">&quot;#007a73&quot;</span>, <span class="dt">width =</span> <span class="fl">0.5</span>, <span class="dt">position =</span> <span class="kw">position_dodge</span>(<span class="dt">width =</span> <span class="fl">0.6</span>), <span class="dt">fill =</span> <span class="st">&quot;#007a73&quot;</span>) <span class="op">+</span>
+<span class="st">      </span><span class="kw">ggtitle</span>(<span class="st">&quot;Lightly Active Miles Walked per Month&quot;</span>) <span class="op">+</span>
+<span class="st">      </span><span class="kw">xlab</span>(<span class="st">&quot;Month&quot;</span>) <span class="op">+</span>
+<span class="st">      </span><span class="kw">ylab</span>(<span class="st">&quot;Miles&quot;</span>)
+  })
+  
+  <span class="co"># Bar graph that shows moderately active miles walked per month</span>
+  output<span class="op">$</span>bioMM &lt;-<span class="st"> </span><span class="kw">renderPlot</span>({
+    <span class="kw">ggplot</span>(<span class="dt">data =</span> myDF, <span class="kw">aes</span>(<span class="dt">x =</span> month, <span class="dt">y=</span> Moderately.Active.Miles))<span class="op">+</span>
+<span class="st">      </span><span class="kw">geom_bar</span>(<span class="dt">stat =</span> <span class="st">&quot;identity&quot;</span>, <span class="dt">color =</span> <span class="st">&quot;#007a73&quot;</span>, <span class="dt">width =</span> <span class="fl">0.5</span>, <span class="dt">position =</span> <span class="kw">position_dodge</span>(<span class="dt">width =</span> <span class="fl">0.6</span>), <span class="dt">fill =</span> <span class="st">&quot;#007a73&quot;</span>) <span class="op">+</span>
+<span class="st">      </span><span class="kw">ggtitle</span>(<span class="st">&quot;Moderately Active Miles Walked per Month&quot;</span>) <span class="op">+</span>
+<span class="st">      </span><span class="kw">xlab</span>(<span class="st">&quot;Month&quot;</span>) <span class="op">+</span>
+<span class="st">      </span><span class="kw">ylab</span>(<span class="st">&quot;Miles&quot;</span>)
+  })
+  
+  <span class="co"># Bar graph that shows very active miles walked per month</span>
+  output<span class="op">$</span>bioVM &lt;-<span class="st"> </span><span class="kw">renderPlot</span>({
+    <span class="kw">ggplot</span>(<span class="dt">data =</span> myDF, <span class="kw">aes</span>(<span class="dt">x =</span> month, <span class="dt">y=</span> Very.Active.Miles))<span class="op">+</span>
+<span class="st">      </span><span class="kw">geom_bar</span>(<span class="dt">stat =</span> <span class="st">&quot;identity&quot;</span>, <span class="dt">color =</span> <span class="st">&quot;#007a73&quot;</span>, <span class="dt">width =</span> <span class="fl">0.5</span>, <span class="dt">position =</span> <span class="kw">position_dodge</span>(<span class="dt">width =</span> <span class="fl">0.6</span>), <span class="dt">fill =</span> <span class="st">&quot;#007a73&quot;</span>) <span class="op">+</span>
+<span class="st">      </span><span class="kw">ggtitle</span>(<span class="st">&quot;Very Active Miles Walked per Month&quot;</span>) <span class="op">+</span>
+<span class="st">      </span><span class="kw">xlab</span>(<span class="st">&quot;Month&quot;</span>) <span class="op">+</span>
+<span class="st">      </span><span class="kw">ylab</span>(<span class="st">&quot;Miles&quot;</span>)
+  })
+  
+  <span class="co"># Bar graph that shows the amount of time spent being lightly active per month</span>
+  output<span class="op">$</span>bioLA &lt;-<span class="st"> </span><span class="kw">renderPlot</span>({
+    <span class="kw">ggplot</span>(<span class="dt">data =</span> myDF, <span class="kw">aes</span>(<span class="dt">x =</span> month, <span class="dt">y=</span> Lightly.Active.Minutes))<span class="op">+</span>
+<span class="st">      </span><span class="kw">geom_bar</span>(<span class="dt">stat =</span> <span class="st">&quot;identity&quot;</span>, <span class="dt">color =</span> <span class="st">&quot;#007a73&quot;</span>, <span class="dt">width =</span> <span class="fl">0.5</span>, <span class="dt">position =</span> <span class="kw">position_dodge</span>(<span class="dt">width =</span> <span class="fl">0.6</span>), <span class="dt">fill =</span> <span class="st">&quot;#007a73&quot;</span>) <span class="op">+</span>
+<span class="st">      </span><span class="kw">ggtitle</span>(<span class="st">&quot;Time Spent Being Lightly Active per Month&quot;</span>) <span class="op">+</span>
+<span class="st">      </span><span class="kw">xlab</span>(<span class="st">&quot;Month&quot;</span>) <span class="op">+</span>
+<span class="st">      </span><span class="kw">ylab</span>(<span class="st">&quot;Minutes&quot;</span>)
+  })
+  
+  <span class="co"># Bar graph that shows the amount of time spent being fairly active per month</span>
+  output<span class="op">$</span>bioFA &lt;-<span class="st"> </span><span class="kw">renderPlot</span>({
+    <span class="kw">ggplot</span>(<span class="dt">data =</span> myDF, <span class="kw">aes</span>(<span class="dt">x =</span> month, <span class="dt">y=</span> Fairly.Active.Minutes))<span class="op">+</span>
+<span class="st">      </span><span class="kw">geom_bar</span>(<span class="dt">stat =</span> <span class="st">&quot;identity&quot;</span>, <span class="dt">color =</span> <span class="st">&quot;#007a73&quot;</span>, <span class="dt">width =</span> <span class="fl">0.5</span>, <span class="dt">position =</span> <span class="kw">position_dodge</span>(<span class="dt">width =</span> <span class="fl">0.6</span>), <span class="dt">fill =</span> <span class="st">&quot;#007a73&quot;</span>) <span class="op">+</span>
+<span class="st">      </span><span class="kw">ggtitle</span>(<span class="st">&quot;Time Spent Being Fairly Active per Month&quot;</span>) <span class="op">+</span>
+<span class="st">      </span><span class="kw">xlab</span>(<span class="st">&quot;Month&quot;</span>) <span class="op">+</span>
+<span class="st">      </span><span class="kw">ylab</span>(<span class="st">&quot;Minutes&quot;</span>)
+  })
+  
+  <span class="co"># Bar graph that shows the amount of time spent being very active per month</span>
+  output<span class="op">$</span>bioVA &lt;-<span class="st"> </span><span class="kw">renderPlot</span>({
+    <span class="kw">ggplot</span>(<span class="dt">data =</span> myDF, <span class="kw">aes</span>(<span class="dt">x =</span> month, <span class="dt">y=</span> Very.Active.Minutes))<span class="op">+</span>
+<span class="st">      </span><span class="kw">geom_bar</span>(<span class="dt">stat =</span> <span class="st">&quot;identity&quot;</span>, <span class="dt">color =</span> <span class="st">&quot;#007a73&quot;</span>, <span class="dt">width =</span> <span class="fl">0.5</span>, <span class="dt">position =</span> <span class="kw">position_dodge</span>(<span class="dt">width =</span> <span class="fl">0.6</span>), <span class="dt">fill =</span> <span class="st">&quot;#007a73&quot;</span>) <span class="op">+</span>
+<span class="st">      </span><span class="kw">ggtitle</span>(<span class="st">&quot;Time Spent Being Very Active per Month&quot;</span>) <span class="op">+</span>
+<span class="st">      </span><span class="kw">xlab</span>(<span class="st">&quot;Month&quot;</span>) <span class="op">+</span>
+<span class="st">      </span><span class="kw">ylab</span>(<span class="st">&quot;Minutes&quot;</span>)
+  })
+  
+  
+  <span class="co"># doughnut chart on tabPanel 3</span>
+  output<span class="op">$</span>bioDoughnut &lt;-<span class="st"> </span><span class="kw">renderPlot</span>({
+    
+    <span class="co"># counter for the date - daily goals</span>
+    counter3 =<span class="st"> </span><span class="dv">0</span> 
+    <span class="cf">for</span> (myDate <span class="cf">in</span> <span class="kw">as.character</span>(myDF<span class="op">$</span>Date)){
+      counter3 =<span class="st"> </span>counter3 <span class="op">+</span><span class="st"> </span><span class="dv">1</span>
+      <span class="cf">if</span> (myDate <span class="op">==</span><span class="st"> </span>input<span class="op">$</span>goaldate) {
+        <span class="cf">break</span>
+      }
+    }
+    
+    <span class="co"># doughnut bar</span>
+    <span class="co"># daily steps of the selected date</span>
+    steps &lt;-<span class="st"> </span>myDF[<span class="kw">c</span>(counter3<span class="op">:</span>counter3),<span class="kw">c</span>(<span class="st">&quot;Steps&quot;</span>)]
+    <span class="co"># get a percentage - daily steps out of 10000 steps</span>
+    data &lt;-<span class="st"> </span><span class="kw">data.frame</span>(
+      <span class="dt">category=</span><span class="kw">c</span>(<span class="st">&quot;Steps&quot;</span>,<span class="st">&quot;N/A&quot;</span>),
+      <span class="dt">count=</span><span class="kw">c</span>(steps, <span class="dv">10000</span><span class="op">-</span>steps)
+    )
+    data<span class="op">$</span>fraction =<span class="st"> </span>data<span class="op">$</span>count <span class="op">/</span><span class="st"> </span><span class="dv">100</span>
+    data<span class="op">$</span>ymax =<span class="st"> </span><span class="kw">cumsum</span>(data<span class="op">$</span>fraction)
+    data<span class="op">$</span>ymin =<span class="st"> </span><span class="kw">c</span>(<span class="dv">0</span>, <span class="kw">head</span>(data<span class="op">$</span>ymax, <span class="dt">n=</span><span class="op">-</span><span class="dv">1</span>))
+    <span class="kw">ggplot</span>(data, <span class="kw">aes</span>(<span class="dt">ymax=</span>ymax, <span class="dt">ymin=</span>ymin, <span class="dt">xmax=</span><span class="dv">4</span>, <span class="dt">xmin=</span><span class="dv">3</span>, <span class="dt">fill=</span>category)) <span class="op">+</span><span class="st"> </span><span class="kw">geom_rect</span>() <span class="op">+</span><span class="st"> </span><span class="kw">coord_polar</span>(<span class="dt">theta=</span><span class="st">&quot;y&quot;</span>) <span class="op">+</span><span class="st"> </span><span class="kw">xlim</span>(<span class="kw">c</span>(<span class="dv">2</span>, <span class="dv">4</span>))
+  })
+}
+<span class="kw">shinyApp</span>(ui, server)</code></pre></div>
+</div>
+</div>
+<div id="critical-decisions" class="section level2">
+<h2><span class="header-section-number">7.12</span> Critical decisions</h2>
+<p>Our group decided to use RStudio to test pieces of R code on our own local machines, but we ran into the problem of not being able to collaborate with our team in an efficient way, so we looked for an alternative method where we could all have access to update a file. We decided to create a repository on bitbucket where we all had access to the files and could update everything using git.</p>
+<p>After setting up the colloboration, we started working to improve the previous dashboard and implementing new feature. To improve our skills in R shiny dashboard, we each implemented a different form of data visualization, including a histogram, a scatterplot, a box plot, and a pie chart, and implemented them using data from the previous year. Additionally, we looked at code from the previous year’s team and tried to run their app and resolve any issues that occurred.</p>
+<p>While implementing the visulization, we faced few difficuluties. For instance, in the viuslization 1, we have to modify the whole visualization as our initial visulization was having issue to modify itself during the user interaction. Simialarly, second visulization was interactive initially and allowed the user to choose which variable they wanted to see on the graph. However, an issue we faced with this was that when the user selected a variable, the values on the y-axis would become N/A and the bars on the graph would all be the same height. After discussing several potential solutions to this issue, we decided that the best option would be to create several static graphs, allowing the user to scroll to the desired graph.</p>
+</div>
+<div id="technical-report-1" class="section level2">
+<h2><span class="header-section-number">7.13</span> Technical Report</h2>
+<p>During the last sprint, we focused mainly on the visualization and refinement stages of our development process. In the visualization stage, we brainstormed, discussed, and developed the code for the two visualizations we created. In the refinement stage, we reviewed the issues in the code and discussed potential solutions. We then cycled back to the visualization stage in order to implement the solutions we discussed.</p>
+
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="data-architects.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="back-end-team.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": "https://github.com/rstudio/bookdown-demo/edit/master/06-DataVisDoc.Rmd",
+"text": "Edit"
+},
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": null,
+"text": null
+},
+"download": ["bookdown-demo.pdf", "bookdown-demo.epub"],
+"toc": {
+"collapse": "subsection"
+}
+});
+});
+</script>
+
+</body>
+
+</html>

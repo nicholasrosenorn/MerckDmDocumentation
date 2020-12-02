@@ -1,0 +1,398 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>Chapter 6 Data Architects | Merck-Data Mine Documentation</title>
+  <meta name="description" content="A book for documenting the Merck-Data Mine team's work." />
+  <meta name="generator" content="bookdown 0.21 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="Chapter 6 Data Architects | Merck-Data Mine Documentation" />
+  <meta property="og:type" content="book" />
+  
+  
+  <meta property="og:description" content="A book for documenting the Merck-Data Mine team's work." />
+  
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Chapter 6 Data Architects | Merck-Data Mine Documentation" />
+  
+  <meta name="twitter:description" content="A book for documenting the Merck-Data Mine team's work." />
+  
+
+<meta name="author" content="Merck and Data Mine Corporate Partnership Team" />
+
+
+<meta name="date" content="2020-12-02" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="data-engineering-fall-2020-documentation.html"/>
+<link rel="next" href="data-visualization-team.html"/>
+<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+
+<link href="libs/anchor-sections-1.0/anchor-sections.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.0/anchor-sections.js"></script>
+
+
+<style type="text/css">
+div.sourceCode { overflow-x: auto; }
+table.sourceCode, tr.sourceCode, td.lineNumbers, td.sourceCode {
+  margin: 0; padding: 0; vertical-align: baseline; border: none; }
+table.sourceCode { width: 100%; line-height: 100%; }
+td.lineNumbers { text-align: right; padding-right: 4px; padding-left: 4px; color: #aaaaaa; border-right: 1px solid #aaaaaa; }
+td.sourceCode { padding-left: 5px; }
+code > span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code > span.dt { color: #902000; } /* DataType */
+code > span.dv { color: #40a070; } /* DecVal */
+code > span.bn { color: #40a070; } /* BaseN */
+code > span.fl { color: #40a070; } /* Float */
+code > span.ch { color: #4070a0; } /* Char */
+code > span.st { color: #4070a0; } /* String */
+code > span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code > span.ot { color: #007020; } /* Other */
+code > span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code > span.fu { color: #06287e; } /* Function */
+code > span.er { color: #ff0000; font-weight: bold; } /* Error */
+code > span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+code > span.cn { color: #880000; } /* Constant */
+code > span.sc { color: #4070a0; } /* SpecialChar */
+code > span.vs { color: #4070a0; } /* VerbatimString */
+code > span.ss { color: #bb6688; } /* SpecialString */
+code > span.im { } /* Import */
+code > span.va { color: #19177c; } /* Variable */
+code > span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code > span.op { color: #666666; } /* Operator */
+code > span.bu { } /* BuiltIn */
+code > span.ex { } /* Extension */
+code > span.pp { color: #bc7a00; } /* Preprocessor */
+code > span.at { color: #7d9029; } /* Attribute */
+code > span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code > span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code > span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+</style>
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./">A Minimal Book Example</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> Introduction</a></li>
+<li class="chapter" data-level="2" data-path="tips-for-writing-great-documentation-and-walkthroughs.html"><a href="tips-for-writing-great-documentation-and-walkthroughs.html"><i class="fa fa-check"></i><b>2</b> Tips for Writing Great Documentation and Walkthroughs</a><ul>
+<li class="chapter" data-level="2.1" data-path="tips-for-writing-great-documentation-and-walkthroughs.html"><a href="tips-for-writing-great-documentation-and-walkthroughs.html#find-a-good-topic"><i class="fa fa-check"></i><b>2.1</b> Find a Good Topic</a></li>
+<li class="chapter" data-level="2.2" data-path="tips-for-writing-great-documentation-and-walkthroughs.html"><a href="tips-for-writing-great-documentation-and-walkthroughs.html#make-goals-and-audience-clear"><i class="fa fa-check"></i><b>2.2</b> Make Goals and Audience Clear</a></li>
+<li class="chapter" data-level="2.3" data-path="tips-for-writing-great-documentation-and-walkthroughs.html"><a href="tips-for-writing-great-documentation-and-walkthroughs.html#have-a-begining-middle-and-end"><i class="fa fa-check"></i><b>2.3</b> Have a Begining, Middle, and End</a><ul>
+<li class="chapter" data-level="2.3.1" data-path="index.html"><a href="index.html#introduction"><i class="fa fa-check"></i><b>2.3.1</b> Introduction</a></li>
+<li class="chapter" data-level="2.3.2" data-path="tips-for-writing-great-documentation-and-walkthroughs.html"><a href="tips-for-writing-great-documentation-and-walkthroughs.html#body"><i class="fa fa-check"></i><b>2.3.2</b> Body</a></li>
+<li class="chapter" data-level="2.3.3" data-path="tips-for-writing-great-documentation-and-walkthroughs.html"><a href="tips-for-writing-great-documentation-and-walkthroughs.html#conclusion"><i class="fa fa-check"></i><b>2.3.3</b> Conclusion</a></li>
+</ul></li>
+<li class="chapter" data-level="2.4" data-path="tips-for-writing-great-documentation-and-walkthroughs.html"><a href="tips-for-writing-great-documentation-and-walkthroughs.html#getting-feedback-and-iterate"><i class="fa fa-check"></i><b>2.4</b> Getting Feedback and Iterate</a></li>
+<li class="chapter" data-level="2.5" data-path="tips-for-writing-great-documentation-and-walkthroughs.html"><a href="tips-for-writing-great-documentation-and-walkthroughs.html#practice-practice-practice"><i class="fa fa-check"></i><b>2.5</b> Practice, Practice, Practice</a></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="documentation-example-the-basics-of-r-markdown.html"><a href="documentation-example-the-basics-of-r-markdown.html"><i class="fa fa-check"></i><b>3</b> Documentation Example - The Basics of R Markdown</a><ul>
+<li class="chapter" data-level="3.1" data-path="documentation-example-the-basics-of-r-markdown.html"><a href="documentation-example-the-basics-of-r-markdown.html#overview-of-r-markdown"><i class="fa fa-check"></i><b>3.1</b> Overview of R Markdown</a></li>
+<li class="chapter" data-level="3.2" data-path="documentation-example-the-basics-of-r-markdown.html"><a href="documentation-example-the-basics-of-r-markdown.html#workflow"><i class="fa fa-check"></i><b>3.2</b> Workflow</a></li>
+<li class="chapter" data-level="3.3" data-path="documentation-example-the-basics-of-r-markdown.html"><a href="documentation-example-the-basics-of-r-markdown.html#opening-a-new-file"><i class="fa fa-check"></i><b>3.3</b> Opening a New File</a></li>
+<li class="chapter" data-level="3.4" data-path="documentation-example-the-basics-of-r-markdown.html"><a href="documentation-example-the-basics-of-r-markdown.html#helpful-syntax"><i class="fa fa-check"></i><b>3.4</b> Helpful Syntax</a></li>
+<li class="chapter" data-level="3.5" data-path="documentation-example-the-basics-of-r-markdown.html"><a href="documentation-example-the-basics-of-r-markdown.html#embed-code"><i class="fa fa-check"></i><b>3.5</b> Embed Code</a></li>
+<li class="chapter" data-level="3.6" data-path="documentation-example-the-basics-of-r-markdown.html"><a href="documentation-example-the-basics-of-r-markdown.html#wrapping-or-knitting-it-up"><i class="fa fa-check"></i><b>3.6</b> Wrapping (or knitting) it Up</a></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="documentation-template.html"><a href="documentation-template.html"><i class="fa fa-check"></i><b>4</b> Documentation Template</a><ul>
+<li class="chapter" data-level="4.1" data-path="documentation-template.html"><a href="documentation-template.html#introduction-1"><i class="fa fa-check"></i><b>4.1</b> Introduction</a></li>
+<li class="chapter" data-level="4.2" data-path="documentation-template.html"><a href="documentation-template.html#code"><i class="fa fa-check"></i><b>4.2</b> Code</a></li>
+<li class="chapter" data-level="4.3" data-path="documentation-template.html"><a href="documentation-template.html#flow-diagrams-visualizations"><i class="fa fa-check"></i><b>4.3</b> Flow Diagrams / Visualizations</a></li>
+<li class="chapter" data-level="4.4" data-path="documentation-template.html"><a href="documentation-template.html#white-paper"><i class="fa fa-check"></i><b>4.4</b> White Paper</a></li>
+<li class="chapter" data-level="4.5" data-path="documentation-template.html"><a href="documentation-template.html#technical-report"><i class="fa fa-check"></i><b>4.5</b> Technical Report</a></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="data-engineering-fall-2020-documentation.html"><a href="data-engineering-fall-2020-documentation.html"><i class="fa fa-check"></i><b>5</b> Data Engineering Fall 2020 Documentation</a><ul>
+<li class="chapter" data-level="5.1" data-path="data-engineering-fall-2020-documentation.html"><a href="data-engineering-fall-2020-documentation.html#introduction-to-the-team"><i class="fa fa-check"></i><b>5.1</b> Introduction to the Team</a></li>
+<li class="chapter" data-level="5.2" data-path="data-engineering-fall-2020-documentation.html"><a href="data-engineering-fall-2020-documentation.html#semester-goals"><i class="fa fa-check"></i><b>5.2</b> Semester Goals</a></li>
+<li class="chapter" data-level="5.3" data-path="data-engineering-fall-2020-documentation.html"><a href="data-engineering-fall-2020-documentation.html#data-overview"><i class="fa fa-check"></i><b>5.3</b> Data Overview</a><ul>
+<li class="chapter" data-level="5.3.1" data-path="data-engineering-fall-2020-documentation.html"><a href="data-engineering-fall-2020-documentation.html#fitbit-devices-vs.-apple-watch"><i class="fa fa-check"></i><b>5.3.1</b> Fitbit Devices vs. Apple Watch</a></li>
+<li class="chapter" data-level="5.3.2" data-path="data-engineering-fall-2020-documentation.html"><a href="data-engineering-fall-2020-documentation.html#data-collected-from-fitbit-devices"><i class="fa fa-check"></i><b>5.3.2</b> Data Collected from Fitbit Devices</a></li>
+</ul></li>
+<li class="chapter" data-level="5.4" data-path="data-engineering-fall-2020-documentation.html"><a href="data-engineering-fall-2020-documentation.html#scaling-the-framework"><i class="fa fa-check"></i><b>5.4</b> Scaling the Framework</a><ul>
+<li class="chapter" data-level="5.4.1" data-path="data-engineering-fall-2020-documentation.html"><a href="data-engineering-fall-2020-documentation.html#multiple-users"><i class="fa fa-check"></i><b>5.4.1</b> Multiple Users</a></li>
+<li class="chapter" data-level="5.4.2" data-path="data-engineering-fall-2020-documentation.html"><a href="data-engineering-fall-2020-documentation.html#multiple-devices"><i class="fa fa-check"></i><b>5.4.2</b> Multiple Devices</a></li>
+</ul></li>
+<li class="chapter" data-level="5.5" data-path="data-engineering-fall-2020-documentation.html"><a href="data-engineering-fall-2020-documentation.html#scheduling-the-data-collection"><i class="fa fa-check"></i><b>5.5</b> Scheduling the Data Collection</a></li>
+<li class="chapter" data-level="5.6" data-path="data-engineering-fall-2020-documentation.html"><a href="data-engineering-fall-2020-documentation.html#collaborating-with-other-teams"><i class="fa fa-check"></i><b>5.6</b> Collaborating with other Teams</a></li>
+<li class="chapter" data-level="5.7" data-path="data-engineering-fall-2020-documentation.html"><a href="data-engineering-fall-2020-documentation.html#future-work"><i class="fa fa-check"></i><b>5.7</b> Future Work</a></li>
+<li class="chapter" data-level="5.8" data-path="data-engineering-fall-2020-documentation.html"><a href="data-engineering-fall-2020-documentation.html#thank-you-acknowledgements"><i class="fa fa-check"></i><b>5.8</b> Thank you &amp; Acknowledgements</a></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="data-architects.html"><a href="data-architects.html"><i class="fa fa-check"></i><b>6</b> Data Architects</a><ul>
+<li class="chapter" data-level="6.1" data-path="data-architects.html"><a href="data-architects.html#background"><i class="fa fa-check"></i><b>6.1</b> Background</a></li>
+<li class="chapter" data-level="6.2" data-path="data-architects.html"><a href="data-architects.html#database-design"><i class="fa fa-check"></i><b>6.2</b> Database Design</a></li>
+<li class="chapter" data-level="6.3" data-path="data-architects.html"><a href="data-architects.html#database-creation-with-neo4j"><i class="fa fa-check"></i><b>6.3</b> Database Creation with Neo4j</a><ul>
+<li class="chapter" data-level="6.3.1" data-path="data-architects.html"><a href="data-architects.html#neo4j-background"><i class="fa fa-check"></i><b>6.3.1</b> Neo4j Background</a></li>
+</ul></li>
+<li class="chapter" data-level="6.4" data-path="data-architects.html"><a href="data-architects.html#code-1"><i class="fa fa-check"></i><b>6.4</b> Code</a></li>
+</ul></li>
+<li class="chapter" data-level="7" data-path="data-visualization-team.html"><a href="data-visualization-team.html"><i class="fa fa-check"></i><b>7</b> Data visualization Team</a><ul>
+<li class="chapter" data-level="7.1" data-path="data-visualization-team.html"><a href="data-visualization-team.html#biometric-wearables"><i class="fa fa-check"></i><b>7.1</b> Biometric Wearables</a></li>
+<li class="chapter" data-level="7.2" data-path="data-visualization-team.html"><a href="data-visualization-team.html#purpose"><i class="fa fa-check"></i><b>7.2</b> Purpose</a></li>
+<li class="chapter" data-level="7.3" data-path="data-visualization-team.html"><a href="data-visualization-team.html#outcome"><i class="fa fa-check"></i><b>7.3</b> Outcome</a></li>
+<li class="chapter" data-level="7.4" data-path="data-visualization-team.html"><a href="data-visualization-team.html#significance"><i class="fa fa-check"></i><b>7.4</b> Significance</a></li>
+<li class="chapter" data-level="7.5" data-path="data-visualization-team.html"><a href="data-visualization-team.html#overview-of-data-visualization-team"><i class="fa fa-check"></i><b>7.5</b> Overview of Data visualization Team</a></li>
+<li class="chapter" data-level="7.6" data-path="data-visualization-team.html"><a href="data-visualization-team.html#previous-work-done-on-the-project"><i class="fa fa-check"></i><b>7.6</b> Previous Work Done on the project</a></li>
+<li class="chapter" data-level="7.7" data-path="data-visualization-team.html"><a href="data-visualization-team.html#team-members"><i class="fa fa-check"></i><b>7.7</b> Team Members</a><ul>
+<li class="chapter" data-level="7.7.1" data-path="data-visualization-team.html"><a href="data-visualization-team.html#ahmed-ashraf-butt"><i class="fa fa-check"></i><b>7.7.1</b> Ahmed Ashraf Butt</a></li>
+<li class="chapter" data-level="7.7.2" data-path="data-visualization-team.html"><a href="data-visualization-team.html#pika-seth"><i class="fa fa-check"></i><b>7.7.2</b> Pika Seth</a></li>
+<li class="chapter" data-level="7.7.3" data-path="data-visualization-team.html"><a href="data-visualization-team.html#sharon-patta"><i class="fa fa-check"></i><b>7.7.3</b> Sharon Patta</a></li>
+<li class="chapter" data-level="7.7.4" data-path="data-visualization-team.html"><a href="data-visualization-team.html#surya-suresh"><i class="fa fa-check"></i><b>7.7.4</b> Surya Suresh</a></li>
+</ul></li>
+<li class="chapter" data-level="7.8" data-path="data-visualization-team.html"><a href="data-visualization-team.html#team-formation"><i class="fa fa-check"></i><b>7.8</b> Team formation</a></li>
+<li class="chapter" data-level="7.9" data-path="data-visualization-team.html"><a href="data-visualization-team.html#term-goals"><i class="fa fa-check"></i><b>7.9</b> Term goals</a></li>
+<li class="chapter" data-level="7.10" data-path="data-visualization-team.html"><a href="data-visualization-team.html#visulization-1"><i class="fa fa-check"></i><b>7.10</b> Visulization 1</a></li>
+<li class="chapter" data-level="7.11" data-path="data-visualization-team.html"><a href="data-visualization-team.html#visulization-2"><i class="fa fa-check"></i><b>7.11</b> Visulization 2</a><ul>
+<li class="chapter" data-level="7.11.1" data-path="data-visualization-team.html"><a href="data-visualization-team.html#code-2"><i class="fa fa-check"></i><b>7.11.1</b> Code</a></li>
+</ul></li>
+<li class="chapter" data-level="7.12" data-path="data-visualization-team.html"><a href="data-visualization-team.html#critical-decisions"><i class="fa fa-check"></i><b>7.12</b> Critical decisions</a></li>
+<li class="chapter" data-level="7.13" data-path="data-visualization-team.html"><a href="data-visualization-team.html#technical-report-1"><i class="fa fa-check"></i><b>7.13</b> Technical Report</a></li>
+</ul></li>
+<li class="chapter" data-level="8" data-path="back-end-team.html"><a href="back-end-team.html"><i class="fa fa-check"></i><b>8</b> Back End Team</a><ul>
+<li class="chapter" data-level="8.1" data-path="back-end-team.html"><a href="back-end-team.html#creation-of-dummy-data"><i class="fa fa-check"></i><b>8.1</b> Creation of Dummy Data</a><ul>
+<li class="chapter" data-level="8.1.1" data-path="back-end-team.html"><a href="back-end-team.html#why-do-we-need-dummy-data"><i class="fa fa-check"></i><b>8.1.1</b> Why do we need dummy data?</a></li>
+<li class="chapter" data-level="8.1.2" data-path="back-end-team.html"><a href="back-end-team.html#how-we-generated-dummy-data"><i class="fa fa-check"></i><b>8.1.2</b> How we generated dummy data?</a></li>
+<li class="chapter" data-level="8.1.3" data-path="back-end-team.html"><a href="back-end-team.html#how-to-run-the-scripts"><i class="fa fa-check"></i><b>8.1.3</b> How to run the scripts?</a></li>
+<li class="chapter" data-level="8.1.4" data-path="back-end-team.html"><a href="back-end-team.html#potential-improvements"><i class="fa fa-check"></i><b>8.1.4</b> Potential improvements</a></li>
+</ul></li>
+<li class="chapter" data-level="8.2" data-path="back-end-team.html"><a href="back-end-team.html#creating-a-connection-between-api-endpoints"><i class="fa fa-check"></i><b>8.2</b> Creating a connection between API Endpoints</a><ul>
+<li class="chapter" data-level="8.2.1" data-path="back-end-team.html"><a href="back-end-team.html#list-of-api-end-points"><i class="fa fa-check"></i><b>8.2.1</b> List of API end-points:</a></li>
+<li class="chapter" data-level="8.2.2" data-path="back-end-team.html"><a href="back-end-team.html#what-framework-we-are-going-to-use"><i class="fa fa-check"></i><b>8.2.2</b> What framework we are going to use?</a></li>
+<li class="chapter" data-level="8.2.3" data-path="back-end-team.html"><a href="back-end-team.html#setting-up-sql-database-connection"><i class="fa fa-check"></i><b>8.2.3</b> Setting up SQL database connection:</a></li>
+<li class="chapter" data-level="8.2.4" data-path="back-end-team.html"><a href="back-end-team.html#design-of-the-routes"><i class="fa fa-check"></i><b>8.2.4</b> Design of the Routes</a></li>
+</ul></li>
+<li class="chapter" data-level="8.3" data-path="back-end-team.html"><a href="back-end-team.html#hosting-the-database-on-a-server"><i class="fa fa-check"></i><b>8.3</b> Hosting the database on a Server</a><ul>
+<li class="chapter" data-level="8.3.1" data-path="back-end-team.html"><a href="back-end-team.html#issues-faced-with-hosting-a-database-on-scholar"><i class="fa fa-check"></i><b>8.3.1</b> Issues faced with hosting a database on Scholar:</a></li>
+<li class="chapter" data-level="8.3.2" data-path="back-end-team.html"><a href="back-end-team.html#work-around"><i class="fa fa-check"></i><b>8.3.2</b> Work around</a></li>
+<li class="chapter" data-level="8.3.3" data-path="back-end-team.html"><a href="back-end-team.html#how-we-proceeded"><i class="fa fa-check"></i><b>8.3.3</b> How we proceeded</a></li>
+</ul></li>
+<li class="chapter" data-level="8.4" data-path="back-end-team.html"><a href="back-end-team.html#adding-data-to-the-database"><i class="fa fa-check"></i><b>8.4</b> Adding data to the database</a><ul>
+<li class="chapter" data-level="8.4.1" data-path="back-end-team.html"><a href="back-end-team.html#adding-a-csv-to-the-database"><i class="fa fa-check"></i><b>8.4.1</b> Adding a CSV to the database</a></li>
+<li class="chapter" data-level="8.4.2" data-path="back-end-team.html"><a href="back-end-team.html#post-information"><i class="fa fa-check"></i><b>8.4.2</b> POST information</a></li>
+<li class="chapter" data-level="8.4.3" data-path="back-end-team.html"><a href="back-end-team.html#patient-information-and-study-specific-data"><i class="fa fa-check"></i><b>8.4.3</b> Patient information and Study Specific Data</a></li>
+</ul></li>
+<li class="chapter" data-level="8.5" data-path="back-end-team.html"><a href="back-end-team.html#firebase-and-login-system-for-the-phone-app"><i class="fa fa-check"></i><b>8.5</b> Firebase and Login System for the Phone App</a></li>
+</ul></li>
+<li class="chapter" data-level="9" data-path="front-end-team.html"><a href="front-end-team.html"><i class="fa fa-check"></i><b>9</b> Front End Team</a><ul>
+<li class="chapter" data-level="9.1" data-path="front-end-team.html"><a href="front-end-team.html#utilization-of-third-party-software"><i class="fa fa-check"></i><b>9.1</b> Utilization of Third Party Software</a></li>
+<li class="chapter" data-level="9.2" data-path="front-end-team.html"><a href="front-end-team.html#software-components"><i class="fa fa-check"></i><b>9.2</b> Software Components</a><ul>
+<li class="chapter" data-level="9.2.1" data-path="front-end-team.html"><a href="front-end-team.html#pre-login-section"><i class="fa fa-check"></i><b>9.2.1</b> Pre-Login section</a></li>
+<li class="chapter" data-level="9.2.2" data-path="front-end-team.html"><a href="front-end-team.html#home-page-section"><i class="fa fa-check"></i><b>9.2.2</b> Home Page Section</a></li>
+<li class="chapter" data-level="9.2.3" data-path="front-end-team.html"><a href="front-end-team.html#question-response-section"><i class="fa fa-check"></i><b>9.2.3</b> Question Response Section</a></li>
+<li class="chapter" data-level="9.2.4" data-path="front-end-team.html"><a href="front-end-team.html#user-setting-section"><i class="fa fa-check"></i><b>9.2.4</b> User Setting Section</a></li>
+</ul></li>
+</ul></li>
+<li class="divider"></li>
+<li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Merck-Data Mine Documentation</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="data-architects" class="section level1">
+<h1><span class="header-section-number">Chapter 6</span> Data Architects</h1>
+<div id="background" class="section level2">
+<h2><span class="header-section-number">6.1</span> Background</h2>
+<p>What is a database?</p>
+<p>A database is an organized collection of data stored electronically. It is typically controlled by a database management system (DBMS). There are two main categories a database can fall into: relational and non-relational. A relational database is one that stores data in rows and columns, otherwise known as a table. While a simple database may include only one table, a typical functional database contains multiple tables. These tables are linked to each other using keys. A primary key is a unique identifier and is referenced by other tables. When in another table, it is considered a foreign key. While it is not necessary, it is common practice to include a primary key in every table. Nearly all relational databases rely on the programming language SQL (Structured Query Language) to query, manipulate, and define data, as well as proved access control. The term “non-relational database” is a blanket term for all other databases that do not rely on SQL, hence their other name, NoSQL. These databases can take on many forms: key-value store, document store, column-oriented databases, and graph databases, to name a few.</p>
+</div>
+<div id="database-design" class="section level2">
+<h2><span class="header-section-number">6.2</span> Database Design</h2>
+<p>Designing a relational database is straightforward. First, the data that will go into the database must be known, along with the datatypes. Next, an entity relationship diagram (ERD) should be constructed. This will help keep the design of the database organized. There are plenty of excellent free tools on the internet that help with design and construction. Lucidchart is one of these tools. Lucidchart allows one to design an ERD and then export it as an SQL script! This can be handy, especially when first starting out with SQL. Below is the ERD for the current (at the time of writing this) working database. PK stands for primary key, and FK stands for foreign key. This ERD includes the datatypes as well, which is necessary for properly creating a database.</p>
+<div class="figure">
+<img src="images/entity.png" style="width:50.0%" />
+
+</div>
+<p>Database Creation with SQL Exporting the ERD above results in the following SQL code:</p>
+<p><img src="images/a1.png" style="width:40.0%" /> <img src="images/a2.png" style="width:40.0%" /></p>
+<p>However, this code lacks a few required pieces. The foreign keys did not populate, and the primary keys do not reference the other tables. We also have not “created” a database yet, nor told our program which database to use. These issues are fixed in the following code snippet, along with some syntax changes. These syntax changes were necessary because the server our database is hosted on has some requirements that are not very important (at least not right now).</p>
+<p><img src="images/a3.png" style="width:50.0%" /> <img src="images/a4.png" style="width:50.0%" /> <img src="images/a5.png" style="width:50.0%" /></p>
+<p>The following snippets are useful commands for handling the database.</p>
+<div class="figure">
+<img src="images/a6.png" style="width:50.0%" />
+
+</div>
+</div>
+<div id="database-creation-with-neo4j" class="section level2">
+<h2><span class="header-section-number">6.3</span> Database Creation with Neo4j</h2>
+<div id="neo4j-background" class="section level3">
+<h3><span class="header-section-number">6.3.1</span> Neo4j Background</h3>
+<p>Neo4j is a graph database created by Neo4j inc. Neo4j is implemented in Java; however, it can also be written with any other cypher query language.</p>
+</div>
+</div>
+<div id="code-1" class="section level2">
+<h2><span class="header-section-number">6.4</span> Code</h2>
+<p>This creates the first two nodes. The yellow highlight section would be the user node. The green highlight section shows the relationship between the two nodes. The orange highlight section shows the other node which would be the username. The light blue highlighted section returns and stores the two nodes into the system.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="fl">1.</span> <span class="kw">create</span>(u<span class="op">:</span>user {name<span class="op">:</span><span class="st">&#39;User&#39;</span>})<span class="op">-</span>[<span class="op">:</span>makes]-&gt;(n<span class="op">:</span>user{name<span class="op">:</span><span class="st">&#39;Username&#39;</span>}) return u,n</code></pre></div>
+<p>The yellow highlighted section codes the user node again. Instead of creating a new node for User we can just match the node with the new node you want to create. The green highlighted section describes the relationships between the two nodes. The blue highlighted section is the code for the new node. The orange highlighted section is the code for return which would store the nodes into the system.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="fl">2.</span> <span class="kw">match</span>(u<span class="op">:</span>user {name<span class="op">:</span><span class="st">&#39;User&#39;</span>}) <span class="kw">create</span> (u)<span class="op">-</span>[<span class="op">:</span>enters]-&gt;<span class="st"> </span>(DA<span class="op">:</span>user{name<span class="op">:</span><span class="st"> &#39;Date of Birth&#39;</span>}) return u,DA</code></pre></div>
+<p>This line of code codes for a new node “Last Name” which stores the last name of the patient. This node holds a relationship with the User node.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="fl">3.</span> <span class="kw">match</span>(u<span class="op">:</span>user {name<span class="op">:</span><span class="st">&#39;User&#39;</span>}) <span class="kw">create</span> (u)<span class="op">-</span><span class="st"> </span>[<span class="op">:</span>enters]-&gt;<span class="st"> </span>(LN<span class="op">:</span>user{name<span class="op">:</span><span class="st">&#39;Last Name&#39;</span>}) return u,LN</code></pre></div>
+<p>Similar to the code on the third line. A new node has been created, however this node is created to store the last name of the user.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="fl">4.</span> <span class="kw">match</span>(u<span class="op">:</span>user {name<span class="op">:</span><span class="st">&#39;User&#39;</span>}) <span class="kw">create</span> (u)<span class="op">-</span><span class="st"> </span>[<span class="op">:</span>enters]-&gt;<span class="st"> </span>(FN<span class="op">:</span>user{name<span class="op">:</span><span class="st">&#39;First Name&#39;</span>}) return u,FN</code></pre></div>
+<p>A new node is created with this code. The node stores the Height of the user.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="fl">5.</span> <span class="kw">match</span>(u<span class="op">:</span>user {name<span class="op">:</span><span class="st">&#39;User&#39;</span>}) <span class="kw">create</span> (u)<span class="op">-</span><span class="st"> </span>[<span class="op">:</span>enters]-&gt;<span class="st"> </span>(H<span class="op">:</span>user{name<span class="op">:</span><span class="st">&#39;Height&#39;</span>}) return u,H</code></pre></div>
+<p>The ID node is created, thus allowing for the user id to be stored.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="fl">6.</span> <span class="kw">match</span>(u<span class="op">:</span>user {name<span class="op">:</span><span class="st">&#39;User&#39;</span>}) <span class="kw">create</span> (u)<span class="op">-</span><span class="st"> </span>[<span class="op">:</span>enters]-&gt;<span class="st"> </span>(I<span class="op">:</span>user{name<span class="op">:</span><span class="st">&#39;ID&#39;</span>}) return u,I</code></pre></div>
+<p>This line of code codes for a new node “Merck Data” which stores the last name of the patient. This node holds a relationship with the ID node.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="fl">7.</span> <span class="kw">match</span>(I<span class="op">:</span>user{name<span class="op">:</span><span class="st">&#39;ID&#39;</span>}) <span class="kw">create</span> (I)<span class="op">-</span><span class="st"> </span>[<span class="op">:</span>enters]-&gt;<span class="st"> </span>(M<span class="op">:</span>user{name<span class="op">:</span><span class="st">&#39;Merck Data&#39;</span>}) return I,M</code></pre></div>
+<p>This line of code codes for a new node “Family History Cancers” which stores the family history cancers of the patient. This node holds a relationship with the Merck Data node.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="fl">8.</span> <span class="kw">match</span>(M<span class="op">:</span>user{name<span class="op">:</span><span class="st">&#39;Merck Data&#39;</span>}) <span class="kw">create</span> (M)<span class="op">-</span><span class="st"> </span>[<span class="op">:</span>enters]-&gt;<span class="st"> </span>(FH<span class="op">:</span>user{name<span class="op">:</span><span class="st">&#39;Family History Cancers&#39;</span>}) return M,FH</code></pre></div>
+<p>Lines 9, 10, and 11 all code for three new nodes “Diagnostic notes”, “ Any other family history disease”, and “Input Data”. This node holds a relationship with the Merck Data node.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="fl">9.</span>  <span class="kw">match</span>(M<span class="op">:</span>user{name<span class="op">:</span><span class="st">&#39;Merck Data&#39;</span>}) <span class="kw">create</span> (M)<span class="op">-</span><span class="st"> </span>[<span class="op">:</span>enters]-&gt;<span class="st"> </span>(ID<span class="op">:</span>user{name<span class="op">:</span><span class="st">&#39;Input Data&#39;</span>}) return M,ID
+<span class="fl">10.</span> <span class="kw">match</span>(M<span class="op">:</span>user{name<span class="op">:</span><span class="st">&#39;Merck Data&#39;</span>}) <span class="kw">create</span> (M)<span class="op">-</span><span class="st"> </span>[<span class="op">:</span>enters]-&gt;<span class="st"> </span>(DN<span class="op">:</span>user{name<span class="op">:</span><span class="st">&#39;Diagnostic Notes&#39;</span>}) return M,DN
+<span class="fl">11.</span> <span class="kw">match</span>(M<span class="op">:</span>user{name<span class="op">:</span><span class="st">&#39;Merck Data&#39;</span>}) <span class="kw">create</span> (M)<span class="op">-</span><span class="st"> </span>[<span class="op">:</span>enters]-&gt;<span class="st"> </span>(AD<span class="op">:</span>user{name<span class="op">:</span><span class="st">&#39;Any other family history in disease&#39;</span>}) return M,AD</code></pre></div>
+<p>This line of code helps put together all of the nodes. This is to help you check your database while you add new nodes. This line of code will be used throughout to double check the code, and to endure every branch is in the correct spot.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="fl">12.</span> <span class="kw">MATCH</span> (n<span class="op">:</span>user) RETURN n LIMIT <span class="dv">100</span></code></pre></div>
+<p>This code creates the relationship between the node “Username” and the new node “fitbit data”. The new node will store fitbit data.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="fl">13.</span> <span class="kw">match</span>(n<span class="op">:</span>user{name<span class="op">:</span><span class="st">&#39;Username&#39;</span>}) <span class="kw">create</span> (n)<span class="op">-</span><span class="st"> </span>[<span class="op">:</span>enters]-&gt;<span class="st"> </span>(FD<span class="op">:</span>user{name<span class="op">:</span><span class="st">&#39;FitBit Data&#39;</span>}) return n, FD</code></pre></div>
+<p>Lines 14,15,16,17,18, and 19 all create new nodes with the fit bit data node. All the new nodes are highlighted in yellow.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="fl">14.</span> <span class="kw">match</span>(FD<span class="op">:</span>user{name<span class="op">:</span><span class="st">&#39;FitBit Data&#39;</span>}) <span class="kw">create</span> (FD)<span class="op">-</span><span class="st"> </span>[<span class="op">:</span>enters]-&gt;<span class="st"> </span>(WE<span class="op">:</span>user{name<span class="op">:</span><span class="st">&#39;Weight&#39;</span>}) return FD,WE
+<span class="fl">15.</span> <span class="kw">match</span>(FD<span class="op">:</span>user{name<span class="op">:</span><span class="st">&#39;FitBit Data&#39;</span>}) <span class="kw">create</span> (FD)<span class="op">-</span><span class="st"> </span>[<span class="op">:</span>enters]-&gt;<span class="st"> </span>(CD<span class="op">:</span>user{name<span class="op">:</span><span class="st">&#39;Collection Date&#39;</span>}) return FD,CD
+<span class="fl">16.</span> <span class="kw">match</span>(FD<span class="op">:</span>user{name<span class="op">:</span><span class="st">&#39;FitBit Data&#39;</span>}) <span class="kw">create</span> (FD)<span class="op">-</span><span class="st"> </span>[<span class="op">:</span>enters]-&gt;<span class="st"> </span>(B<span class="op">:</span>user{name<span class="op">:</span><span class="st">&#39;BMI&#39;</span>}) return FD,B
+<span class="fl">17.</span> <span class="kw">match</span>(FD<span class="op">:</span>user{name<span class="op">:</span><span class="st">&#39;FitBit Data&#39;</span>}) <span class="kw">create</span> (FD)<span class="op">-</span><span class="st"> </span>[<span class="op">:</span>enters]-&gt;<span class="st"> </span>(FC<span class="op">:</span>user{name<span class="op">:</span><span class="st">&#39;Floors Climbed&#39;</span>}) return FD,FC
+<span class="fl">18.</span> <span class="kw">match</span>(FD<span class="op">:</span>user{name<span class="op">:</span><span class="st">&#39;FitBit Data&#39;</span>}) <span class="kw">create</span> (FD)<span class="op">-</span><span class="st"> </span>[<span class="op">:</span>enters]-&gt;<span class="st"> </span>(ARH<span class="op">:</span>user{name<span class="op">:</span><span class="st">&#39;Average Resting Hr&#39;</span>}) return FD,ARH
+<span class="fl">19.</span> <span class="kw">match</span>(FD<span class="op">:</span>user{name<span class="op">:</span><span class="st">&#39;FitBit Data&#39;</span>}) <span class="kw">create</span> (FD)<span class="op">-</span><span class="st"> </span>[<span class="op">:</span>enters]-&gt;<span class="st"> </span>(ST<span class="op">:</span>user{name<span class="op">:</span><span class="st">&#39;Steps&#39;</span>}) return FD,ST</code></pre></div>
+<p>This line of code codes for a new node “Miles” which stores the miles of the patient. This node holds a relationship with the Fitbit Data Node</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="fl">20.</span> <span class="kw">match</span>(FD<span class="op">:</span>user{name<span class="op">:</span><span class="st">&#39;FitBit Data&#39;</span>}) <span class="kw">create</span> (FD)<span class="op">-</span><span class="st"> </span>[<span class="op">:</span>enters]-&gt;<span class="st"> </span>(Mi<span class="op">:</span>user{name<span class="op">:</span><span class="st">&#39;Miles&#39;</span>}) return FD,Mi</code></pre></div>
+<p>Lines 20,21,22,23,24,25 all code for new nodes that hold relationships with the Fitbit node.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="fl">21.</span> <span class="kw">match</span>(FD<span class="op">:</span>user{name<span class="op">:</span><span class="st">&#39;FitBit Data&#39;</span>}) <span class="kw">create</span> (FD)<span class="op">-</span><span class="st"> </span>[<span class="op">:</span>enters]-&gt;<span class="st"> </span>(TM<span class="op">:</span>user{name<span class="op">:</span><span class="st">&#39;Total Miles&#39;</span>}) return FD,TM
+<span class="fl">22.</span> <span class="kw">match</span>(FD<span class="op">:</span>user{name<span class="op">:</span><span class="st">&#39;FitBit Data&#39;</span>}) <span class="kw">create</span> (FD)<span class="op">-</span><span class="st"> </span>[<span class="op">:</span>enters]-&gt;<span class="st"> </span>(VAM<span class="op">:</span>user{name<span class="op">:</span><span class="st">&#39;Very Active Miles&#39;</span>}) return FD,VAM
+<span class="fl">23.</span> <span class="kw">match</span>(FD<span class="op">:</span>user{name<span class="op">:</span><span class="st">&#39;FitBit Data&#39;</span>}) <span class="kw">create</span> (FD)<span class="op">-</span><span class="st"> </span>[<span class="op">:</span>enters]-&gt;<span class="st"> </span>(LAM<span class="op">:</span>user{name<span class="op">:</span><span class="st">&#39;Lightly Active Miles&#39;</span>}) return FD,LAM
+<span class="fl">24.</span> <span class="kw">match</span>(FD<span class="op">:</span>user{name<span class="op">:</span><span class="st">&#39;FitBit Data&#39;</span>}) <span class="kw">create</span> (FD)<span class="op">-</span><span class="st"> </span>[<span class="op">:</span>enters]-&gt;<span class="st"> </span>(MAM<span class="op">:</span>user{name<span class="op">:</span><span class="st">&#39;Moderately Active Miles&#39;</span>}) return FD,MAM
+<span class="fl">25.</span> <span class="kw">match</span>(FD<span class="op">:</span>user{name<span class="op">:</span><span class="st">&#39;FitBit Data&#39;</span>}) <span class="kw">create</span> (FD)<span class="op">-</span><span class="st"> </span>[<span class="op">:</span>enters]-&gt;<span class="st"> </span>(S<span class="op">:</span>user{name<span class="op">:</span><span class="st">&#39;Sleep&#39;</span>}) return FD,S</code></pre></div>
+<p>Lines 26,27 all codes for new nodes that holds relationships with the “Sleep node”.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="fl">26.</span>  <span class="kw">match</span>(S<span class="op">:</span>user{name<span class="op">:</span><span class="st">&#39;Sleep&#39;</span>}) <span class="kw">create</span> (S)<span class="op">-</span><span class="st"> </span>[<span class="op">:</span>enters]-&gt;<span class="st"> </span>(SE<span class="op">:</span>user{name<span class="op">:</span><span class="st">&#39;Sleep Efficiency&#39;</span>}) return S,SE
+<span class="fl">27.</span> <span class="kw">match</span>(S<span class="op">:</span>user{name<span class="op">:</span><span class="st">&#39;Sleep&#39;</span>}) <span class="kw">create</span> (S)<span class="op">-</span><span class="st"> </span>[<span class="op">:</span>enters]-&gt;<span class="st"> </span>(MAS<span class="op">:</span>user{name<span class="op">:</span><span class="st">&#39;Minutes Asleep&#39;</span>}) return S,MAS</code></pre></div>
+<p>Lines 28,29,30,31,32,33,34,35,36 all codes for new nodes that hold relationships with the “minute node”.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="fl">28.</span> <span class="kw">match</span>(FD<span class="op">:</span>user{name<span class="op">:</span><span class="st">&#39;FitBit Data&#39;</span>}) <span class="kw">create</span> (FD)<span class="op">-</span><span class="st"> </span>[<span class="op">:</span>enters]-&gt;<span class="st"> </span>(M<span class="op">:</span>user{name<span class="op">:</span><span class="st">&#39;Minutes&#39;</span>}) return FD,M
+<span class="fl">29.</span> <span class="kw">match</span>(M<span class="op">:</span>user{name<span class="op">:</span><span class="st">&#39;Minutes&#39;</span>}) <span class="kw">create</span> (M)<span class="op">-</span><span class="st"> </span>[<span class="op">:</span>enters]-&gt;<span class="st"> </span>(OF<span class="op">:</span>user{name<span class="op">:</span><span class="st">&#39;hr 140-170&#39;</span>}) return M,OF
+<span class="fl">30.</span> <span class="kw">match</span>(M<span class="op">:</span>user{name<span class="op">:</span><span class="st">&#39;Minutes&#39;</span>}) <span class="kw">create</span> (M)<span class="op">-</span><span class="st"> </span>[<span class="op">:</span>enters]-&gt;<span class="st"> </span>(SM<span class="op">:</span>user{name<span class="op">:</span><span class="st">&#39;Sedentary Minutes&#39;</span>}) return M,SM
+<span class="fl">31.</span> <span class="kw">match</span>(M<span class="op">:</span>user{name<span class="op">:</span><span class="st">&#39;Minutes&#39;</span>}) <span class="kw">create</span> (M)<span class="op">-</span><span class="st"> </span>[<span class="op">:</span>enters]-&gt;<span class="st"> </span>(LAM<span class="op">:</span>user{name<span class="op">:</span><span class="st">&#39;Lightly Active Minutes&#39;</span>}) return M,LAM
+<span class="fl">32.</span> <span class="kw">match</span>(M<span class="op">:</span>user{name<span class="op">:</span><span class="st">&#39;Minutes&#39;</span>}) <span class="kw">create</span> (M)<span class="op">-</span><span class="st"> </span>[<span class="op">:</span>enters]-&gt;<span class="st"> </span>(FAM<span class="op">:</span>user{name<span class="op">:</span><span class="st">&#39;Fairly Active Minutes&#39;</span>}) return M,FAM
+<span class="fl">33.</span> <span class="kw">match</span>(M<span class="op">:</span>user{name<span class="op">:</span><span class="st">&#39;Minutes&#39;</span>}) <span class="kw">create</span> (M)<span class="op">-</span><span class="st"> </span>[<span class="op">:</span>enters]-&gt;<span class="st"> </span>(VAM<span class="op">:</span>user{name<span class="op">:</span><span class="st">&#39;Very Active Minutes&#39;</span>}) return M,VAM
+<span class="fl">34.</span> <span class="kw">match</span>(M<span class="op">:</span>user{name<span class="op">:</span><span class="st">&#39;Minutes&#39;</span>}) <span class="kw">create</span> (M)<span class="op">-</span><span class="st"> </span>[<span class="op">:</span>enters]-&gt;<span class="st"> </span>(HR<span class="op">:</span>user{name<span class="op">:</span><span class="st">&#39;hr 30-100&#39;</span>}) return M,HR
+<span class="fl">35.</span> <span class="kw">match</span>(M<span class="op">:</span>user{name<span class="op">:</span><span class="st">&#39;Minutes&#39;</span>}) <span class="kw">create</span> (M)<span class="op">-</span><span class="st"> </span>[<span class="op">:</span>enters]-&gt;<span class="st"> </span>(HR1<span class="op">:</span>user{name<span class="op">:</span><span class="st">&#39;hr 100-140&#39;</span>}) return M,HR1
+<span class="fl">36.</span> <span class="kw">match</span>(M<span class="op">:</span>user{name<span class="op">:</span><span class="st">&#39;Minutes&#39;</span>}) <span class="kw">create</span> (M)<span class="op">-</span><span class="st"> </span>[<span class="op">:</span>enters]-&gt;<span class="st"> </span>(HR2<span class="op">:</span>user{name<span class="op">:</span><span class="st">&#39;hr 170-220&#39;</span>}) return M,HR2</code></pre></div>
+<p>Lines 37-49 all codes for new nodes that hold relationships with the “Pain Data” node. The highlighted portions are the new nodes.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="fl">37.</span> <span class="kw">MATCH</span> (n<span class="op">:</span>user) RETURN n LIMIT <span class="dv">100</span>
+<span class="fl">38.</span> <span class="kw">match</span>(u<span class="op">:</span>user {name<span class="op">:</span><span class="st">&#39;User&#39;</span>}) <span class="kw">create</span> (u)<span class="op">-</span><span class="st"> </span>[<span class="op">:</span>enters]-&gt;<span class="st"> </span>(PD<span class="op">:</span>user{name<span class="op">:</span><span class="st">&#39;Pain Data&#39;</span>}) return u,PD
+<span class="fl">39.</span> <span class="kw">match</span>(PD<span class="op">:</span>user{name<span class="op">:</span><span class="st">&#39;Pain Data&#39;</span>}) <span class="kw">create</span> (PD)<span class="op">-</span><span class="st"> </span>[<span class="op">:</span>enters]-&gt;<span class="st"> </span>(D<span class="op">:</span>user{name<span class="op">:</span><span class="st">&#39;Diagnosis&#39;</span>}) return PD,D
+<span class="fl">40.</span> <span class="kw">match</span>(PD<span class="op">:</span>user{name<span class="op">:</span><span class="st">&#39;Pain Data&#39;</span>}) <span class="kw">create</span> (PD)<span class="op">-</span><span class="st"> </span>[<span class="op">:</span>enters]-&gt;<span class="st"> </span>(WI<span class="op">:</span>user{name<span class="op">:</span><span class="st">&#39;Water Intake&#39;</span>}) return PD,WI
+<span class="fl">41.</span> <span class="kw">match</span>(PD<span class="op">:</span>user{name<span class="op">:</span><span class="st">&#39;Pain Data&#39;</span>}) <span class="kw">create</span> (PD)<span class="op">-</span><span class="st"> </span>[<span class="op">:</span>enters]-&gt;<span class="st"> </span>(MT<span class="op">:</span>user{name<span class="op">:</span><span class="st">&#39;Medication Timing&#39;</span>}) return PD,MT
+<span class="fl">42.</span> <span class="kw">match</span>(PD<span class="op">:</span>user{name<span class="op">:</span><span class="st">&#39;Pain Data&#39;</span>}) <span class="kw">create</span> (PD)<span class="op">-</span><span class="st"> </span>[<span class="op">:</span>enters]-&gt;<span class="st"> </span>(DA<span class="op">:</span>user{name<span class="op">:</span><span class="st">&#39;Date&#39;</span>}) return PD,DA
+<span class="fl">43.</span> <span class="kw">match</span>(PD<span class="op">:</span>user{name<span class="op">:</span><span class="st">&#39;Pain Data&#39;</span>}) <span class="kw">create</span> (PD)<span class="op">-</span><span class="st"> </span>[<span class="op">:</span>enters]-&gt;<span class="st"> </span>(HA<span class="op">:</span>user{name<span class="op">:</span><span class="st">&#39;Happiness&#39;</span>}) return PD,HA
+<span class="fl">44.</span> <span class="kw">match</span>(PD<span class="op">:</span>user{name<span class="op">:</span><span class="st">&#39;Pain Data&#39;</span>}) <span class="kw">create</span> (PD)<span class="op">-</span><span class="st"> </span>[<span class="op">:</span>enters]-&gt;<span class="st"> </span>(OM<span class="op">:</span>user{name<span class="op">:</span><span class="st">&#39;Other Medication&#39;</span>}) return PD,OM
+<span class="fl">45.</span> <span class="kw">match</span>(PD<span class="op">:</span>user{name<span class="op">:</span><span class="st">&#39;Pain Data&#39;</span>}) <span class="kw">create</span> (PD)<span class="op">-</span><span class="st"> </span>[<span class="op">:</span>enters]-&gt;<span class="st"> </span>(SL<span class="op">:</span>user{name<span class="op">:</span><span class="st">&#39;Sleep&#39;</span>}) return PD,SL
+<span class="fl">46.</span> <span class="kw">match</span>(PD<span class="op">:</span>user{name<span class="op">:</span><span class="st">&#39;Pain Data&#39;</span>}) <span class="kw">create</span> (PD)<span class="op">-</span><span class="st"> </span>[<span class="op">:</span>enters]-&gt;<span class="st"> </span>(HW<span class="op">:</span>user{name<span class="op">:</span><span class="st">&#39;Hours Worked&#39;</span>}) return PD,HW
+<span class="fl">47.</span> <span class="kw">match</span>(PD<span class="op">:</span>user{name<span class="op">:</span><span class="st">&#39;Pain Data&#39;</span>}) <span class="kw">create</span> (PD)<span class="op">-</span><span class="st"> </span>[<span class="op">:</span>enters]-&gt;<span class="st"> </span>(US<span class="op">:</span>user{name<span class="op">:</span><span class="st">&#39;Unusual Symptoms&#39;</span>}) return PD,US
+<span class="fl">48.</span> <span class="kw">match</span>(PD<span class="op">:</span>user{name<span class="op">:</span><span class="st">&#39;Pain Data&#39;</span>}) <span class="kw">create</span> (PD)<span class="op">-</span><span class="st"> </span>[<span class="op">:</span>enters]-&gt;<span class="st"> </span>(M<span class="op">:</span>user{name<span class="op">:</span><span class="st">&#39;meals&#39;</span>}) return PD,M
+<span class="fl">49.</span> <span class="kw">match</span>(PD<span class="op">:</span>user{name<span class="op">:</span><span class="st">&#39;Pain Data&#39;</span>}) <span class="kw">create</span> (PD)<span class="op">-</span><span class="st"> </span>[<span class="op">:</span>enters]-&gt;<span class="st"> </span>(SA<span class="op">:</span>user{name<span class="op">:</span><span class="st">&#39;Smoking/Alcohol&#39;</span>}) return PD,SA</code></pre></div>
+
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="data-engineering-fall-2020-documentation.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="data-visualization-team.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": "https://github.com/rstudio/bookdown-demo/edit/master/05-DataArchitects-FinalDoc.Rmd",
+"text": "Edit"
+},
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": null,
+"text": null
+},
+"download": ["bookdown-demo.pdf", "bookdown-demo.epub"],
+"toc": {
+"collapse": "subsection"
+}
+});
+});
+</script>
+
+</body>
+
+</html>

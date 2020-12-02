@@ -1,0 +1,481 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>Chapter 5 Data Engineering Fall 2020 Documentation | Merck-Data Mine Documentation</title>
+  <meta name="description" content="A book for documenting the Merck-Data Mine team's work." />
+  <meta name="generator" content="bookdown 0.21 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="Chapter 5 Data Engineering Fall 2020 Documentation | Merck-Data Mine Documentation" />
+  <meta property="og:type" content="book" />
+  
+  
+  <meta property="og:description" content="A book for documenting the Merck-Data Mine team's work." />
+  
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Chapter 5 Data Engineering Fall 2020 Documentation | Merck-Data Mine Documentation" />
+  
+  <meta name="twitter:description" content="A book for documenting the Merck-Data Mine team's work." />
+  
+
+<meta name="author" content="Merck and Data Mine Corporate Partnership Team" />
+
+
+<meta name="date" content="2020-12-02" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="documentation-template.html"/>
+<link rel="next" href="data-architects.html"/>
+<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+
+<link href="libs/anchor-sections-1.0/anchor-sections.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.0/anchor-sections.js"></script>
+
+
+<style type="text/css">
+div.sourceCode { overflow-x: auto; }
+table.sourceCode, tr.sourceCode, td.lineNumbers, td.sourceCode {
+  margin: 0; padding: 0; vertical-align: baseline; border: none; }
+table.sourceCode { width: 100%; line-height: 100%; }
+td.lineNumbers { text-align: right; padding-right: 4px; padding-left: 4px; color: #aaaaaa; border-right: 1px solid #aaaaaa; }
+td.sourceCode { padding-left: 5px; }
+code > span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code > span.dt { color: #902000; } /* DataType */
+code > span.dv { color: #40a070; } /* DecVal */
+code > span.bn { color: #40a070; } /* BaseN */
+code > span.fl { color: #40a070; } /* Float */
+code > span.ch { color: #4070a0; } /* Char */
+code > span.st { color: #4070a0; } /* String */
+code > span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code > span.ot { color: #007020; } /* Other */
+code > span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code > span.fu { color: #06287e; } /* Function */
+code > span.er { color: #ff0000; font-weight: bold; } /* Error */
+code > span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+code > span.cn { color: #880000; } /* Constant */
+code > span.sc { color: #4070a0; } /* SpecialChar */
+code > span.vs { color: #4070a0; } /* VerbatimString */
+code > span.ss { color: #bb6688; } /* SpecialString */
+code > span.im { } /* Import */
+code > span.va { color: #19177c; } /* Variable */
+code > span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code > span.op { color: #666666; } /* Operator */
+code > span.bu { } /* BuiltIn */
+code > span.ex { } /* Extension */
+code > span.pp { color: #bc7a00; } /* Preprocessor */
+code > span.at { color: #7d9029; } /* Attribute */
+code > span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code > span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code > span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+</style>
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./">A Minimal Book Example</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> Introduction</a></li>
+<li class="chapter" data-level="2" data-path="tips-for-writing-great-documentation-and-walkthroughs.html"><a href="tips-for-writing-great-documentation-and-walkthroughs.html"><i class="fa fa-check"></i><b>2</b> Tips for Writing Great Documentation and Walkthroughs</a><ul>
+<li class="chapter" data-level="2.1" data-path="tips-for-writing-great-documentation-and-walkthroughs.html"><a href="tips-for-writing-great-documentation-and-walkthroughs.html#find-a-good-topic"><i class="fa fa-check"></i><b>2.1</b> Find a Good Topic</a></li>
+<li class="chapter" data-level="2.2" data-path="tips-for-writing-great-documentation-and-walkthroughs.html"><a href="tips-for-writing-great-documentation-and-walkthroughs.html#make-goals-and-audience-clear"><i class="fa fa-check"></i><b>2.2</b> Make Goals and Audience Clear</a></li>
+<li class="chapter" data-level="2.3" data-path="tips-for-writing-great-documentation-and-walkthroughs.html"><a href="tips-for-writing-great-documentation-and-walkthroughs.html#have-a-begining-middle-and-end"><i class="fa fa-check"></i><b>2.3</b> Have a Begining, Middle, and End</a><ul>
+<li class="chapter" data-level="2.3.1" data-path="index.html"><a href="index.html#introduction"><i class="fa fa-check"></i><b>2.3.1</b> Introduction</a></li>
+<li class="chapter" data-level="2.3.2" data-path="tips-for-writing-great-documentation-and-walkthroughs.html"><a href="tips-for-writing-great-documentation-and-walkthroughs.html#body"><i class="fa fa-check"></i><b>2.3.2</b> Body</a></li>
+<li class="chapter" data-level="2.3.3" data-path="tips-for-writing-great-documentation-and-walkthroughs.html"><a href="tips-for-writing-great-documentation-and-walkthroughs.html#conclusion"><i class="fa fa-check"></i><b>2.3.3</b> Conclusion</a></li>
+</ul></li>
+<li class="chapter" data-level="2.4" data-path="tips-for-writing-great-documentation-and-walkthroughs.html"><a href="tips-for-writing-great-documentation-and-walkthroughs.html#getting-feedback-and-iterate"><i class="fa fa-check"></i><b>2.4</b> Getting Feedback and Iterate</a></li>
+<li class="chapter" data-level="2.5" data-path="tips-for-writing-great-documentation-and-walkthroughs.html"><a href="tips-for-writing-great-documentation-and-walkthroughs.html#practice-practice-practice"><i class="fa fa-check"></i><b>2.5</b> Practice, Practice, Practice</a></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="documentation-example-the-basics-of-r-markdown.html"><a href="documentation-example-the-basics-of-r-markdown.html"><i class="fa fa-check"></i><b>3</b> Documentation Example - The Basics of R Markdown</a><ul>
+<li class="chapter" data-level="3.1" data-path="documentation-example-the-basics-of-r-markdown.html"><a href="documentation-example-the-basics-of-r-markdown.html#overview-of-r-markdown"><i class="fa fa-check"></i><b>3.1</b> Overview of R Markdown</a></li>
+<li class="chapter" data-level="3.2" data-path="documentation-example-the-basics-of-r-markdown.html"><a href="documentation-example-the-basics-of-r-markdown.html#workflow"><i class="fa fa-check"></i><b>3.2</b> Workflow</a></li>
+<li class="chapter" data-level="3.3" data-path="documentation-example-the-basics-of-r-markdown.html"><a href="documentation-example-the-basics-of-r-markdown.html#opening-a-new-file"><i class="fa fa-check"></i><b>3.3</b> Opening a New File</a></li>
+<li class="chapter" data-level="3.4" data-path="documentation-example-the-basics-of-r-markdown.html"><a href="documentation-example-the-basics-of-r-markdown.html#helpful-syntax"><i class="fa fa-check"></i><b>3.4</b> Helpful Syntax</a></li>
+<li class="chapter" data-level="3.5" data-path="documentation-example-the-basics-of-r-markdown.html"><a href="documentation-example-the-basics-of-r-markdown.html#embed-code"><i class="fa fa-check"></i><b>3.5</b> Embed Code</a></li>
+<li class="chapter" data-level="3.6" data-path="documentation-example-the-basics-of-r-markdown.html"><a href="documentation-example-the-basics-of-r-markdown.html#wrapping-or-knitting-it-up"><i class="fa fa-check"></i><b>3.6</b> Wrapping (or knitting) it Up</a></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="documentation-template.html"><a href="documentation-template.html"><i class="fa fa-check"></i><b>4</b> Documentation Template</a><ul>
+<li class="chapter" data-level="4.1" data-path="documentation-template.html"><a href="documentation-template.html#introduction-1"><i class="fa fa-check"></i><b>4.1</b> Introduction</a></li>
+<li class="chapter" data-level="4.2" data-path="documentation-template.html"><a href="documentation-template.html#code"><i class="fa fa-check"></i><b>4.2</b> Code</a></li>
+<li class="chapter" data-level="4.3" data-path="documentation-template.html"><a href="documentation-template.html#flow-diagrams-visualizations"><i class="fa fa-check"></i><b>4.3</b> Flow Diagrams / Visualizations</a></li>
+<li class="chapter" data-level="4.4" data-path="documentation-template.html"><a href="documentation-template.html#white-paper"><i class="fa fa-check"></i><b>4.4</b> White Paper</a></li>
+<li class="chapter" data-level="4.5" data-path="documentation-template.html"><a href="documentation-template.html#technical-report"><i class="fa fa-check"></i><b>4.5</b> Technical Report</a></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="data-engineering-fall-2020-documentation.html"><a href="data-engineering-fall-2020-documentation.html"><i class="fa fa-check"></i><b>5</b> Data Engineering Fall 2020 Documentation</a><ul>
+<li class="chapter" data-level="5.1" data-path="data-engineering-fall-2020-documentation.html"><a href="data-engineering-fall-2020-documentation.html#introduction-to-the-team"><i class="fa fa-check"></i><b>5.1</b> Introduction to the Team</a></li>
+<li class="chapter" data-level="5.2" data-path="data-engineering-fall-2020-documentation.html"><a href="data-engineering-fall-2020-documentation.html#semester-goals"><i class="fa fa-check"></i><b>5.2</b> Semester Goals</a></li>
+<li class="chapter" data-level="5.3" data-path="data-engineering-fall-2020-documentation.html"><a href="data-engineering-fall-2020-documentation.html#data-overview"><i class="fa fa-check"></i><b>5.3</b> Data Overview</a><ul>
+<li class="chapter" data-level="5.3.1" data-path="data-engineering-fall-2020-documentation.html"><a href="data-engineering-fall-2020-documentation.html#fitbit-devices-vs.-apple-watch"><i class="fa fa-check"></i><b>5.3.1</b> Fitbit Devices vs. Apple Watch</a></li>
+<li class="chapter" data-level="5.3.2" data-path="data-engineering-fall-2020-documentation.html"><a href="data-engineering-fall-2020-documentation.html#data-collected-from-fitbit-devices"><i class="fa fa-check"></i><b>5.3.2</b> Data Collected from Fitbit Devices</a></li>
+</ul></li>
+<li class="chapter" data-level="5.4" data-path="data-engineering-fall-2020-documentation.html"><a href="data-engineering-fall-2020-documentation.html#scaling-the-framework"><i class="fa fa-check"></i><b>5.4</b> Scaling the Framework</a><ul>
+<li class="chapter" data-level="5.4.1" data-path="data-engineering-fall-2020-documentation.html"><a href="data-engineering-fall-2020-documentation.html#multiple-users"><i class="fa fa-check"></i><b>5.4.1</b> Multiple Users</a></li>
+<li class="chapter" data-level="5.4.2" data-path="data-engineering-fall-2020-documentation.html"><a href="data-engineering-fall-2020-documentation.html#multiple-devices"><i class="fa fa-check"></i><b>5.4.2</b> Multiple Devices</a></li>
+</ul></li>
+<li class="chapter" data-level="5.5" data-path="data-engineering-fall-2020-documentation.html"><a href="data-engineering-fall-2020-documentation.html#scheduling-the-data-collection"><i class="fa fa-check"></i><b>5.5</b> Scheduling the Data Collection</a></li>
+<li class="chapter" data-level="5.6" data-path="data-engineering-fall-2020-documentation.html"><a href="data-engineering-fall-2020-documentation.html#collaborating-with-other-teams"><i class="fa fa-check"></i><b>5.6</b> Collaborating with other Teams</a></li>
+<li class="chapter" data-level="5.7" data-path="data-engineering-fall-2020-documentation.html"><a href="data-engineering-fall-2020-documentation.html#future-work"><i class="fa fa-check"></i><b>5.7</b> Future Work</a></li>
+<li class="chapter" data-level="5.8" data-path="data-engineering-fall-2020-documentation.html"><a href="data-engineering-fall-2020-documentation.html#thank-you-acknowledgements"><i class="fa fa-check"></i><b>5.8</b> Thank you &amp; Acknowledgements</a></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="data-architects.html"><a href="data-architects.html"><i class="fa fa-check"></i><b>6</b> Data Architects</a><ul>
+<li class="chapter" data-level="6.1" data-path="data-architects.html"><a href="data-architects.html#background"><i class="fa fa-check"></i><b>6.1</b> Background</a></li>
+<li class="chapter" data-level="6.2" data-path="data-architects.html"><a href="data-architects.html#database-design"><i class="fa fa-check"></i><b>6.2</b> Database Design</a></li>
+<li class="chapter" data-level="6.3" data-path="data-architects.html"><a href="data-architects.html#database-creation-with-neo4j"><i class="fa fa-check"></i><b>6.3</b> Database Creation with Neo4j</a><ul>
+<li class="chapter" data-level="6.3.1" data-path="data-architects.html"><a href="data-architects.html#neo4j-background"><i class="fa fa-check"></i><b>6.3.1</b> Neo4j Background</a></li>
+</ul></li>
+<li class="chapter" data-level="6.4" data-path="data-architects.html"><a href="data-architects.html#code-1"><i class="fa fa-check"></i><b>6.4</b> Code</a></li>
+</ul></li>
+<li class="chapter" data-level="7" data-path="data-visualization-team.html"><a href="data-visualization-team.html"><i class="fa fa-check"></i><b>7</b> Data visualization Team</a><ul>
+<li class="chapter" data-level="7.1" data-path="data-visualization-team.html"><a href="data-visualization-team.html#biometric-wearables"><i class="fa fa-check"></i><b>7.1</b> Biometric Wearables</a></li>
+<li class="chapter" data-level="7.2" data-path="data-visualization-team.html"><a href="data-visualization-team.html#purpose"><i class="fa fa-check"></i><b>7.2</b> Purpose</a></li>
+<li class="chapter" data-level="7.3" data-path="data-visualization-team.html"><a href="data-visualization-team.html#outcome"><i class="fa fa-check"></i><b>7.3</b> Outcome</a></li>
+<li class="chapter" data-level="7.4" data-path="data-visualization-team.html"><a href="data-visualization-team.html#significance"><i class="fa fa-check"></i><b>7.4</b> Significance</a></li>
+<li class="chapter" data-level="7.5" data-path="data-visualization-team.html"><a href="data-visualization-team.html#overview-of-data-visualization-team"><i class="fa fa-check"></i><b>7.5</b> Overview of Data visualization Team</a></li>
+<li class="chapter" data-level="7.6" data-path="data-visualization-team.html"><a href="data-visualization-team.html#previous-work-done-on-the-project"><i class="fa fa-check"></i><b>7.6</b> Previous Work Done on the project</a></li>
+<li class="chapter" data-level="7.7" data-path="data-visualization-team.html"><a href="data-visualization-team.html#team-members"><i class="fa fa-check"></i><b>7.7</b> Team Members</a><ul>
+<li class="chapter" data-level="7.7.1" data-path="data-visualization-team.html"><a href="data-visualization-team.html#ahmed-ashraf-butt"><i class="fa fa-check"></i><b>7.7.1</b> Ahmed Ashraf Butt</a></li>
+<li class="chapter" data-level="7.7.2" data-path="data-visualization-team.html"><a href="data-visualization-team.html#pika-seth"><i class="fa fa-check"></i><b>7.7.2</b> Pika Seth</a></li>
+<li class="chapter" data-level="7.7.3" data-path="data-visualization-team.html"><a href="data-visualization-team.html#sharon-patta"><i class="fa fa-check"></i><b>7.7.3</b> Sharon Patta</a></li>
+<li class="chapter" data-level="7.7.4" data-path="data-visualization-team.html"><a href="data-visualization-team.html#surya-suresh"><i class="fa fa-check"></i><b>7.7.4</b> Surya Suresh</a></li>
+</ul></li>
+<li class="chapter" data-level="7.8" data-path="data-visualization-team.html"><a href="data-visualization-team.html#team-formation"><i class="fa fa-check"></i><b>7.8</b> Team formation</a></li>
+<li class="chapter" data-level="7.9" data-path="data-visualization-team.html"><a href="data-visualization-team.html#term-goals"><i class="fa fa-check"></i><b>7.9</b> Term goals</a></li>
+<li class="chapter" data-level="7.10" data-path="data-visualization-team.html"><a href="data-visualization-team.html#visulization-1"><i class="fa fa-check"></i><b>7.10</b> Visulization 1</a></li>
+<li class="chapter" data-level="7.11" data-path="data-visualization-team.html"><a href="data-visualization-team.html#visulization-2"><i class="fa fa-check"></i><b>7.11</b> Visulization 2</a><ul>
+<li class="chapter" data-level="7.11.1" data-path="data-visualization-team.html"><a href="data-visualization-team.html#code-2"><i class="fa fa-check"></i><b>7.11.1</b> Code</a></li>
+</ul></li>
+<li class="chapter" data-level="7.12" data-path="data-visualization-team.html"><a href="data-visualization-team.html#critical-decisions"><i class="fa fa-check"></i><b>7.12</b> Critical decisions</a></li>
+<li class="chapter" data-level="7.13" data-path="data-visualization-team.html"><a href="data-visualization-team.html#technical-report-1"><i class="fa fa-check"></i><b>7.13</b> Technical Report</a></li>
+</ul></li>
+<li class="chapter" data-level="8" data-path="back-end-team.html"><a href="back-end-team.html"><i class="fa fa-check"></i><b>8</b> Back End Team</a><ul>
+<li class="chapter" data-level="8.1" data-path="back-end-team.html"><a href="back-end-team.html#creation-of-dummy-data"><i class="fa fa-check"></i><b>8.1</b> Creation of Dummy Data</a><ul>
+<li class="chapter" data-level="8.1.1" data-path="back-end-team.html"><a href="back-end-team.html#why-do-we-need-dummy-data"><i class="fa fa-check"></i><b>8.1.1</b> Why do we need dummy data?</a></li>
+<li class="chapter" data-level="8.1.2" data-path="back-end-team.html"><a href="back-end-team.html#how-we-generated-dummy-data"><i class="fa fa-check"></i><b>8.1.2</b> How we generated dummy data?</a></li>
+<li class="chapter" data-level="8.1.3" data-path="back-end-team.html"><a href="back-end-team.html#how-to-run-the-scripts"><i class="fa fa-check"></i><b>8.1.3</b> How to run the scripts?</a></li>
+<li class="chapter" data-level="8.1.4" data-path="back-end-team.html"><a href="back-end-team.html#potential-improvements"><i class="fa fa-check"></i><b>8.1.4</b> Potential improvements</a></li>
+</ul></li>
+<li class="chapter" data-level="8.2" data-path="back-end-team.html"><a href="back-end-team.html#creating-a-connection-between-api-endpoints"><i class="fa fa-check"></i><b>8.2</b> Creating a connection between API Endpoints</a><ul>
+<li class="chapter" data-level="8.2.1" data-path="back-end-team.html"><a href="back-end-team.html#list-of-api-end-points"><i class="fa fa-check"></i><b>8.2.1</b> List of API end-points:</a></li>
+<li class="chapter" data-level="8.2.2" data-path="back-end-team.html"><a href="back-end-team.html#what-framework-we-are-going-to-use"><i class="fa fa-check"></i><b>8.2.2</b> What framework we are going to use?</a></li>
+<li class="chapter" data-level="8.2.3" data-path="back-end-team.html"><a href="back-end-team.html#setting-up-sql-database-connection"><i class="fa fa-check"></i><b>8.2.3</b> Setting up SQL database connection:</a></li>
+<li class="chapter" data-level="8.2.4" data-path="back-end-team.html"><a href="back-end-team.html#design-of-the-routes"><i class="fa fa-check"></i><b>8.2.4</b> Design of the Routes</a></li>
+</ul></li>
+<li class="chapter" data-level="8.3" data-path="back-end-team.html"><a href="back-end-team.html#hosting-the-database-on-a-server"><i class="fa fa-check"></i><b>8.3</b> Hosting the database on a Server</a><ul>
+<li class="chapter" data-level="8.3.1" data-path="back-end-team.html"><a href="back-end-team.html#issues-faced-with-hosting-a-database-on-scholar"><i class="fa fa-check"></i><b>8.3.1</b> Issues faced with hosting a database on Scholar:</a></li>
+<li class="chapter" data-level="8.3.2" data-path="back-end-team.html"><a href="back-end-team.html#work-around"><i class="fa fa-check"></i><b>8.3.2</b> Work around</a></li>
+<li class="chapter" data-level="8.3.3" data-path="back-end-team.html"><a href="back-end-team.html#how-we-proceeded"><i class="fa fa-check"></i><b>8.3.3</b> How we proceeded</a></li>
+</ul></li>
+<li class="chapter" data-level="8.4" data-path="back-end-team.html"><a href="back-end-team.html#adding-data-to-the-database"><i class="fa fa-check"></i><b>8.4</b> Adding data to the database</a><ul>
+<li class="chapter" data-level="8.4.1" data-path="back-end-team.html"><a href="back-end-team.html#adding-a-csv-to-the-database"><i class="fa fa-check"></i><b>8.4.1</b> Adding a CSV to the database</a></li>
+<li class="chapter" data-level="8.4.2" data-path="back-end-team.html"><a href="back-end-team.html#post-information"><i class="fa fa-check"></i><b>8.4.2</b> POST information</a></li>
+<li class="chapter" data-level="8.4.3" data-path="back-end-team.html"><a href="back-end-team.html#patient-information-and-study-specific-data"><i class="fa fa-check"></i><b>8.4.3</b> Patient information and Study Specific Data</a></li>
+</ul></li>
+<li class="chapter" data-level="8.5" data-path="back-end-team.html"><a href="back-end-team.html#firebase-and-login-system-for-the-phone-app"><i class="fa fa-check"></i><b>8.5</b> Firebase and Login System for the Phone App</a></li>
+</ul></li>
+<li class="chapter" data-level="9" data-path="front-end-team.html"><a href="front-end-team.html"><i class="fa fa-check"></i><b>9</b> Front End Team</a><ul>
+<li class="chapter" data-level="9.1" data-path="front-end-team.html"><a href="front-end-team.html#utilization-of-third-party-software"><i class="fa fa-check"></i><b>9.1</b> Utilization of Third Party Software</a></li>
+<li class="chapter" data-level="9.2" data-path="front-end-team.html"><a href="front-end-team.html#software-components"><i class="fa fa-check"></i><b>9.2</b> Software Components</a><ul>
+<li class="chapter" data-level="9.2.1" data-path="front-end-team.html"><a href="front-end-team.html#pre-login-section"><i class="fa fa-check"></i><b>9.2.1</b> Pre-Login section</a></li>
+<li class="chapter" data-level="9.2.2" data-path="front-end-team.html"><a href="front-end-team.html#home-page-section"><i class="fa fa-check"></i><b>9.2.2</b> Home Page Section</a></li>
+<li class="chapter" data-level="9.2.3" data-path="front-end-team.html"><a href="front-end-team.html#question-response-section"><i class="fa fa-check"></i><b>9.2.3</b> Question Response Section</a></li>
+<li class="chapter" data-level="9.2.4" data-path="front-end-team.html"><a href="front-end-team.html#user-setting-section"><i class="fa fa-check"></i><b>9.2.4</b> User Setting Section</a></li>
+</ul></li>
+</ul></li>
+<li class="divider"></li>
+<li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Merck-Data Mine Documentation</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="data-engineering-fall-2020-documentation" class="section level1">
+<h1><span class="header-section-number">Chapter 5</span> Data Engineering Fall 2020 Documentation</h1>
+<div id="introduction-to-the-team" class="section level2">
+<h2><span class="header-section-number">5.1</span> Introduction to the Team</h2>
+<p>Our data engineering team is comprised of 6 team members all with unique skills and backgrounds. The team worked hard to utilize each member's strengths to help accomplish the semester goals for this project.</p>
+<p>Include a brief sentence including your name, major, year, and relevant experience to the data mine.</p>
+<p>Jennifer Leising: I am a 3rd year graduate student in Industrial Engineering. My research is focused on healthcare and data analytics, and I have experience working in Clinical trials for a large Pharma company. Eric Yap: I am sophomore majoring in data science and finance. Most of my classes have helped developed my Python and R skills, which are very transferable to the work I do in the data mine. Allison Hill: I am a senior majoring in electrical engineering. I have coding experience in various languages, including some Python and R which were used within this project. Joshua Kosnoff: I am a junior majoring in biomedical engineering. I perform research with the cancer research center, where I have previously learned Python for data management and basic analysis. Karthik Ravishankar: I am a freshman majoring in data science. I have learned Java in highschool and at Purdue and some Python which was self taught to contribute to the project. Pranav Anandarao: I am a sophomore majoring in computer engineering. I have experience in a few different programming languages, including Python. I also have previous experience working on clinical applications.</p>
+</div>
+<div id="semester-goals" class="section level2">
+<h2><span class="header-section-number">5.2</span> Semester Goals</h2>
+<p>The overall aim of this project was to create a method to collect continuous data from patients in clinical trials. The biometrics team decided to do this by collecting data from Fitbit devices and developing an application to collect supplementary data from the users.</p>
+<p>The data engineering team's task was to collect the data and put it into a usable format for storage with the data architecture team. This semester, our goal was to add functionality to collect data from multiple users and handle data coming in from different devices. Furthermore, we would like to be able to schedule the program to collect the user data periodically.</p>
+</div>
+<div id="data-overview" class="section level2">
+<h2><span class="header-section-number">5.3</span> Data Overview</h2>
+<div id="fitbit-devices-vs.-apple-watch" class="section level3">
+<h3><span class="header-section-number">5.3.1</span> Fitbit Devices vs. Apple Watch</h3>
+<p>The 2019-2020 Merck Biometric team used the Fitbit to gather data for the project. The Merck stakeholder's had also mentioend wanting to explore the Apple Watch to reach additional populations. Our team wanted to better understand what data was available from each company’s devices. As a note, we listed all the features that would be available from any device. We created the chart below to list the features available on each device. We found very similar data to be available on both devices.</p>
+<pre><code>            |                                       |Fitbit         |Apple Watch</code></pre>
+<p>---------------|---------------------------------------|---------------|--------------- Activity |Steps |X |X |Workouts |X |X |Sit/Stand |X* |NA |Flight Climbed |X |X |Elevation |X |X |Time spent in different activity levels|X |X |Calories burned |X |X Sleep |Asleep vs Awake |X |X |Stages |X |NA Heart Rate |Time spent in different heart ranges |X |3rd party apps |Resting heart rate |X |X |Walking Heartrate |NA |X |Heart rate during activity |X |X |Intraday Tracking |5 sec |10 min Nutrition |Food log* |X |X |Water log* |X |X Body/Weight |BMI* |X |X |Weight* |X |X Additional |ECG |Coming soon |X |Blood Oxygen |X |X |Fall Detection |X |X |Skin Thermometer |X |NA |Ear Health |NA |X |Stress Response |X |NA --------------------------------------------------------------------------------------- *Entered manually NA = Not Available</p>
+<p>With the Apple Watch, most data tracking is through the Health app and the files are exported as a .xml, which is difficult to read. However, you can also export your data through the Health app and have it opened in Numbers/Excel for easy viewing. For the FitBit, activity is recorded through the watch and outputs a .csv file when exporting, which is easy to read and open in applications like Excel and Numbers.</p>
+<p>Additionally, it appears we are able to use Python in order to gather/sort data on both the Apple watch and Fitbit devices. Data is able to be read through pandas. Since Apple Watch returns a .xml file, we have to parse it first and use xmltodict module within Python before we can start applying functions to our data.</p>
+<p>Based on the scope for this semester, we did not do further research into the Apple Watch data collection, but this is one of our goal's for the coming Spring semester.</p>
+</div>
+<div id="data-collected-from-fitbit-devices" class="section level3">
+<h3><span class="header-section-number">5.3.2</span> Data Collected from Fitbit Devices</h3>
+<p>Our team collected data that can be grouped into several major categories:</p>
+<pre><code>Device: Device Name
+
+Activites: totalDistance, veryActiveDistance, moderatleyActiveDistance, lightlyActiveDistance, veryActiveMinutes, fairlyActiveMinutes, 
+lightlyActiveMinutes, sedentaryMinutes, floorsClimbed, daySteps, intraday data
+
+Sleep: sleepEfficiency, minutesAsleep
+
+Heart Rate: HRrange30to100, HRrange100to140, HRrange140to170, HRrange170to220, avgRestingHR, intraday data
+
+Weight: weight, BMI</code></pre>
+</div>
+</div>
+<div id="scaling-the-framework" class="section level2">
+<h2><span class="header-section-number">5.4</span> Scaling the Framework</h2>
+<p>The framework for collecting biometric data from Fitbit's API was previously established and can be found in the <a href="https://nicholasrosenorn.github.io/wearables-book/tutorial-data-capture-in-python.html#authentication">Merck Wearables Book section 8</a>. However, this framework could only be used to collect one user's data at a time, and needed to be manually monitored to switch between browser and python windows. Further, the framework assumed that the user's Fitbit device would be the Fitbit Ionic. In order to make this project upscalable, the framework needed to be modified to support multiple users in an automizable way and to account for multiple device types.</p>
+<div id="multiple-users" class="section level3">
+<h3><span class="header-section-number">5.4.1</span> Multiple Users</h3>
+<div id="supporting-multiple-users-via-accessing-credentials" class="section level4">
+<h4><span class="header-section-number">5.4.1.1</span> Supporting Multiple Users Via Accessing Credentials</h4>
+<p>To support multiple users, a database of multiple user login credentials needed to be created. There is an ongoing collaboration with the Front End team to create a more secure storage system, but for now credentials are stored in a csv file with the format &quot;username,password&quot;. With the usernames and passwords stored in this way, a login array can be created that will be used to plug into the automated process.</p>
+<div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python"><span class="co"># Initialize Emails and Passwords lists</span>
+Emails <span class="op">=</span> []
+Passwords <span class="op">=</span> []
+<span class="co"># Create Emails and Passwords lists from Fitbit_Credentials.csv</span>
+<span class="cf">with</span> <span class="bu">open</span>(<span class="st">&quot;Fitbit_Credentials.csv&quot;</span>) <span class="im">as</span> File1:
+    IDs <span class="op">=</span> csv.DictReader(File1)
+    <span class="cf">for</span> row <span class="kw">in</span> IDs:
+        Emails.append(row[<span class="st">&#39;Username&#39;</span>])
+        Passwords.append(row[<span class="st">&#39;Password&#39;</span>])</code></pre></div>
+<p>As previously mentioned, the previous framework was not set up for running through multiple accounts. To solve this issue, it was reformatted into iterative-friendly components. The first of which is the PythonBot.py file, which both establishes the login arrays outlined above and is responsible for coordinating the other file and function calls to make this process run smoothly.</p>
+<div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python"><span class="co"># import other codes</span>
+<span class="im">import</span> BiometricPrevious
+<span class="im">import</span> gather_keys_oauth2 <span class="im">as</span> Oauth2
+<span class="kw">class</span> FitbitBot:
+    <span class="kw">def</span> <span class="fu">__init__</span>(<span class="va">self</span>, EMAIL, PASSWORD, DATE):
+        <span class="co">#Both the Client ID and Client Secret come from when Fitbit site after registering an app</span>
+        CLIENT_ID <span class="op">=</span> <span class="st">&#39;22BH28&#39;</span> 
+        CLIENT_SECRET <span class="op">=</span> <span class="st">&#39;78a4838804c1ff0983591e69196b1c46&#39;</span>
+        
+        <span class="co">#Authorization Process</span>
+        server <span class="op">=</span> Oauth2.OAuth2Server(CLIENT_ID, CLIENT_SECRET)
+        server.browser_authorize(EMAIL, PASSWORD)
+        ACCESS_TOKEN <span class="op">=</span> <span class="bu">str</span>(server.fitbit.client.session.token[<span class="st">&#39;access_token&#39;</span>])
+        REFRESH_TOKEN <span class="op">=</span> <span class="bu">str</span>(server.fitbit.client.session.token[<span class="st">&#39;refresh_token&#39;</span>])
+        auth2_client <span class="op">=</span> fitbit.Fitbit(CLIENT_ID, CLIENT_SECRET, Oauth2<span class="op">=</span><span class="va">True</span>, access_token<span class="op">=</span>ACCESS_TOKEN,
+        refresh_token<span class="op">=</span>REFRESH_TOKEN)
+        BiometricPrev <span class="op">=</span> BiometricPrevious.FitbitModel1(auth2_client)
+        
+        biometricDF <span class="op">=</span> BiometricPrev.getBiometricData(DATE) <span class="co">#append to data frame</span>
+        biometricDF.to_csv(<span class="st">&#39;./user&#39;</span> <span class="op">+</span> <span class="bu">str</span>(i) <span class="op">+</span> <span class="st">&#39;_&#39;</span> <span class="op">+</span> DATE <span class="op">+</span> <span class="st">&#39;.csv&#39;</span>)
+        <span class="bu">print</span>(<span class="st">&quot;Python Script Executed&quot;</span>)
+<span class="co"># Run data extraction</span>
+<span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(<span class="bu">len</span>(Emails)):
+    <span class="cf">for</span> j <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">1</span>): <span class="co"># Call the previous 1 days worth of info &lt;-- will be replaced with cronjob</span>
+        today <span class="op">=</span> <span class="bu">str</span>((datetime.datetime.now() <span class="op">-</span> datetime.timedelta(j)).strftime(<span class="st">&quot;%Y-%m-</span><span class="sc">%d</span><span class="st">&quot;</span>))
+        FitbitBot(Emails[i], Passwords[i], today)</code></pre></div>
+<p>The <em>BiometricPrevious</em> file contains the remainder of the previous framework with data collection functions, but it was also altered to allow for multiple devices. More information about his can be found in the <strong>Multiple Devices</strong> section of this report. The line <em>biometric.to_csv</em> will store the collected data in a csv format with a title of *user#_DATE<em>, where </em>user#* corresponds to the order at which the user's login credentials are stored in the credentials csv database.</p>
+</div>
+<div id="supporting-multiple-users-via-allowing-for-automation" class="section level4">
+<h4><span class="header-section-number">5.4.1.2</span> Supporting Multiple Users Via Allowing for Automation</h4>
+<p>In order to create an automation bot to regularly call the data collection code (see <strong>Scheduling Our Data Collection</strong> for more information on this), the code had to be adjusted so that it did not open browser windows, as the opening of browser windows was found to stall the bot. In order to accomplish this, the Selenium module was used. Official Selenium documentation can be found <a href="https://selenium-python.readthedocs.io">here</a>.</p>
+<p>Since Selenium was not already downloaded on the device, it needed to be installed. To do this, the following was typed into a Terminal window:</p>
+<div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python">pip install selenium</code></pre></div>
+<p>To use Selenium in a code, the libraries and packages will need to be imported. Since <em>gather_keys_oauth2.py</em> is the only code package responsible for accessing websites, Selenium only needs to be imported into that document. To do this, the following code was added to <em>gather_keys_oauth2.py</em>.</p>
+<div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python"><span class="im">from</span> selenium <span class="im">import</span> webdriver
+<span class="im">from</span> selenium.webdriver <span class="im">import</span> Firefox
+<span class="im">from</span> selenium.webdriver.firefox.options <span class="im">import</span> Options
+<span class="im">from</span> selenium.webdriver.common.by <span class="im">import</span> By</code></pre></div>
+<p>Strictly speaking, the only explicitly needed code would be <em>import Selenium</em>. However, by importing specific functions from the Selenium library upfront, notation later on was simplified. This can be seen below when firefox options were set. Instead of calling <em>Selenium.webdriver.firefox.options</em> every line, <em>Options</em> was able to be called instead.</p>
+<p>The appropriate Selenium firefox browser driver was downloaded <a href="https://github.com/mozilla/geckodriver/releases">here</a>.</p>
+<p><strong>Note</strong> it does not matter where the driver is installed, but its installation path needs to be plugged into the gather_keys_oath2.py code. For those following along with the guide, make a note of the installation path.</p>
+<p>The following block of code was written to set the Selenium webdriver functions.</p>
+<div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python">firefox_options <span class="op">=</span> Options()
+firefox_options.add_argument(<span class="st">&quot;window-size=1920,1080&quot;</span>)
+firefox_options.add_argument(<span class="st">&quot;--headless&quot;</span>)
+firefox_options.add_argument(<span class="st">&quot;start-maximized&quot;</span>)
+firefox_options.add_argument(<span class="st">&quot;--disable-infobars&quot;</span>)
+firefox_options.add_argument(<span class="st">&quot;--disable-extensions&quot;</span>)
+firefox_options.add_argument(<span class="st">&quot;--no-sandbox&quot;</span>)
+firefox_options.add_argument(<span class="st">&quot;--disable-dev-shm-usage&quot;</span>)
+firefox_options.binary_location <span class="op">=</span> <span class="st">&#39;/class/datamine/apps/firefox/firefox&#39;</span></code></pre></div>
+<p>Adjust the path in the final option, <em>firefox_options.binary_location</em>, accordingly. The other main option of interest is <em>firefox_options.add_argument(&quot;--headless&quot;)</em>. This <em>headerless</em> option is what allows the code to access the Fitbit website without actually opening a browser -- effectively, Python becomes a browser simulator. This is the main reason Selenium was used. The other options are for optimal performance, but not strictly necessary.</p>
+<p>The first time an account is added, manual permissions will need to be granted to Fitbit's authorization website. To do this, comment out this headerless option (place a “#” before the line), run the <em>PythonBot.py</em> code, and check the permissions boxes for each new account as it pops up. After doing this once, uncomment this headerless line. The system will then be ready for full automation.</p>
+<p>The official Selenium documentation also supports a Google Chrome driver. If Chrome is preferred, it can be substituted in for FireFox without issue. However, make sure to change all instances of <em>firefox</em> in the above codes to <em>Chrome.</em></p>
+<p>With Selenium downloaded and imported, the last step was to call and use Selenium. The following line in <em>browser_authorize</em> function in <em>gather_keys_oauth2.py</em> was responsible for opening the web browser, so it was targeted for edits.</p>
+<div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python">    threading.Timer(<span class="dv">1</span>, webbrowser.<span class="bu">open</span>, args<span class="op">=</span>(url,)).start()</code></pre></div>
+<p>As its name might suggest, the <em>webbrowser.open</em> function causes a web browser to open. The other passed arguments <em>1</em> and <em>args=(url,)</em> are parameters that can be left unchanged. This line was replaced with the following code:</p>
+<div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python">    driver <span class="op">=</span> webdriver.Firefox(executable_path <span class="op">=</span> <span class="st">&#39;/class/datamine/apps/geckodriver&#39;</span>, options<span class="op">=</span>firefox_options)
+    driver.get(<span class="st">&quot;https://accounts.fitbit.com/login?targetUrl=https%3A</span><span class="sc">%2F%2F</span><span class="st">www.fitbit.com</span><span class="sc">%2F</span><span class="st">us</span><span class="sc">%2F</span><span class="st">home&quot;</span>)
+    sleep(<span class="dv">5</span>)
+    driver.find_element(By.XPATH, <span class="st">&quot;//input[@type=&#39;email&#39;]&quot;</span>).send_keys(email)
+    sleep(<span class="dv">2</span>)
+    driver.find_element(By.XPATH, <span class="st">&quot;//input[@type=&#39;password&#39;]&quot;</span>).send_keys(password)
+    sleep(<span class="dv">2</span>)
+    driver.find_element(By.XPATH, <span class="st">&quot;/html/body/div[2]/div/div[2]/div/div/div[3]/form/div[4]/div/button&quot;</span>).click()
+    sleep(<span class="dv">10</span>)
+    
+    threading.Timer(<span class="dv">1</span>, driver.get, args<span class="op">=</span>(url,)).start()</code></pre></div>
+<p>The first line of the following code initializes the Selenium webdriver. Edit the <em>executable_path</em> as needed based on where the firefox driver was installed. The next line, <em>driver.get</em>, tells the Selenium web browser what website to go to. The <em>find_elements</em> commands are what allow for the automatization of plugging in usernames and emails. The sleep functions are input time delays to help make sure that the website has time to properly load before attempting to log in. The final line should look familiar. It is the same as the original line, except replacing the <em>webbrowser.open</em>, which opens a normal web browser, with <em>driver.get</em>, which calls Selenium's browser simulator. The rest of <em>gather_keys_oauth2</em> can remain as is.</p>
+</div>
+<div id="moving-to-scholar" class="section level4">
+<h4><span class="header-section-number">5.4.1.3</span> Moving to Scholar</h4>
+<p>When multiple user logins were pushed and data extractions were performed in relatively quick succession on personal Wi-Fi, Fitbit's cybersecurity software flagged and temporarily banned the IP address from accessing their site. While these bans can be overturned by contacting Fitbit's customer support page on Twitter, the &quot;unbanning&quot; is temporary. This leads to a cycle of getting banned and asking to be unbanned, which is both inconvenient and detrimental to any long term data collection plans. The hope with Scholar is that, as an educational IP address, it can be whitelisted and the automated process can function without getting users banned.</p>
+<div id="using-scholar" class="section level5">
+<h5><span class="header-section-number">5.4.1.3.1</span> Using Scholar</h5>
+<p>To access Scholar, go to *<a href="https://scholar-fe03.rcac.purdue.edu:300/main/*" class="uri">https://scholar-fe03.rcac.purdue.edu:300/main/*</a> and login with Purdue 2 Factor Credentials.</p>
+<p>The codes used for this part of the project are written in Python. Unfortunately, Scholar does not currently support Python IDEs (Spyder, VS code, etc). This means that the code either needs to be called through a Jupyter Notebook Kernel or through a terminal window. For now, the code will be run via Terminal commands.</p>
+<p>To open Terminal, click on <strong>Terminal Emulator</strong> in Scholar's applications bar. Once Terminal is open, navigate to the <em>/class</em> directory and then to the appropriate folder. To do this, type the following commands into Terminal:</p>
+<div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python">cd ..
+cd ..
+cd <span class="op">/</span><span class="kw">class</span><span class="op">/</span>datamine<span class="op">/</span>corporate<span class="op">/</span>merck<span class="op">/</span>DataEngineers<span class="op">/</span>Fitbit</code></pre></div>
+<p>Needed files and libraries have been installed on Scholar. Pathways within the code have been adjusted to Scholar's directory. As a result, there is only one more step that needs to be done before the code can be run. This step is to direct the python3 program where to find installed libraries. Type the following command into the Terminal:</p>
+<div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python">source <span class="op">/</span><span class="kw">class</span><span class="op">/</span>datamine<span class="op">/</span>apps<span class="op">/</span>python.sh</code></pre></div>
+<p><strong>Note</strong> You will need to rerun this command everytime you close out of Terminal and reopen it.</p>
+<p>Now, Scholar is ready to run PythonBot.py! To run the code, type the following into Terminal:</p>
+<div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python">python3 PythonBot.py</code></pre></div>
+<p><strong>Note</strong> if the previous Terminal window was closed, navigate to <em>/class/datamine/corporate/merck/DataEngineers/Fitbit</em> again before running <em>python3 PythonBot.py</em></p>
+<p>Extracted data is formatted into CSV files and accessible at <em>/class/datamine/corporate/merck/DataEngineers/Fitbit/CSV_Files</em>.</p>
+</div>
+</div>
+</div>
+<div id="multiple-devices" class="section level3">
+<h3><span class="header-section-number">5.4.2</span> Multiple Devices</h3>
+<p>Not all fitbit devices have the same data available to them. This is most noticeable in older models, in which functionality such as the number of floors climbed or sleep cycles was not yet implemented. Using the get_Devices function available in the Fitbit API, the code returns a string corresponding to the Fitbit version. For example, a Fitbit Ionic would return the string &quot;Ionic&quot;. Using this information, if-else statements were implemented to check the version and assign corresponding data values. Data that is not available would be input as &quot;None&quot; within the data table. In some cases, the function can simply check if the data is NULL and automatically do this such as with the sleep data. However for data such as activity levels, the data gets input as a &quot;0&quot; instead and thus needs a check. Checks for some of the newer models have been implemented, along with a generic case. The table below shows the implemented models and their available data: | |Ionic | Versa Lite |Inspire |Charge 3 | ---------------|---------------------------------------|--------------|-------------|-------------|-------------| Activity |Steps |X |X |X |X | |Workouts |X |X | | | |Sit/Stand |X |X | | | |Flight Climbed |X | | | | |Elevation |X | | | | |Time spent in different activity levels|X |X | | | |Calories burned |X |X | | | Sleep |Asleep vs Awake |X |X |X |X | |Stages |X |X | | | Heart Rate |Time spent in different heart ranges |X |X | |X | |Resting heart rate |X |X | |X | |Walking Heartrate |X |X | |X | |Heart rate during activity |X |X | |X | -----------------------------------------------------------------------------------------------------------------</p>
+<p>The following function is what is used to obtain the device model string:</p>
+<div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python"><span class="kw">def</span> getDevice():
+    devices <span class="op">=</span> auth2_client.get_devices()
+    <span class="cf">if</span>(<span class="bu">len</span>(devices) <span class="op">==</span> <span class="dv">0</span>):
+        deviceVersion <span class="op">=</span> <span class="st">&#39;None&#39;</span>
+    <span class="cf">else</span>:
+        deviceVersion <span class="op">=</span> devices[<span class="dv">0</span>][<span class="st">&#39;deviceVersion&#39;</span>]    
+    <span class="cf">return</span> deviceVersion</code></pre></div>
+<p>The function first calls the built-in Fitbit API get_devices(). Next it checks the length of the output to determine if it is valid. If it is not valid, the user must not have any device registered. At the moment, the code only obtains the first device if a user has multiple registered.</p>
+</div>
+</div>
+<div id="scheduling-the-data-collection" class="section level2">
+<h2><span class="header-section-number">5.5</span> Scheduling the Data Collection</h2>
+<p>Through using the CronTab module within Python, we are able to schedule and run our FitBit functions on a routinely basis. The data we collect is stored in a dataframe and new data is continuously appended to this dataframe. The scheduled time is set to every 9 AM on weekdays.</p>
+</div>
+<div id="collaborating-with-other-teams" class="section level2">
+<h2><span class="header-section-number">5.6</span> Collaborating with other Teams</h2>
+<p>Our team had three main interactions with the other teams. The first one was with the Data Architects. When reviewing last year's code, we noticed that sending a CSV file everytime would be inneficient. We discovered a function, dataFrame.to_sql(), which would allow the data to be sent straight into the SQL server. Although a solution was found, we decided to leave the code how it is and save this idea for another day. The second and third interactions were with the Front End team. The first time, we wanted to see if there was a way to easily collect the user's fitbit username and password. The Front End team was able to create a way to have the login information collected from mobile app and saved on the SQL server with the help of the Back End team. This was a very important problem to solve as the API needs to log into the user's fitbit account to pull their data. Our last collaboration was regarding a issue that would result in complications during the clinical trial. Regardless of whether the user is wearing their device or not, any time the fitbit wasn't in an active motion, time is accrued on the user's sedentary minutes. This would be a problem as there is no way to differentiate whether the user was sedentary, or if the fitbit wasn't on the user. After conversing with the Front End team, we decided that an alert system or question during their survey would help solve this issue. This problem is a work in progress and doesn't have a solution as of yet.</p>
+</div>
+<div id="future-work" class="section level2">
+<h2><span class="header-section-number">5.7</span> Future Work</h2>
+<p>Our future work for the Spring 2021 semester seeks to build upon our work completed during this Fall 2020 semester. Our main goals are listed include: (1) streamlining our work with the other Merck biometric teams to ensure the entire process works well from start to finish, (2) exploring alternative ways to access the user's fitbit information that might better align with the way fitbit intends multiple user data collection, and (3) investigating the collection of data from the Apple Watch.</p>
+<ol style="list-style-type: decimal">
+<li>Streamlining work with the other Merck Biometric teams</li>
+<li>Exploring alternative ways to access the user's fitbit information</li>
+<li>Investigating the collection of data from the Apple Watch</li>
+</ol>
+</div>
+<div id="thank-you-acknowledgements" class="section level2">
+<h2><span class="header-section-number">5.8</span> Thank you &amp; Acknowledgements</h2>
+<p>We would like to thank our Merck Corporate Partners, TA, and all the Data Mine staff that have helped us throughout this semester.</p>
+
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="documentation-template.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="data-architects.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": "https://github.com/rstudio/bookdown-demo/edit/master/04-DataEngineering-FinalDoc.Rmd",
+"text": "Edit"
+},
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": null,
+"text": null
+},
+"download": ["bookdown-demo.pdf", "bookdown-demo.epub"],
+"toc": {
+"collapse": "subsection"
+}
+});
+});
+</script>
+
+</body>
+
+</html>

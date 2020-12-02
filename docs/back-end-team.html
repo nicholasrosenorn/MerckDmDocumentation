@@ -4,11 +4,11 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>Merck-Data Mine Documentation</title>
+  <title>Chapter 8 Back End Team | Merck-Data Mine Documentation</title>
   <meta name="description" content="A book for documenting the Merck-Data Mine team's work." />
   <meta name="generator" content="bookdown 0.21 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="Merck-Data Mine Documentation" />
+  <meta property="og:title" content="Chapter 8 Back End Team | Merck-Data Mine Documentation" />
   <meta property="og:type" content="book" />
   
   
@@ -16,7 +16,7 @@
   
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Merck-Data Mine Documentation" />
+  <meta name="twitter:title" content="Chapter 8 Back End Team | Merck-Data Mine Documentation" />
   
   <meta name="twitter:description" content="A book for documenting the Merck-Data Mine team's work." />
   
@@ -31,8 +31,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-
-<link rel="next" href="tips-for-writing-great-documentation-and-walkthroughs.html"/>
+<link rel="prev" href="data-visualization-team.html"/>
+<link rel="next" href="front-end-team.html"/>
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
@@ -235,23 +235,181 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="header">
-<h1 class="title">Merck-Data Mine Documentation</h1>
-<p class="author"><em>Merck and Data Mine Corporate Partnership Team</em></p>
-<p class="date"><em>2020-12-02</em></p>
+<div id="back-end-team" class="section level1">
+<h1><span class="header-section-number">Chapter 8</span> Back End Team</h1>
+<div id="creation-of-dummy-data" class="section level2">
+<h2><span class="header-section-number">8.1</span> Creation of Dummy Data</h2>
+<div id="why-do-we-need-dummy-data" class="section level3">
+<h3><span class="header-section-number">8.1.1</span> Why do we need dummy data?</h3>
+<p>In order to effectively test the functionality of the backend code, a lot of pre-existing data is needed to fill the database to simulate a normal functioning environment for the app. Initially, we only had about 40 users' data, and it was not enough. Therefore, we decided to create fake user data based on pre-existing user data (dummy data).</p>
 </div>
-<div id="introduction" class="section level1">
-<h1><span class="header-section-number">Chapter 1</span> Introduction</h1>
-<p>This book will serve as tutorial based documentation for the Merck - Data Mine Coporate Partnership team for the 2020-2021 academic year.</p>
+<div id="how-we-generated-dummy-data" class="section level3">
+<h3><span class="header-section-number">8.1.2</span> How we generated dummy data?</h3>
+<p>In order to let dummy data make sense and follow pre-existing data's patterns, we studied the patterns of each pre-existing data category. There are active, basal, dist, elev, heart, and steps data. We mostly used user 185 and 186's dataset as the reference while creating dummy dataset.</p>
+<p>For the active data, we first calculated the mean value of the original data. Then we found out the number of data points above the mean. Because it can be observed that within each active data set, data points above the mean value cluster into three group, and one of them always starts at the beginning. Therefore, we also chose the start as the position of the first high value data cluster, and randomly chose position for the other two. The value of each data point was chosen based on the observed range of the reference data point.</p>
+<p>The result of fake data vs. real data graph can be found below:<br />
+<img src="images/Active%20Data.JPG" style="width:50.0%" /></p>
+<p>For other data categories, we utilized similar approaches while ajusting parameters and the possible range of random number generation based on each data categories' own characteristics. Below are the fake data vs. real data comparison graphs for other data categories.</p>
+<p>For basal data:<br />
+<img src="images/BasalData.png" style="width:50.0%" /><br/> For Dist data:<br />
+<img src="images/Dist%20Data.JPG" style="width:50.0%" /><br/> For Elev data:<br />
+<img src="images/Elev%20Data.JPG" style="width:50.0%" /><br/> For Heart data:<br />
+<img src="images/Heart%20Data.JPG" style="width:50.0%" /><br/> For Steps data:<br />
+<img src="images/Steps%20Data.JPG" style="width:50.0%" /><br/></p>
+</div>
+<div id="how-to-run-the-scripts" class="section level3">
+<h3><span class="header-section-number">8.1.3</span> How to run the scripts?</h3>
+<p>In order to run the scripts, some modifications to the GenerateFakeData.py are needed. There are three parameters that need modification: folder_name_list, real_name_list, and path. &quot;folder_name_list&quot; tells the name of the folders that will contain the dummy data. &quot;real_name_list&quot; tells the name of the reference files being used to generate dummy data. &quot;path&quot; is the current directory. Once these three parameters are set up correctly, just directly run the GenerateFakeData.py script with no input.</p>
+</div>
+<div id="potential-improvements" class="section level3">
+<h3><span class="header-section-number">8.1.4</span> Potential improvements</h3>
+<p>Because our dummy data generation script is specifically modified for each data set, if in the future a new type of data appears, we need to rewrite our code in order to accommodate the new data type. Therefore, we can improve our code by applying more statictical knowledge so that the code can be applied to generate dummy data from more different data types.</p>
+</div>
+</div>
+<div id="creating-a-connection-between-api-endpoints" class="section level2">
+<h2><span class="header-section-number">8.2</span> Creating a connection between API Endpoints</h2>
+<div id="list-of-api-end-points" class="section level3">
+<h3><span class="header-section-number">8.2.1</span> List of API end-points:</h3>
+<ol style="list-style-type: decimal">
+<li>Front-End Patient User input to the database</li>
+<li>Biometric Data from the FitBit API to the database</li>
+<li>Data from the database to the RShiny Dashboard for visualization</li>
+</ol>
+</div>
+<div id="what-framework-we-are-going-to-use" class="section level3">
+<h3><span class="header-section-number">8.2.2</span> What framework we are going to use?</h3>
+<p>We are currently looking to use the framework Express.js to write the routes between the database and various API endpoints.</p>
+<p>Express is a fast, light-weight web framework for Node.js. Express is a pretty good framework. It's the most popular node application framework out there. Express is widely used as middleware in node apps as it helps to organize your app into a MVC architecture. It's the E of the popular MEAN stack. Express manages following things very easily:</p>
+<ul>
+<li>Routing</li>
+<li>Sessions</li>
+<li>HTTP requests</li>
+<li>Error handling</li>
+</ul>
+<p>At times writing code from scratch for above things can be time consuming. But by using express it's only a matter of few methods. Express also helps in organizing your code.</p>
+<p><a href="https://medium.com/@onejohi/building-a-simple-rest-api-with-nodejs-and-express-da6273ed7ca9">Link to set up Node</a></p>
+</div>
+<div id="setting-up-sql-database-connection" class="section level3">
+<h3><span class="header-section-number">8.2.3</span> Setting up SQL database connection:</h3>
+<p>We created a connection with the MariaDB database in our Node Rest API server to be able to send and receive data. The following link shows a tutorial on how we set up the connection.</p>
+<p><a href="https://bezkoder.com/node-js-rest-api-express-mysql/">Link to setup SQL connection in Node</a></p>
+</div>
+<div id="design-of-the-routes" class="section level3">
+<h3><span class="header-section-number">8.2.4</span> Design of the Routes</h3>
+<p>There are five kinds of routes:</p>
+<p><strong>GET</strong>: The GET method requests a representation of the specified resource. Requests using GET should only retrieve data and should have no other effect.</p>
+<p><strong>POST</strong>: The POST method requests that the server accept the entity enclosed in the request as a new subordinate of the web resource identified by the URI. The data POSTed might be, for example, an annotation for existing resources; a message for a bulletin board, newsgroup, mailing list, or comment thread; a block of data that is the result of submitting a web form to a data-handling process; or an item to add to a database.</p>
+<p><strong>PUT</strong>: The PUT method requests that the enclosed entity be stored under the supplied URI. If the URI refers to an already existing resource, it is modified; if the URI does not point to an existing resource, then the server can create the resource with that URI.</p>
+<p><strong>DELETE</strong>: The DELETE method deletes the specified resource.</p>
+<p><strong>PATCH</strong>: The PATCH method applies partial modifications to a resource</p>
+</div>
+</div>
+<div id="hosting-the-database-on-a-server" class="section level2">
+<h2><span class="header-section-number">8.3</span> Hosting the database on a Server</h2>
+<div id="issues-faced-with-hosting-a-database-on-scholar" class="section level3">
+<h3><span class="header-section-number">8.3.1</span> Issues faced with hosting a database on Scholar:</h3>
+<ol style="list-style-type: decimal">
+<li>Scholar is a small computer cluster, suitable for classroom learning about high performance computing (HPC).</li>
+<li>It can be accessed as a typical cluster, with a job scheduler distributing batch jobs onto its worker nodes, or as an interactive resource, with software packages available through a desktop-like environment on its login servers.</li>
+<li>We tried to create a connection to the sql server hosted on this server from our local but we faced issues because there was a firewall preventing access to the database from a foreign server</li>
+<li>We tried running our Backend API on scholar but we were unable to install NodeJS, MySQLWorkbench and other packages on the server without authorization.</li>
+</ol>
+</div>
+<div id="work-around" class="section level3">
+<h3><span class="header-section-number">8.3.2</span> Work around</h3>
+<ol style="list-style-type: decimal">
+<li><p>In order to install packages on scholar, we are expected to make requests to the administration with a list of all program lines to run in the form of a SLURM job.</p></li>
+<li><p>The Simple Linux Utility for Resource Management (SLURM) is a system providing job scheduling and job management on compute clusters. With SLURM, a user requests resources and submits a job to a queue. The system will then take jobs from queues, allocate the necessary nodes, and execute them.</p></li>
+<li><p>To submit work to a SLURM queue, you must first create a job submission file.</p></li>
+</ol>
+<p>More info can be found at the following link: <a href="https://www.rcac.purdue.edu/knowledge/weber/run/slurm">SLURM Job</a></p>
+</div>
+<div id="how-we-proceeded" class="section level3">
+<h3><span class="header-section-number">8.3.3</span> How we proceeded</h3>
+<p>Since we have to make a request each time we have to install a package, we decided to make just one request with a complete list of all installation. As a result, we wanted to host a temporary database on AWS that we can connect to and test on using our local machine.</p>
+<p>We created a copy of the entire database on AWS with the following credentials:</p>
+<ul>
+<li>Hostname: rnr56s6e2uk326pj.cbetxkdyhwsb.us-east-1.rds.amazonaws.com</li>
+<li>Username: cb3i17t0aqn6a4ff</li>
+<li>Password: e2l4k9zn24shcj42</li>
+</ul>
+</div>
+</div>
+<div id="adding-data-to-the-database" class="section level2">
+<h2><span class="header-section-number">8.4</span> Adding data to the database</h2>
+<div id="adding-a-csv-to-the-database" class="section level3">
+<h3><span class="header-section-number">8.4.1</span> Adding a CSV to the database</h3>
+<ol style="list-style-type: decimal">
+<li>The data engineering team had made a script that creates a CSV file with all the users FitBit data when they make a request to the API</li>
+<li>We decided to make a python script to load this csv data onto the database we hosted on AWS.</li>
+</ol>
+</div>
+<div id="post-information" class="section level3">
+<h3><span class="header-section-number">8.4.2</span> POST information</h3>
+<ol style="list-style-type: decimal">
+<li><p>The JSON to add a datapoint to the database is as follows:</p>
+<pre class="text"><code> obj = {&#39;collection_date&#39;: row[&quot;Date&quot;],
+       &#39;steps&#39;: row[&quot;Steps&quot;],
+       &#39;floors_climbed&#39;: row[&quot;Floors Climbed&quot;],
+       &#39;total_miles&#39;: row[&quot;Total Miles&quot;],
+       &#39;lightly_active_miles&#39;: [&quot;Lightly Active Miles&quot;],
+       &#39;moderately_active_miles&#39;: row[&quot;Moderately Active Miles&quot;],
+       &#39;very_active_miles&#39;: row[&quot;Very Active Miles&quot;],
+       &#39;sedentary_minutes&#39;: row[&quot;Sedentary Minutes&quot;],
+       &#39;lightly_active_minutes&#39;: row[&quot;Lightly Active Minutes&quot;],
+       &#39;fairly_active_minutes&#39;: row[&quot;Fairly Active Minutes&quot;],
+       &#39;very_active_minutes&#39;: row[&quot;Very Active Minutes&quot;],
+       &#39;hr30_100_minutes&#39;: row[&quot;HR 30-100 Minutes&quot;],
+       &#39;hr100_140_minutes&#39;: row[&quot;HR 100-140 Minutes&quot;],
+       &#39;hr140_170_minutes&#39;: row[&quot;HR 140-170 Minutes&quot;],
+       &#39;hr170_220_minutes&#39;: row[&quot;HR 170-220 Minutes&quot;],
+       &#39;average_resting_heartrate&#39;: row[&quot;Average Resting HR&quot;],
+       &#39;bmi&#39;: row[&quot;BMI&quot;],
+       &#39;sleep_efficiency&#39;: row[&quot;Sleep Efficiency&quot;],
+       &#39;weight&#39;: row[&quot;Weight&quot;],
+       &#39;minutes_asleep&#39;: row[&quot;Minutes Alseep&quot;],
+       &#39;fbusername&#39;: row[&quot;username&quot;]
+       }</code></pre></li>
+<li><p>We made structures in this form by reading the CSV information into a pandas dataframe and made a post request to our API</p></li>
+</ol>
+</div>
+<div id="patient-information-and-study-specific-data" class="section level3">
+<h3><span class="header-section-number">8.4.3</span> Patient information and Study Specific Data</h3>
+<p>The patient information is sent to the database form a webpage which will be used by Merck Scientists to load the patients they are studying during a clinical trial.</p>
+<p>The JSON for a patient is as follows:</p>
+<pre class="text"><code>{
+  patient_id,
+  fbusername,
+  first_name,
+  last_name,
+  gender,
+  date_of_birth,
+  height
+}</code></pre>
+<p>The JSON for the study data is as follows:</p>
+<pre class="text"><code>{
+    patient_id,
+    input_date,
+    family_history_cancer,
+    family_history_heart_disease,
+    diagnostic_notes
+}</code></pre>
+</div>
+</div>
+<div id="firebase-and-login-system-for-the-phone-app" class="section level2">
+<h2><span class="header-section-number">8.5</span> Firebase and Login System for the Phone App</h2>
+<p>(This part is also in frontend team's documentation, because it is relavant to both of the teams) Because our app’s users are patients and their information is very confidential, It is important to implement our login and authentication system securely. Instead of building a secure login system from scratch by ourselves, we chose to use a pre-existing login authentication solution--firebase. In firebase, users’ passwords are first encrypted and then stored. Even if hackers successfully gain access to firebase’s database, they still would not know the passwords because everything stored there is the encrypted version.</p>
+<p>The next step is to incorporate the firebase login system into our own database. Our current thought is that, once the user logs in through firebase, they will receive a key from firebase. Then whenever they want to modify or store data in our database, they send the key along with every HTTP request. The backend would check the correctness of the key and only allow accessibility if the key is correct.</p>
 
+</div>
 </div>
             </section>
 
           </div>
         </div>
       </div>
-
-<a href="tips-for-writing-great-documentation-and-walkthroughs.html" class="navigation navigation-next navigation-unique" aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="data-visualization-team.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="front-end-team.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
@@ -282,7 +440,7 @@ gitbook.start({
 "size": 2
 },
 "edit": {
-"link": "https://github.com/rstudio/bookdown-demo/edit/master/index.Rmd",
+"link": "https://github.com/rstudio/bookdown-demo/edit/master/07-BackEnd-FinalDoc.Rmd",
 "text": "Edit"
 },
 "history": {

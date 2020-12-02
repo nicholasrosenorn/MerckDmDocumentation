@@ -4,11 +4,11 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>Merck-Data Mine Documentation</title>
+  <title>Chapter 3 Documentation Example - The Basics of R Markdown | Merck-Data Mine Documentation</title>
   <meta name="description" content="A book for documenting the Merck-Data Mine team's work." />
   <meta name="generator" content="bookdown 0.21 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="Merck-Data Mine Documentation" />
+  <meta property="og:title" content="Chapter 3 Documentation Example - The Basics of R Markdown | Merck-Data Mine Documentation" />
   <meta property="og:type" content="book" />
   
   
@@ -16,7 +16,7 @@
   
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Merck-Data Mine Documentation" />
+  <meta name="twitter:title" content="Chapter 3 Documentation Example - The Basics of R Markdown | Merck-Data Mine Documentation" />
   
   <meta name="twitter:description" content="A book for documenting the Merck-Data Mine team's work." />
   
@@ -31,8 +31,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-
-<link rel="next" href="tips-for-writing-great-documentation-and-walkthroughs.html"/>
+<link rel="prev" href="tips-for-writing-great-documentation-and-walkthroughs.html"/>
+<link rel="next" href="documentation-template.html"/>
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
@@ -235,23 +235,88 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="header">
-<h1 class="title">Merck-Data Mine Documentation</h1>
-<p class="author"><em>Merck and Data Mine Corporate Partnership Team</em></p>
-<p class="date"><em>2020-12-02</em></p>
+<div id="documentation-example---the-basics-of-r-markdown" class="section level1">
+<h1><span class="header-section-number">Chapter 3</span> Documentation Example - The Basics of R Markdown</h1>
+<div id="overview-of-r-markdown" class="section level2">
+<h2><span class="header-section-number">3.1</span> Overview of R Markdown</h2>
+<p>R Markdown is a file format for making dynamic documents with R. An R Markdown document is written in markdown (an easy-to-write plain text format) and contains chunks of embedded R code, text, images, headers, and more.</p>
+<p>In this walkthrough, we'll discuss some of the functionality of R Markdown Documents and how to add images, code, and other features to the document.</p>
+<p>Throughout this tutorial, we'll be reviewing the contents of the R Markdown cheat sheet that has most important information for writing in Markdown. The cheat sheet can be found at <a href="https://rstudio.com/wp-content/uploads/2015/02/rmarkdown-cheatsheet.pdf" class="uri">https://rstudio.com/wp-content/uploads/2015/02/rmarkdown-cheatsheet.pdf</a>.</p>
 </div>
-<div id="introduction" class="section level1">
-<h1><span class="header-section-number">Chapter 1</span> Introduction</h1>
-<p>This book will serve as tutorial based documentation for the Merck - Data Mine Coporate Partnership team for the 2020-2021 academic year.</p>
+<div id="workflow" class="section level2">
+<h2><span class="header-section-number">3.2</span> Workflow</h2>
+<p>One of the great features of Markdown files is that they can be rendered to PDF files, Word documents, HTML content, and more. This allows the writer to easily write in R and export the document how they see best.</p>
+<p>Take a look at a common lifecylce of R Markdown documents in th following picture:</p>
+<div class="figure">
+<img src="images/workflow.png" />
 
+</div>
+</div>
+<div id="opening-a-new-file" class="section level2">
+<h2><span class="header-section-number">3.3</span> Opening a New File</h2>
+<p>Writing R Markdown files is easiest within R Studio. Navigate to File &gt; New File &gt; R Markdown to create a new file.</p>
+<div class="figure">
+<img src="images/open.png" />
+
+</div>
+</div>
+<div id="helpful-syntax" class="section level2">
+<h2><span class="header-section-number">3.4</span> Helpful Syntax</h2>
+<p>Take a look through helpful sytax in this photo:</p>
+<div class="figure">
+<img src="images/syntax.png" />
+
+</div>
+<p>Here are some examples to vie. Take a look at the raw R Markdown to view the syntax in pratice.</p>
+<p><em>italics</em> <strong>bold</strong> <del>strikethrough</del></p>
+<blockquote>
+<p>Block Quote</p>
+</blockquote>
+<ul>
+<li>Bullets</li>
+<li>Bullets</li>
+<li>subitem</li>
+</ul>
+<ol style="list-style-type: decimal">
+<li>Lists</li>
+<li>Lists</li>
+</ol>
+<ul>
+<li>subitem</li>
+</ul>
+</div>
+<div id="embed-code" class="section level2">
+<h2><span class="header-section-number">3.5</span> Embed Code</h2>
+<p>One of the best features of R Markdown is the ability to add code to your document. To add a code snippet, click on the green <em>insert</em> button in your R Studio tool bar and choose which language you would like to use!</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">print</span>(<span class="st">&quot;This is an R code snippet&quot;</span>)</code></pre></div>
+<pre><code>## [1] &quot;This is an R code snippet&quot;</code></pre>
+<div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python"><span class="bu">print</span>(<span class="st">&quot;This is a python code snippet with eval=FALSE&quot;</span>)</code></pre></div>
+<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="bu">echo</span> this a bash code snippet</code></pre></div>
+<pre><code>## this a bash code snippet</code></pre>
+<div class="figure">
+<img src="images/code.png" />
+
+</div>
+<p>There are also many options for your code snippets. Take a look:</p>
+<div class="figure">
+<img src="images/options.png" />
+
+</div>
+</div>
+<div id="wrapping-or-knitting-it-up" class="section level2">
+<h2><span class="header-section-number">3.6</span> Wrapping (or knitting) it Up</h2>
+<p>To knit your Markdown file you click the blue <em>knit</em> button in your R Studio toolbar. You can choose which file format you would like to knit to as well!</p>
+<p>For the purposes of our Merck-Data Mine documentation book, however, we will not have to knit anything because we are placing the individual documents in one bookdown book. To learn more about bookdown take a look at <a href="https://bookdown.org/yihui/bookdown/introduction.html" class="uri">https://bookdown.org/yihui/bookdown/introduction.html</a> for more information.</p>
+
+</div>
 </div>
             </section>
 
           </div>
         </div>
       </div>
-
-<a href="tips-for-writing-great-documentation-and-walkthroughs.html" class="navigation navigation-next navigation-unique" aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="tips-for-writing-great-documentation-and-walkthroughs.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="documentation-template.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
@@ -282,7 +347,7 @@ gitbook.start({
 "size": 2
 },
 "edit": {
-"link": "https://github.com/rstudio/bookdown-demo/edit/master/index.Rmd",
+"link": "https://github.com/rstudio/bookdown-demo/edit/master/02-template.Rmd",
 "text": "Edit"
 },
 "history": {
