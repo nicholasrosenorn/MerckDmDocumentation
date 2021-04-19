@@ -158,8 +158,9 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li class="chapter" data-level="6.3.1" data-path="data-engineering-spring-2021-documentation.html"><a href="data-engineering-spring-2021-documentation.html#cronjob-for-mac-and-linux"><i class="fa fa-check"></i><b>6.3.1</b> Cronjob (for Mac and Linux)</a></li>
 <li class="chapter" data-level="6.3.2" data-path="data-engineering-spring-2021-documentation.html"><a href="data-engineering-spring-2021-documentation.html#task-scheduler-windows"><i class="fa fa-check"></i><b>6.3.2</b> Task Scheduler (Windows)</a></li>
 </ul></li>
-<li class="chapter" data-level="6.4" data-path="data-engineering-spring-2021-documentation.html"><a href="data-engineering-spring-2021-documentation.html#exploring-apple-healthkit-and-xcode"><i class="fa fa-check"></i><b>6.4</b> Exploring Apple HealthKit and XCode</a></li>
-<li class="chapter" data-level="6.5" data-path="data-engineering-spring-2021-documentation.html"><a href="data-engineering-spring-2021-documentation.html#thank-you-acknowledgements"><i class="fa fa-check"></i><b>6.5</b> Thank you &amp; Acknowledgements</a></li>
+<li class="chapter" data-level="6.4" data-path="data-engineering-spring-2021-documentation.html"><a href="data-engineering-spring-2021-documentation.html#intraday-fitbit-data-collection"><i class="fa fa-check"></i><b>6.4</b> Intraday Fitbit Data Collection</a></li>
+<li class="chapter" data-level="6.5" data-path="data-engineering-spring-2021-documentation.html"><a href="data-engineering-spring-2021-documentation.html#exploring-apple-healthkit-and-xcode"><i class="fa fa-check"></i><b>6.5</b> Exploring Apple HealthKit and XCode</a></li>
+<li class="chapter" data-level="6.6" data-path="data-engineering-spring-2021-documentation.html"><a href="data-engineering-spring-2021-documentation.html#thank-you-acknowledgements"><i class="fa fa-check"></i><b>6.6</b> Thank you &amp; Acknowledgements</a></li>
 </ul></li>
 <li class="chapter" data-level="7" data-path="data-architects.html"><a href="data-architects.html"><i class="fa fa-check"></i><b>7</b> Data Architects</a><ul>
 <li class="chapter" data-level="7.1" data-path="data-architects.html"><a href="data-architects.html#background"><i class="fa fa-check"></i><b>7.1</b> Background</a></li>
@@ -375,12 +376,81 @@ usernames <span class="op">=</span> []
 <p>The program is now ready to run automatically!</p>
 </div>
 </div>
+<div id="intraday-fitbit-data-collection" class="section level2">
+<h2><span class="header-section-number">6.4</span> Intraday Fitbit Data Collection</h2>
+<p>Data from fitbit for specified types such as heart rate and activity levels can be collected at points throughout the day rather than one value for the whole day if desired. Intraday data can be called using a simple function which is done so as follows for intraday heart rate within the code:</p>
+<div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python">oneDayData <span class="op">=</span> <span class="va">self</span>.auth2_client.intraday_time_series(<span class="st">&#39;activities/heart&#39;</span>, myDate, detail_level<span class="op">=</span><span class="st">&#39;15min&#39;</span>)[<span class="st">&#39;activities-heart-intraday&#39;</span>]</code></pre></div>
+<p>Note that the CLIENT_ID used will need to obtain permissions from Fitbit to access intraday data, otherwise this function will return an error. As it stands currently, the function returns an empty data set for an unknown reason. This problem is being looked into but has no solution as of now. The correct output format would be as follows:</p>
+<div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python"><span class="co">#&quot;activities-heart-intraday&quot;: {</span>
+<span class="co">#        &quot;dataset&quot;: [</span>
+<span class="co">#            {</span>
+<span class="co">#                &quot;time&quot;: &quot;00:00:00&quot;,</span>
+<span class="co">#                &quot;value&quot;: 64</span>
+<span class="co">#            },</span>
+<span class="co">#            {</span>
+<span class="co">#                &quot;time&quot;: &quot;00:00:10&quot;,</span>
+<span class="co">#                &quot;value&quot;: 63</span>
+<span class="co">#            },</span>
+<span class="co">#            {</span>
+<span class="co">#                &quot;time&quot;: &quot;00:00:20&quot;,</span>
+<span class="co">#                &quot;value&quot;: 64</span>
+<span class="co">#            },</span>
+<span class="co">#            {</span>
+<span class="co">#                &quot;time&quot;: &quot;00:00:30&quot;,</span>
+<span class="co">#                &quot;value&quot;: 65</span>
+<span class="co">#            },</span>
+<span class="co">#            {</span>
+<span class="co">#                &quot;time&quot;: &quot;00:00:45&quot;,</span>
+<span class="co">#                &quot;value&quot;: 65</span>
+<span class="co">#            },</span>
+<span class="co">#            {</span>
+<span class="co">#                &quot;time&quot;: &quot;00:01:00&quot;,</span>
+<span class="co">#                &quot;value&quot;: 64</span>
+<span class="co">#            },</span>
+<span class="co">#            {</span>
+<span class="co">#                &quot;time&quot;: &quot;00:01:15&quot;,</span>
+<span class="co">#                &quot;value&quot;: 66</span>
+<span class="co">#            },</span>
+<span class="co">#            {</span>
+<span class="co">#                &quot;time&quot;: &quot;00:01:30&quot;,</span>
+<span class="co">#                &quot;value&quot;: 65</span>
+<span class="co">#            },</span>
+<span class="co">#            {</span>
+<span class="co">#                &quot;time&quot;: &quot;00:01:45&quot;,</span>
+<span class="co">#                &quot;value&quot;: 63</span>
+<span class="co">#           },</span>
+<span class="co">#            {</span>
+<span class="co">#                &quot;time&quot;: &quot;00:02:00&quot;,</span>
+<span class="co">#                &quot;value&quot;: 63</span>
+<span class="co">#            },</span>
+<span class="co">#            {</span>
+<span class="co">#                &quot;time&quot;: &quot;00:02:15&quot;,</span>
+<span class="co">#                &quot;value&quot;: 64</span>
+<span class="co">#            },</span>
+<span class="co">#            {</span>
+<span class="co">#                &quot;time&quot;: &quot;00:02:30&quot;,</span>
+<span class="co">#                &quot;value&quot;: 65</span>
+<span class="co">#            },</span>
+<span class="co">#            {</span>
+<span class="co">#                &quot;time&quot;: &quot;00:02:45&quot;,</span>
+<span class="co">#                &quot;value&quot;: 65</span>
+<span class="co">#            },</span>
+<span class="co">#            {</span>
+<span class="co">#                &quot;time&quot;: &quot;00:03:00&quot;,</span>
+<span class="co">#                &quot;value&quot;: 63</span>
+<span class="co">#            }</span>
+<span class="co">#        ],</span>
+<span class="co">#        &quot;datasetInterval&quot;: 15,</span>
+<span class="co">#        &quot;datasetType&quot;: &quot;second&quot;</span>
+<span class="co">#    }</span></code></pre></div>
+<p>This is an example with dummy data for a few minutes of intraday collection. As is specified in the code, the heart rate at each 15 minute interval for one full day would be obtained. The data could potentially be very useful in analyzing trends of a patient's heart rate in a smaller and more accurate timeframe.</p>
+</div>
 <div id="exploring-apple-healthkit-and-xcode" class="section level2">
-<h2><span class="header-section-number">6.4</span> Exploring Apple HealthKit and XCode</h2>
+<h2><span class="header-section-number">6.5</span> Exploring Apple HealthKit and XCode</h2>
 <p>Our team decided to start looking into creating the data aquisition script for the Apple Watch. This led us to Apple HealthKit. HealthKit allows access to and the ability to share health and fitness data that is collected using an iPhone and/or Apple Watch. We explored the the documentation that Apple had to offer and began learning how to use HealthKit. To use HealthKit to access the user's health data, we had to begin learning the language Swift and the IDE, XCode The problem we quickly encountered was that this could only be fully explored on Apple devices. In addition to exploring HealthKit and XCode on our own, we also searched for resources that we could use to assist in developing the data aquisition script. A lot of what we found was able to read and write the data but not export the data. Our current plan is to utilize a code template that walks through the authentication and data collection process and then directly send the data to the AWS database.</p>
 </div>
 <div id="thank-you-acknowledgements" class="section level2">
-<h2><span class="header-section-number">6.5</span> Thank you &amp; Acknowledgements</h2>
+<h2><span class="header-section-number">6.6</span> Thank you &amp; Acknowledgements</h2>
 <p>We would like to thank our Merck Corporate Partners, TA, and all the Data Mine staff that have helped us throughout this semester.</p>
 
 </div>

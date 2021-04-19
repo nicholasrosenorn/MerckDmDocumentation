@@ -1224,6 +1224,100 @@ it does and that its status is \emph{Enabled}. If its status is
 
 The program is now ready to run automatically!
 
+\section{Intraday Fitbit Data
+Collection}\label{intraday-fitbit-data-collection}
+
+Data from fitbit for specified types such as heart rate and activity
+levels can be collected at points throughout the day rather than one
+value for the whole day if desired. Intraday data can be called using a
+simple function which is done so as follows for intraday heart rate
+within the code:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{oneDayData }\OperatorTok{=} \VariableTok{self}\NormalTok{.auth2_client.intraday_time_series(}\StringTok{'activities/heart'}\NormalTok{, myDate, detail_level}\OperatorTok{=}\StringTok{'15min'}\NormalTok{)[}\StringTok{'activities-heart-intraday'}\NormalTok{]}
+\end{Highlighting}
+\end{Shaded}
+
+Note that the CLIENT\_ID used will need to obtain permissions from
+Fitbit to access intraday data, otherwise this function will return an
+error. As it stands currently, the function returns an empty data set
+for an unknown reason. This problem is being looked into but has no
+solution as of now. The correct output format would be as follows:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{#"activities-heart-intraday": \{}
+\CommentTok{#        "dataset": [}
+\CommentTok{#            \{}
+\CommentTok{#                "time": "00:00:00",}
+\CommentTok{#                "value": 64}
+\CommentTok{#            \},}
+\CommentTok{#            \{}
+\CommentTok{#                "time": "00:00:10",}
+\CommentTok{#                "value": 63}
+\CommentTok{#            \},}
+\CommentTok{#            \{}
+\CommentTok{#                "time": "00:00:20",}
+\CommentTok{#                "value": 64}
+\CommentTok{#            \},}
+\CommentTok{#            \{}
+\CommentTok{#                "time": "00:00:30",}
+\CommentTok{#                "value": 65}
+\CommentTok{#            \},}
+\CommentTok{#            \{}
+\CommentTok{#                "time": "00:00:45",}
+\CommentTok{#                "value": 65}
+\CommentTok{#            \},}
+\CommentTok{#            \{}
+\CommentTok{#                "time": "00:01:00",}
+\CommentTok{#                "value": 64}
+\CommentTok{#            \},}
+\CommentTok{#            \{}
+\CommentTok{#                "time": "00:01:15",}
+\CommentTok{#                "value": 66}
+\CommentTok{#            \},}
+\CommentTok{#            \{}
+\CommentTok{#                "time": "00:01:30",}
+\CommentTok{#                "value": 65}
+\CommentTok{#            \},}
+\CommentTok{#            \{}
+\CommentTok{#                "time": "00:01:45",}
+\CommentTok{#                "value": 63}
+\CommentTok{#           \},}
+\CommentTok{#            \{}
+\CommentTok{#                "time": "00:02:00",}
+\CommentTok{#                "value": 63}
+\CommentTok{#            \},}
+\CommentTok{#            \{}
+\CommentTok{#                "time": "00:02:15",}
+\CommentTok{#                "value": 64}
+\CommentTok{#            \},}
+\CommentTok{#            \{}
+\CommentTok{#                "time": "00:02:30",}
+\CommentTok{#                "value": 65}
+\CommentTok{#            \},}
+\CommentTok{#            \{}
+\CommentTok{#                "time": "00:02:45",}
+\CommentTok{#                "value": 65}
+\CommentTok{#            \},}
+\CommentTok{#            \{}
+\CommentTok{#                "time": "00:03:00",}
+\CommentTok{#                "value": 63}
+\CommentTok{#            \}}
+\CommentTok{#        ],}
+\CommentTok{#        "datasetInterval": 15,}
+\CommentTok{#        "datasetType": "second"}
+\CommentTok{#    \}}
+\end{Highlighting}
+\end{Shaded}
+
+This is an example with dummy data for a few minutes of intraday
+collection. As is specified in the code, the heart rate at each 15
+minute interval for one full day would be obtained. The data could
+potentially be very useful in analyzing trends of a patient's heart rate
+in a smaller and more accurate timeframe.
+
 \section{Exploring Apple HealthKit and
 XCode}\label{exploring-apple-healthkit-and-xcode}
 
