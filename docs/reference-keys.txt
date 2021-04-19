@@ -40,6 +40,10 @@ data-engineering-spring-2021-documentation
 completing-the-pipeline
 reading-in-user-data-from-patient-table
 appending-user-data-to-sql-table
+automating-the-process
+automating-the-pipeline
+cronjob-for-mac-and-linux
+task-scheduler-windows
 exploring-apple-healthkit-and-xcode
 thank-you-acknowledgements
 data-architects
