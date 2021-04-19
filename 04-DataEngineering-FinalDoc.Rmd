@@ -414,7 +414,62 @@ for i in range(len(emails)):
     FitbitBot(emails[i], passwords[i], today, usernames[i], IDs[i])
 ```
 
-### Exploring Apple HealthKit and XCode
+## Automating the Process
+
+## Automating the Pipeline
+
+Automating the process was done two different ways. One was done through Cronjob and is useful for UNIX (Mac, linux) operating systems. This was used while the code was on Scholar. However, Scholar had period cronjob wipes, which meant that the automated process had to continually be re-established (and that defeated the purpose!). As a result, the code stopped being run on Scholar and was moved onto the Merck E2C AWS server. This was Windows based, so Task Scheduler was used.  
+
+### Cronjob (for Mac and Linux)
+
+Open Terminal. To see a list of current cronjob, type the following:
+
+```{python, eval=FALSE}
+crontab -l
+```
+
+To edit a crontab or edit an existing one:
+
+```{python, eval=FALSE}’
+crontab -e
+```
+
+Type *i* to enter INSERT mode. Enter your cronjob command. For the case of this project on scholar, the following was used:
+
+```{python, eval=FALSE}
+0 1 * * * cd /class/datamine/corporate/merck/DataEngineers/Fitbit && /class/datamine/apps/python/f2020-s2021/env/bin/python3.8 PythonBot.py
+``` 
+
+The first 5 characters are timing instructions. The first one (0) corresponds to the minute. The second (1) corresponds to the hour. The 3rd corresponds to the day of the month, then month, then day of the week. An asterisk indicates that the job will run for every value in those corresponding categories. As a result
+
+```{python, eval=FALSE}
+0 1 * * * 
+``` 
+ will run everyday at 1am. 
+
+*cd* navigates to a file directory. **Note** that if your python functions are in PATH, you can navigate to your file directly before issuing the crontab -e command, in which case you can simply type: 
+
+```{python, eval=FALSE}
+0 1 * * * PythonBot.py
+``` 
+
+However, since python is not currently in PATH on scholar, the path to both the desired code (PythonBot.py) and had to be indicated in the command.
+
+### Task Scheduler (Windows)
+
+Windows provides a GUI for their scheduling program. To open it, click on the microscope search icon in the bottom of the screen (or right click on the windows icon and select ‘search’) and type *Task Scheduler*. Open the application.
+
+In the *Actions* sidebar, click on *Create Task*. Name the program and navigate to the *Triggers* tab. The trigger tab is tells Windows how often to run the program. Add a new trigger by clicking on *New*. Specify how often to run the program. The current project was made to run everyday at 1 am, and this was accomplished by selecting *Daily*, adjusting the start time to 1am, and clicking *ok*. 
+
+**Note** The E2C instance is not based in EST time. Make sure that your entered time is actually your desired time.
+
+Now its time to tell the Task Scheduler what program to actually run. Click on the *Actions* tab and add a new action. Browse for the script to automate. Click *ok*. The *Conditions* and *Settings* tabs offer more customization, but are not needed for the purposes of this project. Click *ok* to save the task.
+
+The added ask should show up in the main page of the GUI. Confirm that it does and that its status is *Enabled*. If its status is *Disabled*, right click on the task and select *Enable*.
+
+The program is now ready to run automatically!
+
+## Exploring Apple HealthKit and XCode
 
 Our team decided to start looking into creating the data aquisition script for the Apple Watch. This led us to Apple HealthKit. HealthKit allows access to and the ability to share health and fitness data that is collected using an iPhone and/or Apple Watch. We explored the the documentation that Apple had to offer and began learning how to use HealthKit. To use HealthKit to access the user's health data, we had to begin learning the language Swift and the IDE, XCode The problem we quickly encountered was that this could only be fully explored on Apple devices. In addition to exploring HealthKit and XCode on our own, we also searched for resources that we could use to assist in developing the data aquisition script. A lot of what we found was able to read and write the data but not export the data. Our current plan is to utilize a code template that walks through the authentication and data collection process and then directly send the data to the AWS database.
 
