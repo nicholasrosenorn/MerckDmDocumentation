@@ -455,6 +455,8 @@ The first 5 characters are timing instructions. The first one (0) corresponds to
 
 However, since python is not currently in PATH on scholar, the path to both the desired code (PythonBot.py) and had to be indicated in the command.
 
+Type *:wq* to write the command and quit Insert mode. Type crontab -l in Terminal to confirm set up.
+
 ### Task Scheduler (Windows)
 
 Windows provides a GUI for their scheduling program. To open it, click on the microscope search icon in the bottom of the screen (or right click on the windows icon and select ‘search’) and type *Task Scheduler*. Open the application.
