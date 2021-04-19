@@ -40,6 +40,7 @@ data-engineering-spring-2021-documentation
 completing-the-pipeline
 reading-in-user-data-from-patient-table
 appending-user-data-to-sql-table
+exploring-apple-healthkit-and-xcode
 thank-you-acknowledgements
 data-architects
 background
