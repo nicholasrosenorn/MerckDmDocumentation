@@ -36,6 +36,10 @@ multiple-devices
 scheduling-the-data-collection
 collaborating-with-other-teams
 future-work
+data-engineering-spring-2021-documentation
+completing-the-pipeline
+reading-in-user-data-from-patient-table
+appending-user-data-to-sql-table
 thank-you-acknowledgements
 data-architects
 background

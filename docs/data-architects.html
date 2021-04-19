@@ -4,11 +4,11 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>Chapter 6 Data Architects | Merck-Data Mine Documentation</title>
+  <title>Chapter 7 Data Architects | Merck-Data Mine Documentation</title>
   <meta name="description" content="A book for documenting the Merck-Data Mine team's work." />
   <meta name="generator" content="bookdown 0.21 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="Chapter 6 Data Architects | Merck-Data Mine Documentation" />
+  <meta property="og:title" content="Chapter 7 Data Architects | Merck-Data Mine Documentation" />
   <meta property="og:type" content="book" />
   
   
@@ -16,7 +16,7 @@
   
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Chapter 6 Data Architects | Merck-Data Mine Documentation" />
+  <meta name="twitter:title" content="Chapter 7 Data Architects | Merck-Data Mine Documentation" />
   
   <meta name="twitter:description" content="A book for documenting the Merck-Data Mine team's work." />
   
@@ -24,14 +24,14 @@
 <meta name="author" content="Merck and Data Mine Corporate Partnership Team" />
 
 
-<meta name="date" content="2020-12-02" />
+<meta name="date" content="2021-04-19" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-<link rel="prev" href="data-engineering-fall-2020-documentation.html"/>
+<link rel="prev" href="data-engineering-spring-2021-documentation.html"/>
 <link rel="next" href="data-visualization-team.html"/>
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -50,8 +50,6 @@
 
 
 
-<link href="libs/anchor-sections-1.0/anchor-sections.css" rel="stylesheet" />
-<script src="libs/anchor-sections-1.0/anchor-sections.js"></script>
 
 
 <style type="text/css">
@@ -149,70 +147,76 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li class="chapter" data-level="5.5" data-path="data-engineering-fall-2020-documentation.html"><a href="data-engineering-fall-2020-documentation.html#scheduling-the-data-collection"><i class="fa fa-check"></i><b>5.5</b> Scheduling the Data Collection</a></li>
 <li class="chapter" data-level="5.6" data-path="data-engineering-fall-2020-documentation.html"><a href="data-engineering-fall-2020-documentation.html#collaborating-with-other-teams"><i class="fa fa-check"></i><b>5.6</b> Collaborating with other Teams</a></li>
 <li class="chapter" data-level="5.7" data-path="data-engineering-fall-2020-documentation.html"><a href="data-engineering-fall-2020-documentation.html#future-work"><i class="fa fa-check"></i><b>5.7</b> Future Work</a></li>
-<li class="chapter" data-level="5.8" data-path="data-engineering-fall-2020-documentation.html"><a href="data-engineering-fall-2020-documentation.html#thank-you-acknowledgements"><i class="fa fa-check"></i><b>5.8</b> Thank you &amp; Acknowledgements</a></li>
 </ul></li>
-<li class="chapter" data-level="6" data-path="data-architects.html"><a href="data-architects.html"><i class="fa fa-check"></i><b>6</b> Data Architects</a><ul>
-<li class="chapter" data-level="6.1" data-path="data-architects.html"><a href="data-architects.html#background"><i class="fa fa-check"></i><b>6.1</b> Background</a></li>
-<li class="chapter" data-level="6.2" data-path="data-architects.html"><a href="data-architects.html#database-design"><i class="fa fa-check"></i><b>6.2</b> Database Design</a></li>
-<li class="chapter" data-level="6.3" data-path="data-architects.html"><a href="data-architects.html#database-creation-with-neo4j"><i class="fa fa-check"></i><b>6.3</b> Database Creation with Neo4j</a><ul>
-<li class="chapter" data-level="6.3.1" data-path="data-architects.html"><a href="data-architects.html#neo4j-background"><i class="fa fa-check"></i><b>6.3.1</b> Neo4j Background</a></li>
+<li class="chapter" data-level="6" data-path="data-engineering-spring-2021-documentation.html"><a href="data-engineering-spring-2021-documentation.html"><i class="fa fa-check"></i><b>6</b> Data Engineering Spring 2021 Documentation</a><ul>
+<li class="chapter" data-level="6.1" data-path="data-engineering-spring-2021-documentation.html"><a href="data-engineering-spring-2021-documentation.html#completing-the-pipeline"><i class="fa fa-check"></i><b>6.1</b> Completing the Pipeline</a><ul>
+<li class="chapter" data-level="6.1.1" data-path="data-engineering-spring-2021-documentation.html"><a href="data-engineering-spring-2021-documentation.html#reading-in-user-data-from-patient-table"><i class="fa fa-check"></i><b>6.1.1</b> Reading in user data from patient table</a></li>
+<li class="chapter" data-level="6.1.2" data-path="data-engineering-spring-2021-documentation.html"><a href="data-engineering-spring-2021-documentation.html#appending-user-data-to-sql-table"><i class="fa fa-check"></i><b>6.1.2</b> Appending user data to SQL table</a></li>
 </ul></li>
-<li class="chapter" data-level="6.4" data-path="data-architects.html"><a href="data-architects.html#code-1"><i class="fa fa-check"></i><b>6.4</b> Code</a></li>
+<li class="chapter" data-level="6.2" data-path="data-engineering-spring-2021-documentation.html"><a href="data-engineering-spring-2021-documentation.html#thank-you-acknowledgements"><i class="fa fa-check"></i><b>6.2</b> Thank you &amp; Acknowledgements</a></li>
 </ul></li>
-<li class="chapter" data-level="7" data-path="data-visualization-team.html"><a href="data-visualization-team.html"><i class="fa fa-check"></i><b>7</b> Data visualization Team</a><ul>
-<li class="chapter" data-level="7.1" data-path="data-visualization-team.html"><a href="data-visualization-team.html#biometric-wearables"><i class="fa fa-check"></i><b>7.1</b> Biometric Wearables</a></li>
-<li class="chapter" data-level="7.2" data-path="data-visualization-team.html"><a href="data-visualization-team.html#purpose"><i class="fa fa-check"></i><b>7.2</b> Purpose</a></li>
-<li class="chapter" data-level="7.3" data-path="data-visualization-team.html"><a href="data-visualization-team.html#outcome"><i class="fa fa-check"></i><b>7.3</b> Outcome</a></li>
-<li class="chapter" data-level="7.4" data-path="data-visualization-team.html"><a href="data-visualization-team.html#significance"><i class="fa fa-check"></i><b>7.4</b> Significance</a></li>
-<li class="chapter" data-level="7.5" data-path="data-visualization-team.html"><a href="data-visualization-team.html#overview-of-data-visualization-team"><i class="fa fa-check"></i><b>7.5</b> Overview of Data visualization Team</a></li>
-<li class="chapter" data-level="7.6" data-path="data-visualization-team.html"><a href="data-visualization-team.html#previous-work-done-on-the-project"><i class="fa fa-check"></i><b>7.6</b> Previous Work Done on the project</a></li>
-<li class="chapter" data-level="7.7" data-path="data-visualization-team.html"><a href="data-visualization-team.html#team-members"><i class="fa fa-check"></i><b>7.7</b> Team Members</a><ul>
-<li class="chapter" data-level="7.7.1" data-path="data-visualization-team.html"><a href="data-visualization-team.html#ahmed-ashraf-butt"><i class="fa fa-check"></i><b>7.7.1</b> Ahmed Ashraf Butt</a></li>
-<li class="chapter" data-level="7.7.2" data-path="data-visualization-team.html"><a href="data-visualization-team.html#pika-seth"><i class="fa fa-check"></i><b>7.7.2</b> Pika Seth</a></li>
-<li class="chapter" data-level="7.7.3" data-path="data-visualization-team.html"><a href="data-visualization-team.html#sharon-patta"><i class="fa fa-check"></i><b>7.7.3</b> Sharon Patta</a></li>
-<li class="chapter" data-level="7.7.4" data-path="data-visualization-team.html"><a href="data-visualization-team.html#surya-suresh"><i class="fa fa-check"></i><b>7.7.4</b> Surya Suresh</a></li>
+<li class="chapter" data-level="7" data-path="data-architects.html"><a href="data-architects.html"><i class="fa fa-check"></i><b>7</b> Data Architects</a><ul>
+<li class="chapter" data-level="7.1" data-path="data-architects.html"><a href="data-architects.html#background"><i class="fa fa-check"></i><b>7.1</b> Background</a></li>
+<li class="chapter" data-level="7.2" data-path="data-architects.html"><a href="data-architects.html#database-design"><i class="fa fa-check"></i><b>7.2</b> Database Design</a></li>
+<li class="chapter" data-level="7.3" data-path="data-architects.html"><a href="data-architects.html#database-creation-with-neo4j"><i class="fa fa-check"></i><b>7.3</b> Database Creation with Neo4j</a><ul>
+<li class="chapter" data-level="7.3.1" data-path="data-architects.html"><a href="data-architects.html#neo4j-background"><i class="fa fa-check"></i><b>7.3.1</b> Neo4j Background</a></li>
 </ul></li>
-<li class="chapter" data-level="7.8" data-path="data-visualization-team.html"><a href="data-visualization-team.html#team-formation"><i class="fa fa-check"></i><b>7.8</b> Team formation</a></li>
-<li class="chapter" data-level="7.9" data-path="data-visualization-team.html"><a href="data-visualization-team.html#term-goals"><i class="fa fa-check"></i><b>7.9</b> Term goals</a></li>
-<li class="chapter" data-level="7.10" data-path="data-visualization-team.html"><a href="data-visualization-team.html#visulization-1"><i class="fa fa-check"></i><b>7.10</b> Visulization 1</a></li>
-<li class="chapter" data-level="7.11" data-path="data-visualization-team.html"><a href="data-visualization-team.html#visulization-2"><i class="fa fa-check"></i><b>7.11</b> Visulization 2</a><ul>
-<li class="chapter" data-level="7.11.1" data-path="data-visualization-team.html"><a href="data-visualization-team.html#code-2"><i class="fa fa-check"></i><b>7.11.1</b> Code</a></li>
+<li class="chapter" data-level="7.4" data-path="data-architects.html"><a href="data-architects.html#code-1"><i class="fa fa-check"></i><b>7.4</b> Code</a></li>
 </ul></li>
-<li class="chapter" data-level="7.12" data-path="data-visualization-team.html"><a href="data-visualization-team.html#critical-decisions"><i class="fa fa-check"></i><b>7.12</b> Critical decisions</a></li>
-<li class="chapter" data-level="7.13" data-path="data-visualization-team.html"><a href="data-visualization-team.html#technical-report-1"><i class="fa fa-check"></i><b>7.13</b> Technical Report</a></li>
+<li class="chapter" data-level="8" data-path="data-visualization-team.html"><a href="data-visualization-team.html"><i class="fa fa-check"></i><b>8</b> Data visualization Team</a><ul>
+<li class="chapter" data-level="8.1" data-path="data-visualization-team.html"><a href="data-visualization-team.html#biometric-wearables"><i class="fa fa-check"></i><b>8.1</b> Biometric Wearables</a></li>
+<li class="chapter" data-level="8.2" data-path="data-visualization-team.html"><a href="data-visualization-team.html#purpose"><i class="fa fa-check"></i><b>8.2</b> Purpose</a></li>
+<li class="chapter" data-level="8.3" data-path="data-visualization-team.html"><a href="data-visualization-team.html#outcome"><i class="fa fa-check"></i><b>8.3</b> Outcome</a></li>
+<li class="chapter" data-level="8.4" data-path="data-visualization-team.html"><a href="data-visualization-team.html#significance"><i class="fa fa-check"></i><b>8.4</b> Significance</a></li>
+<li class="chapter" data-level="8.5" data-path="data-visualization-team.html"><a href="data-visualization-team.html#overview-of-data-visualization-team"><i class="fa fa-check"></i><b>8.5</b> Overview of Data visualization Team</a></li>
+<li class="chapter" data-level="8.6" data-path="data-visualization-team.html"><a href="data-visualization-team.html#previous-work-done-on-the-project"><i class="fa fa-check"></i><b>8.6</b> Previous Work Done on the project</a></li>
+<li class="chapter" data-level="8.7" data-path="data-visualization-team.html"><a href="data-visualization-team.html#team-members"><i class="fa fa-check"></i><b>8.7</b> Team Members</a><ul>
+<li class="chapter" data-level="8.7.1" data-path="data-visualization-team.html"><a href="data-visualization-team.html#ahmed-ashraf-butt"><i class="fa fa-check"></i><b>8.7.1</b> Ahmed Ashraf Butt</a></li>
+<li class="chapter" data-level="8.7.2" data-path="data-visualization-team.html"><a href="data-visualization-team.html#pika-seth"><i class="fa fa-check"></i><b>8.7.2</b> Pika Seth</a></li>
+<li class="chapter" data-level="8.7.3" data-path="data-visualization-team.html"><a href="data-visualization-team.html#sharon-patta"><i class="fa fa-check"></i><b>8.7.3</b> Sharon Patta</a></li>
+<li class="chapter" data-level="8.7.4" data-path="data-visualization-team.html"><a href="data-visualization-team.html#surya-suresh"><i class="fa fa-check"></i><b>8.7.4</b> Surya Suresh</a></li>
 </ul></li>
-<li class="chapter" data-level="8" data-path="back-end-team.html"><a href="back-end-team.html"><i class="fa fa-check"></i><b>8</b> Back End Team</a><ul>
-<li class="chapter" data-level="8.1" data-path="back-end-team.html"><a href="back-end-team.html#creation-of-dummy-data"><i class="fa fa-check"></i><b>8.1</b> Creation of Dummy Data</a><ul>
-<li class="chapter" data-level="8.1.1" data-path="back-end-team.html"><a href="back-end-team.html#why-do-we-need-dummy-data"><i class="fa fa-check"></i><b>8.1.1</b> Why do we need dummy data?</a></li>
-<li class="chapter" data-level="8.1.2" data-path="back-end-team.html"><a href="back-end-team.html#how-we-generated-dummy-data"><i class="fa fa-check"></i><b>8.1.2</b> How we generated dummy data?</a></li>
-<li class="chapter" data-level="8.1.3" data-path="back-end-team.html"><a href="back-end-team.html#how-to-run-the-scripts"><i class="fa fa-check"></i><b>8.1.3</b> How to run the scripts?</a></li>
-<li class="chapter" data-level="8.1.4" data-path="back-end-team.html"><a href="back-end-team.html#potential-improvements"><i class="fa fa-check"></i><b>8.1.4</b> Potential improvements</a></li>
+<li class="chapter" data-level="8.8" data-path="data-visualization-team.html"><a href="data-visualization-team.html#team-formation"><i class="fa fa-check"></i><b>8.8</b> Team formation</a></li>
+<li class="chapter" data-level="8.9" data-path="data-visualization-team.html"><a href="data-visualization-team.html#term-goals"><i class="fa fa-check"></i><b>8.9</b> Term goals</a></li>
+<li class="chapter" data-level="8.10" data-path="data-visualization-team.html"><a href="data-visualization-team.html#visulization-1"><i class="fa fa-check"></i><b>8.10</b> Visulization 1</a></li>
+<li class="chapter" data-level="8.11" data-path="data-visualization-team.html"><a href="data-visualization-team.html#visulization-2"><i class="fa fa-check"></i><b>8.11</b> Visulization 2</a><ul>
+<li class="chapter" data-level="8.11.1" data-path="data-visualization-team.html"><a href="data-visualization-team.html#code-2"><i class="fa fa-check"></i><b>8.11.1</b> Code</a></li>
 </ul></li>
-<li class="chapter" data-level="8.2" data-path="back-end-team.html"><a href="back-end-team.html#creating-a-connection-between-api-endpoints"><i class="fa fa-check"></i><b>8.2</b> Creating a connection between API Endpoints</a><ul>
-<li class="chapter" data-level="8.2.1" data-path="back-end-team.html"><a href="back-end-team.html#list-of-api-end-points"><i class="fa fa-check"></i><b>8.2.1</b> List of API end-points:</a></li>
-<li class="chapter" data-level="8.2.2" data-path="back-end-team.html"><a href="back-end-team.html#what-framework-we-are-going-to-use"><i class="fa fa-check"></i><b>8.2.2</b> What framework we are going to use?</a></li>
-<li class="chapter" data-level="8.2.3" data-path="back-end-team.html"><a href="back-end-team.html#setting-up-sql-database-connection"><i class="fa fa-check"></i><b>8.2.3</b> Setting up SQL database connection:</a></li>
-<li class="chapter" data-level="8.2.4" data-path="back-end-team.html"><a href="back-end-team.html#design-of-the-routes"><i class="fa fa-check"></i><b>8.2.4</b> Design of the Routes</a></li>
+<li class="chapter" data-level="8.12" data-path="data-visualization-team.html"><a href="data-visualization-team.html#critical-decisions"><i class="fa fa-check"></i><b>8.12</b> Critical decisions</a></li>
+<li class="chapter" data-level="8.13" data-path="data-visualization-team.html"><a href="data-visualization-team.html#technical-report-1"><i class="fa fa-check"></i><b>8.13</b> Technical Report</a></li>
 </ul></li>
-<li class="chapter" data-level="8.3" data-path="back-end-team.html"><a href="back-end-team.html#hosting-the-database-on-a-server"><i class="fa fa-check"></i><b>8.3</b> Hosting the database on a Server</a><ul>
-<li class="chapter" data-level="8.3.1" data-path="back-end-team.html"><a href="back-end-team.html#issues-faced-with-hosting-a-database-on-scholar"><i class="fa fa-check"></i><b>8.3.1</b> Issues faced with hosting a database on Scholar:</a></li>
-<li class="chapter" data-level="8.3.2" data-path="back-end-team.html"><a href="back-end-team.html#work-around"><i class="fa fa-check"></i><b>8.3.2</b> Work around</a></li>
-<li class="chapter" data-level="8.3.3" data-path="back-end-team.html"><a href="back-end-team.html#how-we-proceeded"><i class="fa fa-check"></i><b>8.3.3</b> How we proceeded</a></li>
+<li class="chapter" data-level="9" data-path="back-end-team.html"><a href="back-end-team.html"><i class="fa fa-check"></i><b>9</b> Back End Team</a><ul>
+<li class="chapter" data-level="9.1" data-path="back-end-team.html"><a href="back-end-team.html#creation-of-dummy-data"><i class="fa fa-check"></i><b>9.1</b> Creation of Dummy Data</a><ul>
+<li class="chapter" data-level="9.1.1" data-path="back-end-team.html"><a href="back-end-team.html#why-do-we-need-dummy-data"><i class="fa fa-check"></i><b>9.1.1</b> Why do we need dummy data?</a></li>
+<li class="chapter" data-level="9.1.2" data-path="back-end-team.html"><a href="back-end-team.html#how-we-generated-dummy-data"><i class="fa fa-check"></i><b>9.1.2</b> How we generated dummy data?</a></li>
+<li class="chapter" data-level="9.1.3" data-path="back-end-team.html"><a href="back-end-team.html#how-to-run-the-scripts"><i class="fa fa-check"></i><b>9.1.3</b> How to run the scripts?</a></li>
+<li class="chapter" data-level="9.1.4" data-path="back-end-team.html"><a href="back-end-team.html#potential-improvements"><i class="fa fa-check"></i><b>9.1.4</b> Potential improvements</a></li>
 </ul></li>
-<li class="chapter" data-level="8.4" data-path="back-end-team.html"><a href="back-end-team.html#adding-data-to-the-database"><i class="fa fa-check"></i><b>8.4</b> Adding data to the database</a><ul>
-<li class="chapter" data-level="8.4.1" data-path="back-end-team.html"><a href="back-end-team.html#adding-a-csv-to-the-database"><i class="fa fa-check"></i><b>8.4.1</b> Adding a CSV to the database</a></li>
-<li class="chapter" data-level="8.4.2" data-path="back-end-team.html"><a href="back-end-team.html#post-information"><i class="fa fa-check"></i><b>8.4.2</b> POST information</a></li>
-<li class="chapter" data-level="8.4.3" data-path="back-end-team.html"><a href="back-end-team.html#patient-information-and-study-specific-data"><i class="fa fa-check"></i><b>8.4.3</b> Patient information and Study Specific Data</a></li>
+<li class="chapter" data-level="9.2" data-path="back-end-team.html"><a href="back-end-team.html#creating-a-connection-between-api-endpoints"><i class="fa fa-check"></i><b>9.2</b> Creating a connection between API Endpoints</a><ul>
+<li class="chapter" data-level="9.2.1" data-path="back-end-team.html"><a href="back-end-team.html#list-of-api-end-points"><i class="fa fa-check"></i><b>9.2.1</b> List of API end-points:</a></li>
+<li class="chapter" data-level="9.2.2" data-path="back-end-team.html"><a href="back-end-team.html#what-framework-we-are-going-to-use"><i class="fa fa-check"></i><b>9.2.2</b> What framework we are going to use?</a></li>
+<li class="chapter" data-level="9.2.3" data-path="back-end-team.html"><a href="back-end-team.html#setting-up-sql-database-connection"><i class="fa fa-check"></i><b>9.2.3</b> Setting up SQL database connection:</a></li>
+<li class="chapter" data-level="9.2.4" data-path="back-end-team.html"><a href="back-end-team.html#design-of-the-routes"><i class="fa fa-check"></i><b>9.2.4</b> Design of the Routes</a></li>
 </ul></li>
-<li class="chapter" data-level="8.5" data-path="back-end-team.html"><a href="back-end-team.html#firebase-and-login-system-for-the-phone-app"><i class="fa fa-check"></i><b>8.5</b> Firebase and Login System for the Phone App</a></li>
+<li class="chapter" data-level="9.3" data-path="back-end-team.html"><a href="back-end-team.html#hosting-the-database-on-a-server"><i class="fa fa-check"></i><b>9.3</b> Hosting the database on a Server</a><ul>
+<li class="chapter" data-level="9.3.1" data-path="back-end-team.html"><a href="back-end-team.html#issues-faced-with-hosting-a-database-on-scholar"><i class="fa fa-check"></i><b>9.3.1</b> Issues faced with hosting a database on Scholar:</a></li>
+<li class="chapter" data-level="9.3.2" data-path="back-end-team.html"><a href="back-end-team.html#work-around"><i class="fa fa-check"></i><b>9.3.2</b> Work around</a></li>
+<li class="chapter" data-level="9.3.3" data-path="back-end-team.html"><a href="back-end-team.html#how-we-proceeded"><i class="fa fa-check"></i><b>9.3.3</b> How we proceeded</a></li>
 </ul></li>
-<li class="chapter" data-level="9" data-path="front-end-team.html"><a href="front-end-team.html"><i class="fa fa-check"></i><b>9</b> Front End Team</a><ul>
-<li class="chapter" data-level="9.1" data-path="front-end-team.html"><a href="front-end-team.html#utilization-of-third-party-software"><i class="fa fa-check"></i><b>9.1</b> Utilization of Third Party Software</a></li>
-<li class="chapter" data-level="9.2" data-path="front-end-team.html"><a href="front-end-team.html#software-components"><i class="fa fa-check"></i><b>9.2</b> Software Components</a><ul>
-<li class="chapter" data-level="9.2.1" data-path="front-end-team.html"><a href="front-end-team.html#pre-login-section"><i class="fa fa-check"></i><b>9.2.1</b> Pre-Login section</a></li>
-<li class="chapter" data-level="9.2.2" data-path="front-end-team.html"><a href="front-end-team.html#home-page-section"><i class="fa fa-check"></i><b>9.2.2</b> Home Page Section</a></li>
-<li class="chapter" data-level="9.2.3" data-path="front-end-team.html"><a href="front-end-team.html#question-response-section"><i class="fa fa-check"></i><b>9.2.3</b> Question Response Section</a></li>
-<li class="chapter" data-level="9.2.4" data-path="front-end-team.html"><a href="front-end-team.html#user-setting-section"><i class="fa fa-check"></i><b>9.2.4</b> User Setting Section</a></li>
+<li class="chapter" data-level="9.4" data-path="back-end-team.html"><a href="back-end-team.html#adding-data-to-the-database"><i class="fa fa-check"></i><b>9.4</b> Adding data to the database</a><ul>
+<li class="chapter" data-level="9.4.1" data-path="back-end-team.html"><a href="back-end-team.html#adding-a-csv-to-the-database"><i class="fa fa-check"></i><b>9.4.1</b> Adding a CSV to the database</a></li>
+<li class="chapter" data-level="9.4.2" data-path="back-end-team.html"><a href="back-end-team.html#post-information"><i class="fa fa-check"></i><b>9.4.2</b> POST information</a></li>
+<li class="chapter" data-level="9.4.3" data-path="back-end-team.html"><a href="back-end-team.html#patient-information-and-study-specific-data"><i class="fa fa-check"></i><b>9.4.3</b> Patient information and Study Specific Data</a></li>
+</ul></li>
+<li class="chapter" data-level="9.5" data-path="back-end-team.html"><a href="back-end-team.html#firebase-and-login-system-for-the-phone-app"><i class="fa fa-check"></i><b>9.5</b> Firebase and Login System for the Phone App</a></li>
+</ul></li>
+<li class="chapter" data-level="10" data-path="front-end-team.html"><a href="front-end-team.html"><i class="fa fa-check"></i><b>10</b> Front End Team</a><ul>
+<li class="chapter" data-level="10.1" data-path="front-end-team.html"><a href="front-end-team.html#utilization-of-third-party-software"><i class="fa fa-check"></i><b>10.1</b> Utilization of Third Party Software</a></li>
+<li class="chapter" data-level="10.2" data-path="front-end-team.html"><a href="front-end-team.html#software-components"><i class="fa fa-check"></i><b>10.2</b> Software Components</a><ul>
+<li class="chapter" data-level="10.2.1" data-path="front-end-team.html"><a href="front-end-team.html#pre-login-section"><i class="fa fa-check"></i><b>10.2.1</b> Pre-Login section</a></li>
+<li class="chapter" data-level="10.2.2" data-path="front-end-team.html"><a href="front-end-team.html#home-page-section"><i class="fa fa-check"></i><b>10.2.2</b> Home Page Section</a></li>
+<li class="chapter" data-level="10.2.3" data-path="front-end-team.html"><a href="front-end-team.html#question-response-section"><i class="fa fa-check"></i><b>10.2.3</b> Question Response Section</a></li>
+<li class="chapter" data-level="10.2.4" data-path="front-end-team.html"><a href="front-end-team.html#user-setting-section"><i class="fa fa-check"></i><b>10.2.4</b> User Setting Section</a></li>
 </ul></li>
 </ul></li>
 <li class="divider"></li>
@@ -236,14 +240,14 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 
             <section class="normal" id="section-">
 <div id="data-architects" class="section level1">
-<h1><span class="header-section-number">Chapter 6</span> Data Architects</h1>
+<h1><span class="header-section-number">Chapter 7</span> Data Architects</h1>
 <div id="background" class="section level2">
-<h2><span class="header-section-number">6.1</span> Background</h2>
+<h2><span class="header-section-number">7.1</span> Background</h2>
 <p>What is a database?</p>
 <p>A database is an organized collection of data stored electronically. It is typically controlled by a database management system (DBMS). There are two main categories a database can fall into: relational and non-relational. A relational database is one that stores data in rows and columns, otherwise known as a table. While a simple database may include only one table, a typical functional database contains multiple tables. These tables are linked to each other using keys. A primary key is a unique identifier and is referenced by other tables. When in another table, it is considered a foreign key. While it is not necessary, it is common practice to include a primary key in every table. Nearly all relational databases rely on the programming language SQL (Structured Query Language) to query, manipulate, and define data, as well as proved access control. The term “non-relational database” is a blanket term for all other databases that do not rely on SQL, hence their other name, NoSQL. These databases can take on many forms: key-value store, document store, column-oriented databases, and graph databases, to name a few.</p>
 </div>
 <div id="database-design" class="section level2">
-<h2><span class="header-section-number">6.2</span> Database Design</h2>
+<h2><span class="header-section-number">7.2</span> Database Design</h2>
 <p>Designing a relational database is straightforward. First, the data that will go into the database must be known, along with the datatypes. Next, an entity relationship diagram (ERD) should be constructed. This will help keep the design of the database organized. There are plenty of excellent free tools on the internet that help with design and construction. Lucidchart is one of these tools. Lucidchart allows one to design an ERD and then export it as an SQL script! This can be handy, especially when first starting out with SQL. Below is the ERD for the current (at the time of writing this) working database. PK stands for primary key, and FK stands for foreign key. This ERD includes the datatypes as well, which is necessary for properly creating a database.</p>
 <div class="figure">
 <img src="images/entity.png" style="width:50.0%" />
@@ -260,14 +264,14 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 </div>
 </div>
 <div id="database-creation-with-neo4j" class="section level2">
-<h2><span class="header-section-number">6.3</span> Database Creation with Neo4j</h2>
+<h2><span class="header-section-number">7.3</span> Database Creation with Neo4j</h2>
 <div id="neo4j-background" class="section level3">
-<h3><span class="header-section-number">6.3.1</span> Neo4j Background</h3>
+<h3><span class="header-section-number">7.3.1</span> Neo4j Background</h3>
 <p>Neo4j is a graph database created by Neo4j inc. Neo4j is implemented in Java; however, it can also be written with any other cypher query language.</p>
 </div>
 </div>
 <div id="code-1" class="section level2">
-<h2><span class="header-section-number">6.4</span> Code</h2>
+<h2><span class="header-section-number">7.4</span> Code</h2>
 <p>This creates the first two nodes. The yellow highlight section would be the user node. The green highlight section shows the relationship between the two nodes. The orange highlight section shows the other node which would be the username. The light blue highlighted section returns and stores the two nodes into the system.</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="fl">1.</span> <span class="kw">create</span>(u<span class="op">:</span>user {name<span class="op">:</span><span class="st">&#39;User&#39;</span>})<span class="op">-</span>[<span class="op">:</span>makes]-&gt;(n<span class="op">:</span>user{name<span class="op">:</span><span class="st">&#39;Username&#39;</span>}) return u,n</code></pre></div>
 <p>The yellow highlighted section codes the user node again. Instead of creating a new node for User we can just match the node with the new node you want to create. The green highlighted section describes the relationships between the two nodes. The blue highlighted section is the code for the new node. The orange highlighted section is the code for return which would store the nodes into the system.</p>
@@ -342,7 +346,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
           </div>
         </div>
       </div>
-<a href="data-engineering-fall-2020-documentation.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="data-engineering-spring-2021-documentation.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
 <a href="data-visualization-team.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>

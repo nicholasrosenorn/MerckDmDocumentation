@@ -4,11 +4,11 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>Merck-Data Mine Documentation</title>
+  <title>Chapter 6 Data Engineering Spring 2021 Documentation | Merck-Data Mine Documentation</title>
   <meta name="description" content="A book for documenting the Merck-Data Mine team's work." />
   <meta name="generator" content="bookdown 0.21 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="Merck-Data Mine Documentation" />
+  <meta property="og:title" content="Chapter 6 Data Engineering Spring 2021 Documentation | Merck-Data Mine Documentation" />
   <meta property="og:type" content="book" />
   
   
@@ -16,7 +16,7 @@
   
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Merck-Data Mine Documentation" />
+  <meta name="twitter:title" content="Chapter 6 Data Engineering Spring 2021 Documentation | Merck-Data Mine Documentation" />
   
   <meta name="twitter:description" content="A book for documenting the Merck-Data Mine team's work." />
   
@@ -31,8 +31,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-
-<link rel="next" href="tips-for-writing-great-documentation-and-walkthroughs.html"/>
+<link rel="prev" href="data-engineering-fall-2020-documentation.html"/>
+<link rel="next" href="data-architects.html"/>
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
@@ -239,23 +239,117 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="header">
-<h1 class="title">Merck-Data Mine Documentation</h1>
-<p class="author"><em>Merck and Data Mine Corporate Partnership Team</em></p>
-<p class="date"><em>2021-04-19</em></p>
+<div id="data-engineering-spring-2021-documentation" class="section level1">
+<h1><span class="header-section-number">Chapter 6</span> Data Engineering Spring 2021 Documentation</h1>
+<div id="completing-the-pipeline" class="section level2">
+<h2><span class="header-section-number">6.1</span> Completing the Pipeline</h2>
+<p>In order to connect data collection process to the rest of the pipeline, it had to be able to read patient information and login credentials from the SQL database, as well as automatically append the collected biometric data to a database. In order to accomplish this, the PythonBot.py code had to be able to connect to SQL. This was done by first importing the necessary sqlachemy pacakges and then establishing a connection to our specific database.</p>
+<p>To import packages:</p>
+<div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python"><span class="co"># using sqlalchemy</span>
+<span class="im">import</span> sqlalchemy <span class="im">as</span> sal
+<span class="im">from</span> sqlalchemy <span class="im">import</span> create_engine
+<span class="im">import</span> pandas <span class="im">as</span> pd</code></pre></div>
+<p>To establish connection to SQL database:</p>
+<div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python"><span class="co"># establish connecttion URL</span>
+conn <span class="op">=</span> <span class="st">&quot;mysql+pymysql://</span><span class="sc">{0}</span><span class="st">:</span><span class="sc">{1}</span><span class="st">@</span><span class="sc">{2}</span><span class="st">:</span><span class="sc">{3}</span><span class="st">/</span><span class="sc">{4}</span><span class="st">&quot;</span>.<span class="bu">format</span>(
+    <span class="st">&#39;cb3i17t0aqn6a4ff&#39;</span>, <span class="st">&#39;e2l4k9zn24shcj42&#39;</span>, <span class="st">&#39;rnr56s6e2uk326pj.cbetxkdyhwsb.us-east-1.rds.amazonaws.com&#39;</span>, <span class="st">&#39;3306&#39;</span>, <span class="st">&#39;lfry112yqr3k2dfr&#39;</span>)
+ 
+<span class="co"># create engine</span>
+engine <span class="op">=</span> sal.create_engine(conn)</code></pre></div>
+<p>If another SQL database is used in the future, please note that 'cb3i17t0aqn6a4ff' corresponds to 'username', 'e2l4k9zn24shcj42' corresponds to 'password', 'rnr56s6e2uk326pj.cbetxkdyhwsb.us-east-1.rds.amazonaws.com' corresponds to 'address', '3306' corresponds to 'port', and 'lfry112yqr3k2dfr' corresponds to 'DB'. Change these values as appropriate in the code.</p>
+<div id="reading-in-user-data-from-patient-table" class="section level3">
+<h3><span class="header-section-number">6.1.1</span> Reading in user data from patient table</h3>
+<p>Patient data was imported as a series of arrays. The SQL patient table was read in as df1, which was used to form lists of data corresponding to individual patient's emails, passwords, IDs, and usernames.</p>
+<div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python">df1 <span class="op">=</span> pd.read_sql_query(<span class="st">&quot;SELECT * FROM patient&quot;</span>, engine)
+emails <span class="op">=</span> []
+passwords <span class="op">=</span> []
+IDs <span class="op">=</span> []
+usernames <span class="op">=</span> []
+<span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(<span class="bu">len</span>(df1)):
+    emails.append(df1.email[i])
+    passwords.append(df1.fitbit_password[i])
+    IDs.append(df1.patient_id[i])
+    usernames.append(df1.username[i])</code></pre></div>
+<p>As was previously the case, this data was iterated through and plugged into the FitbitBot function.</p>
 </div>
-<div id="introduction" class="section level1">
-<h1><span class="header-section-number">Chapter 1</span> Introduction</h1>
-<p>This book will serve as tutorial based documentation for the Merck - Data Mine Coporate Partnership team for the 2020-2021 academic year.</p>
+<div id="appending-user-data-to-sql-table" class="section level3">
+<h3><span class="header-section-number">6.1.2</span> Appending user data to SQL table</h3>
+<p>Once data was collected (collection functions can be found in <em>BiometricPrevious_getDevice_v2.py</em>), it needed to be appended to the SQL database. A new function was made to reformat the data to have the same column names as the SQL table.</p>
+<div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python"><span class="kw">def</span> appendDataBase(DATA,ENGINE, USER, ID):
+    obj <span class="op">=</span> pd.DataFrame()
+   
+    obj[<span class="st">&#39;patient_id&#39;</span>] <span class="op">=</span> [ID]
+    obj[<span class="st">&#39;fbusername&#39;</span>] <span class="op">=</span> [USER]
+    obj[<span class="st">&#39;collection_date&#39;</span>] <span class="op">=</span> [DATA.get(<span class="st">&quot;Date&quot;</span>)]
+    obj[<span class="st">&#39;steps&#39;</span>] <span class="op">=</span> [DATA.get(<span class="st">&quot;Steps&quot;</span>)]
+    obj[<span class="st">&#39;floors_climbed&#39;</span>] <span class="op">=</span> [DATA.get(<span class="st">&quot;Floors Climbed&quot;</span>)]
+    obj[<span class="st">&#39;total_miles&#39;</span>] <span class="op">=</span> [DATA.get(<span class="st">&quot;Total Miles&quot;</span>)]
+    obj[<span class="st">&#39;lightly_active_miles&#39;</span>] <span class="op">=</span> [DATA.get(<span class="st">&quot;Lightly Active Miles&quot;</span>)]
+    obj[<span class="st">&#39;moderately_active_miles&#39;</span>] <span class="op">=</span> [DATA.get(<span class="st">&quot;Moderately Active Miles&quot;</span>)]
+    obj[<span class="st">&#39;very_active_miles&#39;</span>] <span class="op">=</span> [DATA.get(<span class="st">&quot;Very Active Miles&quot;</span>)]
+    obj[<span class="st">&#39;sedentary_minutes&#39;</span>] <span class="op">=</span> [DATA.get(<span class="st">&quot;Sedentary Minutes&quot;</span>)]
+    obj[<span class="st">&#39;lightly_active_minutes&#39;</span>] <span class="op">=</span> [DATA.get(<span class="st">&quot;Lightly Active Minutes&quot;</span>)]
+    obj[<span class="st">&#39;fairly_active_minutes&#39;</span>] <span class="op">=</span> [DATA.get(<span class="st">&quot;Fairly Active Minutes&quot;</span>)]
+    obj[<span class="st">&#39;very_active_minutes&#39;</span>] <span class="op">=</span> [DATA.get(<span class="st">&quot;Very Active Minutes&quot;</span>)]
+    obj[<span class="st">&#39;hr30_100_minutes&#39;</span>] <span class="op">=</span> [DATA.get(<span class="st">&quot;HR 30-100 Minutes&quot;</span>)]
+    obj[<span class="st">&#39;hr100_140_minutes&#39;</span>] <span class="op">=</span> [DATA.get(<span class="st">&quot;HR 100-140 Minutes&quot;</span>)]
+    obj[<span class="st">&#39;hr140_170_minutes&#39;</span>] <span class="op">=</span> [DATA.get(<span class="st">&quot;HR 140-170 Minutes&quot;</span>)]
+    obj[<span class="st">&#39;hr170_220_minutes&#39;</span>] <span class="op">=</span> [DATA.get(<span class="st">&quot;HR 170-220 Minutes&quot;</span>)]
+    obj[<span class="st">&#39;average_resting_hr&#39;</span>] <span class="op">=</span> [DATA.get(<span class="st">&quot;Average Resting HR&quot;</span>)]
+    obj[<span class="st">&#39;bmi&#39;</span>] <span class="op">=</span> DATA.get(<span class="st">&quot;BMI&quot;</span>)
+    obj[<span class="st">&#39;sleep_efficiency&#39;</span>] <span class="op">=</span> DATA.get(<span class="st">&quot;Sleep Efficiency&quot;</span>)
+    obj[<span class="st">&#39;weight&#39;</span>] <span class="op">=</span> DATA.get(<span class="st">&quot;Weight&quot;</span>)
+    obj[<span class="st">&quot;minutes_asleep&quot;</span>] <span class="op">=</span> todaysData.get(<span class="st">&quot;Minutes Alseep&quot;</span>)
+ 
+    obj.to_sql(<span class="st">&quot;fitbit_data&quot;</span>, con<span class="op">=</span>ENGINE, if_exists<span class="op">=</span><span class="st">&#39;append&#39;</span>, index<span class="op">=</span> <span class="va">False</span>)
+   
+    <span class="cf">return</span>(<span class="va">None</span>)</code></pre></div>
+<p>In this function, the argument <em>DATA</em> is a dataframe returned from <em>biometric_previous_getDevice_v2.py</em>, <em>ENGINE</em> is the connection engine to the SQL database, and <em>USER</em> and <em>ID</em> correspond to the user's Fitbit username and Merck trial userID. The <em>to_sql</em> function at the end is responsible for exporting the reformatted data to the <em>&quot;fitbit_data&quot;</em> table in the SQL database. The <em>if_exists='append'</em> argument is responsible for appending to the database instead of overwriting it, and the <em>index=False</em> argument stops the code from creating the original indexing as a column in SQL.</p>
+<p>More documentation on .to_sql can be found here: <a href="https://pandas.pydata.org/docs/reference/api/pandas.DataFrame.to_sql.html" class="uri">https://pandas.pydata.org/docs/reference/api/pandas.DataFrame.to_sql.html</a></p>
+<p>In order to pass the userID and fitbit username to the SQL database, the FitbitBot function and function call had to be slightly altered.</p>
+<div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python"><span class="kw">class</span> FitbitBot:
+    <span class="kw">def</span> <span class="fu">__init__</span>(<span class="va">self</span>, EMAIL, PASSWORD, DATE, usernames, ID):
+ 
+        <span class="co">#Both the Client ID and Client Secret come from when Fitbit site after registering an app</span>
+        CLIENT_ID <span class="op">=</span> <span class="st">&#39;22BH28&#39;</span> <span class="co">#Mine:&#39;22BKP3&#39;</span>
+        CLIENT_SECRET <span class="op">=</span> <span class="st">&#39;78a4838804c1ff0983591e69196b1c46&#39;</span> <span class="co">#Mine:&#39;1a42e97b6b4cc640572ae5cf10a7d0b0&#39;</span>
+        <span class="co">#Authorization Process</span>
+        <span class="co"># opens website</span>
+        server <span class="op">=</span> Oauth2.OAuth2Server(CLIENT_ID, CLIENT_SECRET)
+        <span class="co"># opens website</span>
+        server.browser_authorize(EMAIL, PASSWORD)
 
+        ACCESS_TOKEN <span class="op">=</span> <span class="bu">str</span>(server.fitbit.client.session.token[<span class="st">&#39;access_token&#39;</span>])
+        REFRESH_TOKEN <span class="op">=</span> <span class="bu">str</span>(server.fitbit.client.session.token[<span class="st">&#39;refresh_token&#39;</span>])
+        auth2_client <span class="op">=</span> fitbit.Fitbit(CLIENT_ID, CLIENT_SECRET, Oauth2<span class="op">=</span><span class="va">True</span>, access_token<span class="op">=</span>ACCESS_TOKEN,
+        refresh_token<span class="op">=</span>REFRESH_TOKEN)
+        BiometricPrev <span class="op">=</span> BiometricPrevious.FitbitModel1(auth2_client)
+        bioDict, biometricDF <span class="op">=</span> BiometricPrev.getBiometricData(DATE) <span class="co">#append to data frame</span>
+        title <span class="op">=</span> <span class="st">&#39;./CSV_Files/user&#39;</span> <span class="op">+</span> <span class="bu">str</span>(i) <span class="op">+</span> <span class="st">&#39;_&#39;</span> <span class="op">+</span> DATE <span class="op">+</span> <span class="st">&#39;.csv&#39;</span>
+
+        appendDataBase(bioDict,engine,usernames,ID)
+        <span class="bu">print</span>(<span class="st">&quot;Python Script Executed&quot;</span>)</code></pre></div>
+<p>usernames and ID arguments were added to the function. The appendDataBase function call was also added into the function, and BiometricPrev.getBiometricData(DATA) was slightly altered to return both a dictionary and a database.</p>
+<p>Since the function arguments were exanded, the function call also had to be adjusted to pass usernames[i] and IDs[i].</p>
+<div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python">today <span class="op">=</span> <span class="bu">str</span>((datetime.datetime.now() <span class="op">-</span> datetime.timedelta(<span class="dv">1</span>)).strftime(<span class="st">&quot;%Y-%m-</span><span class="sc">%d</span><span class="st">&quot;</span>))
+<span class="co"># Run data extraction</span>
+<span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(<span class="bu">len</span>(emails)):
+    FitbitBot(emails[i], passwords[i], today, usernames[i], IDs[i])</code></pre></div>
+</div>
+</div>
+<div id="thank-you-acknowledgements" class="section level2">
+<h2><span class="header-section-number">6.2</span> Thank you &amp; Acknowledgements</h2>
+<p>We would like to thank our Merck Corporate Partners, TA, and all the Data Mine staff that have helped us throughout this semester.</p>
+
+</div>
 </div>
             </section>
 
           </div>
         </div>
       </div>
-
-<a href="tips-for-writing-great-documentation-and-walkthroughs.html" class="navigation navigation-next navigation-unique" aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="data-engineering-fall-2020-documentation.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="data-architects.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
@@ -286,7 +380,7 @@ gitbook.start({
 "size": 2
 },
 "edit": {
-"link": "https://github.com/rstudio/bookdown-demo/edit/master/index.Rmd",
+"link": "https://github.com/rstudio/bookdown-demo/edit/master/04-DataEngineering-FinalDoc.Rmd",
 "text": "Edit"
 },
 "history": {

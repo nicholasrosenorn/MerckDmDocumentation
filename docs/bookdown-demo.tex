@@ -122,7 +122,7 @@
 
 \title{Merck-Data Mine Documentation}
 \author{Merck and Data Mine Corporate Partnership Team}
-\date{2020-12-02}
+\date{2021-04-19}
 
 \begin{document}
 \maketitle
@@ -953,6 +953,178 @@ Watch.
 \item
   Investigating the collection of data from the Apple Watch
 \end{enumerate}
+
+\chapter{Data Engineering Spring 2021
+Documentation}\label{data-engineering-spring-2021-documentation}
+
+\section{Completing the Pipeline}\label{completing-the-pipeline}
+
+In order to connect data collection process to the rest of the pipeline,
+it had to be able to read patient information and login credentials from
+the SQL database, as well as automatically append the collected
+biometric data to a database. In order to accomplish this, the
+PythonBot.py code had to be able to connect to SQL. This was done by
+first importing the necessary sqlachemy pacakges and then establishing a
+connection to our specific database.
+
+To import packages:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{# using sqlalchemy}
+\ImportTok{import}\NormalTok{ sqlalchemy }\ImportTok{as}\NormalTok{ sal}
+\ImportTok{from}\NormalTok{ sqlalchemy }\ImportTok{import}\NormalTok{ create_engine}
+\ImportTok{import}\NormalTok{ pandas }\ImportTok{as}\NormalTok{ pd}
+\end{Highlighting}
+\end{Shaded}
+
+To establish connection to SQL database:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{# establish connecttion URL}
+\NormalTok{conn }\OperatorTok{=} \StringTok{"mysql+pymysql://}\SpecialCharTok{\{0\}}\StringTok{:}\SpecialCharTok{\{1\}}\StringTok{@}\SpecialCharTok{\{2\}}\StringTok{:}\SpecialCharTok{\{3\}}\StringTok{/}\SpecialCharTok{\{4\}}\StringTok{"}\NormalTok{.}\BuiltInTok{format}\NormalTok{(}
+    \StringTok{'cb3i17t0aqn6a4ff'}\NormalTok{, }\StringTok{'e2l4k9zn24shcj42'}\NormalTok{, }\StringTok{'rnr56s6e2uk326pj.cbetxkdyhwsb.us-east-1.rds.amazonaws.com'}\NormalTok{, }\StringTok{'3306'}\NormalTok{, }\StringTok{'lfry112yqr3k2dfr'}\NormalTok{)}
+ 
+\CommentTok{# create engine}
+\NormalTok{engine }\OperatorTok{=}\NormalTok{ sal.create_engine(conn)}
+\end{Highlighting}
+\end{Shaded}
+
+If another SQL database is used in the future, please note that
+`cb3i17t0aqn6a4ff' corresponds to `username', `e2l4k9zn24shcj42'
+corresponds to `password',
+`rnr56s6e2uk326pj.cbetxkdyhwsb.us-east-1.rds.amazonaws.com' corresponds
+to `address', `3306' corresponds to `port', and `lfry112yqr3k2dfr'
+corresponds to `DB'. Change these values as appropriate in the code.
+
+\subsection{Reading in user data from patient
+table}\label{reading-in-user-data-from-patient-table}
+
+Patient data was imported as a series of arrays. The SQL patient table
+was read in as df1, which was used to form lists of data corresponding
+to individual patient's emails, passwords, IDs, and usernames.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{df1 }\OperatorTok{=}\NormalTok{ pd.read_sql_query(}\StringTok{"SELECT * FROM patient"}\NormalTok{, engine)}
+\NormalTok{emails }\OperatorTok{=}\NormalTok{ []}
+\NormalTok{passwords }\OperatorTok{=}\NormalTok{ []}
+\NormalTok{IDs }\OperatorTok{=}\NormalTok{ []}
+\NormalTok{usernames }\OperatorTok{=}\NormalTok{ []}
+\ControlFlowTok{for}\NormalTok{ i }\KeywordTok{in} \BuiltInTok{range}\NormalTok{(}\BuiltInTok{len}\NormalTok{(df1)):}
+\NormalTok{    emails.append(df1.email[i])}
+\NormalTok{    passwords.append(df1.fitbit_password[i])}
+\NormalTok{    IDs.append(df1.patient_id[i])}
+\NormalTok{    usernames.append(df1.username[i])}
+\end{Highlighting}
+\end{Shaded}
+
+As was previously the case, this data was iterated through and plugged
+into the FitbitBot function.
+
+\subsection{Appending user data to SQL
+table}\label{appending-user-data-to-sql-table}
+
+Once data was collected (collection functions can be found in
+\emph{BiometricPrevious\_getDevice\_v2.py}), it needed to be appended to
+the SQL database. A new function was made to reformat the data to have
+the same column names as the SQL table.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{def}\NormalTok{ appendDataBase(DATA,ENGINE, USER, ID):}
+\NormalTok{    obj }\OperatorTok{=}\NormalTok{ pd.DataFrame()}
+   
+\NormalTok{    obj[}\StringTok{'patient_id'}\NormalTok{] }\OperatorTok{=}\NormalTok{ [ID]}
+\NormalTok{    obj[}\StringTok{'fbusername'}\NormalTok{] }\OperatorTok{=}\NormalTok{ [USER]}
+\NormalTok{    obj[}\StringTok{'collection_date'}\NormalTok{] }\OperatorTok{=}\NormalTok{ [DATA.get(}\StringTok{"Date"}\NormalTok{)]}
+\NormalTok{    obj[}\StringTok{'steps'}\NormalTok{] }\OperatorTok{=}\NormalTok{ [DATA.get(}\StringTok{"Steps"}\NormalTok{)]}
+\NormalTok{    obj[}\StringTok{'floors_climbed'}\NormalTok{] }\OperatorTok{=}\NormalTok{ [DATA.get(}\StringTok{"Floors Climbed"}\NormalTok{)]}
+\NormalTok{    obj[}\StringTok{'total_miles'}\NormalTok{] }\OperatorTok{=}\NormalTok{ [DATA.get(}\StringTok{"Total Miles"}\NormalTok{)]}
+\NormalTok{    obj[}\StringTok{'lightly_active_miles'}\NormalTok{] }\OperatorTok{=}\NormalTok{ [DATA.get(}\StringTok{"Lightly Active Miles"}\NormalTok{)]}
+\NormalTok{    obj[}\StringTok{'moderately_active_miles'}\NormalTok{] }\OperatorTok{=}\NormalTok{ [DATA.get(}\StringTok{"Moderately Active Miles"}\NormalTok{)]}
+\NormalTok{    obj[}\StringTok{'very_active_miles'}\NormalTok{] }\OperatorTok{=}\NormalTok{ [DATA.get(}\StringTok{"Very Active Miles"}\NormalTok{)]}
+\NormalTok{    obj[}\StringTok{'sedentary_minutes'}\NormalTok{] }\OperatorTok{=}\NormalTok{ [DATA.get(}\StringTok{"Sedentary Minutes"}\NormalTok{)]}
+\NormalTok{    obj[}\StringTok{'lightly_active_minutes'}\NormalTok{] }\OperatorTok{=}\NormalTok{ [DATA.get(}\StringTok{"Lightly Active Minutes"}\NormalTok{)]}
+\NormalTok{    obj[}\StringTok{'fairly_active_minutes'}\NormalTok{] }\OperatorTok{=}\NormalTok{ [DATA.get(}\StringTok{"Fairly Active Minutes"}\NormalTok{)]}
+\NormalTok{    obj[}\StringTok{'very_active_minutes'}\NormalTok{] }\OperatorTok{=}\NormalTok{ [DATA.get(}\StringTok{"Very Active Minutes"}\NormalTok{)]}
+\NormalTok{    obj[}\StringTok{'hr30_100_minutes'}\NormalTok{] }\OperatorTok{=}\NormalTok{ [DATA.get(}\StringTok{"HR 30-100 Minutes"}\NormalTok{)]}
+\NormalTok{    obj[}\StringTok{'hr100_140_minutes'}\NormalTok{] }\OperatorTok{=}\NormalTok{ [DATA.get(}\StringTok{"HR 100-140 Minutes"}\NormalTok{)]}
+\NormalTok{    obj[}\StringTok{'hr140_170_minutes'}\NormalTok{] }\OperatorTok{=}\NormalTok{ [DATA.get(}\StringTok{"HR 140-170 Minutes"}\NormalTok{)]}
+\NormalTok{    obj[}\StringTok{'hr170_220_minutes'}\NormalTok{] }\OperatorTok{=}\NormalTok{ [DATA.get(}\StringTok{"HR 170-220 Minutes"}\NormalTok{)]}
+\NormalTok{    obj[}\StringTok{'average_resting_hr'}\NormalTok{] }\OperatorTok{=}\NormalTok{ [DATA.get(}\StringTok{"Average Resting HR"}\NormalTok{)]}
+\NormalTok{    obj[}\StringTok{'bmi'}\NormalTok{] }\OperatorTok{=}\NormalTok{ DATA.get(}\StringTok{"BMI"}\NormalTok{)}
+\NormalTok{    obj[}\StringTok{'sleep_efficiency'}\NormalTok{] }\OperatorTok{=}\NormalTok{ DATA.get(}\StringTok{"Sleep Efficiency"}\NormalTok{)}
+\NormalTok{    obj[}\StringTok{'weight'}\NormalTok{] }\OperatorTok{=}\NormalTok{ DATA.get(}\StringTok{"Weight"}\NormalTok{)}
+\NormalTok{    obj[}\StringTok{"minutes_asleep"}\NormalTok{] }\OperatorTok{=}\NormalTok{ todaysData.get(}\StringTok{"Minutes Alseep"}\NormalTok{)}
+ 
+\NormalTok{    obj.to_sql(}\StringTok{"fitbit_data"}\NormalTok{, con}\OperatorTok{=}\NormalTok{ENGINE, if_exists}\OperatorTok{=}\StringTok{'append'}\NormalTok{, index}\OperatorTok{=} \VariableTok{False}\NormalTok{)}
+   
+    \ControlFlowTok{return}\NormalTok{(}\VariableTok{None}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+In this function, the argument \emph{DATA} is a dataframe returned from
+\emph{biometric\_previous\_getDevice\_v2.py}, \emph{ENGINE} is the
+connection engine to the SQL database, and \emph{USER} and \emph{ID}
+correspond to the user's Fitbit username and Merck trial userID. The
+\emph{to\_sql} function at the end is responsible for exporting the
+reformatted data to the \emph{``fitbit\_data''} table in the SQL
+database. The \emph{if\_exists=`append'} argument is responsible for
+appending to the database instead of overwriting it, and the
+\emph{index=False} argument stops the code from creating the original
+indexing as a column in SQL.
+
+More documentation on .to\_sql can be found here:
+\url{https://pandas.pydata.org/docs/reference/api/pandas.DataFrame.to_sql.html}
+
+In order to pass the userID and fitbit username to the SQL database, the
+FitbitBot function and function call had to be slightly altered.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{class}\NormalTok{ FitbitBot:}
+    \KeywordTok{def} \FunctionTok{__init__}\NormalTok{(}\VariableTok{self}\NormalTok{, EMAIL, PASSWORD, DATE, usernames, ID):}
+ 
+        \CommentTok{#Both the Client ID and Client Secret come from when Fitbit site after registering an app}
+\NormalTok{        CLIENT_ID }\OperatorTok{=} \StringTok{'22BH28'} \CommentTok{#Mine:'22BKP3'}
+\NormalTok{        CLIENT_SECRET }\OperatorTok{=} \StringTok{'78a4838804c1ff0983591e69196b1c46'} \CommentTok{#Mine:'1a42e97b6b4cc640572ae5cf10a7d0b0'}
+        \CommentTok{#Authorization Process}
+        \CommentTok{# opens website}
+\NormalTok{        server }\OperatorTok{=}\NormalTok{ Oauth2.OAuth2Server(CLIENT_ID, CLIENT_SECRET)}
+        \CommentTok{# opens website}
+\NormalTok{        server.browser_authorize(EMAIL, PASSWORD)}
+
+\NormalTok{        ACCESS_TOKEN }\OperatorTok{=} \BuiltInTok{str}\NormalTok{(server.fitbit.client.session.token[}\StringTok{'access_token'}\NormalTok{])}
+\NormalTok{        REFRESH_TOKEN }\OperatorTok{=} \BuiltInTok{str}\NormalTok{(server.fitbit.client.session.token[}\StringTok{'refresh_token'}\NormalTok{])}
+\NormalTok{        auth2_client }\OperatorTok{=}\NormalTok{ fitbit.Fitbit(CLIENT_ID, CLIENT_SECRET, Oauth2}\OperatorTok{=}\VariableTok{True}\NormalTok{, access_token}\OperatorTok{=}\NormalTok{ACCESS_TOKEN,}
+\NormalTok{        refresh_token}\OperatorTok{=}\NormalTok{REFRESH_TOKEN)}
+\NormalTok{        BiometricPrev }\OperatorTok{=}\NormalTok{ BiometricPrevious.FitbitModel1(auth2_client)}
+\NormalTok{        bioDict, biometricDF }\OperatorTok{=}\NormalTok{ BiometricPrev.getBiometricData(DATE) }\CommentTok{#append to data frame}
+\NormalTok{        title }\OperatorTok{=} \StringTok{'./CSV_Files/user'} \OperatorTok{+} \BuiltInTok{str}\NormalTok{(i) }\OperatorTok{+} \StringTok{'_'} \OperatorTok{+}\NormalTok{ DATE }\OperatorTok{+} \StringTok{'.csv'}
+
+\NormalTok{        appendDataBase(bioDict,engine,usernames,ID)}
+        \BuiltInTok{print}\NormalTok{(}\StringTok{"Python Script Executed"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+usernames and ID arguments were added to the function. The
+appendDataBase function call was also added into the function, and
+BiometricPrev.getBiometricData(DATA) was slightly altered to return both
+a dictionary and a database.
+
+Since the function arguments were exanded, the function call also had to
+be adjusted to pass usernames{[}i{]} and IDs{[}i{]}.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{today }\OperatorTok{=} \BuiltInTok{str}\NormalTok{((datetime.datetime.now() }\OperatorTok{-}\NormalTok{ datetime.timedelta(}\DecValTok{1}\NormalTok{)).strftime(}\StringTok{"%Y-%m-}\SpecialCharTok{%d}\StringTok{"}\NormalTok{))}
+\CommentTok{# Run data extraction}
+\ControlFlowTok{for}\NormalTok{ i }\KeywordTok{in} \BuiltInTok{range}\NormalTok{(}\BuiltInTok{len}\NormalTok{(emails)):}
+\NormalTok{    FitbitBot(emails[i], passwords[i], today, usernames[i], IDs[i])}
+\end{Highlighting}
+\end{Shaded}
 
 \section{Thank you \&
 Acknowledgements}\label{thank-you-acknowledgements}
