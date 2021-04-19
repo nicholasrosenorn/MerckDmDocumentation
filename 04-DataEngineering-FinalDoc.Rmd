@@ -292,6 +292,129 @@ Our future work for the Spring 2021 semester seeks to build upon our work comple
 (2) Exploring alternative ways to access the user's fitbit information 
 (3) Investigating the collection of data from the Apple Watch
 
+# Data Engineering Spring 2021 Documentation
+
+## Completing the Pipeline
+
+In order to connect data collection process to the rest of the pipeline, it had to be able to read patient information and login credentials from the SQL database, as well as automatically append the collected biometric data to a database. In order to accomplish this, the PythonBot.py code had to be able to connect to SQL. This was done by first importing the necessary sqlachemy pacakges and then establishing a connection to our specific database.
+
+To import packages:
+```{python,eval=FALSE}
+# using sqlalchemy
+import sqlalchemy as sal
+from sqlalchemy import create_engine
+import pandas as pd
+```
+
+To establish connection to SQL database: 
+```{python,eval=FALSE}
+# establish connecttion URL
+conn = "mysql+pymysql://{0}:{1}@{2}:{3}/{4}".format(
+    'cb3i17t0aqn6a4ff', 'e2l4k9zn24shcj42', 'rnr56s6e2uk326pj.cbetxkdyhwsb.us-east-1.rds.amazonaws.com', '3306', 'lfry112yqr3k2dfr')
+ 
+# create engine
+engine = sal.create_engine(conn)
+```
+
+If another SQL database is used in the future, please note that 'cb3i17t0aqn6a4ff' corresponds to 'username', 'e2l4k9zn24shcj42' corresponds to 'password', 'rnr56s6e2uk326pj.cbetxkdyhwsb.us-east-1.rds.amazonaws.com' corresponds to 'address', '3306' corresponds to 'port', and 'lfry112yqr3k2dfr' corresponds to 'DB'. Change these values as appropriate in the code.
+
+### Reading in user data from patient table
+
+Patient data was imported as a series of arrays. The SQL patient table was read in as df1, which was used to form lists of data corresponding to individual patient's emails, passwords, IDs, and usernames.
+
+```{python, eval=FALSE}
+df1 = pd.read_sql_query("SELECT * FROM patient", engine)
+emails = []
+passwords = []
+IDs = []
+usernames = []
+for i in range(len(df1)):
+    emails.append(df1.email[i])
+    passwords.append(df1.fitbit_password[i])
+    IDs.append(df1.patient_id[i])
+    usernames.append(df1.username[i])
+```
+
+As was previously the case, this data was iterated through and plugged into the FitbitBot function.
+
+### Appending user data to SQL table
+
+Once data was collected (collection functions can be found in *BiometricPrevious_getDevice_v2.py*), it needed to be appended to the SQL database. A new function was made to reformat the data to have the same column names as the SQL table. 
+
+```{python, eval=FALSE}
+def appendDataBase(DATA,ENGINE, USER, ID):
+    obj = pd.DataFrame()
+   
+    obj['patient_id'] = [ID]
+    obj['fbusername'] = [USER]
+    obj['collection_date'] = [DATA.get("Date")]
+    obj['steps'] = [DATA.get("Steps")]
+    obj['floors_climbed'] = [DATA.get("Floors Climbed")]
+    obj['total_miles'] = [DATA.get("Total Miles")]
+    obj['lightly_active_miles'] = [DATA.get("Lightly Active Miles")]
+    obj['moderately_active_miles'] = [DATA.get("Moderately Active Miles")]
+    obj['very_active_miles'] = [DATA.get("Very Active Miles")]
+    obj['sedentary_minutes'] = [DATA.get("Sedentary Minutes")]
+    obj['lightly_active_minutes'] = [DATA.get("Lightly Active Minutes")]
+    obj['fairly_active_minutes'] = [DATA.get("Fairly Active Minutes")]
+    obj['very_active_minutes'] = [DATA.get("Very Active Minutes")]
+    obj['hr30_100_minutes'] = [DATA.get("HR 30-100 Minutes")]
+    obj['hr100_140_minutes'] = [DATA.get("HR 100-140 Minutes")]
+    obj['hr140_170_minutes'] = [DATA.get("HR 140-170 Minutes")]
+    obj['hr170_220_minutes'] = [DATA.get("HR 170-220 Minutes")]
+    obj['average_resting_hr'] = [DATA.get("Average Resting HR")]
+    obj['bmi'] = DATA.get("BMI")
+    obj['sleep_efficiency'] = DATA.get("Sleep Efficiency")
+    obj['weight'] = DATA.get("Weight")
+    obj["minutes_asleep"] = todaysData.get("Minutes Alseep")
+ 
+    obj.to_sql("fitbit_data", con=ENGINE, if_exists='append', index= False)
+   
+    return(None)
+```
+
+In this function, the argument *DATA* is a dataframe returned from *biometric_previous_getDevice_v2.py*, *ENGINE* is the connection engine to the SQL database, and *USER* and *ID* correspond to the user's Fitbit username and Merck trial userID. The *to_sql* function at the end is responsible for exporting the reformatted data to the *"fitbit_data"* table in the SQL database. The *if_exists='append'* argument is responsible for appending to the database instead of overwriting it, and the *index=False* argument stops the code from creating the original indexing as a column in SQL. 
+
+More documentation on .to_sql can be found here: https://pandas.pydata.org/docs/reference/api/pandas.DataFrame.to_sql.html
+
+In order to pass the userID and fitbit username to the SQL database, the FitbitBot function and function call had to be slightly altered. 
+
+```{python, eval=FALSE}
+class FitbitBot:
+    def __init__(self, EMAIL, PASSWORD, DATE, usernames, ID):
+ 
+        #Both the Client ID and Client Secret come from when Fitbit site after registering an app
+        CLIENT_ID = '22BH28' #Mine:'22BKP3'
+        CLIENT_SECRET = '78a4838804c1ff0983591e69196b1c46' #Mine:'1a42e97b6b4cc640572ae5cf10a7d0b0'
+        #Authorization Process
+        # opens website
+        server = Oauth2.OAuth2Server(CLIENT_ID, CLIENT_SECRET)
+        # opens website
+        server.browser_authorize(EMAIL, PASSWORD)
+
+        ACCESS_TOKEN = str(server.fitbit.client.session.token['access_token'])
+        REFRESH_TOKEN = str(server.fitbit.client.session.token['refresh_token'])
+        auth2_client = fitbit.Fitbit(CLIENT_ID, CLIENT_SECRET, Oauth2=True, access_token=ACCESS_TOKEN,
+        refresh_token=REFRESH_TOKEN)
+        BiometricPrev = BiometricPrevious.FitbitModel1(auth2_client)
+        bioDict, biometricDF = BiometricPrev.getBiometricData(DATE) #append to data frame
+        title = './CSV_Files/user' + str(i) + '_' + DATE + '.csv'
+
+        appendDataBase(bioDict,engine,usernames,ID)
+        print("Python Script Executed")
+```
+usernames and ID arguments were added to the function. The appendDataBase function call was also added into the function, and BiometricPrev.getBiometricData(DATA) was slightly altered to return both a dictionary and a database.
+
+Since the function arguments were exanded, the function call also had to be adjusted to pass usernames[i] and IDs[i]. 
+
+```{python, eval=FALSE}
+today = str((datetime.datetime.now() - datetime.timedelta(1)).strftime("%Y-%m-%d"))
+# Run data extraction
+for i in range(len(emails)):
+    FitbitBot(emails[i], passwords[i], today, usernames[i], IDs[i])
+```
+
+
 ## Thank you & Acknowledgements
 
 We would like to thank our Merck Corporate Partners, TA, and all the Data Mine staff that have helped us throughout this semester. 
