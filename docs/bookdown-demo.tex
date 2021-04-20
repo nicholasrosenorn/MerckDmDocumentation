@@ -122,7 +122,7 @@
 
 \title{Merck-Data Mine Documentation}
 \author{Merck and Data Mine Corporate Partnership Team}
-\date{2021-04-19}
+\date{2021-04-20}
 
 \begin{document}
 \maketitle
@@ -1224,100 +1224,6 @@ it does and that its status is \emph{Enabled}. If its status is
 
 The program is now ready to run automatically!
 
-\section{Intraday Fitbit Data
-Collection}\label{intraday-fitbit-data-collection}
-
-Data from fitbit for specified types such as heart rate and activity
-levels can be collected at points throughout the day rather than one
-value for the whole day if desired. Intraday data can be called using a
-simple function which is done so as follows for intraday heart rate
-within the code:
-
-\begin{Shaded}
-\begin{Highlighting}[]
-\NormalTok{oneDayData }\OperatorTok{=} \VariableTok{self}\NormalTok{.auth2_client.intraday_time_series(}\StringTok{'activities/heart'}\NormalTok{, myDate, detail_level}\OperatorTok{=}\StringTok{'15min'}\NormalTok{)[}\StringTok{'activities-heart-intraday'}\NormalTok{]}
-\end{Highlighting}
-\end{Shaded}
-
-Note that the CLIENT\_ID used will need to obtain permissions from
-Fitbit to access intraday data, otherwise this function will return an
-error. As it stands currently, the function returns an empty data set
-for an unknown reason. This problem is being looked into but has no
-solution as of now. The correct output format would be as follows:
-
-\begin{Shaded}
-\begin{Highlighting}[]
-\CommentTok{#"activities-heart-intraday": \{}
-\CommentTok{#        "dataset": [}
-\CommentTok{#            \{}
-\CommentTok{#                "time": "00:00:00",}
-\CommentTok{#                "value": 64}
-\CommentTok{#            \},}
-\CommentTok{#            \{}
-\CommentTok{#                "time": "00:00:10",}
-\CommentTok{#                "value": 63}
-\CommentTok{#            \},}
-\CommentTok{#            \{}
-\CommentTok{#                "time": "00:00:20",}
-\CommentTok{#                "value": 64}
-\CommentTok{#            \},}
-\CommentTok{#            \{}
-\CommentTok{#                "time": "00:00:30",}
-\CommentTok{#                "value": 65}
-\CommentTok{#            \},}
-\CommentTok{#            \{}
-\CommentTok{#                "time": "00:00:45",}
-\CommentTok{#                "value": 65}
-\CommentTok{#            \},}
-\CommentTok{#            \{}
-\CommentTok{#                "time": "00:01:00",}
-\CommentTok{#                "value": 64}
-\CommentTok{#            \},}
-\CommentTok{#            \{}
-\CommentTok{#                "time": "00:01:15",}
-\CommentTok{#                "value": 66}
-\CommentTok{#            \},}
-\CommentTok{#            \{}
-\CommentTok{#                "time": "00:01:30",}
-\CommentTok{#                "value": 65}
-\CommentTok{#            \},}
-\CommentTok{#            \{}
-\CommentTok{#                "time": "00:01:45",}
-\CommentTok{#                "value": 63}
-\CommentTok{#           \},}
-\CommentTok{#            \{}
-\CommentTok{#                "time": "00:02:00",}
-\CommentTok{#                "value": 63}
-\CommentTok{#            \},}
-\CommentTok{#            \{}
-\CommentTok{#                "time": "00:02:15",}
-\CommentTok{#                "value": 64}
-\CommentTok{#            \},}
-\CommentTok{#            \{}
-\CommentTok{#                "time": "00:02:30",}
-\CommentTok{#                "value": 65}
-\CommentTok{#            \},}
-\CommentTok{#            \{}
-\CommentTok{#                "time": "00:02:45",}
-\CommentTok{#                "value": 65}
-\CommentTok{#            \},}
-\CommentTok{#            \{}
-\CommentTok{#                "time": "00:03:00",}
-\CommentTok{#                "value": 63}
-\CommentTok{#            \}}
-\CommentTok{#        ],}
-\CommentTok{#        "datasetInterval": 15,}
-\CommentTok{#        "datasetType": "second"}
-\CommentTok{#    \}}
-\end{Highlighting}
-\end{Shaded}
-
-This is an example with dummy data for a few minutes of intraday
-collection. As is specified in the code, the heart rate at each 15
-minute interval for one full day would be obtained. The data could
-potentially be very useful in analyzing trends of a patient's heart rate
-in a smaller and more accurate timeframe.
-
 \section{Exploring Apple HealthKit and
 XCode}\label{exploring-apple-healthkit-and-xcode}
 
@@ -1335,6 +1241,17 @@ the data aquisition script. A lot of what we found was able to read and
 write the data but not export the data. Our current plan is to utilize a
 code template that walks through the authentication and data collection
 process and then directly send the data to the AWS database.
+
+A few other options exist for collecting the data from the Apple Watch.
+React Native can be used to develop an IOS application to collect and
+store the data fron the watch. However, apple devices are still needed
+to build and deploy the application, and thus not providing much
+advantage over a Swift based application. Another method to collect the
+data could be to utilize Google Fit and the pre-existing Google API.
+This would require the user to download the Google Fit application on
+their phone and signing in, which creates an intermediary that wouldn't
+be necessary in the other implementations. In the end, these two other
+implementations were not used in favor of the Swift implementation.
 
 \section{Thank you \&
 Acknowledgements}\label{thank-you-acknowledgements}
