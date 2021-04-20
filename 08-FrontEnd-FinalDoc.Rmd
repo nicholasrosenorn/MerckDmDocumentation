@@ -1,0 +1,299 @@
+---
+title: "FullstackDocumentation"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(python.reticulate=FALSE)
+```
+
+# Fullstack Documentation Spring 2021
+
+Fall 2020 Semester Back End Documentation can be found at : https://nicholasrosenorn.github.io/BiometricsDocumentation/back-end-team.html
+
+Fall 2020 Semester Front End Documentation can be found at: https://nicholasrosenorn.github.io/BiometricsDocumentation/front-end-team.html
+
+## Sprint 1 (01/19 - 02/15)
+
+During this sprint we spent time planning and  designing the UI and working parts of our projects.
+
+The following are pdfs of sketches of our overall project, the user pages for our mobile application and the pages for our website. The pdfs also layout the technologies we are using to build our application as well as the services we are using to host our database.
+
+<!-- ![](link to project_overview.png) -->
+
+<!-- ![](link to page1_001.jpg) -->
+
+Below is how we plan to divide the work:
+
+### Website:
+
+Connor: Login page and create account
+
+Patricia: Starter page and patients list
+
+Sid: info and entry page
+
+### Phone App:
+
+Anav: Login page and create account
+
+Xin: Home page, info page , questions page
+
+Abhi: list of entries, edit info, answers to an old entry (last page in the sketches)
+
+### Website Progress:
+
+Several templates found:
+
+https://bootsnipp.com/snippets/K0ZmK
+
+https://bootsnipp.com/snippets/7nk08
+
+https://bootsnipp.com/snippets/AlZ7g
+
+Sign up and sign in pages are complete. Currently connected to Firebase authentication, however, after several hours of trying, we have concluded that using Firebase for authentication is not ideal, and using the built-in Flask authentication methods will be better. The only Firebase library for Python is only for handling administration of the Firebase Auth datatbase. Sessions are more complicated than first anticipated. Accounts can currently be created using an email and password, and these inputs are stored in a database. Currently working on building a unifying layout.html to standardize the layout of all pages on the website. This will allow for pages to seem connected aesthetically and will allow for ease of page creation in the future. The same will be done for a standard CSS file. 
+
+### Phone App Progress:
+
+We also started finding already-made templates for both the webpage and phone app. 
+
+For the phone app, we found a very good react native UI library: React Native Elements
+
+Several templates found:
+
+https://market.nativebase.io/view/react-native-delivery-app
+
+## Sprint 2 (02/16 - 03/01)
+
+### Website Progress:
+
+Siddharth has completed the template for the patient view website. A demo is found here:
+!
+
+The next steps are to connect the website to the database and make GET and POST requests to display patient information. 
+
+
+### Phone App Progress:
+
+During the first week (02/16-2/22), several tasks have been accomplished:
+
+Investigate in firestore security rule and fix the bug of not being able to login
+Build our project into an apk. and be able to run it on android
+
+<!-- ![](link to mobile_signin.png) -->
+
+The second accomplishment is especially meaningful because this is the issue that we have been facing since last semester. This accomplishment means that we will be sure that our app will be capable of running on a real Android device, and the camera functionality will be added accordingly.
+
+During the second week (02/22-3/01), we will add three more pages into our app. They are:
+
+Complete page 2.005 (edit profile page). Assigned to Ahbi
+Complete page 2.004 (View Entries Page). Assigned to Anav
+Complete Page 2.002 (User Information Page). Assigned to Xin
+Meaning while, Ahbi and Xin are working on the camera functionality.
+
+## Sprint 3 (03/01 - 03/14)
+
+### Website Progress:
+
+Siddharth: Completed the structure for the front end of the website. Connections to the database need to be made to make the data actively pull and post data to the database.
+
+Completed the connections to the database and combined all the pages created by the members. Added functionality to view and edit old scientist notes as well as make a new note. Improved the theme for the profiles page and fixed the issue with missing data.
+
+
+### Phone App Progress so far:
+
+Xin is working on page 2.002. The page 2.002's prototype has been completed. The next stage is to make it look better.
+
+Prototype:
+
+<!-- ![](link to mobile_prototype.png) -->
+
+Ahbi is still working on page 2.005, and Anav is still working on page 2.004.
+
+Besides, we have reached a conclusion on how to store user images in our database. We are planning to store references of images in our SQL database. The references will point to a special database or filesystem that actually stores all the images. By doing this, our SQL database will not become too big and slow due to the large size of images. We will investigate more on this in sprint 3.
+
+On 3/8, we finished all the frontend pages of the phone app. Between 3/8 - 3/14, we will start working on the backend routes for the phone app to connect it to the database.
+
+## Sprint 3 (03/15 - 03/29)
+
+### Website Progress so far:
+
+The website has been completed along with the image functionality as well as created the demos for the Symposium video.
+
+This week we will be working on deploying the app on an AWS EC2 instance and linking the website to the visualizations dashboard.
+
+### Phone App Progress so far:
+
+From 3/15 to 3/22, Abhi finished the code for uploading images from phone's local storage and also using camera to take pictures. Then, Xin worked on building backend routes and Amazon S3 instance to enable storing images in our database. Xin also worked on rebuilding the UI of the phone app to make it look better.
+
+The details of these functionalities are demoed in the draft demo video.
+
+## Sprint 4 (03/30 - 04/12)
+
+### Website:
+
+Sid: Created the configuration and set up to connect to an AWS S3 Bucket and worked on cleaning the codebase
+
+Connor: Worked on creating the animation for a CRON job and Fitbit data flow into the database
+
+### Phone App:
+
+Xin: Created a table of all the backend routes used by the Node Rest API server
+
+
+# Website design
+
+## Choosing a Framework
+There are a seemingly endless number of options of web frameworks one could use to build a website from scratch. To narrow down the search of what framework to use, our team selected to use one designed for Python. Python is one of the easier languages to learn and implement. It is readable and is very well documented. On top of that, Python is the language we are most comfortable with, which allowed us to focus on building the project rather than learning a new programming language. There are several packages designed for web frameworks in Python. Django and Flask are by far the most popular and widely-used packages. They are both free to use and open-source with plenty of additional packages built by the community to ease the development process. After some deliberation and experimentation, Flask was chosen because it is simpler and easier to make small applications than Django.
+
+Flask applications typically follow the same structure- an initialization file (__init__.py), a routes file (routes.py), a forms file (forms.py), and a models file (models.py).
+
+## Scripts Explained
+
+### Initialization
+
+This file will set up the Flask application, along with every other application the website will utilize. For our website, this means Flask, SQLAlchemy, Flask bcrypt, and Flask Login will all need to be instantiated as part of the Flask application.
+
+SQLAlchemy is how our application interfaces with our SQL database.
+Flask Bcrypt is a Flask extension that provides bcrypt hashing utilities. Bcrypt is a password-hashing function, which we use to hash user passwords before storing them in the database.
+Flask Login is a Flask extension that provides user session management. It handles logging in, logging out, and user sessions.
+Forms
+
+### Forms
+
+Forms in Flask are handled by FlaskForm, which is from the Flask-WTF package. It offers an easy way to collect input data from a user because it interfaces with HTML scripts seamlessly. To create a form, simply define a class with the name of the form that inherits from FlaskForm. Then define each input with a variable name. Each of these variables will have a type of field that Flask-WTF defines. The most used ones include StringField, DateField, TextAreaField, and SubmitField. Each of these instances of an input field have the option for validators, meaning when the form is submitted, the data will be tested based on the validator to determine if the input field contains valid information. For example, if a form contains an input for email, a Flask-WTF provided validator that should be used is Email(), which will check to make sure there is a valid email (meaning it contains an @website.com or @website.org, etc.).
+
+Custom validators can be made as well but are a little more complicated. After each input field is defined, a function is created that passes the variable name of the input field into it, and the logic that should be applied to the contents of the field is applied. Custom validation error strings can be raised, and these can be displayed with some formatting in the HTML script associated with the page the form is on. No other logic should be contained in the forms class. Other logic, such as validating a log in, should be included in the route function for the page.
+
+### Models
+
+Models are only necessary if the website will be sending data to a database. For our website, we are using SQLAlchemy, but other packages that handle the connections between the framework and the database may have different requirements/syntax for models. A model class inherits from the Model class from SQLAlchemy, and the name MUST be the SAME as the table name of the database in which the data should be placed. If the name of the table in the database is “patient”, the name of the class must be “patient”. This same convention goes for the columns of the database as well. To create a Column instance which correlates with (and will place data into) a column within the table, the variable name must be the same as the column name in the table. The Column class from SQLAlchemy has the same parameters as SQL. For example, Booleans primary_key, unique, and nullable are all parameters that can define a column. Think of these models as describing and mapping (Python to SQL) the SQL database in which data should be placed.
+
+### Routes
+
+Now that Flask models and forms have been explained, we can move on to the routes. Flask routes are comprised of a function with the decorator @app.route(“/route”). A route maps a specific URL to a function that performs tasks such as storing data to a database or handling events on the webpage. If the webpage contains data that is not static (meaning data that will be passed in to or retrieved from the webpage), “GET” and “POST” methods must be added as parameters to the decorator. For pages that require a valid login from a user in order to access the page, the decorator @login_required from Flask Login must be used.
+
+Once the decorators have been added, the design of the route can begin. Static webpages are fairly simple:
+
+```{python, eval=FALSE}
+@app.route(“/home”)
+
+def home():
+
+return render_template(“welcome_page.html”)
+```
+
+This will load the HTML page “welcome_page.html” when the route entered is “website.com/home”, where website.com is whatever the website’s name is.
+
+The next step would be to incorporate the forms we previously discussed. Let us walk through the example below. First, the function is defined and the route decorator is added. Second, the form is instantiated. Next, it is determined if the form was submitted and more importantly, if it was valid when submitted. Then the model of the table the data from the form should be placed in is instantiated, with the parameters being data taken from the input form and passed to the column name of the table. Finally, the current session has to be added to the database and committed. The first return statement places the user back at the home page once the form has been validated and submitted. The second return statement will display the HTML page of the form.
+
+```{python, eval=FALSE}
+@app.route(“/example_form”)
+
+def example_form():
+
+form = Form_Name()
+
+if form.validate_on_submit():
+
+              database_model = model(input_field_to_database=form.input_field_from_form.data)
+
+              db.session.add(database_model)
+
+              db.session.commit()
+
+              return redirect(url_for(‘home’))
+
+return render_template(‘example_form.html’, title=’Example Form’, form=form)
+```
+
+### Description of Pages
+
+#### Create Account
+
+The create account page is straightforward- you can either enter credentials to create an account (which have to meet certain requirements, email has to be valid, password must match with confirm password and be longer than 6 characters), or redirect to the sign in page.
+
+<!-- ![](link to Create_account_page.png) -->
+
+#### Sign In
+
+This page gets redirected to after logging out and when trying to access other routes without logging in. From here, one can sign in, redirect to the create account page, or request a password change (which has not been implemented yet).
+
+<!-- ![](link to Sign_in_page.png) -->
+
+#### Home
+
+This is the first thing users see after signing in. This page gives access to the patient gallery and the visualizations dashboard. On this page and every other page requiring a sign in, users can edit their account or logout via the navbar on top. Clicking the company logo on the left side of the navbar will redirect to this home page.
+
+<!-- ![](link to home_page.png) -->
+
+#### Edit Account
+
+Scientists can update their email and change their password whenever they need to. A given email can only be used by one account.
+
+<!-- ![](link to Edit_Account.png) -->
+
+#### Patient Gallery
+
+All patients enrolled in the study are shown on this page with an image and the study they are enrolled in. Features to sort by name, study, and date enrolled will be part of future work.
+
+<!-- ![](link to Patients_gallery_page.png) -->
+
+#### Patient Information
+
+Patient information pages exist for each patient and contain basic information about the patient and links to survey data, study notes, and Fitbit data, along with links to visualizations, videos, and patient analysis.
+
+<!-- ![](link to Information_page.png) -->
+
+#### Phone Survey Data
+
+The phone survey tab shows a list of all patient survey entries from the phone application, and when clicked on, shows the details and results of the survey.
+
+<!-- [link](link to phone_survey_gif.gif) -->
+
+#### Scientist Notes
+
+The scientist notes tab shows a list of all scientist-reported surveys containing information about the patient. New entries can be added and old surveys can be updated.
+
+<!-- [link](link to scientist_note_gif.gif) -->
+
+#### Fitbit Data
+
+The Fitbit Data tab contains a table of the most important information collected by the Fitbit. This is updated daily. More data visualization and analysis can be found on other pages (future work).
+
+<!-- ![](link to Fitbit_page.png) -->
+
+
+### HTML Scripts
+All HTML files must be stored in a folder called “templates” that is in the same directory as the routes. Typical file structure is shown below:
+
+<!-- ![](link to file_structure.jpg) -->
+
+where “static” contains all CSS files and images and “templates” contains all HTML files.
+
+
+
+To learn the HTML and CSS required for this project, we watched tutorials on each.
+
+https://www.youtube.com/watch?v=UB1O30fR-EE (1 hr)
+
+https://www.youtube.com/watch?v=yfoY53QXEnI (1 hr 25 min)
+
+The basics of these languages are simple. HTML is mostly knowing the different “tags” and understanding how linking those tags to classes and CSS. These two tutorials cover that much better than I can. Most of the team had little to no experience with HTML/CSS, which explains why our HTML and CSS files are all over the place. We incorporated Bootstrap as it made forms easier to create and improved their appearance, as well as allowed for a navigation bar.
+
+
+
+
+## Documentation for the packages we used:
+
+Flask: https://flask.palletsprojects.com/en/1.1.x/
+
+SQLAlchemy: https://flask-sqlalchemy.palletsprojects.com/en/2.x/
+
+Bcrypt: https://flask-bcrypt.readthedocs.io/en/latest/
+
+Flask Login: https://flask-login.readthedocs.io/en/latest/
+
+Flask Forms: https://flask.palletsprojects.com/en/1.1.x/patterns/wtforms/
+
+Bootstrap: https://getbootstrap.com/
