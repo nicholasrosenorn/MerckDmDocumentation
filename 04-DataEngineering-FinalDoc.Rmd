@@ -471,85 +471,11 @@ The added ask should show up in the main page of the GUI. Confirm that it does a
 
 The program is now ready to run automatically!
 
-## Intraday Fitbit Data Collection
-
-Data from fitbit for specified types such as heart rate and activity levels can be collected at points throughout the day rather than one value for the whole day if desired.
-Intraday data can be called using a simple function which is done so as follows for intraday heart rate within the code:
-```{python, eval=FALSE}
-oneDayData = self.auth2_client.intraday_time_series('activities/heart', myDate, detail_level='15min')['activities-heart-intraday']
-``` 
-Note that the CLIENT_ID used will need to obtain permissions from Fitbit to access intraday data, otherwise this function will return an error.
-As it stands currently, the function returns an empty data set for an unknown reason. This problem is being looked into but has no solution as of now. The correct output format would be as follows:
-```{python, eval=FALSE}
-#"activities-heart-intraday": {
-#        "dataset": [
-#            {
-#                "time": "00:00:00",
-#                "value": 64
-#            },
-#            {
-#                "time": "00:00:10",
-#                "value": 63
-#            },
-#            {
-#                "time": "00:00:20",
-#                "value": 64
-#            },
-#            {
-#                "time": "00:00:30",
-#                "value": 65
-#            },
-#            {
-#                "time": "00:00:45",
-#                "value": 65
-#            },
-#            {
-#                "time": "00:01:00",
-#                "value": 64
-#            },
-#            {
-#                "time": "00:01:15",
-#                "value": 66
-#            },
-#            {
-#                "time": "00:01:30",
-#                "value": 65
-#            },
-#            {
-#                "time": "00:01:45",
-#                "value": 63
-#           },
-#            {
-#                "time": "00:02:00",
-#                "value": 63
-#            },
-#            {
-#                "time": "00:02:15",
-#                "value": 64
-#            },
-#            {
-#                "time": "00:02:30",
-#                "value": 65
-#            },
-#            {
-#                "time": "00:02:45",
-#                "value": 65
-#            },
-#            {
-#                "time": "00:03:00",
-#                "value": 63
-#            }
-#        ],
-#        "datasetInterval": 15,
-#        "datasetType": "second"
-#    }
-``` 
-This is an example with dummy data for a few minutes of intraday collection. As is specified in the code, the heart rate at each 15 minute interval for one full day would be obtained. The data could potentially be very useful in analyzing trends of a patient's heart rate in a smaller and more accurate timeframe.
-
 ## Exploring Apple HealthKit and XCode
 
 Our team decided to start looking into creating the data aquisition script for the Apple Watch. This led us to Apple HealthKit. HealthKit allows access to and the ability to share health and fitness data that is collected using an iPhone and/or Apple Watch. We explored the the documentation that Apple had to offer and began learning how to use HealthKit. To use HealthKit to access the user's health data, we had to begin learning the language Swift and the IDE, XCode The problem we quickly encountered was that this could only be fully explored on Apple devices. In addition to exploring HealthKit and XCode on our own, we also searched for resources that we could use to assist in developing the data aquisition script. A lot of what we found was able to read and write the data but not export the data. Our current plan is to utilize a code template that walks through the authentication and data collection process and then directly send the data to the AWS database.
 
+A few other options exist for collecting the data from the Apple Watch. React Native can be used to develop an IOS application to collect and store the data fron the watch. However, apple devices are still needed to build and deploy the application, and thus not providing much advantage over a Swift based application. Another method to collect the data could be to utilize Google Fit and the pre-existing Google API. This would require the user to download the Google Fit application on their phone and signing in, which creates an intermediary that wouldn't be necessary in the other implementations. In the end, these two other implementations were not used in favor of the Swift implementation.
 
 ## Thank you & Acknowledgements
 
