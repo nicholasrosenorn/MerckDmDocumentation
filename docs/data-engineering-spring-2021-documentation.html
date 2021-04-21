@@ -24,7 +24,7 @@
 <meta name="author" content="Merck and Data Mine Corporate Partnership Team" />
 
 
-<meta name="date" content="2021-04-20" />
+<meta name="date" content="2021-04-21" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -153,13 +153,12 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li class="chapter" data-level="6.1.1" data-path="data-engineering-spring-2021-documentation.html"><a href="data-engineering-spring-2021-documentation.html#reading-in-user-data-from-patient-table"><i class="fa fa-check"></i><b>6.1.1</b> Reading in user data from patient table</a></li>
 <li class="chapter" data-level="6.1.2" data-path="data-engineering-spring-2021-documentation.html"><a href="data-engineering-spring-2021-documentation.html#appending-user-data-to-sql-table"><i class="fa fa-check"></i><b>6.1.2</b> Appending user data to SQL table</a></li>
 </ul></li>
-<li class="chapter" data-level="6.2" data-path="data-engineering-spring-2021-documentation.html"><a href="data-engineering-spring-2021-documentation.html#automating-the-process"><i class="fa fa-check"></i><b>6.2</b> Automating the Process</a></li>
-<li class="chapter" data-level="6.3" data-path="data-engineering-spring-2021-documentation.html"><a href="data-engineering-spring-2021-documentation.html#automating-the-pipeline"><i class="fa fa-check"></i><b>6.3</b> Automating the Pipeline</a><ul>
-<li class="chapter" data-level="6.3.1" data-path="data-engineering-spring-2021-documentation.html"><a href="data-engineering-spring-2021-documentation.html#cronjob-for-mac-and-linux"><i class="fa fa-check"></i><b>6.3.1</b> Cronjob (for Mac and Linux)</a></li>
-<li class="chapter" data-level="6.3.2" data-path="data-engineering-spring-2021-documentation.html"><a href="data-engineering-spring-2021-documentation.html#task-scheduler-windows"><i class="fa fa-check"></i><b>6.3.2</b> Task Scheduler (Windows)</a></li>
+<li class="chapter" data-level="6.2" data-path="data-engineering-spring-2021-documentation.html"><a href="data-engineering-spring-2021-documentation.html#automating-the-pipeline"><i class="fa fa-check"></i><b>6.2</b> Automating the Pipeline</a><ul>
+<li class="chapter" data-level="6.2.1" data-path="data-engineering-spring-2021-documentation.html"><a href="data-engineering-spring-2021-documentation.html#cronjob-for-mac-and-linux"><i class="fa fa-check"></i><b>6.2.1</b> Cronjob (for Mac and Linux)</a></li>
+<li class="chapter" data-level="6.2.2" data-path="data-engineering-spring-2021-documentation.html"><a href="data-engineering-spring-2021-documentation.html#task-scheduler-windows"><i class="fa fa-check"></i><b>6.2.2</b> Task Scheduler (Windows)</a></li>
 </ul></li>
-<li class="chapter" data-level="6.4" data-path="data-engineering-spring-2021-documentation.html"><a href="data-engineering-spring-2021-documentation.html#exploring-apple-healthkit-and-xcode"><i class="fa fa-check"></i><b>6.4</b> Exploring Apple HealthKit and XCode</a></li>
-<li class="chapter" data-level="6.5" data-path="data-engineering-spring-2021-documentation.html"><a href="data-engineering-spring-2021-documentation.html#thank-you-acknowledgements"><i class="fa fa-check"></i><b>6.5</b> Thank you &amp; Acknowledgements</a></li>
+<li class="chapter" data-level="6.3" data-path="data-engineering-spring-2021-documentation.html"><a href="data-engineering-spring-2021-documentation.html#exploring-apple-healthkit-and-xcode"><i class="fa fa-check"></i><b>6.3</b> Exploring Apple HealthKit and XCode</a></li>
+<li class="chapter" data-level="6.4" data-path="data-engineering-spring-2021-documentation.html"><a href="data-engineering-spring-2021-documentation.html#thank-you-acknowledgements"><i class="fa fa-check"></i><b>6.4</b> Thank you &amp; Acknowledgements</a></li>
 </ul></li>
 <li class="chapter" data-level="7" data-path="data-architects.html"><a href="data-architects.html"><i class="fa fa-check"></i><b>7</b> Data Architects</a><ul>
 <li class="chapter" data-level="7.1" data-path="data-architects.html"><a href="data-architects.html#background"><i class="fa fa-check"></i><b>7.1</b> Background</a></li>
@@ -343,14 +342,11 @@ usernames <span class="op">=</span> []
     FitbitBot(emails[i], passwords[i], today, usernames[i], IDs[i])</code></pre></div>
 </div>
 </div>
-<div id="automating-the-process" class="section level2">
-<h2><span class="header-section-number">6.2</span> Automating the Process</h2>
-</div>
 <div id="automating-the-pipeline" class="section level2">
-<h2><span class="header-section-number">6.3</span> Automating the Pipeline</h2>
+<h2><span class="header-section-number">6.2</span> Automating the Pipeline</h2>
 <p>Automating the process was done two different ways. One was done through Cronjob and is useful for UNIX (Mac, linux) operating systems. This was used while the code was on Scholar. However, Scholar had period cronjob wipes, which meant that the automated process had to continually be re-established (and that defeated the purpose!). As a result, the code stopped being run on Scholar and was moved onto the Merck E2C AWS server. This was Windows based, so Task Scheduler was used.</p>
 <div id="cronjob-for-mac-and-linux" class="section level3">
-<h3><span class="header-section-number">6.3.1</span> Cronjob (for Mac and Linux)</h3>
+<h3><span class="header-section-number">6.2.1</span> Cronjob (for Mac and Linux)</h3>
 <p>Open Terminal. To see a list of current cronjob, type the following:</p>
 <div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python">crontab <span class="op">-</span>l</code></pre></div>
 <p>To edit a crontab or edit an existing one:</p>
@@ -366,7 +362,7 @@ usernames <span class="op">=</span> []
 <p>Type <em>:wq</em> to write the command and quit Insert mode. Type crontab -l in Terminal to confirm set up.</p>
 </div>
 <div id="task-scheduler-windows" class="section level3">
-<h3><span class="header-section-number">6.3.2</span> Task Scheduler (Windows)</h3>
+<h3><span class="header-section-number">6.2.2</span> Task Scheduler (Windows)</h3>
 <p>Windows provides a GUI for their scheduling program. To open it, click on the microscope search icon in the bottom of the screen (or right click on the windows icon and select ‘search’) and type <em>Task Scheduler</em>. Open the application.</p>
 <p>In the <em>Actions</em> sidebar, click on <em>Create Task</em>. Name the program and navigate to the <em>Triggers</em> tab. The trigger tab is tells Windows how often to run the program. Add a new trigger by clicking on <em>New</em>. Specify how often to run the program. The current project was made to run everyday at 1 am, and this was accomplished by selecting <em>Daily</em>, adjusting the start time to 1am, and clicking <em>ok</em>.</p>
 <p><strong>Note</strong> The E2C instance is not based in EST time. Make sure that your entered time is actually your desired time.</p>
@@ -376,12 +372,12 @@ usernames <span class="op">=</span> []
 </div>
 </div>
 <div id="exploring-apple-healthkit-and-xcode" class="section level2">
-<h2><span class="header-section-number">6.4</span> Exploring Apple HealthKit and XCode</h2>
+<h2><span class="header-section-number">6.3</span> Exploring Apple HealthKit and XCode</h2>
 <p>Our team decided to start looking into creating the data aquisition script for the Apple Watch. This led us to Apple HealthKit. HealthKit allows access to and the ability to share health and fitness data that is collected using an iPhone and/or Apple Watch. We explored the the documentation that Apple had to offer and began learning how to use HealthKit. To use HealthKit to access the user's health data, we had to begin learning the language Swift and the IDE, XCode The problem we quickly encountered was that this could only be fully explored on Apple devices. In addition to exploring HealthKit and XCode on our own, we also searched for resources that we could use to assist in developing the data aquisition script. A lot of what we found was able to read and write the data but not export the data. Our current plan is to utilize a code template that walks through the authentication and data collection process and then directly send the data to the AWS database.</p>
 <p>A few other options exist for collecting the data from the Apple Watch. React Native can be used to develop an IOS application to collect and store the data fron the watch. However, apple devices are still needed to build and deploy the application, and thus not providing much advantage over a Swift based application. Another method to collect the data could be to utilize Google Fit and the pre-existing Google API. This would require the user to download the Google Fit application on their phone and signing in, which creates an intermediary that wouldn't be necessary in the other implementations. In the end, these two other implementations were not used in favor of the Swift implementation.</p>
 </div>
 <div id="thank-you-acknowledgements" class="section level2">
-<h2><span class="header-section-number">6.5</span> Thank you &amp; Acknowledgements</h2>
+<h2><span class="header-section-number">6.4</span> Thank you &amp; Acknowledgements</h2>
 <p>We would like to thank our Merck Corporate Partners, TA, and all the Data Mine staff that have helped us throughout this semester.</p>
 
 </div>

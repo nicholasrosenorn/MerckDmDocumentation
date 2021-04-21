@@ -122,7 +122,7 @@
 
 \title{Merck-Data Mine Documentation}
 \author{Merck and Data Mine Corporate Partnership Team}
-\date{2021-04-20}
+\date{2021-04-21}
 
 \begin{document}
 \maketitle
@@ -444,20 +444,28 @@ experience to the data mine.
 Jennifer Leising: I am a 3rd year graduate student in Industrial
 Engineering. My research is focused on healthcare and data analytics,
 and I have experience working in Clinical trials for a large Pharma
-company. Eric Yap: I am sophomore majoring in data science and finance.
-Most of my classes have helped developed my Python and R skills, which
-are very transferable to the work I do in the data mine. Allison Hill: I
-am a senior majoring in electrical engineering. I have coding experience
-in various languages, including some Python and R which were used within
-this project. Joshua Kosnoff: I am a junior majoring in biomedical
-engineering. I perform research with the cancer research center, where I
-have previously learned Python for data management and basic analysis.
+company.
+
+Joshua Kosnoff: I am a junior majoring in biomedical engineering. I
+perform research with the cancer research center, where I have
+previously learned Python for data management and basic analysis.
+
+Allison Hill: I am a senior majoring in electrical engineering. I have
+coding experience in various languages, including some Python and R
+which were used within this project.
+
 Karthik Ravishankar: I am a freshman majoring in data science. I have
 learned Java in highschool and at Purdue and some Python which was self
-taught to contribute to the project. Pranav Anandarao: I am a sophomore
-majoring in computer engineering. I have experience in a few different
-programming languages, including Python. I also have previous experience
-working on clinical applications.
+taught to contribute to the project.
+
+Pranav Anandarao: I am a sophomore majoring in computer engineering. I
+have experience in a few different programming languages, including
+Python. I also have previous experience working on clinical
+applications.
+
+Eric Yap: I am sophomore majoring in data science and finance. Most of
+my classes have helped developed my Python and R skills, which are very
+transferable to the work I do in the data mine.
 
 \section{Semester Goals}\label{semester-goals}
 
@@ -487,32 +495,39 @@ from any device. We created the chart below to list the features
 available on each device. We found very similar data to be available on
 both devices.
 
-\begin{verbatim}
-            |                                       |Fitbit         |Apple Watch
-\end{verbatim}
-
----------------\textbar{}---------------------------------------\textbar{}---------------\textbar{}---------------
-Activity \textbar{}Steps \textbar{}X \textbar{}X \textbar{}Workouts
-\textbar{}X \textbar{}X \textbar{}Sit/Stand \textbar{}X* \textbar{}NA
-\textbar{}Flight Climbed \textbar{}X \textbar{}X \textbar{}Elevation
-\textbar{}X \textbar{}X \textbar{}Time spent in different activity
-levels\textbar{}X \textbar{}X \textbar{}Calories burned \textbar{}X
-\textbar{}X Sleep \textbar{}Asleep vs Awake \textbar{}X \textbar{}X
-\textbar{}Stages \textbar{}X \textbar{}NA Heart Rate \textbar{}Time
-spent in different heart ranges \textbar{}X \textbar{}3rd party apps
-\textbar{}Resting heart rate \textbar{}X \textbar{}X \textbar{}Walking
-Heartrate \textbar{}NA \textbar{}X \textbar{}Heart rate during activity
-\textbar{}X \textbar{}X \textbar{}Intraday Tracking \textbar{}5 sec
-\textbar{}10 min Nutrition \textbar{}Food log* \textbar{}X \textbar{}X
-\textbar{}Water log* \textbar{}X \textbar{}X Body/Weight \textbar{}BMI*
-\textbar{}X \textbar{}X \textbar{}Weight* \textbar{}X \textbar{}X
-Additional \textbar{}ECG \textbar{}Coming soon \textbar{}X
-\textbar{}Blood Oxygen \textbar{}X \textbar{}X \textbar{}Fall Detection
-\textbar{}X \textbar{}X \textbar{}Skin Thermometer \textbar{}X
-\textbar{}NA \textbar{}Ear Health \textbar{}NA \textbar{}X
-\textbar{}Stress Response \textbar{}X \textbar{}NA
----------------------------------------------------------------------------------------
-*Entered manually NA = Not Available
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{#                |                                       |Fitbit         |Apple Watch}
+\CommentTok{# ---------------|---------------------------------------|---------------|---------------}
+\CommentTok{# Activity       |Steps                                  |X              |X}
+\CommentTok{#                |Workouts                               |X              |X}
+\CommentTok{#                |Sit/Stand                              |X*             |NA}
+\CommentTok{#                |Flight Climbed                         |X              |X}
+\CommentTok{#                |Elevation                              |X              |X}
+\CommentTok{#                |Time spent in different activity levels|X              |X}
+\CommentTok{#                |Calories burned                        |X              |X}
+\CommentTok{# Sleep          |Asleep vs Awake                        |X              |X}
+\CommentTok{#                |Stages                                 |X              |NA}
+\CommentTok{# Heart Rate     |Time spent in different heart ranges   |X              |3rd party apps}
+\CommentTok{#                |Resting heart rate                     |X              |X}
+\CommentTok{#                |Walking Heartrate                      |NA             |X}
+\CommentTok{#                |Heart rate during activity             |X              |X}
+\CommentTok{#                |Intraday Tracking                      |5 sec          |10 min}
+\CommentTok{# Nutrition      |Food log*                              |X              |X}
+\CommentTok{#                |Water log*                             |X              |X}
+\CommentTok{# Body/Weight    |BMI*                                   |X              |X}
+\CommentTok{#                |Weight*                                |X              |X}
+\CommentTok{# Additional     |ECG                                    |Coming soon    |X}
+\CommentTok{#                |Blood Oxygen                           |X              |X}
+\CommentTok{#                |Fall Detection                         |X              |X}
+\CommentTok{#                |Skin Thermometer                       |X              |NA}
+\CommentTok{#                |Ear Health                             |NA             |X}
+\CommentTok{#                |Stress Response                        |X              |NA}
+\CommentTok{# ---------------------------------------------------------------------------------------}
+\CommentTok{#    *Entered manually}
+\CommentTok{#    NA = Not Available}
+\end{Highlighting}
+\end{Shaded}
 
 With the Apple Watch, most data tracking is through the Health app and
 the files are exported as a .xml, which is difficult to read. However,
@@ -853,29 +868,28 @@ check if the data is NULL and automatically do this such as with the
 sleep data. However for data such as activity levels, the data gets
 input as a ``0'' instead and thus needs a check. Checks for some of the
 newer models have been implemented, along with a generic case. The table
-below shows the implemented models and their available data: \textbar{}
-\textbar{}Ionic \textbar{} Versa Lite \textbar{}Inspire \textbar{}Charge
-3 \textbar{}
----------------\textbar{}---------------------------------------\textbar{}--------------\textbar{}-------------\textbar{}-------------\textbar{}-------------\textbar{}
-Activity \textbar{}Steps \textbar{}X \textbar{}X \textbar{}X \textbar{}X
-\textbar{} \textbar{}Workouts \textbar{}X \textbar{}X \textbar{}
-\textbar{} \textbar{} \textbar{}Sit/Stand \textbar{}X \textbar{}X
-\textbar{} \textbar{} \textbar{} \textbar{}Flight Climbed \textbar{}X
-\textbar{} \textbar{} \textbar{} \textbar{} \textbar{}Elevation
-\textbar{}X \textbar{} \textbar{} \textbar{} \textbar{} \textbar{}Time
-spent in different activity levels\textbar{}X \textbar{}X \textbar{}
-\textbar{} \textbar{} \textbar{}Calories burned \textbar{}X \textbar{}X
-\textbar{} \textbar{} \textbar{} Sleep \textbar{}Asleep vs Awake
-\textbar{}X \textbar{}X \textbar{}X \textbar{}X \textbar{}
-\textbar{}Stages \textbar{}X \textbar{}X \textbar{} \textbar{}
-\textbar{} Heart Rate \textbar{}Time spent in different heart ranges
-\textbar{}X \textbar{}X \textbar{} \textbar{}X \textbar{}
-\textbar{}Resting heart rate \textbar{}X \textbar{}X \textbar{}
-\textbar{}X \textbar{} \textbar{}Walking Heartrate \textbar{}X
-\textbar{}X \textbar{} \textbar{}X \textbar{} \textbar{}Heart rate
-during activity \textbar{}X \textbar{}X \textbar{} \textbar{}X
-\textbar{}
------------------------------------------------------------------------------------------------------------------
+below shows the implemented models and their available data:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+ \CommentTok{#                |                                       |Ionic         | Versa Lite  |Inspire      |Charge 3     |}
+ \CommentTok{# ---------------|---------------------------------------|--------------|-------------|-------------|-------------|}
+ \CommentTok{# Activity       |Steps                                  |X             |X            |X            |X            |}
+ \CommentTok{#                |Workouts                               |X             |X            |             |             |}
+ \CommentTok{#                |Sit/Stand                              |X             |X            |             |             |}
+ \CommentTok{#                |Flight Climbed                         |X             |             |             |             |}
+ \CommentTok{#                |Elevation                              |X             |             |             |             |}
+ \CommentTok{#                |Time spent in different activity levels|X             |X            |             |             |}
+ \CommentTok{#                |Calories burned                        |X             |X            |             |             |}
+ \CommentTok{# Sleep          |Asleep vs Awake                        |X             |X            |X            |X            |}
+ \CommentTok{#                |Stages                                 |X             |X            |             |             |}
+ \CommentTok{# Heart Rate     |Time spent in different heart ranges   |X             |X            |             |X            |}
+ \CommentTok{#                |Resting heart rate                     |X             |X            |             |X            |}
+ \CommentTok{#                |Walking Heartrate                      |X             |X            |             |X            |}
+ \CommentTok{#                |Heart rate during activity             |X             |X            |             |X            |}
+ \CommentTok{# -----------------------------------------------------------------------------------------------------------------}
+\end{Highlighting}
+\end{Shaded}
 
 The following function is what is used to obtain the device model
 string:
@@ -1125,8 +1139,6 @@ be adjusted to pass usernames{[}i{]} and IDs{[}i{]}.
 \NormalTok{    FitbitBot(emails[i], passwords[i], today, usernames[i], IDs[i])}
 \end{Highlighting}
 \end{Shaded}
-
-\section{Automating the Process}\label{automating-the-process}
 
 \section{Automating the Pipeline}\label{automating-the-pipeline}
 
