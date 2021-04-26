@@ -3,7 +3,7 @@
 ## 1. How to Setup
 Once you are in the root folder of the project repo, type "npm start" on the command line. The expo browser tool will open in your browser. Then, you can choose to run the app on browser (as a website), Android device, or Apple device. For the spring 2021 semester final version, the code works best on an Android device (you can either use an emulator or a real device), and it works mostly on website. We haven't had a chance to test it on Apple device.
 
-In order to configure the frontend to work with your firebase authentication,correct credentials need to be put into "config.js" file located in /src/FireBase. To work with your Amazon S3, change the corresponding data in the env.json file.
+In order to configure the frontend to work with your firebase authentication, correct credentials need to be put into "config.js" file located in /src/FireBase. To work with your Amazon S3, change the AMAZON_S3_DOMAIN variable to your Amazon S3 URL in the env.json file. The API_DOMAIN url is the URL of your backend.
 
 For the node.js backend, the root folder is at /backend/biometricBackend. Once you navigate there, you can type "node server.js" to start the server on port 3000.
 
