@@ -32,23 +32,37 @@ This page enables a user to build a new account by providing user personal infor
 
 For now, the image url is not stored into the database yet, although it's stored in the frontend as a state variable. Once the user fills all the inputs and click the button, all the data, along with the image url, will be stored into the database (as a new row in the patient table). At the same time, an user is created at firebase, which is later used for authentication.
 
+<Add image here>
+
 ### 3.2 Login Page
 When user fills in the information and clicks the login button, the following executions take place. First, the credentials are checked against the Firebase authorisation data. Then, the credentials are also used to retrieve the unique patient id from the SQL database, which is used as the patient's identifier to grab corresponding data from the SQL database.
+
+<here>
 
 ### 3.3 Home Page
 The Home Page provides the user to choose from multiple features of the application. This page has a series of options that enable the user to click pictures, upload pictures and also make new entries. While this page does not explicitly communicate with the backend of the application, it is crucial for full functioning of the application. 
 
+<here>
+ 
 ### 3.4 Account Profile Page
 This page displays all the user corresponding information which is fetched using the Patient id. This patient is instrumental to grab all the corresponding information from the SQL database.
+
+<here>
 
 ### 3.5 Edit Profile Page
 Patient id is used to grab all the corresponding information from the SQL database and the information is displayed. The user can also modify the information and edit them in the SQL database. Once they edit it, the new information will be pulled again and displayed on the page. This page also enables the user to click picture and send it across for further analysis. Along with the feature to click pictures, the user can also upload images from local storage here. 
 
+<here>
+
 ### 3.6 Questionnaire Page
 Consisting of series of questions, this page is used to create or edit a new row in the phone_app_data table. If you enter this page from the home page, you are going to execute a POST request, thus creating a new row. If you enter this page from Entries page, you are going to execute a PUT request, thus modifying an existing row. Once you click the create/modify button, you will automatically go back to the home page.
 
+<here>
+
 ### 3.7 Entries Page
 Displays the patient entry information. Each entry made by the user is displayed. The data is fetched from all the rows with the current patient id in the phone_app_data table.
+
+<here>
 
 ## 4. API endpoints (How Application's Frontend and Node.js Backend communicate)
 | API url        | Task        |Frontend to Backend Data Format           | Backend to Frontend Data Format (return)          | Purpose  | Special Notes | Frontend Progress | Backend Progress |
