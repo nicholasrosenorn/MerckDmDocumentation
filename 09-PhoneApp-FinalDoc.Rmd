@@ -26,7 +26,11 @@ This data is accessed through an external Merck API which is linked through an S
 
 We use Amazon S3 to store all of our user and questionnaire images. Unlike MySQL, Amazon S3 provides us with a ready-to-use file system that is more efficient to store large data such as images.
 
-We use MySQL to store all the data other than images. Information related to the data schema used in our MySQL database is in Data Architecture Team's document.
+We use MySQL to store all the data other than images. The data schema of the two used tables for phone application are below:<br/>
+![](./phone_app_doc_images/sql_patient_table.JPG)
+![](./phone_app_doc_images/sql_phone_app_data_table.JPG)
+<br/>
+Information related to the data schema used in our MySQL database is in Data Architecture Team's document. 
 
 Besides, our main backend is Node.js. It is used to help the Frontend communicate with the MySQL database. It also helps the frontend store image to Amazon S3 instance.
 
@@ -38,38 +42,38 @@ This page enables a user to build a new account by providing user personal infor
 
 For now, the image url is not stored into the database yet, although it's stored in the frontend as a state variable. Once the user fills all the inputs and click the button, all the data, along with the image url, will be stored into the database (as a new row in the patient table). At the same time, an user is created at firebase, which is later used for authentication.
 
-![](./create_account_page.JPG)
+![](./phone_app_doc_images/create_account_page.JPG)
 
 ### 3.2 Login Page
 When user fills in the information and clicks the login button, the following executions take place. First, the credentials are checked against the Firebase authorisation data. Then, the credentials are also used to retrieve the unique patient id from the SQL database, which is used as the patient's identifier to grab corresponding data from the SQL database.
 
-![](./login_page.JPG)
+![](./phone_app_doc_images/login_page.JPG)
 
 ### 3.3 Home Page
 The Home Page provides the user to choose from multiple features of the application. This page has a series of options that enable the user to click pictures, upload pictures and also make new entries. While this page does not explicitly communicate with the backend of the application, it is crucial for full functioning of the application. 
 
-![](./home_page.JPG)
+![](./phone_app_doc_images/home_page.JPG)
  
 ### 3.4 Account Profile Page
 This page displays all the user corresponding information which is fetched using the Patient id. This patient is instrumental to grab all the corresponding information from the SQL database.
 
-![](./user_profile_page.JPG)
+![](./phone_app_doc_images/user_profile_page.JPG)
 
 ### 3.5 Edit Profile Page
 Patient id is used to grab all the corresponding information from the SQL database and the information is displayed. The user can also modify the information and edit them in the SQL database. Once they edit it, the new information will be pulled again and displayed on the page. This page also enables the user to click picture and send it across for further analysis. Along with the feature to click pictures, the user can also upload images from local storage here. 
 
-![](./edit_profile_page.JPG)
+![](./phone_app_doc_images/edit_profile_page.JPG)
 
 ### 3.6 Questionnaire Page
 Consisting of series of questions, this page is used to create or edit a new row in the phone_app_data table. If you enter this page from the home page, you are going to execute a POST request, thus creating a new row. If you enter this page from Entries page, you are going to execute a PUT request, thus modifying an existing row. Once you click the create/modify button, you will automatically go back to the home page.
 
-![](./questionnaire_page.JPG)
+![](./phone_app_doc_images/questionnaire_page.JPG)
 
 
 ### 3.7 Entries Page
 Displays the patient entry information. Each entry made by the user is displayed. The data is fetched from all the rows with the current patient id in the phone_app_data table.
 
-![](./entries_page.JPG)
+![](./phone_app_doc_images/entries_page.JPG)
 
 ## 4. API endpoints (How Application's Frontend and Node.js Backend communicate)
 | API url        | Task        |Frontend to Backend Data Format           | Backend to Frontend Data Format (return)          | Purpose  | Special Notes | Frontend Progress | Backend Progress |
@@ -104,15 +108,15 @@ The result of fake data vs. real data graph can be found below:\
 For other data categories, we utilized similar approaches while ajusting parameters and the possible range of random number generation based on each data categories' own characteristics. Below are the fake data vs. real data comparison graphs for other data categories.
 
 For basal data:  
-![](./BasalData.png)<br/>
+![](./phone_app_doc_images/BasalData.png)<br/>
 For Dist data:  
-![](./DistData.JPG)<br/>
+![](./phone_app_doc_images/DistData.JPG)<br/>
 For Elev data:  
-![](./ElevData.JPG)<br/>
+![](./phone_app_doc_images/ElevData.JPG)<br/>
 For Heart data:  
-![](./HeartData.JPG)<br/>
+![](./phone_app_doc_images/HeartData.JPG)<br/>
 For Steps data:  
-![](./StepsData.JPG)<br/>
+![](./phone_app_doc_images/StepsData.JPG)<br/>
 
 ### 6.3 How to run the scripts?
 In order to run the scripts, some modifications to the GenerateFakeData.py are needed. There are three parameters that need modification: folder_name_list, real_name_list, and path. "folder_name_list" tells the name of the folders that will contain the dummy data. "real_name_list" tells the name of the reference files being used to generate dummy data. "path" is the current directory. Once these three parameters are set up correctly, just directly run the GenerateFakeData.py script with no input.
