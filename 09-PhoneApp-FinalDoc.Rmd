@@ -1,47 +1,56 @@
 # Phone App Documentation
 
+Team members: Abhimanyu Agarwal, Xin Du, Anav Sharma
+
 ## 1. How to Setup
-Once you are in the root folder of the project repo, type "npm start" on the command line. The expo browser tool will open in your browser. Then, you can choose to run the app on browser (as a website), Android device, or Apple device. For the spring 2021 semester final version, the code works best on an Android device (you can either use an emulator or a real device), and it works mostly on website. We haven't had a chance to test it on Apple device.
+Once you are in the root folder of the project repo, type "npm start" on the command line. The expo browser tool will open in your browser. Then, you can choose to run the application on browser (as a website), Android device, or Apple device. For the spring 2021 semester final version, the code works best on an Android device (you can either use an emulator or a real device), and it works mostly on website. We haven't had a chance to test it on Apple device.
 
-In order to configure the frontend to work with your firebase authentication,correct credentials need to be put into "config.js" file located in /src/FireBase. To work with your Amazon S3, change the corresponding data in the env.json file.
+In order to configure the Frontend to work with your firebase authentication, correct credentials need to be put into "config.js" file located in /src/FireBase. To work with your Amazon S3, change the corresponding data in the env.json file.
 
-For the node.js backend, the root folder is at /backend/biometricBackend. Once you navigate there, you can type "node server.js" to start the server on port 3000.
+For the Node.js backend, the root folder is at /backend/biometricBackend. Once you navigate there, you can type "node server.js" to start the server on port 3000.
 
 In order to configure the backend to work with your MySQL database, correct credentials need to be put into "db.config.js" file located in /backend/biometricBackend/app/config.
 
 ## 2. Technologies Used
-The phone app frontend is built with React Native and Expo. There are two backends. One is firebase, and the other is Nodejs. Firebase is used for login authentication. User's email and password are stored in firebase. Whenever the user wants to login, their provided credentials are checked against the values stored in the firebase.
+The phone application Frontend is built with React-native and Expo CLI. 
+Backend is supported by Firebase, AWS S3, mySQL and Nodejs. 
 
-Firebase is a Google based software designed for user authentication purposes. The codes upon which this app is built are independently developed by our team members. The data used to develop the app is Biometric data collected currently only through Fitbit, though the goal is to expand the collection capability to be able to obtain Apple Watch data as well. This data is accessed through an external Merck API which is linked through an SCTP request. Because our app’s users are patients and their information is very confidential, It is important to implement our login and authentication system securely. Instead of building a secure login system from scratch by ourselves, we chose to use a pre-existing login authentication solution--firebase. In firebase, users’ passwords are first encrypted and then stored. Even if hackers successfully gain access to firebase’s database, they still would not know the passwords because everything stored there is the encrypted version. 
+Firebase is used for login authentication. User's email and password are stored in Firebase. Whenever the user wants to login, their provided credentials are checked against the values stored in the Firebase. The codes upon which this application is built are independently developed by our team members. The data used to develop the application is Biometric data collected currently only through Fitbit, though the goal is to expand the collection capability to be able to obtain Apple Watch data as well. 
 
-The other backend is Nodejs. It is used to help the frontend communicate with the MySql database. It also helps the frontend store image to Amazon S3.
+This data is accessed through an external Merck API which is linked through an SCTP request. Our application’s users are patients and their information is very confidential, It is important to implement our login and authentication system securely. Instead of building a secure login system from scratch by ourselves, we chose to use a pre-existing login authentication solution--firebase. In firebase, users’ passwords are first encrypted and then stored. Even if hackers successfully gain access to firebase’s database, they still would not know the passwords because everything stored there is the encrypted version. 
 
+AWS ? 
+SQL ?
 
+The other backend is Node.js. It is used to help the Frontend communicate with the MySQL database. It also helps the frontend store image to Amazon S3 instance.
 
-## 3. App Description
-The app is divided into several different pages. Each page's description will be listed below:
+## 3. Application Description
+The application is divided into 7 main pages. The description for each page is listed below:
+
 ### 3.1 Create Account Page
-When user uploads an image, the image is stored to Amazon S3 through Nodejs. The frontend would receive part of the url (a number) that it can use to display the image. For now, the image url is not stored into the database yet, although it's stored in the frontend as a state variable. Once the user fills all the inputs and click the button, all the data, along with the image url, will be stored into the database (as a new row in the patient table). At the same time, an user is created at firebase, which is later used for authentication.
+This page enables a user to build a new account by providing user personal information. Information gathered from this Frontend is stored using backend routes and models in mySQL database. One of the features of this page is that it enables the user to upload an image. This image is stored to Amazon S3 through Node.js. The Frontend would receive part of the url (a number) that it can use to display the image. 
+
+For now, the image url is not stored into the database yet, although it's stored in the frontend as a state variable. Once the user fills all the inputs and click the button, all the data, along with the image url, will be stored into the database (as a new row in the patient table). At the same time, an user is created at firebase, which is later used for authentication.
 
 ### 3.2 Login Page
-When user fills in the info and click the login button, two things happen. First, the credentials are checked against the firebase auth. Then, the credentials are also used to retrieve the unique patient id from the SQL database, which will be used later as the patient's identifier to grab corresponding data from the SQL database.
+When user fills in the information and clicks the login button, the following executions take place. First, the credentials are checked against the Firebase authorisation data. Then, the credentials are also used to retrieve the unique patient id from the SQL database, which is used as the patient's identifier to grab corresponding data from the SQL database.
 
 ### 3.3 Home Page
-No communication with the backend happens on this page
+The Home Page provides the user to choose from multiple features of the application. This page has a series of options that enable the user to click pictures, upload pictures and also make new entries. While this page does not explicitly communicate with the backend of the application, it is crucial for full functioning of the application. 
 
 ### 3.4 Account Profile Page
-Patient id is used to grab all the corresponding information from the SQL database and the info is displayed.
+This page displays all the user corresponding information which is fetched using the Patient id. This patient is instrumental to grab all the corresponding information from the SQL database.
 
 ### 3.5 Edit Profile Page
-Patient id is used to grab all the corresponding information from the SQL database and the info is displayed. The user can also modify the info and edit them in the SQL database. Once they edit it, the new info will be pulled again and displayed on the page.
+Patient id is used to grab all the corresponding information from the SQL database and the information is displayed. The user can also modify the information and edit them in the SQL database. Once they edit it, the new information will be pulled again and displayed on the page. This page also enables the user to click picture and send it across for further analysis. Along with the feature to click pictures, the user can also upload images from local storage here. 
 
 ### 3.6 Questionnaire Page
-This page is used to create or edit a new row in the phone_app_data table. If you enter this page from the home page, you are going to execute a POST request, thus creating a new row. If you enter this page from Entries page, you are going to execute a PUT request, thus modifying an existing row. Once you click the create/modify button, you will automatically go back to the home page.
+Consisting of series of questions, this page is used to create or edit a new row in the phone_app_data table. If you enter this page from the home page, you are going to execute a POST request, thus creating a new row. If you enter this page from Entries page, you are going to execute a PUT request, thus modifying an existing row. Once you click the create/modify button, you will automatically go back to the home page.
 
 ### 3.7 Entries Page
-This page grabs all the rows with the current patient id in the phone_app_data table
+Displays the patient entry information. Each entry made by the user is displayed. The data is fetched from all the rows with the current patient id in the phone_app_data table.
 
-## 4. API endpoints (how App frontend and Nodejs backend communicate)
+## 4. API endpoints (How Application's Frontend and Node.js Backend communicate)
 | API url        | Task        |Frontend to Backend Data Format           | Backend to Frontend Data Format (return)          | Purpose  | Special Notes | Frontend Progress | Backend Progress |
 | ------------- |-------------:| -------------:|:-------------:| -----:| -----: | -----: | -----: |
 | /patient-questionnaire | POST | {patient_id: num, <br />happiness: num, <br /> sleep: num, <br /> hours_worked: num, <br /> unusual_symptoms: string, <br /> meals: num, <br /> medication_timing: num, <br />smoking_alcohol: boolean, <br /> other_medication: string, <br /> water_intake: num, <br /> diagnosis: string, <br /> image: string} | none | (used in Questions page) <br />when patient submits a questionnaire | backend creates "input_date" based on when it receives the API call and adds "input_date" column. This API fills everything in the phone_app_data table | Xin (complete) | Anav (complete) | 
@@ -54,9 +63,9 @@ This page grabs all the rows with the current patient id in the phone_app_data t
 | /patient-questionnaire | GET | (as query) <br />?patientId&dateTime |{patient_id: num, <br /> input_date: string, <br /> happiness: num, <br /> sleep: num, <br /> hours_worked: num, <br /> unusual_symptoms: string, <br /> meals: num, <br /> medication_timing: num, <br />smoking_alcohol: boolean, <br /> other_medication: string, <br /> water_intake: num, <br /> diagnosis: string, <br /> image: string} | (used in Entry Details page) <br /> the server sends back the specified entry | Used in Entry Details page | Xin (complete) | Anav (complete) |
 | /patient-questionnaire | PUT | (as query) <br />?patientId&dateTime {patient_id: num, <br /> input_date: string, <br /> happiness: num, <br /> sleep: num, <br /> hours_worked: num, <br /> unusual_symptoms: string, <br /> meals: num, <br /> medication_timing: num, <br />smoking_alcohol: boolean, <br /> other_medication: string, <br /> water_intake: num, <br /> diagnosis: string, <br /> image: string}| none | (used in Entry Details page) <br /> the server sends back the specified entry | Used in Entry Details page | Xin (complete) | Anav (complete) |
 
-
 ## 5. Future Work
-We are planning to experiment using Xcode to develop an Apple version of the app.
+1) We are planning to experiment using Xcode to develop an Apple version of the application.
+2) We are planning to optimize the Front-end and add new features similar to click pictures, making new entries and uploading pictures.
 
 ## 6. Creation of Dummy Data
 
