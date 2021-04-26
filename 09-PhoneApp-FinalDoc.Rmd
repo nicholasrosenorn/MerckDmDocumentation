@@ -3,7 +3,8 @@
 Team members: Abhimanyu Agarwal, Xin Du, Anav Sharma
 
 ## 1. How to Setup
-Note: You will not be able to run the application until you finish all the setup steps below. These steps make sure that your frontend (React Native), backend (Node.js), and the two databases used (Firebase and Amazon S3) are interconnected correctly. 
+**Note: You will not be able to run the application until you finish all the setup steps below. These steps make sure that your frontend (React Native), backend (Node.js), and the two databases used (Firebase and Amazon S3) are interconnected correctly. </br></br>
+Note: A global search of the word "PUTYOURDATAHERE" will help you find all the places where you need to add your own config info. A more detailed instruction is also presented below.**</br>
 
 Once you are in the root folder of the project repo, type "npm start" on the command line. The expo browser tool will open in your browser. Then, you can choose to run the application on browser (as a website), Android device, or Apple device. For the spring 2021 semester final version, the code works best on an Android device (you can either use an emulator or a real device), and it works mostly on website. We haven't had a chance to test it on Apple device.
 
@@ -24,6 +25,8 @@ Firebase is used for login authentication. User's email and password are stored 
 This data is accessed through an external Merck API which is linked through an SCTP request. Our application’s users are patients and their information is very confidential, It is important to implement our login and authentication system securely. Instead of building a secure login system from scratch by ourselves, we chose to use a pre-existing login authentication solution--firebase. In firebase, users’ passwords are first encrypted and then stored. Even if hackers successfully gain access to firebase’s database, they still would not know the passwords because everything stored there is the encrypted version. 
 
 We use Amazon S3 to store all of our user and questionnaire images. Unlike MySQL, Amazon S3 provides us with a ready-to-use file system that is more efficient to store large data such as images.
+
+We use MySQL to store all the data other than images. Information related to the data schema used in our MySQL database is in Data Architecture Team's document.
 
 Besides, our main backend is Node.js. It is used to help the Frontend communicate with the MySQL database. It also helps the frontend store image to Amazon S3 instance.
 
