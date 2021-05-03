@@ -1,0 +1,83 @@
+#!/usr/bin/env python3
+# -*- coding: utf-8 -*-
+"""
+Created on Wed Sep 16 10:32:39 2020
+
+@author: joshuak
+"""
+
+# https://dev.fitbit.com/build/reference/web-api/oauth2/#implicit-grant-flow
+
+# Selenium Documentation:
+# https://selenium-python.readthedocs.io/locating-elements.html
+
+```{r, include=F}
+# Run this code chunk first to activate the course Python environment.
+# Do not remove this. It will not show up in your compiled PDF.
+datamine_py()
+
+# Install packages if not already installed.
+list.of.packages <- c("knitr")
+new.packages <- list.of.packages[!(list.of.packages %in% installed.packages()[,"Package"])]
+if(length(new.packages)) install.packages(new.packages)
+
+# Remove ## from output.
+library(knitr)
+opts_chunk$set(comment = NA)
+```
+
+```{python}
+#Import the necessary packages
+from time import sleep
+#import fitbit
+#import pandas as pd
+#import datetime
+#import json
+#import csv
+
+# import other codes
+import BiometricPrevious
+import gather_keys_oauth2 as Oauth2
+
+class FitbitBot:
+    def __init__(self, EMAIL, PASSWORD, DATE):
+
+        #Both the Client ID and Client Secret come from when Fitbit site after registering an app
+        CLIENT_ID = '22BH28' #Mine:'22BKP3'
+        CLIENT_SECRET = '78a4838804c1ff0983591e69196b1c46' #Mine:'1a42e97b6b4cc640572ae5cf10a7d0b0'
+        #Authorization Process
+        # opens website
+        server = Oauth2.OAuth2Server(CLIENT_ID, CLIENT_SECRET)
+        # opens website 
+        server.browser_authorize(EMAIL, PASSWORD)
+
+        ACCESS_TOKEN = str(server.fitbit.client.session.token['access_token'])
+        REFRESH_TOKEN = str(server.fitbit.client.session.token['refresh_token'])
+        auth2_client = fitbit.Fitbit(CLIENT_ID, CLIENT_SECRET, Oauth2=True, access_token=ACCESS_TOKEN,
+        refresh_token=REFRESH_TOKEN)
+        BiometricPrev = BiometricPrevious.FitbitModel1(auth2_client)
+        
+        biometricDF = BiometricPrev.getBiometricData(DATE) #append to data frame
+        biometricDF.to_csv('./user' + str(i) + '_' + DATE + '.csv')
+        print("Python Script Executed")
+
+# Initialize Emails and Passwords lists
+Emails = []
+Passwords = []
+
+# Create Emails and Passwords lists from Fitbit_Credentials.csv
+with open("Fitbit_Credentials.csv") as File1:
+    IDs = csv.DictReader(File1)
+    for row in IDs:
+        Emails.append(row['Username'])
+        Passwords.append(row['Password'])
+print('\n')
+print(Passwords)
+
+# Run data extraction
+for i in range(1): #range(len(Emails)):
+    print("Time remaining: " + str((len(Emails) - i) * 93/60) + " minutes.")
+    for j in range(1): # Call the previous 1 days worth of info <-- will be replaced with cronjob
+        today = str((datetime.datetime.now() - datetime.timedelta(j)).strftime("%Y-%m-%d"))
+        FitbitBot(Emails[-1], Passwords[-1], today)
+```

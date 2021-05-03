@@ -1,0 +1,133 @@
+1603920967613	geckodriver	INFO	Listening on 127.0.0.1:54007
+1603920968598	mozrunner::runner	INFO	Running command: "/class/datamine/apps/firefox/firefox" "--marionette" "window-size=1920,1080" "--headless" "start-maximized" "--disable-infobars" "--disable-extensions" "--no-sandbox" "--disable-dev-shm-usage" "-foreground" "-no-remote" "-profile" "/tmp/rust_mozprofileKpdarg"
+*** You are running in headless mode.
+1603920971152	addons.webextension.doh-rollout@mozilla.org	WARN	Loading extension 'doh-rollout@mozilla.org': Reading manifest: Invalid extension permission: networkStatus
+1603920971492	addons.webextension.screenshots@mozilla.org	WARN	Loading extension 'screenshots@mozilla.org': Reading manifest: Invalid extension permission: mozillaAddons
+1603920971492	addons.webextension.screenshots@mozilla.org	WARN	Loading extension 'screenshots@mozilla.org': Reading manifest: Invalid extension permission: telemetry
+1603920971492	addons.webextension.screenshots@mozilla.org	WARN	Loading extension 'screenshots@mozilla.org': Reading manifest: Invalid extension permission: resource://pdf.js/
+1603920971492	addons.webextension.screenshots@mozilla.org	WARN	Loading extension 'screenshots@mozilla.org': Reading manifest: Invalid extension permission: about:reader*
+JavaScript error: resource://gre/modules/XULStore.jsm, line 66: Error: Can't find profile directory.
+1603920973692	Marionette	INFO	Listening on port 42507
+1603920973718	Marionette	WARN	TLS certificate errors will be ignored for this session
+JavaScript warning: https://checkyour-prizebox.life/?u=6y8p605&o=ubyk0zh&t=_906_start-maximizedcom&cid=906, line 16: Error: WebGL warning: <Create>: Can't use WebGL in headless mode (https://bugzil.la/1375585).
+JavaScript warning: https://checkyour-prizebox.life/?u=6y8p605&o=ubyk0zh&t=_906_start-maximizedcom&cid=906, line 16: Error: Failed to create WebGL context: WebGL creation failed: 
+* Can't use WebGL in headless mode (https://bugzil.la/1375585).
+JavaScript warning: https://checkyour-prizebox.life/?u=6y8p605&o=ubyk0zh&t=_906_start-maximizedcom&cid=906, line 16: Error: WebGL warning: <Create>: Can't use WebGL in headless mode (https://bugzil.la/1375585).
+JavaScript warning: https://checkyour-prizebox.life/?u=6y8p605&o=ubyk0zh&t=_906_start-maximizedcom&cid=906, line 16: Error: Failed to create WebGL context: WebGL creation failed: 
+* Can't use WebGL in headless mode (https://bugzil.la/1375585).
+JavaScript warning: https://checkyour-prizebox.life/?u=6y8p605&o=ubyk0zh&t=_906_start-maximizedcom&cid=906, line 16: Error: WebGL warning: <Create>: Can't use WebGL in headless mode (https://bugzil.la/1375585).
+JavaScript warning: https://checkyour-prizebox.life/?u=6y8p605&o=ubyk0zh&t=_906_start-maximizedcom&cid=906, line 16: Error: Failed to create WebGL context: WebGL creation failed: 
+* Can't use WebGL in headless mode (https://bugzil.la/1375585).
+JavaScript warning: https://checkyour-prizebox.life/?u=6y8p605&o=ubyk0zh&t=_906_start-maximizedcom&cid=906, line 16: Error: WebGL warning: <Create>: Can't use WebGL in headless mode (https://bugzil.la/1375585).
+JavaScript warning: https://checkyour-prizebox.life/?u=6y8p605&o=ubyk0zh&t=_906_start-maximizedcom&cid=906, line 16: Error: Failed to create WebGL context: WebGL creation failed: 
+* Can't use WebGL in headless mode (https://bugzil.la/1375585).
+Exiting due to channel error.
+Exiting due to channel error.
+Exiting due to channel error.
+Exiting due to channel error.
+1604794881773	geckodriver	INFO	Listening on 127.0.0.1:59319
+1604794882474	mozrunner::runner	INFO	Running command: "/class/datamine/apps/firefox/firefox" "--marionette" "window-size=1920,1080" "--headless" "start-maximized" "--disable-infobars" "--disable-extensions" "--no-sandbox" "--disable-dev-shm-usage" "-foreground" "-no-remote" "-profile" "/tmp/rust_mozprofileUUNuG7"
+*** You are running in headless mode.
+1604794884949	addons.webextension.doh-rollout@mozilla.org	WARN	Loading extension 'doh-rollout@mozilla.org': Reading manifest: Invalid extension permission: networkStatus
+1604794885371	addons.webextension.screenshots@mozilla.org	WARN	Loading extension 'screenshots@mozilla.org': Reading manifest: Invalid extension permission: mozillaAddons
+1604794885371	addons.webextension.screenshots@mozilla.org	WARN	Loading extension 'screenshots@mozilla.org': Reading manifest: Invalid extension permission: telemetry
+1604794885372	addons.webextension.screenshots@mozilla.org	WARN	Loading extension 'screenshots@mozilla.org': Reading manifest: Invalid extension permission: resource://pdf.js/
+1604794885372	addons.webextension.screenshots@mozilla.org	WARN	Loading extension 'screenshots@mozilla.org': Reading manifest: Invalid extension permission: about:reader*
+JavaScript error: resource://gre/modules/XULStore.jsm, line 66: Error: Can't find profile directory.
+1604794887351	Marionette	INFO	Listening on port 33869
+1604794887420	Marionette	WARN	TLS certificate errors will be ignored for this session
+JavaScript warning: https://amazon.force.com/resource/1498471690000/hvhportal/js/jquery-2.0.3.min.js, line 2: Using //@ to indicate sourceMappingURL pragmas is deprecated. Use //# instead
+Exiting due to channel error.
+Exiting due to channel error.
+Exiting due to channel error.
+Exiting due to channel error.
+1604795007015	geckodriver	INFO	Listening on 127.0.0.1:63050
+1604795007027	mozrunner::runner	INFO	Running command: "/class/datamine/apps/firefox/firefox" "--marionette" "window-size=1920,1080" "start-maximized" "--disable-infobars" "--disable-extensions" "--no-sandbox" "--disable-dev-shm-usage" "-foreground" "-no-remote" "-profile" "/tmp/rust_mozprofile16cM2O"
+1604795007434	addons.webextension.doh-rollout@mozilla.org	WARN	Loading extension 'doh-rollout@mozilla.org': Reading manifest: Invalid extension permission: networkStatus
+1604795007775	addons.webextension.screenshots@mozilla.org	WARN	Loading extension 'screenshots@mozilla.org': Reading manifest: Invalid extension permission: mozillaAddons
+1604795007776	addons.webextension.screenshots@mozilla.org	WARN	Loading extension 'screenshots@mozilla.org': Reading manifest: Invalid extension permission: telemetry
+1604795007776	addons.webextension.screenshots@mozilla.org	WARN	Loading extension 'screenshots@mozilla.org': Reading manifest: Invalid extension permission: resource://pdf.js/
+1604795007776	addons.webextension.screenshots@mozilla.org	WARN	Loading extension 'screenshots@mozilla.org': Reading manifest: Invalid extension permission: about:reader*
+JavaScript error: resource://gre/modules/XULStore.jsm, line 66: Error: Can't find profile directory.
+1604795009644	Marionette	INFO	Listening on port 41102
+1604795009737	Marionette	WARN	TLS certificate errors will be ignored for this session
+1604795033088	Marionette	INFO	Stopped listening on port 41102
+1604795095898	geckodriver	INFO	Listening on 127.0.0.1:48879
+1604795095907	mozrunner::runner	INFO	Running command: "/class/datamine/apps/firefox/firefox" "--marionette" "window-size=1920,1080" "start-maximized" "--disable-infobars" "--disable-extensions" "--no-sandbox" "--disable-dev-shm-usage" "-foreground" "-no-remote" "-profile" "/tmp/rust_mozprofile7Uvh6K"
+1604795096329	addons.webextension.doh-rollout@mozilla.org	WARN	Loading extension 'doh-rollout@mozilla.org': Reading manifest: Invalid extension permission: networkStatus
+1604795096676	addons.webextension.screenshots@mozilla.org	WARN	Loading extension 'screenshots@mozilla.org': Reading manifest: Invalid extension permission: mozillaAddons
+1604795096676	addons.webextension.screenshots@mozilla.org	WARN	Loading extension 'screenshots@mozilla.org': Reading manifest: Invalid extension permission: telemetry
+1604795096676	addons.webextension.screenshots@mozilla.org	WARN	Loading extension 'screenshots@mozilla.org': Reading manifest: Invalid extension permission: resource://pdf.js/
+1604795096676	addons.webextension.screenshots@mozilla.org	WARN	Loading extension 'screenshots@mozilla.org': Reading manifest: Invalid extension permission: about:reader*
+JavaScript error: resource://gre/modules/XULStore.jsm, line 66: Error: Can't find profile directory.
+1604795098499	Marionette	INFO	Listening on port 46937
+1604795098533	Marionette	WARN	TLS certificate errors will be ignored for this session
+1604795151197	Marionette	INFO	Stopped listening on port 46937
+1604795526241	geckodriver	INFO	Listening on 127.0.0.1:46364
+1604795526252	mozrunner::runner	INFO	Running command: "/class/datamine/apps/firefox/firefox" "--marionette" "window-size=1920,1080" "start-maximized" "--disable-infobars" "--disable-extensions" "--no-sandbox" "--disable-dev-shm-usage" "-foreground" "-no-remote" "-profile" "/tmp/rust_mozprofile7I8P3n"
+1604795526683	addons.webextension.doh-rollout@mozilla.org	WARN	Loading extension 'doh-rollout@mozilla.org': Reading manifest: Invalid extension permission: networkStatus
+1604795527081	addons.webextension.screenshots@mozilla.org	WARN	Loading extension 'screenshots@mozilla.org': Reading manifest: Invalid extension permission: mozillaAddons
+1604795527081	addons.webextension.screenshots@mozilla.org	WARN	Loading extension 'screenshots@mozilla.org': Reading manifest: Invalid extension permission: telemetry
+1604795527082	addons.webextension.screenshots@mozilla.org	WARN	Loading extension 'screenshots@mozilla.org': Reading manifest: Invalid extension permission: resource://pdf.js/
+1604795527082	addons.webextension.screenshots@mozilla.org	WARN	Loading extension 'screenshots@mozilla.org': Reading manifest: Invalid extension permission: about:reader*
+JavaScript error: resource://gre/modules/XULStore.jsm, line 66: Error: Can't find profile directory.
+1604795529029	Marionette	INFO	Listening on port 38385
+1604795529095	Marionette	WARN	TLS certificate errors will be ignored for this session
+1604795552567	Marionette	INFO	Stopped listening on port 38385
+1604795594225	geckodriver	INFO	Listening on 127.0.0.1:42423
+1604795594234	mozrunner::runner	INFO	Running command: "/class/datamine/apps/firefox/firefox" "--marionette" "window-size=1920,1080" "start-maximized" "--disable-infobars" "--disable-extensions" "--no-sandbox" "--disable-dev-shm-usage" "-foreground" "-no-remote" "-profile" "/tmp/rust_mozprofile0xBhkU"
+1604795594613	addons.webextension.doh-rollout@mozilla.org	WARN	Loading extension 'doh-rollout@mozilla.org': Reading manifest: Invalid extension permission: networkStatus
+1604795595019	addons.webextension.screenshots@mozilla.org	WARN	Loading extension 'screenshots@mozilla.org': Reading manifest: Invalid extension permission: mozillaAddons
+1604795595020	addons.webextension.screenshots@mozilla.org	WARN	Loading extension 'screenshots@mozilla.org': Reading manifest: Invalid extension permission: telemetry
+1604795595020	addons.webextension.screenshots@mozilla.org	WARN	Loading extension 'screenshots@mozilla.org': Reading manifest: Invalid extension permission: resource://pdf.js/
+1604795595020	addons.webextension.screenshots@mozilla.org	WARN	Loading extension 'screenshots@mozilla.org': Reading manifest: Invalid extension permission: about:reader*
+JavaScript error: resource://gre/modules/XULStore.jsm, line 66: Error: Can't find profile directory.
+1604795596890	Marionette	INFO	Listening on port 44250
+1604795596948	Marionette	WARN	TLS certificate errors will be ignored for this session
+1604795628561	Marionette	INFO	Stopped listening on port 44250
+1604795644298	geckodriver	INFO	Listening on 127.0.0.1:47402
+1604795644308	mozrunner::runner	INFO	Running command: "/class/datamine/apps/firefox/firefox" "--marionette" "window-size=1920,1080" "start-maximized" "--disable-infobars" "--disable-extensions" "--no-sandbox" "--disable-dev-shm-usage" "-foreground" "-no-remote" "-profile" "/tmp/rust_mozprofileJa1mES"
+1604795644593	addons.webextension.doh-rollout@mozilla.org	WARN	Loading extension 'doh-rollout@mozilla.org': Reading manifest: Invalid extension permission: networkStatus
+1604795644889	addons.webextension.screenshots@mozilla.org	WARN	Loading extension 'screenshots@mozilla.org': Reading manifest: Invalid extension permission: mozillaAddons
+1604795644889	addons.webextension.screenshots@mozilla.org	WARN	Loading extension 'screenshots@mozilla.org': Reading manifest: Invalid extension permission: telemetry
+1604795644889	addons.webextension.screenshots@mozilla.org	WARN	Loading extension 'screenshots@mozilla.org': Reading manifest: Invalid extension permission: resource://pdf.js/
+1604795644889	addons.webextension.screenshots@mozilla.org	WARN	Loading extension 'screenshots@mozilla.org': Reading manifest: Invalid extension permission: about:reader*
+JavaScript error: resource://gre/modules/XULStore.jsm, line 66: Error: Can't find profile directory.
+1604795646752	Marionette	INFO	Listening on port 34416
+1604795648617	Marionette	WARN	TLS certificate errors will be ignored for this session
+1604795694208	Marionette	INFO	Stopped listening on port 34416
+1604795796854	geckodriver	INFO	Listening on 127.0.0.1:43350
+1604795796861	mozrunner::runner	INFO	Running command: "/class/datamine/apps/firefox/firefox" "--marionette" "window-size=1920,1080" "start-maximized" "--disable-infobars" "--disable-extensions" "--no-sandbox" "--disable-dev-shm-usage" "-foreground" "-no-remote" "-profile" "/tmp/rust_mozprofileZBdxxR"
+1604795797231	addons.webextension.doh-rollout@mozilla.org	WARN	Loading extension 'doh-rollout@mozilla.org': Reading manifest: Invalid extension permission: networkStatus
+1604795797611	addons.webextension.screenshots@mozilla.org	WARN	Loading extension 'screenshots@mozilla.org': Reading manifest: Invalid extension permission: mozillaAddons
+1604795797611	addons.webextension.screenshots@mozilla.org	WARN	Loading extension 'screenshots@mozilla.org': Reading manifest: Invalid extension permission: telemetry
+1604795797611	addons.webextension.screenshots@mozilla.org	WARN	Loading extension 'screenshots@mozilla.org': Reading manifest: Invalid extension permission: resource://pdf.js/
+1604795797611	addons.webextension.screenshots@mozilla.org	WARN	Loading extension 'screenshots@mozilla.org': Reading manifest: Invalid extension permission: about:reader*
+JavaScript error: resource://gre/modules/XULStore.jsm, line 66: Error: Can't find profile directory.
+1604795799202	Marionette	INFO	Listening on port 39520
+1604795799299	Marionette	WARN	TLS certificate errors will be ignored for this session
+
+###!!! [Child][RunMessage] Error: Channel closing: too late to send/recv, messages will be lost
+
+1604795835544	Marionette	INFO	Stopped listening on port 39520
+1604795878843	geckodriver	INFO	Listening on 127.0.0.1:39125
+1604795878852	mozrunner::runner	INFO	Running command: "/class/datamine/apps/firefox/firefox" "--marionette" "window-size=1920,1080" "start-maximized" "--disable-infobars" "--disable-extensions" "--no-sandbox" "--disable-dev-shm-usage" "-foreground" "-no-remote" "-profile" "/tmp/rust_mozprofileRbk2H3"
+1604795879358	addons.webextension.doh-rollout@mozilla.org	WARN	Loading extension 'doh-rollout@mozilla.org': Reading manifest: Invalid extension permission: networkStatus
+1604795879806	addons.webextension.screenshots@mozilla.org	WARN	Loading extension 'screenshots@mozilla.org': Reading manifest: Invalid extension permission: mozillaAddons
+1604795879806	addons.webextension.screenshots@mozilla.org	WARN	Loading extension 'screenshots@mozilla.org': Reading manifest: Invalid extension permission: telemetry
+1604795879806	addons.webextension.screenshots@mozilla.org	WARN	Loading extension 'screenshots@mozilla.org': Reading manifest: Invalid extension permission: resource://pdf.js/
+1604795879807	addons.webextension.screenshots@mozilla.org	WARN	Loading extension 'screenshots@mozilla.org': Reading manifest: Invalid extension permission: about:reader*
+JavaScript error: resource://gre/modules/XULStore.jsm, line 66: Error: Can't find profile directory.
+1604795881661	Marionette	INFO	Listening on port 34381
+1604795881692	Marionette	WARN	TLS certificate errors will be ignored for this session
+1604795909407	geckodriver	INFO	Listening on 127.0.0.1:47752
+1604795910417	mozrunner::runner	INFO	Running command: "/class/datamine/apps/firefox/firefox" "--marionette" "window-size=1920,1080" "start-maximized" "--disable-infobars" "--disable-extensions" "--no-sandbox" "--disable-dev-shm-usage" "-foreground" "-no-remote" "-profile" "/tmp/rust_mozprofileAotIfD"
+1604795910797	addons.webextension.doh-rollout@mozilla.org	WARN	Loading extension 'doh-rollout@mozilla.org': Reading manifest: Invalid extension permission: networkStatus
+1604795911153	addons.webextension.screenshots@mozilla.org	WARN	Loading extension 'screenshots@mozilla.org': Reading manifest: Invalid extension permission: mozillaAddons
+1604795911154	addons.webextension.screenshots@mozilla.org	WARN	Loading extension 'screenshots@mozilla.org': Reading manifest: Invalid extension permission: telemetry
+1604795911154	addons.webextension.screenshots@mozilla.org	WARN	Loading extension 'screenshots@mozilla.org': Reading manifest: Invalid extension permission: resource://pdf.js/
+1604795911154	addons.webextension.screenshots@mozilla.org	WARN	Loading extension 'screenshots@mozilla.org': Reading manifest: Invalid extension permission: about:reader*
+JavaScript error: resource://gre/modules/XULStore.jsm, line 66: Error: Can't find profile directory.
+1604795912732	Marionette	INFO	Listening on port 44495
+1604795912830	Marionette	WARN	TLS certificate errors will be ignored for this session
+1604795929964	Marionette	INFO	Stopped listening on port 44495
